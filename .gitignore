@@ -1,0 +1,47 @@
+# Numerous always-ignore extensions
+*.orig
+*.bak
+
+# Linux
+!.gitignore
+*~
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Vim
+.*.sw[a-z]
+*.un~
+Session.vim
+
+# Mercurial
+/.hg/*
+*/.hg/*
+!.hgignore
+
+# SVN
+.svn/
+
+# CVS
+/CVS/*
+*/CVS/*
+.cvsignore
+*/.cvsignore
+
+# SubGit / SubHg
+.subgit
+.subhg
+
+# Peru
+# https://github.com/buildinspace/peru
+.peru
+
+# Perl 6
+.precomp

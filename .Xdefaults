@@ -1,0 +1,77 @@
+# xft {{{
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+
+# end xft }}}
+
+# xterm {{{
+
+XTerm*locale: true
+XTerm*borderWidth: 0
+XTerm*jumpScroll: false
+XTerm*saveLines: 65535
+XTerm*titeInhibit: true
+
+# seoul256 by @junegunn
+XTerm*color0: #4e4e4e
+XTerm*color1: #d68787
+XTerm*color2: #5f865f
+XTerm*color3: #d8af5f
+XTerm*color4: #85add4
+XTerm*color5: #d7afaf
+XTerm*color6: #87afaf
+XTerm*color7: #d0d0d0
+XTerm*color8: #626262
+XTerm*color9: #d75f87
+XTerm*color10: #87af87
+XTerm*color11: #ffd787
+XTerm*color12: #add4fb
+XTerm*color13: #ffafaf
+XTerm*color14: #87d7d7
+XTerm*color15: #e4e4e4
+XTerm*foreground: #d0d0d0
+XTerm*background: #121212
+XTerm*cursorColor: #d0d0d0
+XTerm*cursorColor2: #3a3a3a
+XTerm*colorBD: #e4e4e4
+XTerm*colorUL: #00afd7
+
+# font
+XTerm*faceName: Monaco for Powerline
+XTerm*faceSize: 16
+
+# clipboard
+XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
+# alt bindings
+XTerm*metaSendsEscape: true
+
+# console vim fixes
+XTerm*fullscreen: never
+XTerm.omitTranslation: fullscreen
+
+# end xterm }}}
+
+# osx {{{
+
+*VT100.translations: #override\
+<Key>Prior: scroll-back(1,pages) \n\
+<Key>Next: scroll-forw(1,pages)\n\
+Meta <Key> K: send-signal(int) clear-saved-lines() \n\
+Meta <Key> P: print() \n\
+Meta <Key> minus: smaller-vt-font() \n\
+Meta <Key> KP_Subtract: smaller-vt-font() \n\
+Meta <Key> plus: larger-vt-font() \n\
+Meta <Key> KP_Add: larger-vt-font() \n\
+Meta <Key> C: select-cursor-start() \
+select-cursor-end(PRIMARY, CUT_BUFFER0) \n\
+Meta <Key> V: insert-selection(PRIMARY, CUT_BUFFER0) \n\
+Meta <Key> M: iconify() \n\
+
+# end osx }}}
+
+# vim: set filetype=xdefaults foldmethod=marker foldlevel=0 nowrap:

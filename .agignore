@@ -1,0 +1,14 @@
+.DS_Store
+.git
+.subgit
+.hg
+.subhg
+.svn
+.peru
+.precomp
+node_modules
+.gitattributes
+.gitignore
+.gitmodules
+.hgignore
+.travis.yml

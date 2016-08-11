@@ -1,0 +1,133 @@
+[base]
+checkout = git clone 'https://github.com/bus1/base'
+
+[boot-efi]
+checkout = git clone 'https://github.com/bus1/boot-efi'
+
+[bus1]
+checkout = git clone 'https://github.com/bus1/bus1'
+
+[cempire]
+checkout = git clone 'https://github.com/jimwise/cempire'
+
+[cloudabi]
+checkout = git clone 'https://github.com/NuxiNL/cloudabi'
+
+[cloudabi-utils]
+checkout = git clone 'https://github.com/NuxiNL/cloudabi-utils'
+
+[cloudlibc]
+checkout = git clone 'https://github.com/NuxiNL/cloudlibc'
+
+[corvus]
+checkout = git clone 'https://github.com/eleme/corvus'
+
+[czmq]
+checkout = git clone 'https://github.com/zeromq/czmq'
+
+[dillsocks]
+checkout = git clone 'https://github.com/sustrik/dillsocks'
+
+[DragonFlyBSD]
+checkout = git clone 'https://github.com/DragonFlyBSD/DragonFlyBSD'
+
+[ed]
+checkout = git clone 'git://c9x.me/ed.git'
+
+[fnt]
+checkout = git clone 'https://github.com/mpu/fnt'
+
+[irc]
+checkout = git clone 'git://c9x.me/irc.git'
+
+[kestrel]
+checkout = git clone 'https://github.com/KestrelComputer/kestrel'
+
+[libarchive]
+checkout = git clone 'https://github.com/libarchive/libarchive'
+
+[libbus1]
+checkout = git clone 'https://github.com/bus1/libbus1'
+
+[libcperciva]
+checkout = git clone 'https://github.com/Tarsnap/libcperciva'
+
+[libdill]
+checkout = git clone 'https://github.com/sustrik/libdill'
+
+[libgit2]
+checkout = git clone 'https://github.com/libgit2/libgit2'
+
+[libmill]
+checkout = git clone 'https://github.com/sustrik/libmill'
+
+[libui]
+checkout = git clone 'https://github.com/andlabs/libui'
+
+[masscan]
+checkout = git clone 'https://github.com/robertdavidgraham/masscan'
+
+[micropython]
+checkout = git clone 'https://github.com/micropython/micropython'
+
+[miniyacc]
+checkout = git clone 'git://c9x.me/miniyacc.git'
+
+[mlannot]
+checkout = git clone 'https://github.com/mpu/mlannot'
+
+[mpv]
+checkout = git clone 'https://github.com/mpv-player/mpv'
+
+[neovim]
+checkout = git clone 'https://github.com/neovim/neovim'
+
+[qbe]
+checkout = git clone 'git://c9x.me/qbe.git'
+
+[redis]
+checkout = git clone 'https://github.com/antirez/redis'
+
+[scrypt]
+checkout = git clone 'https://github.com/Tarsnap/scrypt'
+
+[sframes]
+checkout = git clone 'https://github.com/sustrik/sframes'
+
+[smartcard]
+checkout = git clone 'https://github.com/bus1/smartcard'
+
+[spiped]
+checkout = git clone 'https://github.com/Tarsnap/spiped'
+
+[stb]
+checkout = git clone 'https://github.com/nothings/stb'
+
+[tarsnap]
+checkout = git clone 'https://github.com/Tarsnap/tarsnap'
+
+[the_silver_searcher]
+checkout = git clone 'https://github.com/ggreer/the_silver_searcher'
+
+[tmux]
+checkout = git clone 'https://github.com/tmux/tmux'
+
+[vim]
+checkout = git clone 'https://github.com/vim/vim'
+
+[WebStuff]
+checkout = git clone 'https://github.com/lowenware/WebStuff'
+
+[wsock]
+checkout = git clone 'https://github.com/sustrik/wsock'
+
+[xbar]
+checkout = git clone 'https://github.com/mpu/xbar'
+
+[yocto-gl]
+checkout = git clone 'https://github.com/xelatihy/yocto-gl'
+
+[zsh]
+checkout = git clone 'https://github.com/zsh-users/zsh'
+
+# vim: ft=cfg

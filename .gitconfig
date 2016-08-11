@@ -1,0 +1,44 @@
+[user]
+  name = "yourname"
+  email = youremail
+
+[github]
+  user = yourgithubacct
+
+[core]
+  editor = vim
+  excludesfile = "~/.gitignore"
+
+[alias]
+  st = status
+  br = branch
+  ci = commit
+  co = checkout
+  p = format-patch HEAD^..HEAD --stdout
+  fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+
+[mergetool]
+  keepBackup = true
+
+[difftool]
+  prompt = false
+
+[diff]
+  tool = vimdiff
+  algorithm = minimal
+  compactionHeuristic = true
+
+[diff "exif"]
+  textconv = exiftool
+
+[rerere]
+  enabled = 1
+
+[format]
+  pretty = oneline
+
+[color]
+  ui = true
+
+[push]
+  default = simple

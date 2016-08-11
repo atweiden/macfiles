@@ -1,0 +1,60 @@
+/* vim: set ft=journal fdm=marker fdl=0 nowrap: */
+
+Todo
+====
+
+check
+
+- `cacerts = /etc/ssl/certs/ca-certificates.crt`
+
+software to install
+-------------------
+
+karabiner
+
+- https://github.com/tekezo/Karabiner
+
+tmux patched from atweiden/pkgbuilds/tmux-git
+
+monaco for powerline
+
+vim-plug
+
+vim plugins
+
+fzf-extras
+
+f.lux
+
+- https://justgetflux.com/
+
+icdiff
+
+colordiff
+
+aria2
+
+coderay for @junegunn fzf opts
+
+tree
+
+universal-ctags
+
+```sh
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
+```
+
+moreutils
+
+```sh
+brew install moreutils
+```
+
+myrepos
+
+qrencode
+
+exiftool
+
+rakudobrew
