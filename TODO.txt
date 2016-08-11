@@ -10,6 +10,31 @@ check
 software to install
 -------------------
 
+cli tools
+
+```sh
+brew install vim
+brew install gnu-sed
+brew install gnu-tar
+brew install gnupg2
+brew install icdiff
+brew install colordiff
+brew install tree
+brew install aria2
+brew install moreutils
+brew install exiftool
+brew install qrencode
+brew install tor
+brew install torsocks
+brew install sshuttle
+brew install elixir
+brew install readline
+
+# universal-ctags
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
+```
+
 karabiner
 
 - https://github.com/tekezo/Karabiner
@@ -28,33 +53,8 @@ f.lux
 
 - https://justgetflux.com/
 
-icdiff
-
-colordiff
-
-aria2
-
 coderay for @junegunn fzf opts
 
-tree
-
-universal-ctags
-
-```sh
-brew tap universal-ctags/universal-ctags
-brew install --HEAD universal-ctags
-```
-
-moreutils
-
-```sh
-brew install moreutils
-```
-
 myrepos
-
-qrencode
-
-exiftool
 
 rakudobrew

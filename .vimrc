@@ -1,11 +1,11 @@
 set nocompatible
 
 let $VIMPATH=expand('~/.vim')
-let $CFGPATH=fnameescape($VIMPATH . '/config')
-let $FUNPATH=fnameescape($VIMPATH . '/functions')
+let $CFGPATH=$VIMPATH.'/config'
+let $FUNPATH=$VIMPATH.'/functions'
 
 function! s:source_cfg(path)
-  execute 'source' fnameescape($CFGPATH . '/' . a:path)
+  execute 'source' fnameescape($CFGPATH.'/'.a:path)
 endfunction
 
 call s:source_cfg('base.vim')

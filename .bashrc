@@ -169,7 +169,9 @@ PS1="\[\e[01;31m\]┌─[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME
 
 # use GNU tools on OSX instead of BSD
 alias dircolors='gdircolors'
+alias sed='gsed'
 alias sort='gsort'
+alias tar='gtar'
 alias ls='LC_COLLATE=C gls --color=auto --group-directories-first'
 
 # --- end gnu }}}
@@ -184,15 +186,11 @@ fi
 # --- end diff }}}
 # --- directory navigation {{{
 
-alias ls='ls -F'
 alias l='ls -1F'
 alias l1='ls -1AF'
 alias la='ls -aF'
 alias ll='ls -laihF'
-alias lld='getdirs'
-alias llda='getadirs'
-alias lldao='getadirso'
-[[ -x /usr/bin/tree ]] && alias tree='tree -C --charset utf-8 --dirsfirst'
+[[ -x /usr/local/bin/tree ]] && alias tree='tree -C --charset utf-8 --dirsfirst'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'

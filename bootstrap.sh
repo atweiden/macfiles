@@ -33,12 +33,11 @@ mkdir -p "$HOME/.marks"    \
 _rsync_opts=()
 
 # exclude files
-_rsync_opts+=('--exclude=etc'
-              '--exclude=.git'
+_rsync_opts+=('--exclude=.git'
               '--exclude=.hg'
               '--exclude=.subgit'
-              '--exclude=README.md'
-              '--exclude=TODO.md'
+              '--exclude=README.txt'
+              '--exclude=TODO.txt'
               '--exclude=UNLICENSE'
               '--exclude=bootstrap.sh')
 
@@ -64,8 +63,8 @@ rsync --verbose "${_rsync_opts[@]}" "$DIR/" "$HOME"
 # -----------------------------------------------------------------------------
 # github
 
-sed -i "s#yourname#$name#"         "$HOME/.gitconfig"
-sed -i "s#youremail#$email#"       "$HOME/.gitconfig"
-sed -i "s#yourgithubacct#$github#" "$HOME/.gitconfig"
-sed -i "s#yourname#$name#"         "$HOME/.hgrc"
-sed -i "s#youremail#$email#"       "$HOME/.hgrc"
+gsed -i "s#yourname#$name#"         "$HOME/.gitconfig"
+gsed -i "s#youremail#$email#"       "$HOME/.gitconfig"
+gsed -i "s#yourgithubacct#$github#" "$HOME/.gitconfig"
+gsed -i "s#yourname#$name#"         "$HOME/.hgrc"
+gsed -i "s#youremail#$email#"       "$HOME/.hgrc"

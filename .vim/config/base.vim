@@ -6,13 +6,13 @@ nnoremap ; :
 vnoremap ; :
 
 " store backups in the same directory
-set backupdir=fnameescape($VIMPATH . '/.backups')
+set backupdir=$VIMPATH/.backups
 
 " store swap files in the same directory
-set directory=fnameescape($VIMPATH . '/.swaps')
+set directory=$VIMPATH/.swaps
 
 " store undo files in the same directory
-set undodir=fnameescape($VIMPATH . '/.undo')
+set undodir=$VIMPATH/.undo
 
 " make directories if necessary
 if !isdirectory(expand(&backupdir))
