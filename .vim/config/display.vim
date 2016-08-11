@@ -15,9 +15,12 @@ endif
 
 " end window title }}}
 
-" gvim {{{
+" macvim {{{
 
 if has('gui_running')
+  " light colorscheme
+  set background=light
+  colorscheme seoul256-light
   " no menu bar
   set guioptions-=m
   " no toolbar
@@ -33,8 +36,8 @@ if has('gui_running')
   " use console dialogs instead of popups
   set guioptions+=c
   " use lightline-compatible monaco
-  set guifont=Monaco\ for\ Powerline\ 24
-  " allow gvim window to occupy whole screen
+  set guifont=Monaco\ for\ Powerline:h24
+  " allow macvim window to occupy whole screen
   set guiheadroom=0
   " set normal mode cursor to unblinking Cursor highlighted block
   set guicursor+=n:blinkon0-block-Cursor
@@ -61,7 +64,7 @@ if has('gui_running')
   cnoremap <S-Insert> <MiddleMouse>
 endif
 
-" end gvim }}}
+" end macvim }}}
 
 " highlighting {{{
 
