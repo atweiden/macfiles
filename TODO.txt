@@ -4,13 +4,12 @@ Todo
 ====
 
 check
+-----
 
 - `cacerts = /etc/ssl/certs/ca-certificates.crt`
 
 software to install
 -------------------
-
-cli tools
 
 ```sh
 brew install vim
@@ -35,26 +34,33 @@ brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 ```
 
-karabiner
+seil [1]
 
-- https://github.com/tekezo/Karabiner
+tmux patched from atweiden/pkgbuilds/tmux-git [2]
 
-tmux patched from atweiden/pkgbuilds/tmux-git
+monaco for powerline [3]
 
-monaco for powerline
+vim-plug [4]
 
-vim-plug
+vim plugins [5]
 
-vim plugins
+fzf-extras [6]
 
-fzf-extras
+f.lux [7]
 
-f.lux
+myrepos [8]
 
-- https://justgetflux.com/
+rakudobrew [9]
 
-coderay for @junegunn fzf opts
 
-myrepos
+******************************************************************************
 
-rakudobrew
+[1] https://pqrs.org/osx/karabiner/seil.html
+[2] https://github.com/atweiden/pkgbuilds/tree/master/tmux-git
+[3] https://gist.github.com/rogual/6824790627960fc93077
+[4] https://github.com/junegunn/vim-plug
+[5] https://github.com/atweiden/pkgbuilds-plugged
+[6] https://github.com/atweiden/fzf-extras
+[7] https://justgetflux.com/
+[8] https://github.com/joeyh/myrepos
+[9] https://github.com/tadzik/rakudobrew
