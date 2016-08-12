@@ -343,7 +343,7 @@ _fzf_compgen_path() {
 # use multi-select and seoul256 colors
 export FZF_DEFAULT_OPTS='
   --multi
-  --color fg:242,bg:233,hl:65,fg+:15,bg+:234,hl+:108
+  --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
   --color info:108,prompt:109,spinner:108,pointer:168,marker:168
 '
 
