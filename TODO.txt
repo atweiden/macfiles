@@ -31,6 +31,9 @@ brew install sshuttle
 brew install elixir
 brew install readline
 
+# neovim
+brew install neovim/neovim/neovim
+
 # universal-ctags
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
