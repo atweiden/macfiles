@@ -2,13 +2,14 @@
 let g:indent_guides_enable_on_vim_startup = 1
 
 " use custom colors
-let g:indent_guides_auto_colors = 0
-
-augroup indent-guides
-  autocmd!
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#1c1c1c ctermbg=234
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#303030 ctermbg=236
-augroup END
+if !has('gui_running')
+  let g:indent_guides_auto_colors = 0
+  augroup indent-guides
+    autocmd!
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#444444 ctermbg=238
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#4e4e43 ctermbg=239
+  augroup END
+endif
 
 " enable default mapping <leader>ig for toggling indent-guides
 let g:indent_guides_default_mapping = 1
