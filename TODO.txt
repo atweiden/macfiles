@@ -30,6 +30,7 @@ brew install torsocks
 brew install sshuttle
 brew install elixir
 brew install readline
+brew install rlwrap
 
 # neovim
 brew install neovim/neovim/neovim

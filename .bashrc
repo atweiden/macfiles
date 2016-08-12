@@ -177,9 +177,9 @@ alias ls='LC_COLLATE=C gls --color=auto --group-directories-first'
 # --- end gnu }}}
 # --- diff {{{
 
-if [[ -x /usr/bin/icdiff ]]; then
+if [[ -x /usr/local/bin/icdiff ]]; then
   alias diff='icdiff'
-elif [[ -x /usr/bin/colordiff ]]; then
+elif [[ -x /usr/local/bin/colordiff ]]; then
   alias diff='colordiff'
 fi
 
@@ -226,7 +226,7 @@ alias egrep='egrep --ignore-case --color=auto'
 alias h\?='history | grep -v -E "grep|h\?" | grep "$@" -i --color=auto'
 alias l\?='ls -1F | grep "$@" -i --color=auto'
 alias p\?='ps auxf | grep -v grep | grep "$@" -i --color=auto'
-[[ -x /usr/bin/ag ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores --path-to-agignore=$HOME/.agignore'
+[[ -x /usr/local/bin/ag ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores --path-to-agignore=$HOME/.agignore'
 [[ -x /usr/bin/locate ]] && alias locate='locate --ignore-case'
 
 # --- end grepping }}}
@@ -234,31 +234,31 @@ alias p\?='ps auxf | grep -v grep | grep "$@" -i --color=auto'
 
 # --- --- beam {{{
 
-[[ -x /usr/bin/iex && -x /usr/bin/rlwrap ]] && alias iex='rlwrap -Aa iex'
-[[ -x /usr/bin/erl && -x /usr/bin/rlwrap ]] && alias erl='rlwrap -Aa erl'
+[[ -x /usr/local/bin/iex && -x /usr/local/bin/rlwrap ]] && alias iex='rlwrap -Aa iex'
+[[ -x /usr/local/bin/erl && -x /usr/local/bin/rlwrap ]] && alias erl='rlwrap -Aa erl'
 
 # --- --- end beam }}}
 # --- --- perl6 {{{
 
 [[ -x /usr/bin/perl6 ]] && alias p6='perl6'
 [[ -x /usr/bin/perl6 ]] && alias prove6='prove -r -e perl6'
-[[ -x /usr/bin/perl6 && -x /usr/bin/rlwrap ]] && alias rp='rlwrap perl6'
+[[ -x /usr/bin/perl6 && -x /usr/local/bin/rlwrap ]] && alias rp='rlwrap perl6'
 
 # --- --- end perl6 }}}
 # --- --- python {{{
 
-[[ -x /usr/bin/ptipython2 ]] && alias ptipython2='ptipython2 --vi'
-[[ -x /usr/bin/ptipython ]] && alias ptipython='ptipython --vi'
-[[ -x /usr/bin/ptpython2 ]] && alias ptpython2='ptpython2 --vi'
-[[ -x /usr/bin/ptpython ]] && alias ptpython='ptpython --vi'
+[[ -x /usr/local/bin/ptipython2 ]] && alias ptipython2='ptipython2 --vi'
+[[ -x /usr/local/bin/ptipython ]] && alias ptipython='ptipython --vi'
+[[ -x /usr/local/bin/ptpython2 ]] && alias ptpython2='ptpython2 --vi'
+[[ -x /usr/local/bin/ptpython ]] && alias ptpython='ptpython --vi'
 
 # --- --- end python }}}
 
 # --- end languages }}}
 # --- subrepo {{{
 
-[[ -x /usr/bin/subgit ]] && alias sg='subgit'
-[[ -x /usr/bin/subhg ]] && alias shg='subhg'
+[[ -x "$HOME/.bin/subgit" ]] && alias sg='subgit'
+[[ -x "$HOME/.bin/subhg" ]] && alias shg='subhg'
 
 # --- end subrepo }}}
 # --- safety {{{
@@ -270,7 +270,7 @@ alias rm='rm -i'
 # --- end safety }}}
 # --- ssh {{{
 
-[[ -x /usr/bin/mosh ]] && alias mosh='mosh -a'
+[[ -x /usr/local/bin/mosh ]] && alias mosh='mosh -a'
 
 # --- end ssh }}}
 # --- tmux {{{
@@ -282,16 +282,16 @@ alias rm='rm -i'
 # --- vim {{{
 
 alias :e='"$EDITOR"'
-[[ -x /usr/bin/vim ]] && alias view='vim -R'
-[[ -x /usr/bin/vim ]] && alias vime='vim -u $HOME/.vimencrypt -x'
-[[ -x /usr/bin/vim ]] && alias viml='vim -u $HOME/.vimrc.lite'
-[[ -x /usr/bin/vim ]] && alias vimmin='vim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
-[[ -x /usr/bin/gvim ]] && alias gview='gvim -R'
-[[ -x /usr/bin/gvim ]] && alias gvime='gvim -u $HOME/.vimencrypt -x'
-[[ -x /usr/bin/gvim ]] && alias gviml='gvim -u $HOME/.vimrc.lite'
-[[ -x /usr/bin/gvim ]] && alias gvimmin='gvim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
-[[ -x /usr/bin/nvim ]] && alias nv='nvim'
-[[ -x /usr/bin/nvim ]] && alias nview='nvim -R'
+[[ -x /usr/local/bin/vim ]] && alias view='vim -R'
+[[ -x /usr/local/bin/vim ]] && alias vime='vim -u $HOME/.vimencrypt -x'
+[[ -x /usr/local/bin/vim ]] && alias viml='vim -u $HOME/.vimrc.lite'
+[[ -x /usr/local/bin/vim ]] && alias vimmin='vim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
+[[ -x /usr/local/bin/mvim ]] && alias mview='mvim -R'
+[[ -x /usr/local/bin/mvim ]] && alias mvime='mvim -u $HOME/.vimencrypt -x'
+[[ -x /usr/local/bin/mvim ]] && alias mviml='mvim -u $HOME/.vimrc.lite'
+[[ -x /usr/local/bin/mvim ]] && alias mvimmin='mvim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
+[[ -x /usr/local/bin/nvim ]] && alias nv='nvim'
+[[ -x /usr/local/bin/nvim ]] && alias nview='nvim -R'
 
 # --- end vim }}}
 
@@ -306,11 +306,11 @@ for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do . "${_fn}"; don
 # fzf {{{
 
 # use ag/pt/ack as the default source for fzf
-if [[ -x /usr/bin/ag ]]; then
+if [[ -x /usr/local/bin/ag ]]; then
   export FZF_DEFAULT_COMMAND='ag --hidden --smart-case --nocolor --skip-vcs-ignores --path-to-agignore=$HOME/.agignore -g ""'
-elif [[ -x /usr/bin/pt ]]; then
+elif [[ -x /usr/local/bin/pt ]]; then
   export FZF_DEFAULT_COMMAND='pt --hidden --nocolor -e -g=""'
-elif [[ -x /usr/bin/ack ]]; then
+elif [[ -x /usr/local/bin/ack ]]; then
   export FZF_DEFAULT_COMMAND='ack --nocolor --nopager -g ""'
 fi
 
@@ -319,7 +319,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # use ag/pt/ack for ** completion
 _fzf_compgen_path() {
-  if [[ -x /usr/bin/ag ]]; then
+  if [[ -x /usr/local/bin/ag ]]; then
     ag \
       --hidden \
       --smart-case \
@@ -328,9 +328,9 @@ _fzf_compgen_path() {
       --path-to-agignore="$HOME/.agignore" \
       -g "" \
       "$1"
-  elif [[ -x /usr/bin/pt ]]; then
+  elif [[ -x /usr/local/bin/pt ]]; then
     pt --hidden --nocolor -e -g="" "$1"
-  elif [[ -x /usr/bin/ack ]]; then
+  elif [[ -x /usr/local/bin/ack ]]; then
     ack --nocolor --nopager -g "" "$1"
   fi
 }
