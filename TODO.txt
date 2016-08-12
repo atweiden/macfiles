@@ -7,6 +7,8 @@ check
 -----
 
 - `cacerts = /etc/ssl/certs/ca-certificates.crt`
+  - resolved: https://www.mercurial-scm.org/wiki/CACertificates#Mac_OS_X_10.6_and_higher
+
 
 software to install
 -------------------
@@ -36,7 +38,7 @@ brew install --HEAD universal-ctags
 
 seil [1]
 
-tmux patched from atweiden/pkgbuilds/tmux-git [2]
+tmux patched [2]
 
 monaco for powerline [3]
 
@@ -52,11 +54,12 @@ myrepos [8]
 
 rakudobrew [9]
 
+iTerm2 seoul256 colorscheme [10]
 
 ******************************************************************************
 
 [1] https://pqrs.org/osx/karabiner/seil.html
-[2] https://github.com/atweiden/pkgbuilds/tree/master/tmux-git
+[2] https://github.com/atweiden/homebrew-formulae/tree/master/tmux
 [3] https://gist.github.com/rogual/6824790627960fc93077
 [4] https://github.com/junegunn/vim-plug
 [5] https://github.com/atweiden/pkgbuilds-plugged
@@ -64,3 +67,4 @@ rakudobrew [9]
 [7] https://justgetflux.com/
 [8] https://github.com/joeyh/myrepos
 [9] https://github.com/tadzik/rakudobrew
+[10] https://github.com/junegunn/seoul256.vim/tree/master/iterm2
