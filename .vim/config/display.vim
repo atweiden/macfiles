@@ -68,7 +68,7 @@ endif
 
 " highlighting {{{
 
-" searches (seoul256)
+" searches
 highlight clear Search
 highlight Search term=bold cterm=bold ctermfg=0 ctermbg=116 gui=bold guifg=black guibg=#97DDDF
 highlight clear IncSearch
@@ -78,7 +78,7 @@ highlight IncSearch term=bold cterm=bold ctermfg=0 ctermbg=217 gui=bold guifg=bl
 highlight clear MatchParen
 highlight MatchParen term=bold,NONE cterm=bold,NONE ctermfg=179 gui=bold,NONE guifg=#D7AF5F
 
-" cursor (seoul256)
+" cursor
 highlight clear Cursor
 highlight Cursor guifg=black guibg=gray
 highlight clear iCursor
@@ -90,7 +90,7 @@ highlight rCursor guifg=black guibg=#DF005F
 highlight clear oCursor
 highlight oCursor guifg=black guibg=gray
 
-" cursor line and column (seoul256)
+" cursor line and column
 highlight clear CursorLine
 highlight CursorLine term=NONE cterm=NONE ctermbg=236 gui=NONE guibg=#30302C
 highlight clear CursorColumn

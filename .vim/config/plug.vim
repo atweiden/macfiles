@@ -20,6 +20,7 @@ Plug 'dockyard/vim-easydir'
 
 " keyboard
 Plug 'kana/vim-arpeggio'
+Plug 'drmikehenry/vim-fixkey'
 
 " search and replace
 Plug 'dyng/ctrlsf.vim'
