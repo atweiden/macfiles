@@ -15,6 +15,7 @@ software to install
 
 ```sh
 brew install vim
+brew install macvim
 brew install gnu-sed
 brew install gnu-tar
 brew install gnupg2
