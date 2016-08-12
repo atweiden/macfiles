@@ -68,4 +68,4 @@ iTerm2 seoul256 colorscheme [10]
 [7] https://justgetflux.com/
 [8] https://github.com/joeyh/myrepos
 [9] https://github.com/tadzik/rakudobrew
-[10] https://github.com/junegunn/seoul256.vim/tree/master/iterm2
+[10] https://github.com/atweiden/iterm2-seoul256-dusk
