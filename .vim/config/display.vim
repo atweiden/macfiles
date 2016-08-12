@@ -82,7 +82,7 @@ highlight MatchParen term=bold,NONE cterm=bold,NONE ctermfg=179 gui=bold,NONE gu
 highlight clear Cursor
 highlight Cursor guifg=black guibg=gray
 highlight clear iCursor
-highlight iCursor guifg=white guibg=#FFFFAF
+highlight iCursor guifg=#87AF87 guibg=#87AF87
 highlight clear vCursor
 highlight vCursor guifg=white guibg=#5FAFAF
 highlight clear rCursor
@@ -92,9 +92,9 @@ highlight oCursor guifg=black guibg=gray
 
 " cursor line and column (seoul256)
 highlight clear CursorLine
-highlight CursorLine term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#1C1C1C
+highlight CursorLine term=NONE cterm=NONE ctermbg=236 gui=NONE guibg=#30302C
 highlight clear CursorColumn
-highlight CursorColumn term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#1C1C1C
+highlight CursorColumn term=NONE cterm=NONE ctermbg=236 gui=NONE guibg=#30302C
 highlight clear ColorColumn
 highlight ColorColumn term=NONE cterm=NONE ctermbg=95 gui=NONE guibg=#875F5F
 
@@ -110,9 +110,9 @@ highlight ModeMsg ctermfg=gray ctermbg=NONE guifg=gray guibg=NONE
 
 " question and more messages
 highlight clear Question
-highlight Question term=standout ctermfg=179 gui=bold guifg=#D7AF5F
+highlight Question term=standout ctermfg=179 gui=bold guifg=#4E4E43
 highlight clear MoreMsg
-highlight MoreMsg term=bold cterm=bold ctermfg=179 gui=bold guifg=#D7AF5F
+highlight MoreMsg term=bold cterm=bold ctermfg=179 gui=bold guifg=#4E4E43
 
 " directories
 highlight clear Directory
