@@ -36,8 +36,7 @@ _rsync_opts=()
 _rsync_opts+=('--exclude=.git'
               '--exclude=.hg'
               '--exclude=.subgit'
-              '--exclude=README.txt'
-              '--exclude=TODO.txt'
+              '--exclude=*.txt'
               '--exclude=UNLICENSE'
               '--exclude=bootstrap.sh')
 
