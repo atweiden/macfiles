@@ -126,6 +126,6 @@ set lazyredraw
 
 " indicates fast terminal connection
 set ttyfast
-set ttymouse=xterm2
+if !has('nvim') | set ttymouse=xterm2 | endif
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

@@ -3,22 +3,19 @@
 Todo
 ====
 
-check
------
-
-- `cacerts = /etc/ssl/certs/ca-certificates.crt`
-  - resolved: https://www.mercurial-scm.org/wiki/CACertificates#Mac_OS_X_10.6_and_higher
-
-
-software to install
--------------------
+Install Software
+----------------
 
 ```sh
-brew install vim
-brew install macvim
+brew install readline
+brew install rlwrap
 brew install gnu-sed
 brew install gnu-tar
 brew install gnupg2
+brew install python
+brew install python3
+brew install vim
+brew install macvim
 brew install icdiff
 brew install colordiff
 brew install tree
@@ -30,11 +27,12 @@ brew install tor
 brew install torsocks
 brew install sshuttle
 brew install elixir
-brew install readline
-brew install rlwrap
 
 # neovim
 brew install neovim/neovim/neovim
+mkdir -p ~/.config
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 # universal-ctags
 brew tap universal-ctags/universal-ctags
@@ -60,6 +58,39 @@ myrepos [8]
 rakudobrew [9]
 
 iTerm2 seoul256 colorscheme [10]
+
+
+System Settings
+---------------
+
+- remap capslock key to backspace with Seil
+- System Settings -> Spotlight
+  - Search Results
+    - uncheck "Big Web Searches"
+    - uncheck "Allow Spotlight Suggestions in Spotlight and Look up"
+- System Settings -> Keyboard
+  - Keyboard
+    - Repeat: fastest
+    - Delay: second shortest
+  - Shortcuts
+    - Launchpad & Dock
+      - uncheck all
+    - Mission Control
+      - uncheck all except "Show Desktop"
+      - change "Show Desktop" to Super+D
+    - Keyboard
+      - uncheck all except "Move focus to next window"
+    - Accessibility
+      - uncheck all
+    - App Shortcuts
+      - uncheck all
+
+
+Make ca-cert for mercurial
+--------------------------
+
+- `cacerts = /etc/ssl/certs/ca-certificates.crt`
+  - resolved: https://www.mercurial-scm.org/wiki/CACertificates#Mac_OS_X_10.6_and_higher
 
 
 ******************************************************************************

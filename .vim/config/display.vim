@@ -131,6 +131,14 @@ highlight SpellLocal term=underline cterm=underline
 " conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+" neovim terminal URxvt-like underline cursor
+if has('nvim')
+  highlight clear TermCursor
+  highlight TermCursor ctermfg=red cterm=underline gui=underline
+  highlight clear TermCursorNC
+  highlight TermCursorNC ctermfg=red cterm=underline gui=underline
+endif
+
 " end highlighting }}}
 
 " show listchars {{{

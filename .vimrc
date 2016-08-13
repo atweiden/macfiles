@@ -17,4 +17,8 @@ call s:source_cfg('shortcuts.vim')
 call s:source_cfg('filetypes.vim')
 call s:source_cfg('plugins.vim')
 
+if has('nvim')
+  call s:source_cfg('neovim-terminal.vim')
+endif
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
