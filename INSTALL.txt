@@ -78,6 +78,7 @@ _casks=('adium'
         'iterm2'
         'keepassx'
         'little-snitch'
+        'micro-snitch'
         'omnifocus'
         'omnigraffle'
         'ricochet'
@@ -94,6 +95,7 @@ xcode-select --install
 
 # homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew analytics off
 
 # brews
 brew install "${_packages[@]}"
