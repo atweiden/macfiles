@@ -348,7 +348,7 @@ export FZF_CTRL_T_OPTS="--preview '(cat {} || tree -C {}) 2> /dev/null | head -$
 
 # create fzf key bindings
 [[ -e ~/.fzf.bash ]] && source ~/.fzf.bash
-[[ -e ~/.fzf-extras/fzf-extras.sh ]] && . ~/.fzf-extras/fzf-extras.sh
+[[ -e ~/.fzf-extras/fzf-extras.sh ]] && source ~/.fzf-extras/fzf-extras.sh
 
 # end fzf }}}
 # ==============================================================================
