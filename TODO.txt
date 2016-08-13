@@ -1,32 +1,121 @@
 /* vim: set ft=journal fdm=marker fdl=0 nowrap: */
 
-Todo
-====
+Installation
+============
 
 Install Software
 ----------------
 
 ```sh
-brew install readline
-brew install rlwrap
-brew install gnu-sed
-brew install gnu-tar
-brew install gnupg2
-brew install python
-brew install python3
-brew install vim
-brew install macvim
-brew install icdiff
-brew install colordiff
-brew install tree
-brew install aria2
-brew install moreutils
-brew install exiftool
-brew install qrencode
-brew install tor
-brew install torsocks
-brew install sshuttle
-brew install elixir
+_packages=('ack'
+           'aria2'
+           'base64'
+           'bash'
+           'bash-completion'
+           'colordiff'
+           'coreutils'
+           'curl'
+           'darkhttpd'
+           'dnscrypt-proxy'
+           'elixir'
+           'elixir-build'
+           'exenv'
+           'exiftool'
+           'findutils'
+           'gawk'
+           'gcc'
+           'gdb'
+           'git'
+           'gnupg'
+           'gnupg2'
+           'gnu-sed'
+           'gnu-tar'
+           'go'
+           'gotags'
+           'gpg-agent'
+           'help2man'
+           'icdiff'
+           'jhead'
+           'jq'
+           'macvim'
+           'mercurial'
+           'moreutils'
+           'p7zip'
+           'pass'
+           'perl'
+           'pod2man'
+           'proxychains-ng'
+           'pwgen'
+           'python'
+           'python3'
+           'qrencode'
+           'rclone'
+           'readline'
+           'remarshal'
+           'rlwrap'
+           'rsync'
+           'sdcv'
+           'shellcheck'
+           'socat'
+           'sqlite'
+           'sshuttle'
+           'ssss'
+           'sylpheed'
+           'the_platinum_searcher'
+           'the_silver_searcher'
+           'tor'
+           'torsocks'
+           'tree'
+           'valgrind'
+           'vim'
+           'wget'
+           'youtube-dl')
+
+_casks=('adium'
+        'alfred'
+        'caffeine'
+        'calibre'
+        'dash'
+        'firefox'
+        'flux'
+        'google-chrome'
+        'google-earth'
+        'iterm2'
+        'keepassx'
+        'little-snitch'
+        'omnifocus'
+        'omnigraffle'
+        'osxfuse'
+        'ricochet'
+        'seil'
+        'sketch'
+        'sublime-text'
+        'textmate'
+        'torbrowser'
+        'totalfinder'
+        'totalspaces'
+        'utox'
+        'veracrypt'
+        'viscosity'
+        'vlc'
+        'xquartz')
+
+# xcode
+xcode-select --install
+
+# homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# brews
+brew install "${_packages[@]}"
+
+# bash
+# - add /usr/local/bin/bash to list of approved shells
+# - chsh to switch to it
+
+# dnscrypt-proxy
+# - specify --resolver-name=ns0.dnscrypt.is
+# - specify --ephemeral-keys
 
 # neovim
 brew install neovim/neovim/neovim
@@ -37,6 +126,10 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 # universal-ctags
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
+
+# casks
+brew tap caskroom/cask
+brew cask install "${_casks[@]}"
 ```
 
 seil [1]
@@ -60,10 +153,35 @@ rakudobrew [9]
 iTerm2 seoul256 colorscheme [10]
 
 
-System Settings
----------------
+Bootstrap
+---------
 
-- remap capslock key to backspace with Seil
+*Be sure to customize name, email, github before running bootstrap.*
+
+```sh
+./bootstrap.sh
+```
+
+
+Plug
+----
+
+```sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall +qa
+```
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Configuration
+-------------
+
+Remap capslock key to backspace with Seil
+
+System Settings
+
 - System Settings -> Spotlight
   - Search Results
     - uncheck "Bing Web Searches"
@@ -85,9 +203,7 @@ System Settings
     - App Shortcuts
       - uncheck all
 
-
 Make ca-cert for mercurial
---------------------------
 
 - `cacerts = /etc/ssl/certs/ca-certificates.crt`
   - resolved: https://www.mercurial-scm.org/wiki/CACertificates#Mac_OS_X_10.6_and_higher
