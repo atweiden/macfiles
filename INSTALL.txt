@@ -21,6 +21,7 @@ _packages=('ack'
            'elixir-build'
            'exenv'
            'exiftool'
+           'ffmpeg'
            'findutils'
            'gawk'
            'gcc'
@@ -33,7 +34,6 @@ _packages=('ack'
            'go'
            'gotags'
            'gpg-agent'
-           'help2man'
            'icdiff'
            'jhead'
            'jq'
@@ -41,11 +41,9 @@ _packages=('ack'
            'mercurial'
            'moreutils'
            'p7zip'
-           'pass'
            'perl'
            'pod2man'
            'proxychains-ng'
-           'pwgen'
            'python'
            'python3'
            'qrencode'
@@ -60,7 +58,6 @@ _packages=('ack'
            'sqlite'
            'sshuttle'
            'ssss'
-           'sylpheed'
            'the_platinum_searcher'
            'the_silver_searcher'
            'tor'
@@ -72,33 +69,25 @@ _packages=('ack'
            'youtube-dl')
 
 _casks=('adium'
-        'alfred'
         'caffeine'
         'calibre'
         'dash'
         'firefox'
         'flux'
         'google-chrome'
-        'google-earth'
         'iterm2'
         'keepassx'
         'little-snitch'
         'omnifocus'
         'omnigraffle'
-        'osxfuse'
         'ricochet'
-        'seil'
         'sketch'
-        'sublime-text'
         'textmate'
         'torbrowser'
-        'totalfinder'
-        'totalspaces'
         'utox'
         'veracrypt'
         'viscosity'
-        'vlc'
-        'xquartz')
+        'vlc')
 
 # xcode
 xcode-select --install
@@ -207,6 +196,10 @@ Make ca-cert for mercurial
 
 - `cacerts = /etc/ssl/certs/ca-certificates.crt`
   - resolved: https://www.mercurial-scm.org/wiki/CACertificates#Mac_OS_X_10.6_and_higher
+
+Little Snitch
+
+`/usr/local/Caskroom/little-snitch/3.6.4/Little\ Snitch\ Installer.app/Contents/MacOS/Little\ Snitch\ Installer`
 
 
 ******************************************************************************

@@ -206,9 +206,8 @@ alias :q='exit'
 # --- disk space {{{
 
 alias df='df -h'
-alias du='du -h --max-depth=1'
-alias dusort='du -x --block-size=1048576 | sort -nr'
-alias free='free -m'
+alias du='du -h -d 1'
+alias dusort='du -x -m | sort -nr'
 
 # --- end disk space }}}
 # --- file compression {{{
