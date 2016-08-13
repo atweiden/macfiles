@@ -1,9 +1,9 @@
 /* vim: set ft=journal fdm=marker fdl=0 nowrap: */
 
-OSXfiles
+Macfiles
 ========
 
-vim, tmux and fzf config for osx
+vim, tmux and fzf config for mac
 
 - based on my dotfiles [1]
   - more focused, and lighter weight
