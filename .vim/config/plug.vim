@@ -1,4 +1,4 @@
-silent! if plug#begin('~/.vim/plugged')
+silent! if plug#begin($VIMPATH.'/plugged')
 
 " status
 Plug 'itchyny/lightline.vim'
@@ -20,7 +20,7 @@ Plug 'dockyard/vim-easydir'
 
 " keyboard
 Plug 'kana/vim-arpeggio'
-Plug 'drmikehenry/vim-fixkey'
+if has('vim') | Plug 'drmikehenry/vim-fixkey' | endif
 
 " search and replace
 Plug 'dyng/ctrlsf.vim'
