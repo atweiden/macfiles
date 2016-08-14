@@ -241,9 +241,9 @@ alias p\?='ps -a -x -f | grep -v grep | grep "$@" -i --color=auto'
 # --- --- end beam }}}
 # --- --- perl6 {{{
 
-[[ -x /usr/bin/perl6 ]] && alias p6='perl6'
-[[ -x /usr/bin/perl6 ]] && alias prove6='prove -r -e perl6'
-[[ -x /usr/bin/perl6 && -x /usr/local/bin/rlwrap ]] && alias rp='rlwrap perl6'
+[[ $(command -v perl6) ]] && alias p6='perl6'
+[[ $(command -v perl6) ]] && alias prove6='prove -r -e perl6'
+[[ $(command -v perl6) && -x /usr/local/bin/rlwrap ]] && alias rp='rlwrap perl6'
 
 # --- --- end perl6 }}}
 # --- --- python {{{
