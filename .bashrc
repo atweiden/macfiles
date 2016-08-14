@@ -5,7 +5,7 @@
 [[ $- != *i* ]] && return
 
 # system defaults
-[[ -f /etc/bashrc ]] && . /etc/bashrc
+[[ -f /etc/bashrc ]] && source /etc/bashrc
 
 # end base }}}
 # ==============================================================================
@@ -298,7 +298,7 @@ alias :e='"$EDITOR"'
 # ==============================================================================
 # functions {{{
 
-for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do . "${_fn}"; done
+for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do source "${_fn}"; done
 
 # end functions }}}
 # ==============================================================================
