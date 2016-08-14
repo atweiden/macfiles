@@ -224,9 +224,10 @@ alias fgrep='fgrep --ignore-case --color=auto'
 alias egrep='egrep --ignore-case --color=auto'
 alias h\?='history | grep -v -E "grep|h\?" | grep "$@" -i --color=auto'
 alias l\?='ls -1F | grep "$@" -i --color=auto'
-alias p\?='ps auxf | grep -v grep | grep "$@" -i --color=auto'
+alias p\?='ps -a -x -f | grep -v grep | grep "$@" -i --color=auto'
 [[ -x /usr/local/bin/ag ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores --path-to-agignore=$HOME/.agignore'
-[[ -x /usr/bin/locate ]] && alias locate='locate --ignore-case'
+[[ -x /usr/local/bin/glocate ]] && alias locate='glocate --ignore-case'
+[[ -x /usr/local/bin/gupdatedb ]] && alias updatedb='gupdatedb'
 
 # --- end grepping }}}
 # --- languages {{{
