@@ -129,20 +129,20 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 PATH=$HOME/.bin:$PATH
 
 # --- end dotfiles }}}
-# --- perl {{{
-
-PATH=/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/bin/site_perl:$PATH
-
-# --- end perl }}}
 # --- perl6 {{{
 
-if [[ -x /usr/bin/perl6 ]]; then
-  # PATH=$(perl6 -e "say ~CompUnit::RepositoryRegistry.repository-for-name('site')")/bin:$PATH
-  # PATH=$(perl6 -e "say ~CompUnit::RepositoryRegistry.repository-for-name('vendor')")/bin:$PATH
-  PATH=/usr/share/perl6/site/bin:/usr/share/perl6/vendor/bin:$PATH
-  # panda
-  # PATH=$(perl6 -e "say ~CompUnit::RepositoryRegistry.repository-for-name('home')")/bin:$PATH
-fi
+# from output of `~/.rakudobrew/bin/rakudobrew init -`
+PATH=$HOME/.rakudobrew/bin:$PATH
+rakudobrew() {
+  local command="$1"
+  [[ "$#" -gt 0 ]] && shift
+  case "$command" in
+    shell)
+      eval "$(rakudobrew "sh" "$@")";;
+    *)
+      command rakudobrew "$command" "$@";;
+  esac
+}
 
 # --- end perl6 }}}
 
