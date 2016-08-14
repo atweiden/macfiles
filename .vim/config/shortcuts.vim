@@ -28,36 +28,7 @@ nnoremap <silent> <leader>sc :set showcmd!<CR>
 nnoremap <silent> <leader><leader>v :let &virtualedit=&virtualedit=="block" ? "all" : "block" <Bar> set virtualedit?<CR>
 
 " --- end toggle virtualedit=all }}}
-" --- don't move back the cursor one position upon esc {{{
-
-augroup cursorpos
-  autocmd!
-  autocmd InsertEnter * let CursorColumnI = col('.')
-  autocmd CursorMovedI * let CursorColumnI = col('.')
-  autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
-augroup END
-
-" --- end don't move back the cursor one position upon esc }}}
-" --- return to last edit position {{{
-
-augroup cursormem
-  autocmd!
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-augroup END
-
-" --- end return to last edit position }}}
 " --- search and replace {{{
-
-" turn off any existing search
-if has('autocmd')
-  augroup searchhighlight
-    autocmd!
-    autocmd VimEnter * nohls
-  augroup END
-endif
 
 " remove search highlights
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
@@ -118,13 +89,6 @@ nnoremap Q @q
 
 " --- end redoing }}}
 " --- words {{{
-
-" dictionary
-"set dictionary=/usr/share/dict/words
-
-" spelling
-set nospell
-let g:spellfile_URL = '/usr/share/vim/vimfiles/spell'
 
 " digraphs
 if has('digraphs')

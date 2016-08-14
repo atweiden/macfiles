@@ -68,6 +68,14 @@ endif
 
 " highlighting {{{
 
+" turn off any existing search
+if has('autocmd')
+  augroup searchhighlight
+    autocmd!
+    autocmd VimEnter * nohls
+  augroup END
+endif
+
 " searches
 highlight clear Search
 highlight Search term=bold cterm=bold ctermfg=0 ctermbg=116 gui=bold guifg=black guibg=#97DDDF

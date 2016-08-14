@@ -189,4 +189,26 @@ elseif executable('ack')
   set grepprg=ack\ --nogroup\ --nocolor\ --nopager
 endif
 
+" don't move back the cursor one position upon esc
+augroup cursorpos
+  autocmd!
+  autocmd InsertEnter * let CursorColumnI = col('.')
+  autocmd CursorMovedI * let CursorColumnI = col('.')
+  autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+augroup END
+
+" return to last edit position
+augroup cursormem
+  autocmd!
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+augroup END
+
+" dictionary and spelling
+"set dictionary=/usr/share/dict/words
+set nospell
+let g:spellfile_URL = '/usr/share/vim/vimfiles/spell'
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
