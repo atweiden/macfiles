@@ -119,9 +119,11 @@ stty start undef
 # ==============================================================================
 # path {{{
 
+unset PATH
+
 # --- defaults {{{
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 # --- end defaults }}}
 # --- dotfiles {{{
@@ -144,15 +146,49 @@ rakudobrew() {
   esac
 }
 
+# for panda-installed perl6 executables
+[[ $(command -v perl6) ]] \
+  && PATH=$(perl6 -e "say ~CompUnit::RepositoryRegistry.repository-for-name('site')")/bin:$PATH
+
 # --- end perl6 }}}
 
+export PATH
+
 # end path }}}
+# ==============================================================================
+# presence {{{
+
+_has_ack=$(command -v ack)
+_has_ag=$(command -v ag)
+_has_colordiff=$(command -v colordiff)
+_has_erl=$(command -v erl)
+_has_gdircolors=$(command -v gdircolors)
+_has_glocate=$(command -v glocate)
+_has_gls=$(command -v gls)
+_has_gsed=$(command -v gsed)
+_has_gsort=$(command -v gsort)
+_has_gtar=$(command -v gtar)
+_has_gupdatedb=$(command -v gupdatedb)
+_has_icdiff=$(command -v icdiff)
+_has_iex=$(command -v iex)
+_has_mosh=$(command -v mosh)
+_has_mvim=$(command -v mvim)
+_has_nvim=$(command -v nvim)
+_has_perl6=$(command -v perl6)
+_has_pt=$(command -v pt)
+_has_rlwrap=$(command -v rlwrap)
+_has_subgit=$(command -v subgit)
+_has_subhg=$(command -v subhg)
+_has_tree=$(command -v tree)
+_has_vim=$(command -v vim)
+
+# end presence }}}
 # ==============================================================================
 # prompt {{{
 
 # --- history {{{
 
-export PROMPT_COMMAND="history -a;history -c;history -r"
+export PROMPT_COMMAND="history -a; history -c; history -r"
 
 # --- end history }}}
 # --- ps1 {{{
@@ -168,18 +204,20 @@ PS1="\[\e[01;31m\]┌─[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME
 # --- gnu {{{
 
 # use GNU tools on OSX instead of BSD
-alias dircolors='gdircolors'
-alias sed='gsed'
-alias sort='gsort'
-alias tar='gtar'
-alias ls='LC_COLLATE=C gls --color=auto --group-directories-first'
+[[ -n "$_has_gdircolors" ]] && alias dircolors='gdircolors'
+[[ -n "$_has_glocate" ]] && alias locate='glocate --ignore-case'
+[[ -n "$_has_gls" ]] && alias ls='LC_COLLATE=C gls --color=auto --group-directories-first'
+[[ -n "$_has_gsed" ]] && alias sed='gsed'
+[[ -n "$_has_gsort" ]] && alias sort='gsort'
+[[ -n "$_has_gtar" ]] && alias tar='gtar'
+[[ -n "$_has_gupdatedb" ]] && alias updatedb='gupdatedb'
 
 # --- end gnu }}}
 # --- diff {{{
 
-if [[ -x /usr/local/bin/icdiff ]]; then
+if [[ -n "$_has_icdiff" ]]; then
   alias diff='icdiff'
-elif [[ -x /usr/local/bin/colordiff ]]; then
+elif [[ -n "$_has_colordiff" ]]; then
   alias diff='colordiff'
 fi
 
@@ -190,7 +228,7 @@ alias l='ls -1F'
 alias l1='ls -1AF'
 alias la='ls -aF'
 alias ll='ls -laihF'
-[[ -x /usr/local/bin/tree ]] && alias tree='tree -C --charset utf-8 --dirsfirst'
+[[ -n "$_has_tree" ]] && alias tree='tree -C --charset utf-8 --dirsfirst'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
@@ -213,7 +251,7 @@ alias dusort='du -x -m | sort -nr'
 # --- end disk space }}}
 # --- file compression {{{
 
-[[ -x /usr/bin/zip ]] && alias zip='zip -9'
+alias zip='zip -9'
 alias gzip='gzip -9'
 alias bzip2='bzip2 -9'
 
@@ -226,40 +264,30 @@ alias egrep='egrep --ignore-case --color=auto'
 alias h\?='history | grep -v -E "grep|h\?" | grep "$@" -i --color=auto'
 alias l\?='ls -1F | grep "$@" -i --color=auto'
 alias p\?='ps -a -x -f | grep -v grep | grep "$@" -i --color=auto'
-[[ -x /usr/local/bin/ag ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores --path-to-agignore=$HOME/.agignore'
-[[ -x /usr/local/bin/glocate ]] && alias locate='glocate --ignore-case'
-[[ -x /usr/local/bin/gupdatedb ]] && alias updatedb='gupdatedb'
+[[ -n "$_has_ag" ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores --path-to-agignore=$HOME/.agignore'
 
 # --- end grepping }}}
 # --- languages {{{
 
 # --- --- beam {{{
 
-[[ -x /usr/local/bin/iex && -x /usr/local/bin/rlwrap ]] && alias iex='rlwrap -Aa iex'
-[[ -x /usr/local/bin/erl && -x /usr/local/bin/rlwrap ]] && alias erl='rlwrap -Aa erl'
+[[ -n "$_has_iex" && -n "$_has_rlwrap" ]] && alias iex='rlwrap -Aa iex'
+[[ -n "$_has_erl" && -n "$_has_rlwrap" ]] && alias erl='rlwrap -Aa erl'
 
 # --- --- end beam }}}
 # --- --- perl6 {{{
 
-[[ $(command -v perl6) ]] && alias p6='perl6'
-[[ $(command -v perl6) ]] && alias prove6='prove -r -e perl6'
-[[ $(command -v perl6) && -x /usr/local/bin/rlwrap ]] && alias rp='rlwrap perl6'
+[[ -n "$_has_perl6" ]] && alias p6='perl6'
+[[ -n "$_has_perl6" ]] && alias prove6='prove -r -e perl6'
+[[ -n "$_has_perl6" && -n "$_has_rlwrap" ]] && alias rp='rlwrap perl6'
 
 # --- --- end perl6 }}}
-# --- --- python {{{
-
-[[ -x /usr/local/bin/ptipython2 ]] && alias ptipython2='ptipython2 --vi'
-[[ -x /usr/local/bin/ptipython ]] && alias ptipython='ptipython --vi'
-[[ -x /usr/local/bin/ptpython2 ]] && alias ptpython2='ptpython2 --vi'
-[[ -x /usr/local/bin/ptpython ]] && alias ptpython='ptpython --vi'
-
-# --- --- end python }}}
 
 # --- end languages }}}
 # --- subrepo {{{
 
-[[ -x "$HOME/.bin/subgit" ]] && alias sg='subgit'
-[[ -x "$HOME/.bin/subhg" ]] && alias shg='subhg'
+[[ -n "$_has_subgit" ]] && alias sg='subgit'
+[[ -n "$_has_subhg" ]] && alias shg='subhg'
 
 # --- end subrepo }}}
 # --- safety {{{
@@ -271,7 +299,7 @@ alias rm='rm -i'
 # --- end safety }}}
 # --- ssh {{{
 
-[[ -x /usr/local/bin/mosh ]] && alias mosh='mosh -a'
+[[ -n "$_has_mosh" ]] && alias mosh='mosh -a'
 
 # --- end ssh }}}
 # --- tmux {{{
@@ -283,16 +311,16 @@ alias rm='rm -i'
 # --- vim {{{
 
 alias :e='"$EDITOR"'
-[[ -x /usr/local/bin/vim ]] && alias view='vim -R'
-[[ -x /usr/local/bin/vim ]] && alias vime='vim -u $HOME/.vimencrypt -x'
-[[ -x /usr/local/bin/vim ]] && alias viml='vim -u $HOME/.vimrc.lite'
-[[ -x /usr/local/bin/vim ]] && alias vimmin='vim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
-[[ -x /usr/local/bin/mvim ]] && alias mview='mvim -R'
-[[ -x /usr/local/bin/mvim ]] && alias mvime='mvim -u $HOME/.vimencrypt -x'
-[[ -x /usr/local/bin/mvim ]] && alias mviml='mvim -u $HOME/.vimrc.lite'
-[[ -x /usr/local/bin/mvim ]] && alias mvimmin='mvim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
-[[ -x /usr/local/bin/nvim ]] && alias nv='nvim'
-[[ -x /usr/local/bin/nvim ]] && alias nview='nvim -R'
+[[ -n "$_has_vim" ]] && alias view='vim -R'
+[[ -n "$_has_vim" ]] && alias vime='vim -u $HOME/.vimencrypt -x'
+[[ -n "$_has_vim" ]] && alias viml='vim -u $HOME/.vimrc.lite'
+[[ -n "$_has_vim" ]] && alias vimmin='vim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
+[[ -n "$_has_mvim" ]] && alias mview='mvim -R'
+[[ -n "$_has_mvim" ]] && alias mvime='mvim -u $HOME/.vimencrypt -x'
+[[ -n "$_has_mvim" ]] && alias mviml='mvim -u $HOME/.vimrc.lite'
+[[ -n "$_has_mvim" ]] && alias mvimmin='mvim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
+[[ -n "$_has_nvim" ]] && alias nv='nvim'
+[[ -n "$_has_nvim" ]] && alias nview='nvim -R'
 
 # --- end vim }}}
 
@@ -300,18 +328,18 @@ alias :e='"$EDITOR"'
 # ==============================================================================
 # functions {{{
 
-for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do source "${_fn}"; done
+find "$HOME/.functions.d" -type f -name "*.sh" | while read -r _fn; do source "$_fn"; done
 
 # end functions }}}
 # ==============================================================================
 # fzf {{{
 
 # use ag/pt/ack as the default source for fzf
-if [[ -x /usr/local/bin/ag ]]; then
+if [[ -n "$_has_ag" ]]; then
   export FZF_DEFAULT_COMMAND='ag --hidden --smart-case --nocolor --skip-vcs-ignores --path-to-agignore=$HOME/.agignore -g ""'
-elif [[ -x /usr/local/bin/pt ]]; then
+elif [[ -n "$_has_pt" ]]; then
   export FZF_DEFAULT_COMMAND='pt --hidden --nocolor -e -g=""'
-elif [[ -x /usr/local/bin/ack ]]; then
+elif [[ -n "$_has_ack" ]]; then
   export FZF_DEFAULT_COMMAND='ack --nocolor --nopager -g ""'
 fi
 
@@ -320,7 +348,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # use ag/pt/ack for ** completion
 _fzf_compgen_path() {
-  if [[ -x /usr/local/bin/ag ]]; then
+  if [[ -n "$_has_ag" ]]; then
     ag \
       --hidden \
       --smart-case \
@@ -329,9 +357,9 @@ _fzf_compgen_path() {
       --path-to-agignore="$HOME/.agignore" \
       -g "" \
       "$1"
-  elif [[ -x /usr/local/bin/pt ]]; then
+  elif [[ -n "$_has_pt" ]]; then
     pt --hidden --nocolor -e -g="" "$1"
-  elif [[ -x /usr/local/bin/ack ]]; then
+  elif [[ -n "$_has_ack" ]]; then
     ack --nocolor --nopager -g "" "$1"
   fi
 }
@@ -344,13 +372,14 @@ export FZF_DEFAULT_OPTS='
 '
 
 # improved preview
-command -v tree > /dev/null && export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -$LINES'"
+[[ -n "$_has_tree" ]] \
+  && export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -$LINES'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden --bind ?:toggle-preview"
 export FZF_CTRL_T_OPTS="--preview '(cat {} || tree -C {}) 2> /dev/null | head -$LINES'"
 
 # create fzf key bindings
-[[ -e ~/.fzf.bash ]] && source ~/.fzf.bash
-[[ -e ~/.fzf-extras/fzf-extras.sh ]] && source ~/.fzf-extras/fzf-extras.sh
+[[ -e "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
+[[ -e "$HOME/.fzf-extras/fzf-extras.sh" ]] && source "$HOME/.fzf-extras/fzf-extras.sh"
 
 # end fzf }}}
 # ==============================================================================
@@ -362,7 +391,8 @@ export CRYFS_NO_UPDATE_CHECK=true
 # ==============================================================================
 # gpg {{{
 
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # end gpg }}}
 # ==============================================================================
