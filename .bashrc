@@ -200,7 +200,7 @@ alias cdd='cd $HOME/Downloads'
 alias cdg='cd $(git rev-parse --show-cdup)'
 alias cdp='cd $HOME/Projects'
 alias cds='cd $HOME/.src'
-alias :o='open .'
+alias :o='open "${1:-.}"'
 alias :q='exit'
 
 # --- end directory navigation }}}
