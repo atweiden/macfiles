@@ -139,6 +139,8 @@ rakudobrew [9]
 
 iTerm2 seoul256 colorscheme [10]
 
+iTerm2 alt keybindings [11]
+
 
 Bootstrap
 ---------
@@ -212,3 +214,4 @@ Little Snitch
 [8] https://github.com/joeyh/myrepos
 [9] https://github.com/tadzik/rakudobrew
 [10] https://github.com/atweiden/iterm2-seoul256-dusk
+[11] https://iterm2.com/faq.html

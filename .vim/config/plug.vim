@@ -20,7 +20,7 @@ Plug 'dockyard/vim-easydir'
 
 " keyboard
 Plug 'kana/vim-arpeggio'
-if has('vim') | Plug 'drmikehenry/vim-fixkey' | endif
+if !has('nvim') | Plug 'drmikehenry/vim-fixkey' | endif
 
 " search and replace
 Plug 'dyng/ctrlsf.vim'
