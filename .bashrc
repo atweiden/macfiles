@@ -328,7 +328,7 @@ alias :e='"$EDITOR"'
 # ==============================================================================
 # functions {{{
 
-find "$HOME/.functions.d" -type f -name "*.sh" | while read -r _fn; do source "$_fn"; done
+for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do source "$_fn"; done
 
 # end functions }}}
 # ==============================================================================
