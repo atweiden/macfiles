@@ -163,6 +163,7 @@ _has_ag=$(command -v ag)
 _has_colordiff=$(command -v colordiff)
 _has_erl=$(command -v erl)
 _has_gdircolors=$(command -v gdircolors)
+_has_gfind=$(command -v gfind)
 _has_glocate=$(command -v glocate)
 _has_gls=$(command -v gls)
 _has_gsed=$(command -v gsed)
@@ -205,6 +206,7 @@ PS1="\[\e[01;31m\]┌─[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME
 
 # use GNU tools on OSX instead of BSD
 [[ -n "$_has_gdircolors" ]] && alias dircolors='gdircolors'
+[[ -n "$_has_gfind" ]] && alias find='gfind'
 [[ -n "$_has_glocate" ]] && alias locate='glocate --ignore-case'
 [[ -n "$_has_gls" ]] && alias ls='LC_COLLATE=C gls --color=auto --group-directories-first'
 [[ -n "$_has_gsed" ]] && alias sed='gsed'
