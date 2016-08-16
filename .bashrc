@@ -334,6 +334,12 @@ for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do source "$_fn"; 
 
 # end functions }}}
 # ==============================================================================
+# homebrew {{{
+
+export HOMEBREW_NO_ANALYTICS=1
+
+# end homebrew }}}
+# ==============================================================================
 # fzf {{{
 
 # use ag/pt/ack as the default source for fzf
