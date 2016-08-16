@@ -15,7 +15,6 @@ _packages=('ack'
            'ccrypt'
            'colordiff'
            'coreutils'
-           'curl'
            'darkhttpd'
            'dnscrypt-proxy'
            'elixir'
@@ -104,6 +103,10 @@ brew install "${_packages[@]}"
 # - specify --resolver-name=ns0.dnscrypt.is
 # - specify --ephemeral-keys
 
+# curl
+brew install curl --with-gssapi --with-libidn --with-openssl
+brew link --force curl
+
 # neovim
 brew install neovim/neovim/neovim
 mkdir -p ~/.config
@@ -113,6 +116,14 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 # universal-ctags
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
+
+# osxlockdown (see also: https://objective-see.com/products.html)
+mkdir -p ~/.src/osxlockdown && cd ~/.src/osxlockdown
+export GOPATH="$PWD"
+go get -v -u github.com/SummitRoute/osxlockdown/...
+cp src/github.com/SummitRoute/osxlockdown/commands.yaml .
+sudo bin/osxlockdown
+sudo bin/osxlockdown --remediate
 
 # casks
 brew tap caskroom/cask
