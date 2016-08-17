@@ -36,9 +36,9 @@ _rsync_opts=()
 _rsync_opts+=('--exclude=.git'
               '--exclude=.hg'
               '--exclude=.subgit'
+              '--exclude=*.sh'
               '--exclude=*.txt'
-              '--exclude=UNLICENSE'
-              '--exclude=bootstrap.sh')
+              '--exclude=UNLICENSE')
 
 # copy directories recursively
 _rsync_opts+=('--recursive')

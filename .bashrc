@@ -293,6 +293,11 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 # --- end safety }}}
+# --- osx {{{
+
+alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
+
+# --- end osx }}}
 # --- ssh {{{
 
 [[ -n "$_has_mosh" ]] && alias mosh='mosh -a'
@@ -327,6 +332,12 @@ alias :e='"$EDITOR"'
 for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do source "$_fn"; done
 
 # end functions }}}
+# ==============================================================================
+# completions {{{
+
+[[ -f /usr/local/etc/bash_completion ]] && source /usr/local/etc/bash_completion
+
+# end completions }}}
 # ==============================================================================
 # homebrew {{{
 

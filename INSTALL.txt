@@ -66,6 +66,7 @@ _packages=('ack'
            'valgrind'
            'vim'
            'wget'
+           'xz'
            'youtube-dl')
 
 _casks=('adium'
@@ -94,15 +95,17 @@ brew analytics off
 brew install "${_packages[@]}"
 
 # bash
-# - add /usr/local/bin/bash to list of approved shells
-# - chsh to switch to it
+if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
+  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/bash
+fi
 
 # coreutils
 brew install coreutils --with-gmp
 
 # dnscrypt-proxy
 # - specify --resolver-name=ns0.dnscrypt.is
-# - specify --ephemeral-keys
+# sudo brew services start dnscrypt-proxy
 
 # curl
 brew install curl --with-gssapi --with-libidn --with-openssl
@@ -118,6 +121,9 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 
+# mac settings
+./mac.sh
+
 # osxlockdown (see also: https://objective-see.com/products.html)
 mkdir -p ~/.src/osxlockdown && cd ~/.src/osxlockdown
 export GOPATH="$PWD"
@@ -129,6 +135,8 @@ sudo bin/osxlockdown --remediate
 # casks
 brew tap caskroom/cask
 brew cask install "${_casks[@]}"
+
+brew cleanup
 ```
 
 seil [1]
