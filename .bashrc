@@ -119,22 +119,35 @@ stty start undef
 # ==============================================================================
 # path {{{
 
-unset PATH
+unset PATH MANPATH
 
 # --- defaults {{{
 
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 # --- end defaults }}}
+# --- gnu {{{
+
+# use GNU tools on OSX instead of BSD
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
+
+# --- end gnu }}}
 # --- dotfiles {{{
 
-PATH=$HOME/.bin:$PATH
+PATH="$HOME/.bin:$PATH"
 
 # --- end dotfiles }}}
 # --- perl6 {{{
 
 # from output of `~/.rakudobrew/bin/rakudobrew init -`
-PATH=$HOME/.rakudobrew/bin:$PATH
+PATH="$HOME/.rakudobrew/bin:$PATH"
 rakudobrew() {
   local command="$1"
   [[ "$#" -gt 0 ]] && shift
@@ -148,11 +161,11 @@ rakudobrew() {
 
 # for panda-installed perl6 executables
 [[ $(command -v perl6) ]] \
-  && PATH=$(perl6 -e "say ~CompUnit::RepositoryRegistry.repository-for-name('site')")/bin:$PATH
+  && PATH="$(perl6 -e 'say ~CompUnit::RepositoryRegistry.repository-for-name(q<site>)')/bin:$PATH"
 
 # --- end perl6 }}}
 
-export PATH
+export PATH MANPATH
 
 # end path }}}
 # ==============================================================================
@@ -162,14 +175,6 @@ _has_ack=$(command -v ack)
 _has_ag=$(command -v ag)
 _has_colordiff=$(command -v colordiff)
 _has_erl=$(command -v erl)
-_has_gdircolors=$(command -v gdircolors)
-_has_gfind=$(command -v gfind)
-_has_glocate=$(command -v glocate)
-_has_gls=$(command -v gls)
-_has_gsed=$(command -v gsed)
-_has_gsort=$(command -v gsort)
-_has_gtar=$(command -v gtar)
-_has_gupdatedb=$(command -v gupdatedb)
 _has_icdiff=$(command -v icdiff)
 _has_iex=$(command -v iex)
 _has_mosh=$(command -v mosh)
@@ -202,19 +207,6 @@ PS1="\[\e[01;31m\]┌─[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME
 # ==============================================================================
 # aliases {{{
 
-# --- gnu {{{
-
-# use GNU tools on OSX instead of BSD
-[[ -n "$_has_gdircolors" ]] && alias dircolors='gdircolors'
-[[ -n "$_has_gfind" ]] && alias find='gfind'
-[[ -n "$_has_glocate" ]] && alias locate='glocate --ignore-case'
-[[ -n "$_has_gls" ]] && alias ls='LC_COLLATE=C gls --color=auto --group-directories-first'
-[[ -n "$_has_gsed" ]] && alias sed='gsed'
-[[ -n "$_has_gsort" ]] && alias sort='gsort'
-[[ -n "$_has_gtar" ]] && alias tar='gtar'
-[[ -n "$_has_gupdatedb" ]] && alias updatedb='gupdatedb'
-
-# --- end gnu }}}
 # --- diff {{{
 
 if [[ -n "$_has_icdiff" ]]; then
@@ -226,6 +218,7 @@ fi
 # --- end diff }}}
 # --- directory navigation {{{
 
+alias ls='LC_COLLATE=C gls --color=auto --group-directories-first'
 alias l='ls -1F'
 alias l1='ls -1AF'
 alias la='ls -aF'
@@ -267,6 +260,7 @@ alias h\?='history | grep -v -E "grep|h\?" | grep "$@" -i --color=auto'
 alias l\?='ls -1F | grep "$@" -i --color=auto'
 alias p\?='ps -a -x -f | grep -v grep | grep "$@" -i --color=auto'
 [[ -n "$_has_ag" ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores --path-to-agignore=$HOME/.agignore'
+alias locate='glocate --ignore-case'
 
 # --- end grepping }}}
 # --- languages {{{

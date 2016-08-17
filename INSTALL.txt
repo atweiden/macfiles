@@ -9,12 +9,10 @@ Install Software
 ```sh
 _packages=('ack'
            'aria2'
-           'base64'
            'bash'
            'bash-completion'
            'ccrypt'
            'colordiff'
-           'coreutils'
            'darkhttpd'
            'dnscrypt-proxy'
            'elixir'
@@ -98,6 +96,9 @@ brew install "${_packages[@]}"
 # bash
 # - add /usr/local/bin/bash to list of approved shells
 # - chsh to switch to it
+
+# coreutils
+brew install coreutils --with-gmp
 
 # dnscrypt-proxy
 # - specify --resolver-name=ns0.dnscrypt.is
