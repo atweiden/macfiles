@@ -39,6 +39,7 @@ _packages=('ack'
            'mercurial'
            'mobile-shell'
            'moreutils'
+           'opam'
            'openvpn'
            'p7zip'
            'perl'
@@ -120,6 +121,11 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 # universal-ctags
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
+
+# ocaml
+opam init
+opam config setup -a
+opam install merlin ocp-indent ocp-index utop
 
 # mac settings
 ./mac.sh

@@ -89,6 +89,13 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 Plug 'junegunn/vim-journal', { 'for': 'journal' }
 Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
+Plug 'rgrinberg/vim-ocaml', { 'for': [ 'merlin', 'ocaml', 'omlet' ] }
+Plug '~/.opam/system/share/merlin', { 'for': [ 'merlin', 'ocaml', 'omlet' ],
+                                    \ 'rtp': 'vim' }
+Plug '~/.opam/system/share/ocp-indent', { 'for': [ 'merlin', 'ocaml', 'omlet' ],
+                                        \ 'rtp': 'vim' }
+Plug '~/.opam/system/share/ocp-index', { 'for': [ 'merlin', 'ocaml', 'omlet' ],
+                                        \ 'rtp': 'vim' }
 Plug 'vim-perl/vim-perl', { 'for': 'perl' }
 Plug 'vim-perl/vim-perl6', { 'for': 'perl6' }
 Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
