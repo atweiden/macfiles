@@ -125,7 +125,7 @@ brew install --HEAD universal-ctags
 # ocaml
 opam init
 opam config setup -a
-opam install annot merlin ocp-indent ocp-index utop
+opam install annot merlin ocp-indent utop
 
 # mac settings
 ./mac.sh

@@ -94,8 +94,6 @@ Plug '~/.opam/system/share/merlin', { 'for': [ 'merlin', 'ocaml', 'omlet' ],
                                     \ 'rtp': 'vim' }
 Plug '~/.opam/system/share/ocp-indent', { 'for': [ 'merlin', 'ocaml', 'omlet' ],
                                         \ 'rtp': 'vim' }
-Plug '~/.opam/system/share/ocp-index', { 'for': [ 'merlin', 'ocaml', 'omlet' ],
-                                        \ 'rtp': 'vim' }
 Plug 'vim-perl/vim-perl', { 'for': 'perl' }
 Plug 'vim-perl/vim-perl6', { 'for': 'perl6' }
 Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
