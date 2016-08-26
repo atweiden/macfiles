@@ -120,6 +120,7 @@ brew install neovim/neovim/neovim
 #brew install --HEAD --with-release neovim
 #brew update
 #brew reinstall --HEAD neovim
+pip3 install neovim
 mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
