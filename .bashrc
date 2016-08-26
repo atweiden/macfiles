@@ -147,6 +147,7 @@ export CAML_LD_LIBRARY_PATH=$HOME/.opam/4.02.3/lib/stublibs:/usr/lib/ocaml/stubl
 export MANPATH=$HOME/.opam/4.02.3/man:$MANPATH
 export PERL5LIB=$HOME/.opam/4.02.3/lib/perl5:$PERL5LIB
 export OCAML_TOPLEVEL_PATH=$HOME/.opam/4.02.3/lib/toplevel:$OCAML_TOPLEVEL_PATH
+export OPAMUTF8MSGS="1"
 
 # --- end ocaml }}}
 # --- perl6 {{{

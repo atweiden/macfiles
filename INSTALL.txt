@@ -38,7 +38,6 @@ _packages=('ack'
            'mercurial'
            'mobile-shell'
            'moreutils'
-           'opam'
            'openvpn'
            'p7zip'
            'perl'
@@ -112,11 +111,15 @@ brew install curl --with-gssapi --with-libidn --with-openssl
 brew link --force curl
 
 # macvim
-brew install macvim --with-cscope --python --HEAD
-brew linkapps
+brew install macvim --with-luajit --with-python3 --HEAD
+brew linkapps macvim
 
 # neovim
+brew tap neovim/neovim
 brew install neovim/neovim/neovim
+#brew install --HEAD --with-release neovim
+#brew update
+#brew reinstall --HEAD neovim
 mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
@@ -125,7 +128,8 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 
-# ocaml / reason (https://github.com/facebook/reason/blob/4dd9e85c24ea72a129142b238f6e2a073872d01f/README.md)
+# ocaml / reason [12]
+brew install opam --with-ocaml --with-camlp4 --with-aspcud
 opam init
 opam config setup -a
 opam update
@@ -250,3 +254,4 @@ Little Snitch
 [9] https://github.com/tadzik/rakudobrew
 [10] https://github.com/atweiden/iterm2-seoul256-dusk
 [11] https://iterm2.com/faq.html
+[12] https://github.com/facebook/reason/blob/4dd9e85c24ea72a129142b238f6e2a073872d01f/README.md
