@@ -144,6 +144,16 @@ MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 PATH="$HOME/.bin:$PATH"
 
 # --- end dotfiles }}}
+# --- ocaml {{{
+
+# (opam config env) https://github.com/ocaml/opam-repository/issues/584
+PATH=$HOME/.opam/system/bin:$PATH
+export CAML_LD_LIBRARY_PATH=$HOME/.opam/system/lib/stublibs:/usr/lib/ocaml/stublibs
+export MANPATH=$HOME/.opam/system/man:$MANPATH
+export PERL5LIB=$HOME/.opam/system/lib/perl5:$PERL5LIB
+export OCAML_TOPLEVEL_PATH=$HOME/.opam/system/lib/toplevel:$OCAML_TOPLEVEL_PATH
+
+# --- end ocaml }}}
 # --- perl6 {{{
 
 # from output of `~/.rakudobrew/bin/rakudobrew init -`
