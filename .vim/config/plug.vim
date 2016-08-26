@@ -81,23 +81,66 @@ Plug 'vim-scripts/openssl.vim'
 " command runners
 Plug 'tpope/vim-tbone'
 
-" languages
+" languages {{{
+
+" --- c/c++ {{{
+
 Plug 'vim-jp/vim-cpp', { 'for': [ 'c', 'cpp' ] }
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': [ 'c', 'cpp' ] }
+
+" --- end c/c++ }}}
+" --- elixir {{{
+
 Plug 'elixir-lang/vim-elixir', { 'for': [ 'eelixir', 'elixir' ] }
+
+" --- end elixir }}}
+" --- go {{{
+
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
+
+" --- end go }}}
+" --- journal {{{
+
 Plug 'junegunn/vim-journal', { 'for': 'journal' }
+
+" --- end journal }}}
+" --- markdown {{{
+
 Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
+
+" --- end markdown }}}
+" --- ocaml / reason {{{
+
 Plug 'rgrinberg/vim-ocaml', { 'for': [ 'merlin', 'ocaml', 'omlet' ] }
-Plug '~/.opam/system/share/merlin', { 'for': [ 'merlin', 'ocaml', 'omlet' ],
+Plug '~/.opam/4.02.3/share/merlin', { 'for': [ 'merlin',
+                                             \ 'ocaml',
+                                             \ 'omlet',
+                                             \ 'reason' ],
                                     \ 'rtp': 'vim' }
-Plug '~/.opam/system/share/ocp-indent', { 'for': [ 'merlin', 'ocaml', 'omlet' ],
+Plug '~/.opam/4.02.3/share/ocp-indent', { 'for': [ 'merlin',
+                                                 \ 'ocaml',
+                                                 \ 'omlet',
+                                                 \ 'reason' ],
                                         \ 'rtp': 'vim' }
+Plug '~/.opam/4.02.3/share/reason', { 'for': 'reason',
+                                    \ 'rtp': 'editorSupport/VimReason' }
+
+" --- end ocaml / reason }}}
+" --- perl / perl6 {{{
+
 Plug 'vim-perl/vim-perl', { 'for': 'perl' }
 Plug 'vim-perl/vim-perl6', { 'for': 'perl6' }
 Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
+
+" --- end perl / perl6 }}}
+" --- toml {{{
+
 Plug 'cespare/vim-toml', { 'for': [ 'journal', 'markdown', 'toml' ] }
+
+" --- end toml }}}
+
+" end languages }}}
 
 " colors
 Plug 'guns/jellyx.vim'

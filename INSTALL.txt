@@ -35,7 +35,6 @@ _packages=('ack'
            'icdiff'
            'jhead'
            'jq'
-           'macvim'
            'mercurial'
            'mobile-shell'
            'moreutils'
@@ -112,6 +111,10 @@ brew install coreutils --with-gmp
 brew install curl --with-gssapi --with-libidn --with-openssl
 brew link --force curl
 
+# macvim
+brew install macvim --with-cscope --python --HEAD
+brew linkapps
+
 # neovim
 brew install neovim/neovim/neovim
 mkdir -p ~/.config
@@ -122,10 +125,16 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 
-# ocaml
+# ocaml / reason (https://github.com/facebook/reason/blob/4dd9e85c24ea72a129142b238f6e2a073872d01f/README.md)
 opam init
 opam config setup -a
-opam install annot merlin ocp-indent utop
+opam update
+opam switch 4.02.3
+eval $(opam config env)
+opam pin add -y merlin 'https://github.com/the-lambda-church/merlin.git#reason-0.0.1'
+opam pin add -y merlin_extend 'https://github.com/let-def/merlin-extend.git#reason-0.0.1'
+opam pin add -y reason 'https://github.com/facebook/reason.git#0.0.6'
+opam install annot ocp-indent utop
 
 # mac settings
 ./mac.sh
