@@ -46,11 +46,6 @@ export LC_ALL=en_US.UTF-8
 export MANPAGER="less -X"
 
 # --- end man pages }}}
-# --- osx {{{
-
-export COPYFILE_DISABLE=true
-
-# --- end osx }}}
 # --- safety {{{
 
 # do not overwrite existing file by redirect `>`
@@ -349,8 +344,16 @@ for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do source "$_fn"; 
 
 # end completions }}}
 # ==============================================================================
+# osx {{{
+
+# copy or tar files without ._ (dot underscore) files
+export COPYFILE_DISABLE=true
+
+# end osx }}}
+# ==============================================================================
 # homebrew {{{
 
+# opt out of Homebrew's analytics
 export HOMEBREW_NO_ANALYTICS=1
 
 # end homebrew }}}
