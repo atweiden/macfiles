@@ -15,9 +15,6 @@ _packages=('ack'
            'colordiff'
            'darkhttpd'
            'dnscrypt-proxy'
-           'elixir'
-           'elixir-build'
-           'exenv'
            'exiftool'
            'ffmpeg'
            'findutils'
@@ -128,6 +125,10 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 # universal-ctags
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
+
+# erlang / elixir
+brew install erlang --with-native-libs --with-wxmac
+brew install elixir elixir-build exenv
 
 # ocaml / reason [12]
 brew install opam --with-ocaml --with-camlp4 --with-aspcud

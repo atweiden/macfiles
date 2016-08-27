@@ -139,12 +139,17 @@ MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 PATH="$HOME/.bin:$PATH"
 
 # --- end dotfiles }}}
+# --- erlang {{{
+
+MANPATH=/usr/local/opt/erlang/lib/erlang/man:$MANPATH
+
+# --- end erlang }}}
 # --- ocaml {{{
 
 # (opam config env) https://github.com/ocaml/opam-repository/issues/584
 PATH=$HOME/.opam/4.02.3/bin:$PATH
+MANPATH=$HOME/.opam/4.02.3/man:$MANPATH
 export CAML_LD_LIBRARY_PATH=$HOME/.opam/4.02.3/lib/stublibs:/usr/lib/ocaml/stublibs
-export MANPATH=$HOME/.opam/4.02.3/man:$MANPATH
 export PERL5LIB=$HOME/.opam/4.02.3/lib/perl5:$PERL5LIB
 export OCAML_TOPLEVEL_PATH=$HOME/.opam/4.02.3/lib/toplevel:$OCAML_TOPLEVEL_PATH
 export OPAMUTF8MSGS="1"
@@ -273,8 +278,8 @@ alias locate='glocate --ignore-case'
 
 # --- --- beam {{{
 
-[[ -n "$_has_iex" && -n "$_has_rlwrap" ]] && alias iex='rlwrap -A iex'
-[[ -n "$_has_erl" && -n "$_has_rlwrap" ]] && alias erl='rlwrap -A erl'
+[[ -n "$_has_iex" && -n "$_has_rlwrap" ]] && alias iex='rlwrap --always-readline --ansi-colour-aware iex'
+[[ -n "$_has_erl" && -n "$_has_rlwrap" ]] && alias erl='rlwrap --always-readline --ansi-colour-aware erl'
 
 # --- --- end beam }}}
 # --- --- perl6 {{{
