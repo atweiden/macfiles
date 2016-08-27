@@ -273,8 +273,8 @@ alias locate='glocate --ignore-case'
 
 # --- --- beam {{{
 
-[[ -n "$_has_iex" && -n "$_has_rlwrap" ]] && alias iex='rlwrap -Aa iex'
-[[ -n "$_has_erl" && -n "$_has_rlwrap" ]] && alias erl='rlwrap -Aa erl'
+[[ -n "$_has_iex" && -n "$_has_rlwrap" ]] && alias iex='rlwrap -A iex'
+[[ -n "$_has_erl" && -n "$_has_rlwrap" ]] && alias erl='rlwrap -A erl'
 
 # --- --- end beam }}}
 # --- --- perl6 {{{
