@@ -1,3 +1,6 @@
+" mvim fzf
+let g:fzf_launcher = '~/.bin/iterm2-run %s'
+
 " prepend FZF to commands
 let g:fzf_command_prefix = 'FZF'
 

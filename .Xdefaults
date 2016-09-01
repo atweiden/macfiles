@@ -8,6 +8,93 @@ Xft.hintstyle: hintslight
 
 # end xft }}}
 
+# urxvt {{{
+
+URxvt*geometry: 80x25
+URxvt*borderLess: true
+URxvt*depth: 32
+URxvt*saveLines: 65535
+URxvt*cursorBlink: false
+URxvt*cursorUnderline: true
+URxvt*perl-ext-common: clipboard
+URxvt.clipboard.copycmd:  pbcopy
+URxvt.clipboard.pastecmd: pbpaste
+URxvt*keysym.M-c: perl:clipboard:copy
+URxvt*keysym.M-v: perl:clipboard:paste
+URxvt*iso14755: false
+
+# IO
+# True: specify that jump scrolling should be used. When receiving lots of lines, urxvt will only scroll once a whole screen height of lines has been read, resulting in fewer updates while still displaying every received line; option -j.
+# False: specify that smooth scrolling should be used. urxvt will force a screen refresh on each new line it received
+URxvt*jumpScroll: True
+# True: (the default) specify that skip scrolling should be used. When receiving lots of lines, urxvt will only scroll once in a while (around 60 times per second), resulting in far fewer updates. This can result in urxvt not ever displaying some of the lines it receives; option -ss.
+URxvt*skipScroll: True
+# True: set the urgency hint for the wm on receipt of a bell character. False: do not set the urgency hint [default] urxvt resets the urgency hint on every focus change.
+URxvt*urgentOnBell: False
+URxvt*visualBell: False
+# True: scroll to bottom when tty receives output; option -si. False: do not scroll to bottom when tty receives output; option +si.
+URxvt*scrollTtyOutput: False
+# True: scroll with scrollback buffer when tty receives new lines (i.e. try to show the same lines) and scrollTtyOutput is False; option -sw. False: do not scroll with scrollback buffer when tty receives new lines; option +sw.
+URxvt*scrollWithBuffer: True
+# True: scroll to bottom when a non-special key is pressed. Special keys are those which are intercepted by rxvt-unicode for special handling and are not passed onto the shell; option -sk. False: do not scroll to bottom when a non-special key is pressed; option +sk.
+URxvt*scrollTtyKeypress: True
+# False: don't clear the screen after exiting Vim
+URxvt*secondaryScreen: False
+
+# font
+URxvt*font: xft:Monaco\ for\ Powerline-16
+#URxvt*letterSpace: -1
+#URxvt*lineSpace: -1
+URxvt*skipBuiltinGlyphs: true
+
+# tabs
+# no: disable tab new button
+URxvt*tabbed.new-button: no
+# yes: disable the tab bar if only one tab is present
+URxvt*tabbed.autohide: yes
+# no: disable urxvt default title
+URxvt.tabbed.title: no
+# tab colors
+URxvt*tabbed.tabbar-fg: 4
+URxvt*tabbed.tabbar-bg: 0
+URxvt*tabbed.tab-fg: 9
+URxvt*tabbed.tab-bg: 0
+
+# scrollbar
+URxvt*scrollBar: false
+URxvt*scrollBar_right: true
+URxvt*scrollstyle: plain
+URxvt*scrollColor: #a8a8a8
+
+# seoul256 by @junegunn
+URxvt*color0: #4e4e4e
+URxvt*color1: #d68787
+URxvt*color2: #5f865f
+URxvt*color3: #d8af5f
+URxvt*color4: #85add4
+URxvt*color5: #d7afaf
+URxvt*color6: #87afaf
+URxvt*color7: #d0d0d0
+URxvt*color8: #626262
+URxvt*color9: #d75f87
+URxvt*color10: #87af87
+URxvt*color11: #ffd787
+URxvt*color12: #add4fb
+URxvt*color13: #ffafaf
+URxvt*color14: #87d7d7
+URxvt*color15: #e4e4e4
+
+#URxvt*background: #3a3a3a
+# let g:seoul256_background = 233
+URxvt*background: #121212
+URxvt*foreground: #d0d0d0
+URxvt*cursorColor: #d0d0d0
+URxvt*cursorColor2: #3a3a3a
+URxvt*colorBD: #e4e4e4
+URxvt.colorUL: #00afd7
+
+# end urxvt }}}
+
 # xterm {{{
 
 XTerm*locale: true

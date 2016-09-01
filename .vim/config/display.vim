@@ -100,9 +100,9 @@ highlight oCursor guifg=black guibg=gray
 
 " cursor line and column
 highlight clear CursorLine
-highlight CursorLine term=NONE cterm=NONE ctermbg=236 gui=NONE guibg=#30302C
+highlight CursorLine term=NONE cterm=NONE ctermbg=236 gui=NONE guibg=#D1D0D1
 highlight clear CursorColumn
-highlight CursorColumn term=NONE cterm=NONE ctermbg=236 gui=NONE guibg=#30302C
+highlight CursorColumn term=NONE cterm=NONE ctermbg=236 gui=NONE guibg=#D1D0D1
 highlight clear ColorColumn
 highlight ColorColumn term=NONE cterm=NONE ctermbg=95 gui=NONE guibg=#875F5F
 

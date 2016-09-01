@@ -11,3 +11,5 @@ let g:ctrlsf_regex_pattern = 1
 "
 " if project VCS root can't be gleaned, search from cwd
 let g:ctrlsf_default_root = 'project+fw'
+
+" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
