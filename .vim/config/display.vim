@@ -1,5 +1,7 @@
 set t_Co=256
 set background=dark
+let g:seoul256_background = 233
+let g:seoul256_light_background = 256
 colorscheme seoul256
 
 " window title {{{
@@ -100,9 +102,9 @@ highlight oCursor guifg=black guibg=gray
 
 " cursor line and column
 highlight clear CursorLine
-highlight CursorLine term=NONE cterm=NONE ctermbg=236 gui=NONE guibg=#D1D0D1
+highlight CursorLine term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#D1D0D1
 highlight clear CursorColumn
-highlight CursorColumn term=NONE cterm=NONE ctermbg=236 gui=NONE guibg=#D1D0D1
+highlight CursorColumn term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#D1D0D1
 highlight clear ColorColumn
 highlight ColorColumn term=NONE cterm=NONE ctermbg=95 gui=NONE guibg=#875F5F
 
