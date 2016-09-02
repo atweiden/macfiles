@@ -90,7 +90,7 @@ highlight MatchParen term=bold,NONE cterm=bold,NONE ctermfg=179 gui=bold,NONE gu
 
 " cursor
 highlight clear Cursor
-highlight Cursor guifg=black guibg=gray
+highlight Cursor guifg=NONE guibg=#E3E7E4
 highlight clear iCursor
 highlight iCursor guifg=#87AF87 guibg=#87AF87
 highlight clear vCursor
@@ -102,9 +102,9 @@ highlight oCursor guifg=black guibg=gray
 
 " cursor line and column
 highlight clear CursorLine
-highlight CursorLine term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#D1D0D1
+highlight CursorLine term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#FBFBFB
 highlight clear CursorColumn
-highlight CursorColumn term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#D1D0D1
+highlight CursorColumn term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#FBFBFB
 highlight clear ColorColumn
 highlight ColorColumn term=NONE cterm=NONE ctermbg=95 gui=NONE guibg=#875F5F
 
