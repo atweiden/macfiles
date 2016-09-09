@@ -17,6 +17,8 @@ Plug 'Harenome/vim-neatfoldtext'
 
 " filesystem
 Plug 'dockyard/vim-easydir'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
 " keyboard
 Plug 'kana/vim-arpeggio'
