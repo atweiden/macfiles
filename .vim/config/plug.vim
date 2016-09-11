@@ -9,6 +9,7 @@ Plug 'talek/obvious-resize'
 " buffers
 Plug 'mihaifm/bufstop'
 Plug 'vim-scripts/clone'
+Plug 'chrisbra/NrrwRgn'
 Plug 'chrisbra/Recover.vim'
 
 " folds
