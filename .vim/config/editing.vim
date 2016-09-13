@@ -5,6 +5,7 @@ set nostartofline
 set virtualedit=block
 
 " no annoying error noises
+set belloff=all
 set noerrorbells
 set vb t_vb=
 
