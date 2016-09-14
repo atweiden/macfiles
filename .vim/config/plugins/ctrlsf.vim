@@ -30,9 +30,6 @@ let g:ctrlsf_regex_pattern = 1
 " if project VCS root can't be gleaned, search from cwd
 let g:ctrlsf_default_root = 'project+fw'
 
-" put cmd_error_file in $VIMPATH, not $HOME
-let g:ctrlsf_cmd_error_file = $VIMPATH.'/.ctrlsf_cmd_error_file'
-
 " prompt CtrlSF on C-F
 nnoremap <C-F> :CtrlSF<space>
 
