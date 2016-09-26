@@ -183,7 +183,7 @@ set formatoptions+=j " Remove comment leader when joining two comments
 
 " use ag/pt/ack for grepping if available
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --smart-case\ --skip-vcs-ignores\ --path-to-agignore=$HOME/.agignore
+  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --smart-case\ --skip-vcs-ignores\ --path-to-ignore=$HOME/.agignore
 elseif executable('pt')
   set grepprg=pt\ --nogroup\ --nocolor\ --hidden\ --nocolor\ -e
 elseif executable('ack')
