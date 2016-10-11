@@ -158,6 +158,8 @@ if has('digraphs')
   digraph U+ 8846
   " (⊖) equivalent to `(^)`: https://doc.perl6.org/routine/%E2%8A%96
   digraph 0- 8854
+  " (✓) checkmark
+  digraph ./ 10003
   " (⟅) left s-shaped bag delimiter
   digraph s\ 10181
   " (⟆) right s-shaped bag delimiter
