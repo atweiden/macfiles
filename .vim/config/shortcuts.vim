@@ -167,6 +167,12 @@ if has('digraphs')
 endif
 
 " --- end words }}}
+" --- timestamp {{{
+
+" insert timestamp
+nnoremap <silent> <leader>d :put=strftime('%FT%T%z')<CR>
+
+" --- end timestamp }}}
 
 " end editing }}}
 
