@@ -314,6 +314,11 @@ alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 [[ -n "$_has_mosh" ]] && alias mosh='mosh -a'
 
 # --- end ssh }}}
+# --- timestamp {{{
+
+alias dt='date +%FT%T%:::z'
+
+# --- end timestamp }}}
 # --- tmux {{{
 
 [[ -n $TMUX ]] && alias clear='clear; tmux clear-history'
