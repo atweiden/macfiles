@@ -92,6 +92,8 @@ nnoremap Q @q
 
 " digraphs
 if has('digraphs')
+  " (§) section sign
+  digraph SS 167
   " (฿) BTC
   digraph B\| 3647
   " (᚛) ogham feather mark
