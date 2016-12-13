@@ -193,6 +193,7 @@ _has_mvim=$(command -v mvim)
 _has_nvim=$(command -v nvim)
 _has_perl6=$(command -v perl6)
 _has_pt=$(command -v pt)
+_has_rclone=$(command -v rclone)
 _has_rlwrap=$(command -v rlwrap)
 _has_subgit=$(command -v subgit)
 _has_subhg=$(command -v subhg)
@@ -309,6 +310,11 @@ alias rm='rm -i'
 alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
 
 # --- end osx }}}
+# --- rclone {{{
+
+[[ -n "$_has_rclone" ]] && alias rclone='rclone --transfers=16 --checkers=32 --ignore-size --low-level-retries 7 --retries 25 --delete-after'
+
+# --- end rclone }}}
 # --- ssh {{{
 
 [[ -n "$_has_mosh" ]] && alias mosh='mosh -a'
