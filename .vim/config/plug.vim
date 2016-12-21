@@ -103,11 +103,12 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 
 " --- end go }}}
-" --- journal {{{
+" --- journal / finn {{{
 
 Plug 'junegunn/vim-journal', { 'for': 'journal' }
+Plug 'atweiden/vim-finn', { 'branch': 'finn', 'for': 'finn' }
 
-" --- end journal }}}
+" --- end journal / finn }}}
 " --- markdown {{{
 
 Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
