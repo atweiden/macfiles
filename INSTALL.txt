@@ -10,7 +10,7 @@ Install Software
 _packages=('ack'
            'aria2'
            'bash'
-           'bash-completion'
+           'bash-completion2'
            'ccrypt'
            'colordiff'
            'darkhttpd'
@@ -106,6 +106,9 @@ brew install coreutils --with-gmp
 # curl
 brew install curl --with-gssapi --with-libidn --with-openssl
 brew link --force curl
+
+# vim
+brew install vim --with-luajit --with-python3 --with-tcl --with-override-system-vi --HEAD
 
 # macvim
 brew install macvim --with-luajit --with-python3 --HEAD
