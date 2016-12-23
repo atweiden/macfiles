@@ -357,8 +357,8 @@ for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do source "$_fn"; 
 # ==============================================================================
 # completions {{{
 
-[[ -f /usr/local/share/bash_completion ]] \
-  && source /usr/local/share/bash_completion
+[[ -f /usr/local/share/bash-completion/bash_completion ]] \
+  && source /usr/local/share/bash-completion/bash_completion
 
 # end completions }}}
 # ==============================================================================
