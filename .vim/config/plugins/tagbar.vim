@@ -129,6 +129,25 @@ let g:tagbar_type_d = {
     \ }
 \ }
 
+let g:tagbar_type_dart = {
+    \ 'ctagstype' : 'dart',
+    \ 'ctagsbin'  : 'pub',
+    \ 'ctagsargs' : [
+        \ 'global',
+        \ 'run',
+        \ 'dart_ctags:tags',
+        \ '--skip-sort',
+        \ '--line-numbers'
+    \ ],
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 'f:function',
+        \ 'M:static method',
+        \ 'm:method',
+        \ 'i:field'
+    \ ]
+\ }
+
 let g:tagbar_type_elixir = {
     \ 'ctagstype' : 'elixir',
     \ 'kinds'     : [

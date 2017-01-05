@@ -92,6 +92,11 @@ Plug 'vim-jp/vim-cpp', { 'for': [ 'c', 'cpp' ] }
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': [ 'c', 'cpp' ] }
 
 " --- end c/c++ }}}
+" --- dart {{{
+
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+
+" --- end dart }}}
 " --- elixir {{{
 
 Plug 'elixir-lang/vim-elixir', { 'for': [ 'eelixir', 'elixir' ] }
@@ -140,7 +145,7 @@ Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
 " --- end perl / perl6 }}}
 " --- toml {{{
 
-Plug 'cespare/vim-toml', { 'for': [ 'journal', 'markdown', 'toml' ] }
+Plug 'cespare/vim-toml', { 'for': [ 'finn', 'journal', 'markdown', 'toml' ] }
 
 " --- end toml }}}
 
