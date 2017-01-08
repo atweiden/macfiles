@@ -148,6 +148,11 @@ Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
 Plug 'cespare/vim-toml', { 'for': [ 'finn', 'journal', 'markdown', 'toml' ] }
 
 " --- end toml }}}
+" --- vim {{{
+
+Plug 'vim-jp/syntax-vim-ex', { 'for': 'vim' }
+
+" --- end vim }}}
 
 " end languages }}}
 
