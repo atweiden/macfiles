@@ -11,6 +11,9 @@ Arpeggio cnoremap jk <C-C>
 " visually select the text that was last edited/pasted
 nnoremap <expr> gV '`[' . strpart(getregtype(), 0, 1) . '`]'
 
+" visually select the last inserted text
+nnoremap g. :normal! `[v`]<CR><Left>
+
 " preserve selection when indenting
 vnoremap > >gv
 vnoremap < <gv
