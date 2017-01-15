@@ -419,7 +419,7 @@ export FZF_DEFAULT_OPTS='
 [[ -n "$_has_tree" ]] \
   && export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -$LINES'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden --bind ?:toggle-preview"
-preview-file() {
+preview_file() {
   local mime="$(file --mime "$1")"
   if [[ "$mime" =~ directory ]]; then
     tree -C "$1"
@@ -429,8 +429,8 @@ preview-file() {
     echo "$1 is a binary file"
   fi
 }
-export -f preview-file
-export FZF_CTRL_T_OPTS="--preview 'preview-file {} | head -200'"
+export -f preview_file
+export FZF_CTRL_T_OPTS="--preview 'preview_file {} | head -200'"
 
 # create fzf key bindings
 [[ -e "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
