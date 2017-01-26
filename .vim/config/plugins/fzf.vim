@@ -10,6 +10,10 @@ let g:fzf_command_prefix = 'FZF'
 " jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
+" preview files using highlight
+let g:fzf_files_options = printf('--preview "%s {} | head -'.&lines.'"',
+  \ g:plugs['fzf.vim'].dir.'/bin/preview.sh')
+
 " cat /usr/share/dict/words
 imap <C-X><C-K> <Plug>(fzf-complete-word)
 
