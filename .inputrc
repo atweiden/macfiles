@@ -37,6 +37,8 @@ set completion-query-items 200
 
 # Show extra file information when completing, like `ls -F` does
 set visible-stats on
+set colored-stats on
+set colored-completion-prefix on
 
 # Disable beep
 set bell-style none
@@ -54,3 +56,6 @@ set meta-flag on
 set input-meta on
 set convert-meta off
 set output-meta on
+
+# https://cirw.in/blog/bracketed-paste
+set enable-bracketed-paste on
