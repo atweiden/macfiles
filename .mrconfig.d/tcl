@@ -10,6 +10,9 @@ checkout = git clone 'https://github.com/andreas-kupries/atom'
 [blob]
 checkout = git clone 'https://github.com/andreas-kupries/blob'
 
+[bday]
+checkout = git clone 'https://github.com/gahr/bday'
+
 [bookflow]
 checkout = git clone 'https://github.com/andreas-kupries/bookflow'
 

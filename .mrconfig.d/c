@@ -79,6 +79,9 @@ checkout = git clone 'https://github.com/mpu/mlannot'
 [mpv]
 checkout = git clone 'https://github.com/mpv-player/mpv'
 
+[neomutt]
+checkout = git clone 'https://github.com/neomutt/neomutt'
+
 [neovim]
 checkout = git clone 'https://github.com/neovim/neovim'
 
