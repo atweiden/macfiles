@@ -369,6 +369,9 @@ for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do source "$_fn"; 
 # copy or tar files without ._ (dot underscore) files
 export COPYFILE_DISABLE=true
 
+# don't check mail when opening terminal
+unset MAILCHECK
+
 # end osx }}}
 # ==============================================================================
 # homebrew {{{
