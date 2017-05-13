@@ -108,24 +108,24 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 
 " --- end go }}}
-" --- journal / finn {{{
+" --- journal/finn {{{
 
 Plug 'junegunn/vim-journal', { 'for': 'journal' }
 Plug 'atweiden/vim-finn', { 'branch': 'finn', 'for': 'finn' }
 
-" --- end journal / finn }}}
+" --- end journal/finn }}}
 " --- markdown {{{
 
 Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 
 " --- end markdown }}}
-" --- perl / perl6 {{{
+" --- perl/perl6 {{{
 
 Plug 'vim-perl/vim-perl', { 'for': 'perl' }
 Plug 'vim-perl/vim-perl6', { 'for': 'perl6' }
 Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
 
-" --- end perl / perl6 }}}
+" --- end perl/perl6 }}}
 " --- toml {{{
 
 Plug 'cespare/vim-toml', { 'for': [ 'finn', 'journal', 'markdown', 'toml' ] }
