@@ -133,18 +133,6 @@ brew install --HEAD universal-ctags
 brew install erlang --with-native-libs --with-wxmac
 brew install elixir elixir-build exenv
 
-# ocaml / reason [12]
-brew install opam --with-ocaml --with-camlp4 --with-aspcud
-opam init
-opam config setup -a
-opam update
-opam switch 4.02.3
-eval $(opam config env)
-opam pin add -y merlin 'https://github.com/the-lambda-church/merlin.git#reason-0.0.1'
-opam pin add -y merlin_extend 'https://github.com/let-def/merlin-extend.git#reason-0.0.1'
-opam pin add -y reason 'https://github.com/facebook/reason.git#0.0.6'
-opam install annot ocp-indent utop
-
 # mac settings
 ./mac.sh
 
@@ -259,4 +247,3 @@ Little Snitch
 [9] https://github.com/tadzik/rakudobrew
 [10] https://github.com/atweiden/iterm2-seoul256-night
 [11] https://iterm2.com/faq.html
-[12] https://github.com/facebook/reason/blob/4dd9e85c24ea72a129142b238f6e2a073872d01f/README.md

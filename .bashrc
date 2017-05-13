@@ -146,17 +146,6 @@ PATH="$HOME/.bin:$PATH"
 MANPATH="/usr/local/opt/erlang/lib/erlang/man:$MANPATH"
 
 # --- end erlang }}}
-# --- ocaml {{{
-
-# (opam config env) https://github.com/ocaml/opam-repository/issues/584
-PATH="$HOME/.opam/4.02.3/bin:$PATH"
-MANPATH="$HOME/.opam/4.02.3/man:$MANPATH"
-export CAML_LD_LIBRARY_PATH="$HOME/.opam/4.02.3/lib/stublibs:/usr/lib/ocaml/stublibs"
-export PERL5LIB="$HOME/.opam/4.02.3/lib/perl5:$PERL5LIB"
-export OCAML_TOPLEVEL_PATH="$HOME/.opam/4.02.3/lib/toplevel:$OCAML_TOPLEVEL_PATH"
-export OPAMUTF8MSGS="1"
-
-# --- end ocaml }}}
 # --- perl6 {{{
 
 # from output of `~/.rakudobrew/bin/rakudobrew init -`

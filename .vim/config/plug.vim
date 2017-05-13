@@ -119,23 +119,6 @@ Plug 'atweiden/vim-finn', { 'branch': 'finn', 'for': 'finn' }
 Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 
 " --- end markdown }}}
-" --- ocaml / reason {{{
-
-Plug 'rgrinberg/vim-ocaml', { 'for': [ 'merlin', 'ocaml', 'omlet' ] }
-Plug '~/.opam/4.02.3/share/merlin', { 'for': [ 'merlin',
-                                             \ 'ocaml',
-                                             \ 'omlet',
-                                             \ 'reason' ],
-                                    \ 'rtp': 'vim' }
-Plug '~/.opam/4.02.3/share/ocp-indent', { 'for': [ 'merlin',
-                                                 \ 'ocaml',
-                                                 \ 'omlet',
-                                                 \ 'reason' ],
-                                        \ 'rtp': 'vim' }
-Plug '~/.opam/4.02.3/share/reason', { 'for': 'reason',
-                                    \ 'rtp': 'editorSupport/VimReason' }
-
-" --- end ocaml / reason }}}
 " --- perl / perl6 {{{
 
 Plug 'vim-perl/vim-perl', { 'for': 'perl' }
