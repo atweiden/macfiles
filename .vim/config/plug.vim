@@ -119,6 +119,11 @@ Plug 'atweiden/vim-finn', { 'branch': 'finn', 'for': 'finn' }
 Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 
 " --- end markdown }}}
+" --- nim {{{
+
+Plug 'baabelfish/nvim-nim', { 'for': 'nim' }
+
+" --- end nim }}}
 " --- perl/perl6 {{{
 
 Plug 'vim-perl/vim-perl', { 'for': 'perl' }
