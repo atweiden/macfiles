@@ -88,7 +88,7 @@ Plug 'tpope/vim-tbone'
 
 " --- c/c++ {{{
 
-Plug 'vim-jp/vim-cpp', { 'for': [ 'c', 'cpp' ] }
+Plug 'vim-jp/vim-cpp',                   { 'for': [ 'c', 'cpp' ] }
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': [ 'c', 'cpp' ] }
 
 " --- end c/c++ }}}
@@ -104,14 +104,14 @@ Plug 'elixir-lang/vim-elixir', { 'for': [ 'eelixir', 'elixir' ] }
 " --- end elixir }}}
 " --- go {{{
 
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go',        { 'for': 'go' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 
 " --- end go }}}
 " --- journal/finn {{{
 
 Plug 'junegunn/vim-journal', { 'for': 'journal' }
-Plug 'atweiden/vim-finn', { 'branch': 'finn', 'for': 'finn' }
+Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
 
 " --- end journal/finn }}}
 " --- markdown {{{
@@ -126,8 +126,8 @@ Plug 'baabelfish/nvim-nim', { 'for': 'nim' }
 " --- end nim }}}
 " --- perl/perl6 {{{
 
-Plug 'vim-perl/vim-perl', { 'for': 'perl' }
-Plug 'vim-perl/vim-perl6', { 'for': 'perl6' }
+Plug 'vim-perl/vim-perl',              { 'for': 'perl' }
+Plug 'vim-perl/vim-perl6',             { 'for': 'perl6' }
 Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
 
 " --- end perl/perl6 }}}
