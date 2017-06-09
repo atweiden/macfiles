@@ -5,8 +5,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 augroup indent-guides
   autocmd!
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#FEFFFE ctermbg=234
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#FBFBFB ctermbg=235
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#FBFBFB ctermbg=234
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#F7F7F7 ctermbg=235
 augroup END
 
 " enable default mapping <leader>ig for toggling indent-guides
