@@ -8,10 +8,4 @@ let g:perl_no_extended_vars = 1
 " use extra pod syntax highlighting
 let g:perl_include_pod = 1
 
-" enable perl6 folding
-let g:perl6_fold = 1
-
-" highlight perl5 style regexes when detected in perl6 code
-let g:perl6_perl5_regexes = 1
-
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
