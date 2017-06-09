@@ -1,4 +1,4 @@
-for fpath in split(globpath($FUNPATH, '*.vim'), '\n')
+for fpath in split(globpath($CFGPATH.'/functions', '*.vim'), '\n')
   execute 'source' fpath
 endfor
 
