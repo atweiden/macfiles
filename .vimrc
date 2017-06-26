@@ -1,4 +1,5 @@
-set nocompatible
+" to avoid side effects when reloading vimrc, only set nocp when needed
+if &compatible | set nocompatible | endif
 
 let $VIMPATH=expand('~/.vim')
 let $CFGPATH=$VIMPATH.'/config'
