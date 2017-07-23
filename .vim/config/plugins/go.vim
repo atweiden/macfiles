@@ -50,6 +50,9 @@ let g:go_highlight_generate_tags = 1
 " Highlight printf-style operators inside string literals
 let g:go_highlight_format_strings = 1
 
+" Enable folding of { .. }, import, var and const blocks
+let g:go_fold_enable = ['block', 'import', 'varconst']
+
 " Disable pre-filling new Go buffers
 let g:go_template_autocreate = 0
 
