@@ -429,6 +429,13 @@ unset MAILCHECK
 
 # end osx }}}
 # ==============================================================================
+# beam {{{
+
+# enable repl history
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# end beam }}}
+# ==============================================================================
 # homebrew {{{
 
 # opt out of Homebrew's analytics
