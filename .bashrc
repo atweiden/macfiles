@@ -82,6 +82,11 @@ shopt -s histverify
 # ==============================================================================
 # terminal settings {{{
 
+# --- terminfo {{{
+
+export TERMINFO="/usr/local/Cellar/ncurses/6.0_3/share/terminfo"
+
+# --- end terminfo }}}
 # --- display {{{
 
 if [[ "x$DISPLAY" != "x" ]]; then
@@ -97,7 +102,7 @@ fi
 if [[ "$TERM" == "screen" && "$HAS_256_COLORS" == "yes" ]]; then
   export TERM=screen-256color
 elif [[ "$TERM" == "tmux" && "$HAS_256_COLORS" == "yes" ]]; then
-  export TERM=screen-256color
+  export TERM=tmux-256color
 fi
 
 # --- end display }}}
@@ -136,6 +141,11 @@ MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 
 # --- end gnu }}}
+# --- ncurses {{{
+
+PATH="/usr/local/opt/ncurses/bin:$PATH"
+
+# --- end ncurses }}}
 # --- dotfiles {{{
 
 PATH="$HOME/.bin:$PATH"
