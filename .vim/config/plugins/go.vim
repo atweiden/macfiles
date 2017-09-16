@@ -29,6 +29,12 @@ let g:go_highlight_string_spellcheck = 0
 " Highlight operators such as `:=` , `==`, `-=`, etc
 let g:go_highlight_operators = 1
 
+" Highlight variable declarations (`:=`)
+let g:go_highlight_variable_declarations = 1
+
+" Highlight variable assignments (`=`)
+let g:go_highlight_variable_assignments = 1
+
 " Highlight function names
 let g:go_highlight_functions = 1
 
