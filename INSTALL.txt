@@ -16,6 +16,8 @@ _packages=('ack'
            'colordiff'
            'darkhttpd'
            'dnscrypt-proxy'
+           'elixir'
+           'erlang'
            'exiftool'
            'ffmpeg'
            'findutils'
@@ -130,9 +132,9 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 
-# erlang / elixir
-brew install erlang --with-native-libs --with-wxmac
-brew install elixir elixir-build exenv
+# tmux-xpanes
+brew tap greymd/tools
+brew install tmux-xpanes
 
 # mac settings
 ./mac.sh
