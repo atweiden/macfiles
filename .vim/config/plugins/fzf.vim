@@ -1,6 +1,3 @@
-" mvim fzf
-let g:fzf_launcher = '~/.bin/iterm2-run %s'
-
 " save fzf history in $VIMPATH
 let g:fzf_history_dir = $VIMPATH.'/.fzf-history'
 
