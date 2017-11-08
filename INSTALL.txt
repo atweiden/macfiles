@@ -39,6 +39,7 @@ _packages=('ack'
            'mercurial'
            'mobile-shell'
            'moreutils'
+           'neovim'
            'openvpn'
            'p7zip'
            'perl'
@@ -58,7 +59,6 @@ _packages=('ack'
            'sqlite'
            'sshuttle'
            'ssss'
-           'the_platinum_searcher'
            'the_silver_searcher'
            'tor'
            'torsocks'
@@ -118,12 +118,8 @@ brew install macvim --with-luajit --with-python3 --HEAD
 brew linkapps macvim
 
 # neovim
-brew tap neovim/neovim
-brew install neovim/neovim/neovim
-#brew install --HEAD --with-release neovim
-#brew update
-#brew reinstall --HEAD neovim
-pip3 install neovim
+pip3 install [-U] neovim
+pip2 install [-U] neovim
 mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
