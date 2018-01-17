@@ -35,11 +35,11 @@ let g:go_highlight_variable_declarations = 1
 " Highlight variable assignments (`=`)
 let g:go_highlight_variable_assignments = 1
 
-" Highlight function names
-let g:go_highlight_functions = 1
+" Highlight function and method declarations.
+let g:go_highlight_functions = 0
 
-" Highlight method names
-let g:go_highlight_methods = 1
+" Highlight function and method calls.
+let g:go_highlight_function_calls = 0
 
 " Highlight struct and interface names
 let g:go_highlight_types = 1
