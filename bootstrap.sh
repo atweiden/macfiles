@@ -9,8 +9,8 @@
 _usage_function() {
 read -r -d '' _usage_string <<'EOF'
 Usage:
-  bootstrap [-h|--help]
-  bootstrap [-n|--name <name>] [-e|--email <email>] [-g|--github <github>]
+  ./bootstrap.sh [-h|--help]
+  ./bootstrap.sh [-n|--name <name>] [-e|--email <email>] [-g|--github <github>]
 
 Options:
   -h, --help
