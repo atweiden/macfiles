@@ -58,7 +58,10 @@ _gpg_keys+=('2D3D2D03910C6504C1210C65EE60C0C8EE7256A8'
 # nginx (https://nginx.org/en/pgp_keys.html)
 _gpg_keys+=('573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62')
 
-# perl6 (https://rakudo.perl6.org/downloads/rakudo/)
+# perl6
+# (https://github.com/MoarVM/MoarVM/issues/186)
+_gpg_keys+=('E2AEB3D93FB3940B844C9E08A68DF012C3881D62')
+# (https://rakudo.perl6.org/downloads/rakudo/)
 _gpg_keys+=('E1A575CCC2D58C7AA5609FE14710D9D434A4A3C6')
 
 # ricochet (https://ricochet.im)
