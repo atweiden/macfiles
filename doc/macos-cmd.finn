@@ -1,0 +1,76 @@
+useful commands
+===============
+
+copy photos from iphone import:
+
+```sh
+cp /Users/rosa/Pictures/Photos\ Library.photoslibrary/Masters/2017/09/30/20170930-014311/IMG_0214.JPG ~/dad.jpg
+```
+
+convert jpgs into pdf:
+
+```sh
+brew install imagemagick
+convert $(ls -v *.jpg) document.pdf
+```
+
+disk usage:
+
+```sh
+ncdu /
+```
+
+homebrew:
+
+```sh
+# view formulae
+vim /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/just.rb
+vim /usr/local/Homebrew/Library/Taps/caskroom/homebrew-cask/Casks/adium.rb
+
+# clear cache
+brew --cache
+find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec echo rm -rf '{}' \;
+find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec rm -rf '{}' \;
+```
+
+python:
+
+```sh
+pip2 install --upgrade pip setuptools wheel
+pip3 install --upgrade pip setuptools wheel
+pip2 install ipython ptpython
+pip3 install ipython ptpython
+```
+
+neovim:
+
+```sh
+pip2 install -U neovim
+pip3 install -U neovim
+```
+
+open second instance of iTerm2:
+
+```sh
+open -n -a iTerm
+```
+
+perl6:
+
+```sh
+git clone https://github.com/tadzik/rakudobrew ~/.rakudobrew
+rakudobrew build moar 2018.02
+rakudobrew build zef
+zef update
+zef install Debugger::UI::CommandLine Grammar::Debugger
+zef list --installed
+echo '# vim: set filetype=perl6 foldmethod=marker foldlevel=0:' > Module.pm6
+rm -rf lib/.precomp/
+export PERL6LIB=lib
+```
+
+secure delete:
+
+```sh
+srm -mz file
+```
