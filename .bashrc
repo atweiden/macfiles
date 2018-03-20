@@ -126,6 +126,11 @@ unset PATH MANPATH
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 # --- end defaults }}}
+# --- dotfiles {{{
+
+PATH="$HOME/.bin:$PATH"
+
+# --- end dotfiles }}}
 # --- gnu {{{
 
 # use GNU tools on OSX instead of BSD
@@ -146,16 +151,6 @@ MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 PATH="/usr/local/opt/ncurses/bin:$PATH"
 
 # --- end ncurses }}}
-# --- dotfiles {{{
-
-PATH="$HOME/.bin:$PATH"
-
-# --- end dotfiles }}}
-# --- erlang {{{
-
-MANPATH="/usr/local/opt/erlang/lib/erlang/man:$MANPATH"
-
-# --- end erlang }}}
 # --- perl6 {{{
 
 # from output of `~/.rakudobrew/bin/rakudobrew init -`
