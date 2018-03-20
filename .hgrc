@@ -20,7 +20,7 @@ fetch =
 graphlog =
 histedit =
 automv =
-#largefiles =
+largefiles =
 pager =
 progress =
 purge =
@@ -32,7 +32,6 @@ hgext.gpg =
 hgext.hbisect=
 #hgext.mq =
 hgext.remotebranches = $HOME/.hgext/hg-remotebranches.py
-#rdiff = $HOME/.hgext/hg-rdiff.py
 
 [alias]
 show = log --stat --color=always -vpr

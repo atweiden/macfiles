@@ -56,7 +56,6 @@ from mercurial import context
 from mercurial import extensions
 from mercurial import hg
 from mercurial import node
-from mercurial import ui
 from mercurial import url
 from mercurial import util
 
@@ -68,13 +67,21 @@ except ImportError:
    revset = None
 
 try:
+    from mercurial import smartset
+    smartset.baseset
+except ImportError:
+    smartset = None
+
+
+try:
     from mercurial import templatekw
     # force demandimport to load templatekw
     templatekw.keywords
 except ImportError:
     templatekw = None
 
-testedwith = '1.7 1.8 1.9 2.0 2.9 3.1 3.2 3.3 3.4 3.5'
+testedwith = ('1.7 1.8 1.9 2.0 2.9 3.1 3.2 3.3 3.4 3.5 '
+              '3.6 3.7 3.8 3.9 4.0 4.1 4.2')
 
 from hgext import schemes
 
@@ -94,11 +101,11 @@ def expush(orig, repo, remote, *args, **kwargs):
             if path:
                 repo.saveremotebranches(path, remote.branchmap())
         except Exception, e:
-            ui.debug('remote branches for path %s not saved: %s\n'
+            repo.ui.debug('remote branches for path %s not saved: %s\n'
                      % (path, e))
     finally:
         lock.release()
-        return res
+    return res
 
 def expull(orig, repo, remote, *args, **kwargs):
     res = orig(repo, remote, *args, **kwargs)
@@ -109,11 +116,11 @@ def expull(orig, repo, remote, *args, **kwargs):
             if path:
                 repo.saveremotebranches(path, remote.branchmap())
         except Exception, e:
-            ui.debug('remote branches for path %s not saved: %s\n'
-                     % (path, e))
+            repo.ui.debug('remote branches for path %s not saved: %s\n'
+                          % (remote, e))
     finally:
         lock.release()
-        return res
+    return res
 
 if hasexchange:
     extensions.wrapfunction(exchange, 'push', expush)
@@ -150,7 +157,11 @@ def reposetup(ui, repo):
         @util.propertycache
         def _remotebranches(self):
             remotebranches = {}
-            bfile = self.join('remotebranches')
+            try:
+                bfile = self.vfs.join('remotebranches')
+            except AttributeError:
+                # old hg
+                bfile = self.join('remotebranches')
             if os.path.exists(bfile):
                 f = open(bfile)
                 for line in f:
@@ -178,7 +189,11 @@ def reposetup(ui, repo):
 
         def _activepath(self, remote):
             conf = config.config()
-            rc = self.join('hgrc')
+            try:
+                rc = self.vfs.join('hgrc')
+            except AttributeError:
+                # old hg
+                rc = self.join('hgrc')
             if os.path.exists(rc):
                 with open(rc) as fp:
                     conf.parse('.hgrc', fp.read(), include=conf.read)
@@ -232,7 +247,11 @@ def reposetup(ui, repo):
 
         def saveremotebranches(self, remote, bm):
             real = {}
-            bfile = self.join('remotebranches')
+            try:
+                bfile = self.vfs.join('remotebranches')
+            except AttributeError:
+                # old path
+                bfile = self.join('remotebranches')
             olddata = []
             existed = os.path.exists(bfile)
             if existed:
@@ -264,6 +283,13 @@ def upstream_revs(filt, repo, subset, x):
              repo._remotebranches.iteritems() if filt(name)]
     if not upstream_tips: []
 
+    if smartset is not None:
+        # 4.2 codepath
+        return repo.revs('::%ln', map(node.bin, upstream_tips))
+    if getattr(revset, 'baseset', False):
+        # 3.5 codepath
+        return revset.baseset(
+            repo.revs('::%ln', map(node.bin, upstream_tips)))
     ls = getattr(revset, 'lazyset', False)
     if ls:
         # If revset.lazyset exists (hg 3.0), use lazysets instead for
@@ -322,8 +348,13 @@ def remotebrancheskw(**args):
         remotenodes.setdefault(node, []).append(name)
     if ctx.node() in remotenodes:
         names = sorted(remotenodes[ctx.node()])
-        return templatekw.showlist('remotebranch', names,
-                                   plural='remotebranches', **args)
+        try:
+            return templatekw.showlist('remotebranch', names,
+                                       plural='remotebranches', **args)
+        except TypeError:
+            # changed in hg 4.2
+            return templatekw.showlist('remotebranch', names, args,
+                                       plural='remotebranches')
 
 if templatekw is not None:
     templatekw.keywords['remotebranches'] = remotebrancheskw
