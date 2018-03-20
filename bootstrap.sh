@@ -125,4 +125,10 @@ gsed -i "s#yourgithubacct#$github#" "$HOME/.gitconfig"
 gsed -i "s#yourname#$name#"         "$HOME/.hgrc"
 gsed -i "s#youremail#$email#"       "$HOME/.hgrc"
 
+
+# -----------------------------------------------------------------------------
+# permissions
+
+chmod 700 "$HOME/.gnupg" "$HOME/.ssh"
+
 # vim: set filetype=sh foldmethod=marker foldlevel=0:
