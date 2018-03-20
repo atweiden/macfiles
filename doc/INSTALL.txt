@@ -92,6 +92,7 @@ _casks=('adium'
         'torbrowser'
         'veracrypt'
         'virtualbox'
+        'virtualbox-extension-pack'
         'vlc'
         'vmware-fusion')
 
