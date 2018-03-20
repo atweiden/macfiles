@@ -35,13 +35,13 @@ hgext.remotebranches = $HOME/.hgext/hg-remotebranches.py
 
 [alias]
 show = log --stat --color=always -vpr
-slog = log --style=$HOME/.hgmap/map-cmdline.slog
-nlog = log --style=$HOME/.hgmap/map-cmdline.nlog
-sglog = glog --style=$HOME/.hgmap/map-cmdline.sglog
+slog = log --style=$HOME/.hgmap/slog
+nlog = log --style=$HOME/.hgmap/nlog
+sglog = glog --style=$HOME/.hgmap/sglog
 gslog = sglog
-lga = glog --style=$HOME/.hgmap/map-cmdline.lg
+lga = glog --style=$HOME/.hgmap/lg
 lg = lga --rev 'ancestors(.)'
-dlog = log --style=$HOME/.hgmap/map-cmdline.dlog
+dlog = log --style=$HOME/.hgmap/dlog
 st = st -S
 og = outgoing -r .
 crecord = !$HG commit -i
@@ -49,7 +49,7 @@ crecord = !$HG commit -i
 # what did I do
 today = !hg log --template '{rev} {desc|firstline|strip}\n' -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')') and date(-1), -date)"
 lastweek = !hg log --template '{rev} {date|shortdate} {desc|firstline|strip}\n' -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')') and date(-8), -date)"
-changelog = !hg log --style=$HOME/.hgmap/map-cmdline.changelog -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')'), -date)"
+changelog = !hg log --style=$HOME/.hgmap/changelog -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')'), -date)"
 
 # what points can I update to
 points = !echo '---- Branches' && hg branches; echo '---- Tags' && hg tags; echo '---- Bookmarks' && hg book
