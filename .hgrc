@@ -15,11 +15,11 @@ git = True
 track.current = True
 
 [extensions]
+automv =
 color =
 fetch =
 graphlog =
 histedit =
-automv =
 largefiles =
 pager =
 progress =
@@ -34,47 +34,43 @@ hgext.hbisect=
 hgext.remotebranches = $HOME/.hgext/remotebranches.py
 
 [alias]
-show = log --stat --color=always -vpr
-slog = log --style=$HOME/.hgmap/slog
-nlog = log --style=$HOME/.hgmap/nlog
-sglog = glog --style=$HOME/.hgmap/sglog
-gslog = sglog
-lga = glog --style=$HOME/.hgmap/lg
-lg = lga --rev 'ancestors(.)'
-dlog = log --style=$HOME/.hgmap/dlog
-st = st -S
-og = outgoing -r .
+# shortcuts
 crecord = !$HG commit -i
-
-# what did I do
-today = !hg log --template '{rev} {desc|firstline|strip}\n' -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')') and date(-1), -date)"
-lastweek = !hg log --template '{rev} {date|shortdate} {desc|firstline|strip}\n' -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')') and date(-8), -date)"
-changelog = !hg log --style=$HOME/.hgmap/changelog -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')'), -date)"
-
-# what points can I update to
-points = !echo '---- Branches' && hg branches; echo '---- Tags' && hg tags; echo '---- Bookmarks' && hg book
-
-# nuke everything in the working copy
-nuke = !hg up -C . && hg clean
-
+og = outgoing -r .
+st = st -S
 # safer push
 nudge = push --rev .
-
-# note: if `hg commit --amend` fails, using retry-commit won't amend
+# nuke everything in the working copy
+nuke = !hg up -C . && hg clean
+# NOTE: if `hg commit --amend` fails, retry-commit won't amend
 retry-commit = !EDITOR="vim -c 'r $(hg root)/.hg/last-message.txt'" hg commit
+# pretty printing
+dlog = log --style=$HOME/.hgmap/dlog
+lg = glog --style=$HOME/.hgmap/lg
+lga = lg --rev 'ancestors(.)'
+nlog = log --style=$HOME/.hgmap/nlog
+sglog = glog --style=$HOME/.hgmap/sglog
+show = log --stat --color=always -vpr
+slog = log --style=$HOME/.hgmap/slog
+# history
+changelog = !hg log --style=$HOME/.hgmap/changelog -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')'), -date)"
+lastweek = !hg log --template '{rev} {date|shortdate} {desc|firstline|strip}\n' -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')') and date(-8), -date)"
+today = !hg log --template '{rev} {desc|firstline|strip}\n' -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')') and date(-1), -date)"
+# updates
+points = !echo '---- Branches' && hg branches; echo '---- Tags' && hg tags; echo '---- Bookmarks' && hg book
 
 [color]
-status.modified = magenta bold
 status.added = green bold
-status.removed = red bold
 status.deleted = cyan bold
-status.unknown = blue bold
 status.ignored = black bold
+status.modified = magenta bold
+status.removed = red bold
+status.unknown = blue bold
 
 [pager]
+attend = annotate, cat, diff, dlog, export, glog, lg, lga, log, nlog, outgoing, qdiff, sglog, show, slog
+# NOTE: this can be temporarily disabled with `--pager=off`
 pager = LESS='FSRX' less
-attend = annotate, cat, diff, dlog, export, glog, gslog, lg, lga, log, nlog, outgoing, qdiff, sglog, show, slog
-# note: this can be temporarily disabled with `--pager=off`
 
 [progress]
 delay = 1.5
