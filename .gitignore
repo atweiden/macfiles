@@ -45,3 +45,6 @@ Session.vim
 
 # Perl 6
 .precomp
+
+# NodeJS
+node_modules

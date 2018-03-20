@@ -1,42 +1,52 @@
 syntax: glob
 
 # Numerous always-ignore extensions
-*.err
 *.orig
-*.rej
-*.vi
-*.swp
-*.swo
-*~
 *.bak
-*.sass-cache
 
-# OS or Editor folders
-.DS_Store
+# Linux
+!.gitignore
+*~
+
+# Windows
 Thumbs.db
-.cache
-.project
-.settings
-.tmproj
-*.esproj
-nbproject
-*.sublime-project
-*.sublime-workspace
+Desktop.ini
 
-# Dreamweaver added files
-_notes
-dwsync.xml
+# Mac
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
 
-# Komodo
-*.komodoproject
-.komodotools
+# Vim
+.*.sw[a-z]
+*.un~
+Session.vim
 
-# Folders to ignore
-.hg
+# Mercurial
+/.hg/*
+*/.hg/*
+!.hgignore
+
+# SVN
+.svn/
+
+# CVS
+/CVS/*
+*/CVS/*
+.cvsignore
+*/.cvsignore
+
+# SubGit / SubHg
 .subgit
 .subhg
-.svn
-.CVS
-node_modules
+
+# Peru
+# https://github.com/buildinspace/peru
 .peru
+
+# Perl 6
 .precomp
+
+# NodeJS
+node_modules
