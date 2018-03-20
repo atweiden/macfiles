@@ -190,6 +190,7 @@ _has_nvim=$(command -v nvim)
 _has_perl6=$(command -v perl6)
 _has_pt=$(command -v pt)
 _has_rclone=$(command -v rclone)
+_has_rg=$(command -v rg)
 _has_rlwrap=$(command -v rlwrap)
 _has_subgit=$(command -v subgit)
 _has_subhg=$(command -v subhg)
@@ -267,7 +268,7 @@ alias egrep='egrep --ignore-case --color=auto'
 alias h\?='history | grep -v -E "grep|h\?" | grep "$@" -i --color=auto'
 alias l\?='ls -1F | grep "$@" -i --color=auto'
 alias p\?='ps -a -x -f | grep -v grep | grep "$@" -i --color=auto'
-[[ -n "$_has_ag" ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores --path-to-ignore=$HOME/.agignore'
+[[ -n "$_has_ag" ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores'
 alias locate='glocate --ignore-case'
 
 # --- end grepping }}}
@@ -461,29 +462,26 @@ export HOMEBREW_NO_ANALYTICS=1
 # ==============================================================================
 # fzf {{{
 
-# use ag/pt/ack as the default source for fzf
-if [[ -n "$_has_ag" ]]; then
-  export FZF_DEFAULT_COMMAND='ag --hidden --smart-case --nocolor --skip-vcs-ignores --path-to-ignore=$HOME/.agignore -g ""'
+# use rg/ag/pt/ack as the default source for fzf
+if [[ -n "$_has_rg" ]]; then
+  export FZF_DEFAULT_COMMAND='rg --hidden --smart-case --color never --ignore-vcs -g ""'
+elif [[ -n "$_has_ag" ]]; then
+  export FZF_DEFAULT_COMMAND='ag --hidden --smart-case --nocolor --skip-vcs-ignores -g ""'
 elif [[ -n "$_has_pt" ]]; then
   export FZF_DEFAULT_COMMAND='pt --hidden --nocolor -e -g=""'
 elif [[ -n "$_has_ack" ]]; then
   export FZF_DEFAULT_COMMAND='ack --nocolor --nopager -g ""'
 fi
 
-# use ag/pt/ack for ctrl-t completion
+# use rg/ag/pt/ack for ctrl-t completion
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# use ag/pt/ack for ** completion
+# use rg/ag/pt/ack for ** completion
 _fzf_compgen_path() {
-  if [[ -n "$_has_ag" ]]; then
-    ag \
-      --hidden \
-      --smart-case \
-      --nocolor \
-      --skip-vcs-ignores \
-      --path-to-ignore="$HOME/.agignore" \
-      -g "" \
-      "$1"
+  if [[ -n "$_has_rg" ]]; then
+    rg --hidden --smart-case --color never --ignore-vcs -g "" "$1"
+  elif [[ -n "$_has_ag" ]]; then
+    ag --hidden --smart-case --nocolor --skip-vcs-ignores -g "" "$1"
   elif [[ -n "$_has_pt" ]]; then
     pt --hidden --nocolor -e -g="" "$1"
   elif [[ -n "$_has_ack" ]]; then

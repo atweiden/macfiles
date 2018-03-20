@@ -181,9 +181,11 @@ set formatoptions+=l " Don't break long lines in insert mode
 set formatoptions+=1 " Don't break a line after a one-letter word
 set formatoptions+=j " Remove comment leader when joining two comments
 
-" use ag/pt/ack for grepping if available
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --smart-case\ --skip-vcs-ignores\ --path-to-ignore=$HOME/.agignore
+" use rg/ag/pt/ack for grepping if available
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading\ --color\ never\ --hidden\ --smart-case\ --ignore-vcs
+elseif executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --smart-case\ --skip-vcs-ignores
 elseif executable('pt')
   set grepprg=pt\ --nogroup\ --nocolor\ --hidden\ --nocolor\ -e
 elseif executable('ack')
