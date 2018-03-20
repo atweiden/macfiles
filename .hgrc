@@ -31,7 +31,7 @@ hgext.extdiff =
 hgext.gpg =
 hgext.hbisect=
 #hgext.mq =
-hgext.remotebranches = $HOME/.hgext/hg-remotebranches.py
+hgext.remotebranches = $HOME/.hgext/remotebranches.py
 
 [alias]
 show = log --stat --color=always -vpr
