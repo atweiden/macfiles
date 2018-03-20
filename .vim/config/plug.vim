@@ -99,7 +99,7 @@ Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 " --- end dart }}}
 " --- elixir {{{
 
-Plug 'elixir-lang/vim-elixir', { 'for': [ 'eelixir', 'elixir' ] }
+Plug 'elixir-editors/vim-elixir', { 'for': [ 'eelixir', 'elixir' ] }
 
 " --- end elixir }}}
 " --- go {{{
