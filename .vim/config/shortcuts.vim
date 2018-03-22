@@ -73,7 +73,7 @@ nnoremap <leader><leader>. /\.\s\s\+\w/s+1<CR>
 nnoremap <silent> <leader>w :w<CR>
 
 " sudo to write
-cnoremap w!! w !sudo tee % >/dev/null
+cnoremap w!! w !sudo tee '%' >/dev/null
 
 " expand %% to the path of the current buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
