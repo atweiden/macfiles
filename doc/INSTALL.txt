@@ -14,7 +14,10 @@ _packages=('ack'
            'binutils'
            'ccrypt'
            'colordiff'
+           'coreutils'
+           'curl'
            'darkhttpd'
+           'diffutils'
            'dnscrypt-proxy'
            'elixir'
            'erlang'
@@ -25,13 +28,16 @@ _packages=('ack'
            'gcc'
            'gdb'
            'git'
-           'gnupg'
-           'gnupg2'
            'gnu-sed'
            'gnu-tar'
+           'gnu-which'
+           'gnupg'
+           'gnutls'
            'go'
            'gotags'
            'gpg-agent'
+           'grep'
+           'gzip'
            'icdiff'
            'jhead'
            'jq'
@@ -67,6 +73,7 @@ _packages=('ack'
            'tree'
            'valgrind'
            'vim'
+           'watch'
            'wget'
            'xz'
            'youtube-dl')
@@ -112,16 +119,9 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash
 fi
 
-# coreutils
-brew install coreutils --with-gmp
-
 # dnscrypt-proxy
 # - specify --resolver-name=ns0.dnscrypt.is
 # sudo brew services start dnscrypt-proxy
-
-# curl
-brew install curl --with-gssapi --with-libidn --with-openssl
-brew link --force curl
 
 # vim
 brew install vim --with-luajit --with-python3 --with-tcl --with-override-system-vi --HEAD
@@ -140,10 +140,6 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 # universal-ctags
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
-
-# tmux-xpanes
-brew tap greymd/tools
-brew install tmux-xpanes
 
 # mac settings
 ./mac.sh
@@ -213,13 +209,13 @@ Configuration
 
 Remap capslock key to backspace with Seil
 
-System Settings
+System Preferences
 
-- System Settings -> Spotlight
+- System Preferences -> Spotlight
   - Search Results
     - uncheck "Bing Web Searches"
     - uncheck "Allow Spotlight Suggestions in Spotlight and Look up"
-- System Settings -> Keyboard
+- System Preferences -> Keyboard
   - Keyboard
     - Repeat: fastest
     - Delay: second shortest
@@ -235,6 +231,8 @@ System Settings
       - uncheck all
     - App Shortcuts
       - uncheck all
+- System Preferences -> Sound
+  - Show volume in menu bar
 
 Make ca-cert for mercurial
 
