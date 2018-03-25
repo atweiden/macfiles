@@ -79,6 +79,21 @@ _gpg_keys+=('EF6E286DDA85EA2A4BA7DE684E2C6E8793298290')
 # veracrypt (https://www.idrix.fr/Root/content/category/7/32/46/)
 _gpg_keys+=('993B7D7E8E413809828F0F29EB559C7C54DDD393')
 
-gpg --recv-keys "${_gpg_keys[@]}"
+# download pgp keys with curl because gpg --recv-keys "${_gpg_keys[@]}"
+# always hangs/fails on less than stellar network connections
+# credit: https://dev-notes.eu/2017/09/verify-and-setup-litecoin-core/
+_keyurl='https://sks-keyservers.net/pks/lookup?op=get&search=0x'
+_keydir="$HOME/.gnupg/public-keys"
+mkdir -p "$_keydir"
+for _keyid in "${_gpg_keys[@]}"; do
+  _url="${_keyurl}${_keyid}"
+  _key="${_keydir}/${_keyid}.asc"
+  curl --retry 7 --silent "$_url" | sed -n '1,/<pre>/d;/<\/pre>/q;p' > "$_key" &
+done
+wait
+for _keyid in "${_gpg_keys[@]}"; do
+  _key="${_keydir}/${_keyid}.asc"
+  gpg --import "$_key"
+done
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0:
