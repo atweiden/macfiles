@@ -10,6 +10,9 @@ $if mode=vi
     "jk": vi-movement-mode
 $endif
 
+# Don't bind control chars w/ special kernel treatment to readline equiv
+set bind-tty-special-chars off
+
 # Make <Ctrl-j> and <Ctrl-k> cycle through completions
 # Control-j: menu-complete
 # Control-k: menu-complete-backward

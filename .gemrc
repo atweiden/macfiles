@@ -4,6 +4,7 @@
 - https://gems.github.com
 :benchmark: false
 :update_sources: true
+gem: --user-install
 install: --no-rdoc --no-ri
 update: --no-rdoc --no-ri
 search: --remote
