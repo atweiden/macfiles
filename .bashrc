@@ -171,6 +171,11 @@ rakudobrew() {
   && PATH="$(perl6 -e 'say ~CompUnit::RepositoryRegistry.repository-for-name(q<site>)')/bin:$PATH"
 
 # --- end perl6 }}}
+# --- sqlite {{{
+
+PATH="/usr/local/opt/sqlite3/bin:$PATH"
+
+# --- end sqlite }}}
 
 export PATH MANPATH
 

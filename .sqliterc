@@ -1,0 +1,20 @@
+-- output formatting & useful info
+-- https://sqlite.org/cli.html
+.changes on
+.headers on
+.mode column
+.nullvalue NULL
+.timer on
+
+-- first prompt is MAIN, then CONTINUE
+-- neither prompt can exceed 20 characters
+.prompt "\033[36msqlite\033[33m>\033[0m " "\033[33m ...\033[0m "
+
+-- https://sqlite.org/different.html
+.print ""
+.print "\033[35mMay you do good and not evil.\033[0m"
+.print "\033[35mMay you find forgiveness for yourself and forgive others.\033[0m"
+.print "\033[35mMay you share freely, never taking more than you give.\033[0m"
+.print ""
+
+-- vim: set filetype=sql foldmethod=marker foldlevel=0:

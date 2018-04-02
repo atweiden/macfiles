@@ -32,3 +32,9 @@
 -- don't rollback the entire transaction if you typo a sql command,
 -- but only in interactive mode
 \set ON_ERROR_ROLLBACK interactive
+
+-- disable default pager
+\pset pager off
+
+-- nicer tables
+\pset linestyle unicode
