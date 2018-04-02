@@ -8,7 +8,7 @@
 
 -- first prompt is MAIN, then CONTINUE
 -- neither prompt can exceed 20 characters
-.prompt "\033[36msqlite\033[33m>\033[0m " "\033[33m ...\033[0m "
+.prompt "\033[36msql\033[33m>\033[0m " "\033[33m ...\033[0m "
 
 -- https://sqlite.org/different.html
 .print ""
