@@ -5,9 +5,6 @@ ssh = ssh -C
 ignore = $HOME/.hgignore
 interface = curses
 
-[web]
-cacerts = /etc/ssl/certs/ca-certificates.crt
-
 [diff]
 git = True
 
