@@ -74,3 +74,9 @@ secure delete:
 ```sh
 srm -mz file
 ```
+
+copy saved wifi password:
+
+- open *Keychain Access* application
+- ctrl-click target wifi network
+  - Copy Password to Clipboard
