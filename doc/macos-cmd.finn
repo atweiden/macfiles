@@ -28,6 +28,7 @@ vim /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/just.rb
 vim /usr/local/Homebrew/Library/Taps/caskroom/homebrew-cask/Casks/adium.rb
 
 # clear cache
+brew cleanup
 brew --cache
 find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec echo rm -rf '{}' \;
 find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec rm -rf '{}' \;
