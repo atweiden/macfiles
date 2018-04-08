@@ -84,7 +84,7 @@ shopt -s histverify
 
 # --- terminfo {{{
 
-export TERMINFO="/usr/local/Cellar/ncurses/6.0_3/share/terminfo"
+export TERMINFO="/usr/local/Cellar/ncurses/6.1/share/terminfo"
 
 # --- end terminfo }}}
 # --- display {{{
