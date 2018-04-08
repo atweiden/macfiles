@@ -10,7 +10,7 @@ Install Software
 _packages=('ack'
            'aria2'
            'bash'
-           'bash-completion2'
+           'bash-completion@2'
            'binutils'
            'ccrypt'
            'colordiff'
@@ -41,10 +41,13 @@ _packages=('ack'
            'icdiff'
            'jhead'
            'jq'
+           'llvm'
+           'macvim'
            'make'
            'mercurial'
            'mobile-shell'
            'moreutils'
+           'mr'
            'ncdu'
            'neovim'
            'openvpn'
@@ -53,7 +56,7 @@ _packages=('ack'
            'pod2man'
            'proxychains-ng'
            'python'
-           'python3'
+           'python@2'
            'qrencode'
            'rclone'
            'readline'
@@ -67,6 +70,7 @@ _packages=('ack'
            'sqlite'
            'sshuttle'
            'ssss'
+           'the_platinum_searcher'
            'the_silver_searcher'
            'tor'
            'torsocks'
@@ -120,26 +124,18 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
 fi
 
 # dnscrypt-proxy
-# - specify --resolver-name=ns0.dnscrypt.is
-# sudo brew services start dnscrypt-proxy
-
-# vim
-brew install vim --with-luajit --with-python3 --with-tcl --with-override-system-vi --HEAD
-
-# macvim
-brew install macvim --with-luajit --with-python3 --HEAD
-brew linkapps macvim
+sudo brew services start dnscrypt-proxy
 
 # neovim
-pip3 install [-U] neovim
-pip2 install [-U] neovim
-mkdir -p ~/.config
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
+pip3 install --upgrade neovim
+pip2 install --upgrade neovim
 
 # universal-ctags
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
+
+# fzf-extras
+git clone https://github.com/atweiden/fzf-extras ~/.fzf-extras
 
 # mac settings
 ./mac.sh
@@ -159,46 +155,19 @@ brew cask install "${_casks[@]}"
 brew cleanup
 ```
 
-seil [1]
-
-tmux patched [2]
-
-monaco for powerline [3]
-
-vim-plug [4]
-
-vim plugins [5]
-
-fzf-extras [6]
-
-f.lux [7]
-
-myrepos [8]
-
-rakudobrew [9]
-
-iTerm2 seoul256 colorscheme [10]
-
-iTerm2 alt keybindings [11]
+More applications:
+- tmux patched [1]
+- monaco for powerline [2]
+- iTerm2 seoul256 colorscheme [3]
+- iTerm2 alt keybindings [4]
+- rakudobrew [5]
 
 
 Bootstrap
 ---------
 
-*Be sure to customize name, email, github before running bootstrap.*
-
 ```sh
 ./bootstrap.sh
-```
-
-
-Plug
-----
-
-```sh
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall +qa
 ```
 
 
@@ -210,7 +179,6 @@ Configuration
 Remap capslock key to backspace with Seil
 
 System Preferences
-
 - System Preferences -> Spotlight
   - Search Results
     - uncheck "Bing Web Searches"
@@ -234,26 +202,17 @@ System Preferences
 - System Preferences -> Sound
   - Show volume in menu bar
 
-Make ca-cert for mercurial
-
-- `cacerts = /etc/ssl/certs/ca-certificates.crt`
-  - resolved: https://www.mercurial-scm.org/wiki/CACertificates#Mac_OS_X_10.6_and_higher
-
 Little Snitch
 
-`/usr/local/Caskroom/little-snitch/3.6.4/Little\ Snitch\ Installer.app/Contents/MacOS/Little\ Snitch\ Installer`
+```
+/usr/local/Caskroom/little-snitch/3.6.4/Little\ Snitch\ Installer.app/Contents/MacOS/Little\ Snitch\ Installer
+```
 
 
 ******************************************************************************
 
-[1] https://pqrs.org/osx/karabiner/seil.html
-[2] https://github.com/atweiden/homebrew-formulae/tree/master/tmux
-[3] https://gist.github.com/rogual/6824790627960fc93077
-[4] https://github.com/junegunn/vim-plug
-[5] https://github.com/atweiden/pkgbuilds-plugged
-[6] https://github.com/atweiden/fzf-extras
-[7] https://justgetflux.com/
-[8] https://github.com/joeyh/myrepos
-[9] https://github.com/tadzik/rakudobrew
-[10] https://github.com/atweiden/iterm2-seoul256-night
-[11] https://iterm2.com/faq.html
+[1] https://github.com/atweiden/homebrew-formulae/tree/master/tmux
+[2] https://gist.github.com/rogual/6824790627960fc93077
+[3] https://github.com/atweiden/iterm2-seoul256-night
+[4] https://iterm2.com/faq.html
+[5] https://github.com/tadzik/rakudobrew
