@@ -4,7 +4,7 @@ useful commands
 copy photos from iphone import:
 
 ```sh
-cp /Users/rosa/Pictures/Photos\ Library.photoslibrary/Masters/2017/09/30/20170930-014311/IMG_0214.JPG ~/dad.jpg
+cp /Users/user/Pictures/Photos\ Library.photoslibrary/Masters/2017/09/30/20170930-014311/IMG_0214.JPG ~/dad.jpg
 ```
 
 convert jpgs into pdf:
