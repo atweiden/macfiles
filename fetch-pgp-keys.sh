@@ -2,6 +2,11 @@
 
 _keyids=()
 
+
+# -----------------------------------------------------------------------------
+# for linux
+# -----------------------------------------------------------------------------
+
 # alpine (https://www.alpinelinux.org/downloads/)
 _keyids+=('0482D84022F52DF1C4E7CD43293ACD0907D9495A')
 
@@ -31,8 +36,16 @@ _keyids+=('CF24B9C038097D8A44958E2C8DEBDA68B48282A4')
 # whonix (https://www.whonix.org/wiki/Whonix_Signing_Key)
 _keyids+=('916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA')
 
+
+# -----------------------------------------------------------------------------
+# for software
+# -----------------------------------------------------------------------------
+
 # bisq (https://github.com/bisq-network/exchange/releases)
 _keyids+=('1DC3C8C4316A698AC494039CF5B84436F379A1C6')
+
+# bitcoin (https://bitcoin.org/en/full-node#other-linux-distributions)
+_keyids+=('01EA5486DE18A882D4C2684590C8019E36C2E964')
 
 # cryfs (https://github.com/cryfs/cryfs/releases)
 _keyids+=('C3111FE656732704EF6DF059017DC932549E65B2')
@@ -58,6 +71,10 @@ _keyids+=('2D3D2D03910C6504C1210C65EE60C0C8EE7256A8'
 # nginx (https://nginx.org/en/pgp_keys.html)
 _keyids+=('573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62')
 
+# openssh (https://www.openssh.com/portable.html)
+_keyids+=('5D7AE3047AB6D4C340EBD3D4A819A2D8691EF8DA'
+          '59C2118ED206D927E667EBE3D3E5F56B6D920D30')
+
 # perl6
 # (https://github.com/MoarVM/MoarVM/issues/186)
 _keyids+=('E2AEB3D93FB3940B844C9E08A68DF012C3881D62')
@@ -67,17 +84,29 @@ _keyids+=('E1A575CCC2D58C7AA5609FE14710D9D434A4A3C6')
 # ricochet (https://ricochet.im)
 _keyids+=('9032CAE4CBFA933A5A2145D5FF97C53F183C045D')
 
+# rsync (https://rsync.samba.org/download.html)
+_keyids+=('0048C8B026D4C96F0E589C2F6C859FB14B96A8C5')
+
 # rust (https://www.rust-lang.org/en-US/other-installers.html)
 _keyids+=('108F66205EAEB0AAA8DD5E1C85AB96E6FA1BE5FE')
 
 # sylpheed (https://sylpheed.sraoss.jp/en/download.html)
 _keyids+=('8CF3A5AC417ADE72B0AA4A835024337CC00C2E26')
 
+# systemd (https://github.com/systemd/systemd/releases)
+_keyids+=('63CDA1E5D3FC22B998D20DD6327F26951A015CC4'
+          '5C251B5FC54EB2F80F407AAAC54CA336CFEB557E')
+
 # tor (https://www.torproject.org/docs/verifying-signatures.html.en)
 _keyids+=('EF6E286DDA85EA2A4BA7DE684E2C6E8793298290')
 
 # veracrypt (https://www.idrix.fr/Root/content/category/7/32/46/)
 _keyids+=('993B7D7E8E413809828F0F29EB559C7C54DDD393')
+
+
+# -----------------------------------------------------------------------------
+# import
+# -----------------------------------------------------------------------------
 
 # download pgp keys with curl because gpg --recv-keys "${_keyids[@]}"
 # always hangs/fails on less than stellar network connections
