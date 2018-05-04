@@ -480,6 +480,18 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # opt out of Homebrew's analytics
 export HOMEBREW_NO_ANALYTICS=1
 
+# don't leak GitHub username
+export HOMEBREW_NO_GITHUB_API=1
+
+# abort Cask installation if the Cask does not have a checksum defined
+export HOMEBREW_CASK_OPTS='--require-sha'
+
+# avoid protocol downgrades from HTTPS to HTTP via redirect
+#export HOMEBREW_NO_INSECURE_REDIRECT=1
+
+# disable automatic updates
+#export HOMEBREW_NO_AUTO_UPDATE=1
+
 # end homebrew }}}
 # ==============================================================================
 # fzf {{{
