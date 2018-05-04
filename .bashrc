@@ -551,6 +551,7 @@ export CRYFS_NO_UPDATE_CHECK=true
 # ==============================================================================
 # gpg {{{
 
+# configure pinentry to use the correct tty
 GPG_TTY=$(tty)
 export GPG_TTY
 
