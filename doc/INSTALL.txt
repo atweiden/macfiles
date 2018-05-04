@@ -138,9 +138,11 @@ brew install --HEAD universal-ctags
 git clone https://github.com/atweiden/fzf-extras ~/.fzf-extras
 
 # mac settings
-./mac.sh
+./macos.sh
 
-# osxlockdown (see also: https://objective-see.com/products.html)
+# osxlockdown
+# (see also: https://objective-see.com/products.html)
+# (see also: https://github.com/drduh/macOS-Security-and-Privacy-Guide)
 mkdir -p ~/.src/osxlockdown && cd ~/.src/osxlockdown
 export GOPATH="$PWD"
 go get -v -u github.com/SummitRoute/osxlockdown/...
