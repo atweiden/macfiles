@@ -97,6 +97,8 @@ nnoremap Q @q
 if has('digraphs')
   " (§) section sign
   digraph SS 167
+  " (ʹ) modifier letter prime
+  digraph '' 697
   " (฿) BTC
   digraph B\| 3647
   " (᚛) ogham feather mark
@@ -117,8 +119,6 @@ if has('digraphs')
   digraph qr 8221
   " (…) ellipsis
   digraph ., 8230
-  " (′) prime
-  digraph '' 8242
   " (⁅) left square bracket with quill
   digraph [- 8261
   " (⁆) right square bracket with quill
