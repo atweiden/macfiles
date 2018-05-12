@@ -22,17 +22,11 @@ export SUDO_EDITOR=rvim
 # --- end editor }}}
 # --- history {{{
 
-# don't put duplicate lines in the history. See bash(1) for more
-# options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoreboth
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTIGNORE="l:ls:cd:exit"
+export HISTCONTROL=ignoreboth
+export HISTIGNORE='l:ls:cd:exit'
 export HISTSIZE=
 export HISTFILESIZE=
-export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
+export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S:   '
 
 # --- end history }}}
 # --- locale {{{
