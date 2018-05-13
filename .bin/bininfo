@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# ----------------------------------------------------------------------------
+# bininfo: display data about a binary and its dependencies
+#
+# Inspired by https://github.com/intoli/exodus#how-it-works
+# ----------------------------------------------------------------------------
+
+# _usage() {{{
+
+_usage() {
+read -r -d '' _usage_string <<EOF
+Usage:
+  bininfo [-h|--help] <path> [<path> <path>..]
+
+Options:
+  -h, --help  Show this help text
+
+Positionals:
+  <path>      Path to binary
+EOF
+echo "$_usage_string"
+}
+
+# end _usage() }}}
+
+_POSITIONAL=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      _usage
+      exit 0
+      ;;
+    *)
+      _POSITIONAL+=("$1")
+      shift
+      ;;
+  esac
+done
+
+# restore positional params
+set -- "${_POSITIONAL[@]}"
+
+_bininfo() {
+  local _path
+
+  _path="$1"
+
+  if [[ -f "$_path" ]]; then
+    /usr/bin/file "$_path"
+    otool -L "$_path"
+  else
+    echo "Sorry, couldn't find existing readable file at '$_path'"
+    exit 1
+  fi
+}
+
+for _bin in "$@"; do
+  _bininfo "$_bin"
+done
+
+# vim:set filetype=sh foldmethod=marker foldlevel=0:
