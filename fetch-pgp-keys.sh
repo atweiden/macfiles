@@ -50,6 +50,9 @@ _keyids+=('01EA5486DE18A882D4C2684590C8019E36C2E964')
 # cryfs (https://github.com/cryfs/cryfs/releases)
 _keyids+=('C3111FE656732704EF6DF059017DC932549E65B2')
 
+# cryptsetup (https://gitlab.com/cryptsetup/cryptsetup/wikis/home)
+_keyids+=('2A2918243FDE46648D0686F9D9B0577BD93E98FC')
+
 # electrum (https://electrum.org/download.html)
 _keyids+=('6694D8DE7BE8EE5631BED9502BD5824B7F9470E6')
 
