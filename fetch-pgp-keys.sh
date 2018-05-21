@@ -4,7 +4,7 @@ _keyids=()
 
 
 # -----------------------------------------------------------------------------
-# for linux
+# for distros
 # -----------------------------------------------------------------------------
 
 # alpine (https://www.alpinelinux.org/downloads/)
@@ -22,6 +22,9 @@ _keyids+=('4AA4767BBC9C4B1D18AE28B77F2D434B9741E8AC'
 # archlinuxarm (https://archlinuxarm.org/about/downloads)
 _keyids+=('68B3537F39A313B3E574D06777193F152BDBE6A6')
 
+# freebsd (https://www.freebsd.org/releases/11.1R/signatures.html)
+_keyids+=('8D12403C2E6CAB086CF64DA3031458A5478FE293')
+
 # tails (https://tails.boum.org/doc/about/openpgp_keys/index.en.html#index2h1)
 _keyids+=('A490D0F4D311A4153E2BB7CADBB802B258ACD84F'
           '1F56EDD30741048035DAC1C5EC57B56EF0C43132'
@@ -38,14 +41,38 @@ _keyids+=('916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA')
 
 
 # -----------------------------------------------------------------------------
+# for kernels
+# -----------------------------------------------------------------------------
+
+# linux (https://www.kernel.org/signature.html)
+_keyids+=('ABAF11C65A2970B130ABE3C479BE3E4300411886'
+          '647F28654894E3BD457199BE38DBBDC86092693E')
+
+# linux-hardened
+# (https://github.com/anthraxx/linux-hardened/releases)
+_keyids+=('E240B57E2C4630BA768E2F26FC1B547C8D8172C8')
+# (https://github.com/copperhead/linux-hardened/releases)
+_keyids+=('65EEFE022108E2B708CBFCF7F9E712E59AF5F22A')
+
+
+# -----------------------------------------------------------------------------
 # for software
 # -----------------------------------------------------------------------------
+
+# bash (https://www.gnu.org/software/bash/)
+_keyids+=('7C0135FB088AAF6C66C650B9BB5869F064EA74AB')
+
+# bash-completion (https://github.com/scop/bash-completion/releases)
+_keyids+=('A558062B6D5DA1347CD468D52B0AE2C1B09B07CB')
 
 # bisq (https://github.com/bisq-network/exchange/releases)
 _keyids+=('1DC3C8C4316A698AC494039CF5B84436F379A1C6')
 
 # bitcoin (https://bitcoin.org/en/full-node#other-linux-distributions)
 _keyids+=('01EA5486DE18A882D4C2684590C8019E36C2E964')
+
+# boost (https://www.boost.org/users/download/)
+_keyids+=('8756C4F765C9AC3CB6B85D62379CE192D401AB61')
 
 # cryfs (https://github.com/cryfs/cryfs/releases)
 _keyids+=('C3111FE656732704EF6DF059017DC932549E65B2')
@@ -67,9 +94,24 @@ _keyids+=('D8692123C4065DEA5E0F3AB5249B39D24F25E3B6'
           '46CC730865BB5C78EBABADCF04376F3EE0856959'
           '5B80C5754298F0CB55D8ED6ABCEF7E294B092E28')
 
+# go
+# (https://github.com/golang/go/issues/14739)
+_keyids+=('EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796')
+# (https://www.google.com/linuxrepositories/)
+_keyids+=('4CCA1EAF950CEE4AB83976DCA040830F7FAC5991')
+
+# grub (https://www.gnu.org/software/grub/grub-download.html)
+_keyids+=('E53D497F3FA42AD8C9B4D1E835A93B74E82E4209')
+
 # i2p (https://geti2p.net/en/get-involved/develop/release-signing-key)
 _keyids+=('2D3D2D03910C6504C1210C65EE60C0C8EE7256A8'
           '2253E2A1EEB40E2A3D22EB1D0EC51FCDA94FB53E')
+
+# libressl (https://www.libressl.org/signing.html)
+_keyids+=('A1EB079B8D3EB92B4EBD3139663AF51BD5E4D8D5')
+
+# lnd (https://github.com/lightningnetwork/lnd/releases)
+_keyids+=('65317176B6857F98834EDBE8964EA263DD637C21')
 
 # nginx (https://nginx.org/en/pgp_keys.html)
 _keyids+=('573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62')
@@ -78,11 +120,22 @@ _keyids+=('573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62')
 _keyids+=('5D7AE3047AB6D4C340EBD3D4A819A2D8691EF8DA'
           '59C2118ED206D927E667EBE3D3E5F56B6D920D30')
 
+# openssl (https://www.openssl.org/community/omc.html)
+_keyids+=('8657ABB260F056B1E5190839D9C4D26D0E604491'
+          '5B2545DAB21995F4088CEFAA36CEE4DEB00CFE33'
+          'C1F33DD8CE1D4CC613AF14DA9195C48241FBF7DD'
+          '7953AC1FBC3DC8B3B292393ED5E9E43F7DF9EE8C'
+          'E5E52560DD91C556DDBDA5D02064C53641C25E5D'
+          'D099684DC7C21E02E14A8AFEF23479455C51B27C')
+
 # perl6
 # (https://github.com/MoarVM/MoarVM/issues/186)
 _keyids+=('E2AEB3D93FB3940B844C9E08A68DF012C3881D62')
 # (https://rakudo.perl6.org/downloads/rakudo/)
 _keyids+=('E1A575CCC2D58C7AA5609FE14710D9D434A4A3C6')
+
+# python (https://www.python.org/downloads/source/)
+_keyids+=('0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D')
 
 # ricochet (https://ricochet.im)
 _keyids+=('9032CAE4CBFA933A5A2145D5FF97C53F183C045D')
