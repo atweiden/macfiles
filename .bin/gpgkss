@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# ----------------------------------------------------------------------------
+# gpgkss: run gpg command with fallback keyservers
+# ----------------------------------------------------------------------------
+
+_keyservers=('hkps://hkps.pool.sks-keyservers.net'
+             'hkps://keyserver.ubuntu.com'
+             'hkps:/keys.indymedia.org'
+             'hkps://keys.mayfirst.org'
+             'hkps://keys.riseup.net'
+             'hkp://p80.pool.sks-keyservers.net'
+             'hkp://keyserver.ubuntu.com'
+             'hkp://keys.gnupg.net'
+             'http://http-keys.gnupg.net')
+
+for _keyserver in "${_keyservers[@]}"; do
+  gpg --keyserver "$_keyserver" "$@" && break || echo "Trying next keyserver..."
+done
