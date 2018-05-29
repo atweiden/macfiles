@@ -320,8 +320,8 @@ chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
 
 # Remove Dropbox’s green checkmark icons in Finder
-# file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-# [[ -e "$file" ]] && mv -f "$file" "${file}.bak"
+file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+[[ -e "$file" ]] && mv -f "$file" "${file}.bak"
 
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
@@ -772,3 +772,5 @@ for app in "Activity Monitor" \
   killall "$app" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
