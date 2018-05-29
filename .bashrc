@@ -233,7 +233,7 @@ fi
 # --- end diff }}}
 # --- directory navigation {{{
 
-alias ls='LC_COLLATE=C gls --color=auto --group-directories-first'
+alias ls='LC_COLLATE=C gls --color=auto --group-directories-first --time-style=long-iso'
 alias l='ls -1F'
 alias l1='ls -1AF'
 alias la='ls -aF'
