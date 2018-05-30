@@ -1,3 +1,4 @@
+# see also: https://github.com/cyrus-and/gdb-dashboard
 set confirm off
 set pagination off
 set print pretty on
