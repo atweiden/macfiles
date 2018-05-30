@@ -144,8 +144,8 @@ mkdir -p "$HOME/.config"
 gsed -i "s#yourname#$name#"         "$HOME/.config/git/config"
 gsed -i "s#youremail#$email#"       "$HOME/.config/git/config"
 gsed -i "s#yourgithubacct#$github#" "$HOME/.config/git/config"
-gsed -i "s#yourname#$name#"         "$HOME/.hgrc"
-gsed -i "s#youremail#$email#"       "$HOME/.hgrc"
+gsed -i "s#yourname#$name#"         "$HOME/.config/hg/hgrc"
+gsed -i "s#youremail#$email#"       "$HOME/.config/hg/hgrc"
 
 
 # -----------------------------------------------------------------------------

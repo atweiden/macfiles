@@ -2,7 +2,7 @@
 username = yourname <youremail>
 editor = vim
 ssh = ssh -C
-ignore = $HOME/.hgignore
+ignore = $HOME/.config/hg/ignore
 interface = curses
 
 [diff]
@@ -28,7 +28,7 @@ hgext.extdiff =
 hgext.gpg =
 hgext.hbisect=
 #hgext.mq =
-hgext.remotebranches = $HOME/.hgext/remotebranches.py
+hgext.remotebranches = $HOME/.config/hg/ext/remotebranches.py
 
 [alias]
 # shortcuts
@@ -42,15 +42,15 @@ nuke = !hg up -C . && hg clean
 # NOTE: if `hg commit --amend` fails, retry-commit won't amend
 retry-commit = !EDITOR="vim -c 'r $(hg root)/.hg/last-message.txt'" hg commit
 # pretty printing
-dlog = log --style=$HOME/.hgmap/dlog
-lg = glog --style=$HOME/.hgmap/lg
+dlog = log --style=$HOME/.config/hg/map/dlog
+lg = glog --style=$HOME/.config/hg/map/lg
 lga = lg --rev 'ancestors(.)'
-nlog = log --style=$HOME/.hgmap/nlog
-sglog = glog --style=$HOME/.hgmap/sglog
+nlog = log --style=$HOME/.config/hg/map/nlog
+sglog = glog --style=$HOME/.config/hg/map/sglog
 show = log --stat --color=always -vpr
-slog = log --style=$HOME/.hgmap/slog
+slog = log --style=$HOME/.config/hg/map/slog
 # history
-changelog = !hg log --style=$HOME/.hgmap/changelog -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')'), -date)"
+changelog = !hg log --style=$HOME/.config/hg/map/changelog -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')'), -date)"
 lastweek = !hg log --template '{rev} {date|shortdate} {desc|firstline|strip}\n' -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')') and date(-8), -date)"
 today = !hg log --template '{rev} {desc|firstline|strip}\n' -r "sort(user('$(hg showconfig ui.username | sed 's/.*<\(.*\)>/\1/')') and date(-1), -date)"
 # updates
