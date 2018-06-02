@@ -552,5 +552,13 @@ export GPG_TTY
 
 # end gpg }}}
 # ==============================================================================
+# pg {{{
+
+export PSQLRC="$HOME/.config/pg/psqlrc"
+export PGPASSFILE="$HOME/.config/pg/pgpass"
+export PGSERVICEFILE="$HOME/.config/pg/pg_service.conf"
+
+# end pg }}}
+# ==============================================================================
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
