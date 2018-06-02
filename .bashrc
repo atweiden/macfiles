@@ -220,6 +220,7 @@ PS1="\[\e[01;31m\]┌─[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME
 
 # --- dbs {{{
 
+[[ -n "$_has_sqlite3" ]] && alias sqlite3='sqlite3 -init $HOME/.config/sqlite3/sqliterc'
 [[ -n "$_has_sqlite3" ]] && alias sql='sqlite3 -interactive :memory:'
 
 # --- end dbs }}}
