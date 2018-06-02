@@ -268,7 +268,7 @@ alias bzip2='bzip2 -9'
 # --- end file compression }}}
 # --- gdb {{{
 
-[[ -n "$_has_gdb" ]] && alias gdb='gdb -q'
+[[ -n "$_has_gdb" ]] && alias gdb='gdb -q -nh -x $HOME/.config/gdb/init'
 
 # --- end gdb }}}
 # --- grepping {{{
