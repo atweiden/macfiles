@@ -180,6 +180,7 @@ export PATH MANPATH
 _has_ack=$(command -v ack)
 _has_ag=$(command -v ag)
 _has_colordiff=$(command -v colordiff)
+_has_curl=$(command -v curl)
 _has_erl=$(command -v erl)
 _has_gdb=$(command -v gdb)
 _has_icdiff=$(command -v icdiff)
@@ -218,6 +219,11 @@ PS1="\[\e[01;31m\]┌─[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME
 # ==============================================================================
 # aliases {{{
 
+# --- curl {{{
+
+[[ -n "$_has_curl" ]] && alias curl='curl --config $HOME/.config/curl/curlrc'
+
+# --- end curl }}}
 # --- dbs {{{
 
 [[ -n "$_has_sqlite3" ]] && alias sqlite3='sqlite3 -init $HOME/.config/sqlite3/sqliterc'
