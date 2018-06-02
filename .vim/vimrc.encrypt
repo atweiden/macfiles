@@ -1,4 +1,4 @@
-source ~/.vimrc
+source ~/.vim/vimrc
 set viminfo=
 set nobackup
 set noswapfile

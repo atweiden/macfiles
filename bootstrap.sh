@@ -134,7 +134,7 @@ mkdir -p "$HOME/.config"
 ! [[ -d "$HOME/.config/nvim" ]] \
   && ln -s "$HOME/.vim" "$HOME/.config/nvim"
 ! [[ -e "$HOME/.config/nvim/init.vim" ]] \
-  && ln -s "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
+  && ln -s "$HOME/.vim/vimrc" "$HOME/.config/nvim/init.vim"
 
 
 # -----------------------------------------------------------------------------
