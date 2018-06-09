@@ -29,6 +29,11 @@ export HISTFILESIZE=
 export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S:   '
 
 # --- end history }}}
+# --- less {{{
+
+export LESS='-EFRSX'
+
+# --- end less }}}
 # --- locale {{{
 
 export LANG=en_US.UTF-8
@@ -37,7 +42,7 @@ export LC_ALL=en_US.UTF-8
 # --- end locale }}}
 # --- man pages {{{
 
-export MANPAGER="less -X"
+export MANPAGER=less
 
 # --- end man pages }}}
 # --- safety {{{
