@@ -129,7 +129,7 @@ XTerm*colorUL: #00afd7
 
 # font
 XTerm*faceName: Monaco for Powerline
-XTerm*faceSize: 24
+XTerm*faceSize: 16
 
 # clipboard
 XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
