@@ -150,6 +150,11 @@ MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 PATH="/usr/local/opt/ncurses/bin:$PATH"
 
 # --- end ncurses }}}
+# --- openssl {{{
+
+PATH="/usr/local/opt/openssl/bin:$PATH"
+
+# --- end openssl }}}
 # --- perl6 {{{
 
 # from output of `~/.rakudobrew/bin/rakudobrew init -`
