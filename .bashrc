@@ -436,8 +436,8 @@ alias hr='printf "$(printf "\e["$(shuf -i 91-97 -n 1)";1m%%%ds\e[0m\n" "$(tput c
 # --- end text }}}
 # --- tmux {{{
 
-[[ -n $TMUX ]] && alias clear='clear; tmux clear-history'
-[[ -n $TMUX ]] && alias reset='reset; tmux clear-history'
+[[ -n "$TMUX" ]] && alias clear='clear; tmux clear-history'
+[[ -n "$TMUX" ]] && alias reset='reset; tmux clear-history'
 
 # --- end tmux }}}
 # --- vim {{{
