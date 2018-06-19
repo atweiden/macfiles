@@ -167,21 +167,6 @@ _keyids+=('993B7D7E8E413809828F0F29EB559C7C54DDD393')
 # import
 # -----------------------------------------------------------------------------
 
-# download pgp keys with curl because gpg --recv-keys "${_keyids[@]}"
-# always hangs/fails on less than stellar network connections
-# credit: https://dev-notes.eu/2017/09/verify-and-setup-litecoin-core/
-_keyurl='https://sks-keyservers.net/pks/lookup?op=get&search=0x'
-_keydir="$HOME/.gnupg/public-keys"
-mkdir -p "$_keydir"
-for _keyid in "${_keyids[@]}"; do
-  _url="${_keyurl}${_keyid}"
-  _key="${_keydir}/${_keyid}.asc"
-  curl --retry 7 --silent "$_url" | sed -n '1,/<pre>/d;/<\/pre>/q;p' > "$_key" &
-done
-wait
-for _keyid in "${_keyids[@]}"; do
-  _key="${_keydir}/${_keyid}.asc"
-  gpg --import "$_key"
-done
+gpg --recv-keys "${_keyids[@]}"
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0:
