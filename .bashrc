@@ -26,7 +26,6 @@ export HISTCONTROL=ignoreboth
 export HISTIGNORE='l:ls:cd:exit'
 export HISTSIZE=
 export HISTFILESIZE=
-export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S:   '
 
 # --- end history }}}
 # --- less {{{
