@@ -32,6 +32,12 @@ brew cleanup
 brew --cache
 find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec echo rm -rf '{}' \;
 find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec rm -rf '{}' \;
+
+# find formulae dependencies
+brew deps --include-build --include-optional --include-requirements icu4c
+
+# find formulae dependants
+brew uses --recursive --installed icu4c
 ```
 
 python:
