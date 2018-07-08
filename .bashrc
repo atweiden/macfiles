@@ -74,6 +74,9 @@ shopt -s histreedit
 # edit a recalled history line before executing
 shopt -s histverify
 
+# don't attempt completion if cmdline empty
+shopt -s no_empty_cmd_completion
+
 # --- end shopt }}}
 # --- tmpdir {{{
 
