@@ -202,6 +202,7 @@ _has_erl=$(command -v erl)
 _has_gdb=$(command -v gdb)
 _has_icdiff=$(command -v icdiff)
 _has_iex=$(command -v iex)
+_has_locate=$(command -v glocate)
 _has_mosh=$(command -v mosh)
 _has_mvim=$(command -v mvim)
 _has_nvim=$(command -v nvim)
@@ -301,14 +302,20 @@ alias bzip2='bzip2 -9'
 alias grep='grep --ignore-case --color=auto'
 alias fgrep='fgrep --ignore-case --color=auto'
 alias egrep='egrep --ignore-case --color=auto'
-alias h\?='history | grep -v -E "grep|h\?" | grep "$@" -i --color=auto'
-alias l\?='ls -1F | grep "$@" -i --color=auto'
-alias p\?='ps -a -x -f | grep -v grep | grep "$@" -i --color=auto'
+alias h\?='history | grep -v -E "grep|h\?" | grep "$@"'
+alias ls\?='ls -1F | grep "$@"'
+alias ps\?='ps -a -x -f | grep -v grep | grep "$@"'
 [[ -n "$_has_ack" ]] && alias ack='ack --ackrc=$HOME/.config/ack/ackrc'
 [[ -n "$_has_ag" ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores'
-alias locate='glocate --ignore-case'
+[[ -n "$_has_locate" ]] && alias locate='glocate --ignore-case'
 
 # --- end grepping }}}
+# --- ip {{{
+
+alias ip='drill -V 3 myip.opendns.com @resolver1.opendns.com | grep IN | tail -n 1 | cut -f5 -s'
+alias localip='ipconfig getifaddr en0'
+
+# --- end ip }}}
 # --- languages {{{
 
 # --- --- beam {{{
@@ -326,6 +333,11 @@ alias locate='glocate --ignore-case'
 # --- --- end perl6 }}}
 
 # --- end languages }}}
+# --- path {{{
+
+alias path='echo -e ${PATH//:/\\n}'
+
+# --- end path }}}
 # --- subrepo {{{
 
 [[ -n "$_has_subgit" ]] && alias sg='subgit'
@@ -354,6 +366,11 @@ alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 [[ -n "$_has_mosh" ]] && alias mosh='mosh -a'
 
 # --- end ssh }}}
+# --- stopwatch {{{
+
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# --- end stopwatch }}}
 # --- timestamp {{{
 
 alias dt='date --iso-8601=s'
