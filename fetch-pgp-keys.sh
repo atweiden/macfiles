@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 _keyids=()
 
 
@@ -167,6 +168,6 @@ _keyids+=('993B7D7E8E413809828F0F29EB559C7C54DDD393')
 # import
 # -----------------------------------------------------------------------------
 
-gpg --recv-keys "${_keyids[@]}"
+"$DIR/.bin/gpg-curl-keys" "${_keyids[@]}"
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0:

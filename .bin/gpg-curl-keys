@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# gpg-curl-keys: download pgp keys with curl
+#
+# credit: https://dev-notes.eu/2017/09/verify-and-setup-litecoin-core/
+# ----------------------------------------------------------------------------
+
+_usage() {
+read -r -d '' _usage_string <<'EOF'
+Usage:
+  gpg-curl-keys [-h|--help] <fingerprint> [<fingerprint> <fingerprint>..]
+  gpg-curl-keys 0482D84022F52DF1C4E7CD43293ACD0907D9495A
+
+Options:
+  -h, --help  Show this help text
+
+Positionals:
+  <fingerprint>      PGP key fingerprint without leading '0x'
+EOF
+echo "$_usage_string"
+}
+
+_keyids=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help) _usage; exit 0;;
+    *) _keyids+=("$1"); shift;;
+  esac
+done
+
+[[ ${#_keyids[@]} -gt 0 ]] \
+  || (echo 'Sorry, must pass at least one PGP key id'; exit 1)
+
+_keyurl='https://sks-keyservers.net/pks/lookup?op=get&search=0x'
+_keydir="$HOME/.gnupg/public-keys"
+mkdir -p "$_keydir"
+for _keyid in "${_keyids[@]}"; do
+  _url="${_keyurl}${_keyid}"
+  _key="${_keydir}/${_keyid}.asc"
+  curl --retry 7 --silent "$_url" | sed -n '1,/<pre>/d;/<\/pre>/q;p' > "$_key" &
+done
+wait
+for _keyid in "${_keyids[@]}"; do
+  _key="${_keydir}/${_keyid}.asc"
+  gpg --import "$_key"
+done
