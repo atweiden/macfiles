@@ -68,8 +68,7 @@ github="${_github:-atweiden}"         # Account (GitHub)
 # -----------------------------------------------------------------------------
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-mkdir -p "$HOME/.marks"    \
-         "$HOME/.src"      \
+mkdir -p "$HOME/.src"      \
          "$HOME/Desktop"   \
          "$HOME/Documents" \
          "$HOME/Downloads" \
