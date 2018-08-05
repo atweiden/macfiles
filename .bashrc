@@ -202,6 +202,7 @@ _has_erl=$(command -v erl)
 _has_gdb=$(command -v gdb)
 _has_icdiff=$(command -v icdiff)
 _has_iex=$(command -v iex)
+_has_irssi=$(command -v irssi)
 _has_locate=$(command -v glocate)
 _has_mosh=$(command -v mosh)
 _has_mvim=$(command -v mvim)
@@ -316,6 +317,12 @@ alias localip='ipconfig getifaddr en0'
 alias publicip='drill -V 3 myip.opendns.com @resolver1.opendns.com | grep IN | tail -n 1 | cut -f5 -s'
 
 # --- end ip }}}
+# --- irssi {{{
+
+[[ -n "$_has_irssi" ]] \
+  && alias irssi='irssi --config=$HOME/.config/irssi/config --home=$HOME/.config/irssi'
+
+# --- end irssi }}}
 # --- languages {{{
 
 # --- --- beam {{{
