@@ -167,7 +167,7 @@ settings = {
     user_name = "yourname";
     nick = "yourname";
     settings_autosave = "yes";
-    timestamp_format = "%I:%M";
+    timestamp_format = "%H:%M:00";
     server_reconnect_time = "15min";
     recode_fallback = "UTF-8";
     recode_out_default_charset = "UTF-8";
@@ -193,7 +193,10 @@ settings = {
     ban_type = "host";
     kick_first_on_kickban = "yes";
   };
-  "irc/flood" = { flood_timecheck = "0"; flood_max_msgs = "0"; };
+  "irc/flood" = {
+    flood_timecheck = "0";
+    flood_max_msgs = "0";
+  };
   "fe-common/core" = {
     theme = "themes/miromiro";
     show_names_on_join = "no";
