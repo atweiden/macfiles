@@ -59,7 +59,7 @@ statusbar = {
     # the "default statusbar" to be displayed at the bottom of the window.
     # contains all the normal items.
     window = {
-      disabled = "no";
+      disabled = "yes";
       # window, root
       type = "window";
       # top, bottom
@@ -67,7 +67,7 @@ statusbar = {
       # number
       position = "1";
       # active, inactive, always
-      visible = "active";
+      visible = "inactive";
 
       # list of items in statusbar in the display order
       items = {
@@ -97,6 +97,7 @@ statusbar = {
 
     # statusbar to use in inactive split windows
     window_inact = {
+      disabled = "yes";
       type = "window";
       placement = "bottom";
       position = "1";
@@ -142,10 +143,11 @@ statusbar = {
 
     # topicbar
     topic = {
+      disabled = 'yes'
       type = "root";
       placement = "top";
       position = "1";
-      visible = "always";
+      visible = "inactive";
       items = {
         topicbarstart = {
           priority = "100";
