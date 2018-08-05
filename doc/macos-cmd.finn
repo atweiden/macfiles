@@ -87,3 +87,21 @@ copy saved wifi password:
 - open *Keychain Access* application
 - ctrl-click target wifi network
   - Copy Password to Clipboard
+
+irrsi:
+
+- configure
+  - `vim ~/.config/irssi/config`
+    - `:%s/yourname/your-real-irc-name/g`
+- authenticate
+  - `/msg nickserv identify password`
+- connect
+  - `/connect freenode`
+- join
+  - `/join #archlinux`
+- scroll
+  - <kbd>fn</kbd><kbd>shift</kbd><kbd>arrow</kbd>
+  - `/scrollback goto <time|lineno>`
+- windows
+  - `/window next`
+  - `/window last`
