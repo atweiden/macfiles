@@ -1,19 +1,19 @@
-[VoidBang]
-checkout = git clone 'https://github.com/gh0std4ncer/VoidBang'
+[void-infrastructure]
+checkout = git clone 'https://github.com/void-linux/void-infrastructure'
 
 [void-installer]
-checkout = git clone 'https://github.com/voidlinux/void-installer'
+checkout = git clone 'https://github.com/void-linux/void-installer'
 
 [void-mklive]
-checkout = git clone 'https://github.com/voidlinux/void-mklive'
+checkout = git clone 'https://github.com/void-linux/void-mklive'
 
 [void-packages]
-checkout = git clone 'https://github.com/voidlinux/void-packages'
+checkout = git clone 'https://github.com/void-linux/void-packages'
 
 [void-runit]
-checkout = git clone 'https://github.com/voidlinux/void-runit'
+checkout = git clone 'https://github.com/void-linux/void-runit'
 
 [xbps]
-checkout = git clone 'https://github.com/voidlinux/xbps'
+checkout = git clone 'https://github.com/void-linux/xbps'
 
 # vim: ft=cfg
