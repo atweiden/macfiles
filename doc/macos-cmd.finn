@@ -38,6 +38,9 @@ brew deps --include-build --include-optional --include-requirements icu4c
 
 # find formulae dependants
 brew uses --recursive --installed icu4c
+
+# list files installed by formula
+brew ls --verbose vim
 ```
 
 python:
