@@ -103,5 +103,5 @@ irrsi:
   - <kbd>fn</kbd><kbd>shift</kbd><kbd>arrow</kbd>
   - `/scrollback goto <time|lineno>`
 - windows
-  - `/window next`
-  - `/window last`
+  - <kbd>Ctrl-n</kbd> or `/window next`
+  - <kbd>Ctrl-p</kbd> or `/window previous`
