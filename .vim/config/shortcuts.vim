@@ -177,7 +177,7 @@ endif
 " --- timestamp {{{
 
 " insert timestamp
-nnoremap <silent> <leader>d :r !date --iso-8601=s<CR>
+nnoremap <silent> <leader>D :r !date --iso-8601=s<CR>
 
 " --- end timestamp }}}
 
