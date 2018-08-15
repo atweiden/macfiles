@@ -24,6 +24,7 @@
   stsh = stash --keep-index
   staash = stash --include-untracked
   staaash = stash --all
+  touch = "!t() { git commit --amend --no-edit && git push -f; }; t"
 
 [mergetool]
   keepBackup = true
