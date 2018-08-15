@@ -34,7 +34,7 @@ _keyids+=('A490D0F4D311A4153E2BB7CADBB802B258ACD84F'
           '0B088E31D4F8E59A3D399137D2EDA621B572DD73'
           'D113CB6D5131D34BA5F0FE9E70F4F03116525F43')
 
-# voidlinux (https://www.voidlinux.eu/download/)
+# void (https://voidlinux.org/download/)
 _keyids+=('CF24B9C038097D8A44958E2C8DEBDA68B48282A4')
 
 # whonix (https://www.whonix.org/wiki/Whonix_Signing_Key)
