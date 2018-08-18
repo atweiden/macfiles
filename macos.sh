@@ -749,6 +749,13 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist 2> /dev/n
 defaults write com.apple.gamed Disabled -bool true
 
 ###############################################################################
+# Coredumps                                                                   #
+###############################################################################
+
+# set hard limit of 10MB on coredumps
+launchctl limit core 0 100000
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
