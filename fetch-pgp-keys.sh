@@ -26,6 +26,11 @@ _keyids+=('68B3537F39A313B3E574D06777193F152BDBE6A6')
 # freebsd (https://www.freebsd.org/releases/11.1R/signatures.html)
 _keyids+=('8D12403C2E6CAB086CF64DA3031458A5478FE293')
 
+# parabola (https://wiki.parabola.nu/Get_Parabola)
+_keyids+=('3954A7AB837D0EA9CFA9798925DB7D9B5A8D4B40'
+          'BFA8008A8265677063B11BF47171986E4B745536'
+          '6DB9C4B4F0D8C0DC432CF6E4227CA7C556B2BA78')
+
 # tails (https://tails.boum.org/doc/about/openpgp_keys/index.en.html#index2h1)
 _keyids+=('A490D0F4D311A4153E2BB7CADBB802B258ACD84F'
           '1F56EDD30741048035DAC1C5EC57B56EF0C43132'
