@@ -206,6 +206,7 @@ _has_irssi=$(command -v irssi)
 _has_locate=$(command -v glocate)
 _has_mosh=$(command -v mosh)
 _has_mvim=$(command -v mvim)
+_has_ncdu=$(command -v ncdu)
 _has_nvim=$(command -v nvim)
 _has_perl6=$(command -v perl6)
 _has_pt=$(command -v pt)
@@ -284,6 +285,7 @@ alias :q='exit'
 alias df='df -h'
 alias du='du -h -d 1'
 alias dusort='du -x -m | sort -nr'
+[[ -n "$_has_ncdu" ]] && alias ncdu='ncdu --color dark -rr -x --si --confirm-quit --exclude-from $HOME/.ignore'
 
 # --- end disk space }}}
 # --- file compression {{{
