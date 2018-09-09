@@ -1,5 +1,6 @@
 " scrollback lines
-let g:terminal_scrollback_buffer_size = 10000
+set termwinscroll=100000
+let g:terminal_scrollback_buffer_size = 100000
 
 " open terminal in lower split
 nnoremap <silent> <leader><space> :sp term://bash<CR>
