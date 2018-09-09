@@ -300,6 +300,12 @@ inoremap <silent> <F9> <C-O>:call HexMe()<CR>
 vnoremap <silent> <F9> <ESC>:call HexMe()<CR>gv
 
 " --- end hex }}}
+" --- terminal {{{
+
+" open terminal in current window
+cnoremap t!! terminal ++curwin
+
+" --- end terminal }}}
 
 " end programming }}}
 
