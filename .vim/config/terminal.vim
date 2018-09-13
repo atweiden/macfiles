@@ -6,7 +6,7 @@ let g:terminal_scrollback_buffer_size = 100000
 nnoremap <silent> <leader><space> :sp term://bash<CR>
 
 " enter normal mode in terminal mode
-tnoremap \\ <C-\><C-N>
+tnoremap <C-\><C-\> <C-\><C-N>
 
 " switch windows in terminal mode
 tnoremap <C-H> <C-\><C-N><C-W>h
