@@ -14,7 +14,7 @@ endif
 cnoremap t!! terminal ++curwin
 
 " enter normal mode in terminal mode
-tnoremap <C-\><C-\> <C-\><C-N>
+tnoremap <C-W>N <C-\><C-N>
 
 " switch windows in terminal mode
 tnoremap <C-H> <C-\><C-N><C-W>h
