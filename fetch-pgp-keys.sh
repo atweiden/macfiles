@@ -152,6 +152,9 @@ _keyids+=('9032CAE4CBFA933A5A2145D5FF97C53F183C045D')
 # rsync (https://rsync.samba.org/download.html)
 _keyids+=('0048C8B026D4C96F0E589C2F6C859FB14B96A8C5')
 
+# runit (http://smarden.org/pape/)
+_keyids+=('DAC43860630556B6DBF0898FA5DAAEFCB14D13CC')
+
 # rust (https://www.rust-lang.org/en-US/other-installers.html)
 _keyids+=('108F66205EAEB0AAA8DD5E1C85AB96E6FA1BE5FE')
 
