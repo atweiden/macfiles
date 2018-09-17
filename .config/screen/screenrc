@@ -1,0 +1,135 @@
+# do not display copyright notice on startup
+startup_message off
+
+# always use login shell
+shell -$SHELL
+
+# set default TERM to screen-256color
+term screen-256color
+
+# do not attempt Xserver connection
+unsetenv DISPLAY
+
+# keep more lines in scrollback
+defscrollback 100000
+
+# turn-off log
+log off
+
+# allow root to gain access to this session
+multiuser on
+acladd root
+
+# if window is unresponsive, do not block session waiting for it
+nonblock on
+
+# send UTF-8 encode strings to the window and vice versa
+defutf8 on
+utf8 on on
+defencoding utf8
+encoding utf-8 utf-8
+
+# if screen hangs up, do not terminate all processes it contains
+autodetach on
+
+# wait no more than 5 milliseconds when detecting keystrokes
+maptimeout 5
+
+# disable visual bell
+vbell off
+vbell_msg
+
+# disable activity monitor
+defmonitor off
+
+# do not keep vim window visible after close
+altscreen on
+
+# set default session name to 0
+sessionname 0
+
+# use current bg color for erased chars
+defbce on
+
+# allow bold colors
+attrcolor b ".I"
+attrcolor i "+b"
+
+# remove keybindings by binding them to nothing
+bind h
+bind ^h
+bind j
+bind ^j
+bind k
+bind ^k
+bind l
+bind ^l
+bind .
+bind ^\
+bind \\
+bindkey "^1"
+bindkey "^2"
+bindkey "^3"
+bindkey "^4"
+bindkey "^5"
+bindkey "^6"
+bindkey "^7"
+bindkey "^8"
+bindkey "^9"
+bindkey "^;"
+bindkey "^A"
+bindkey "^B"
+bindkey "^F"
+bindkey "^H"
+bindkey "^I"
+bindkey "^J"
+bindkey "^K"
+bindkey "^L"
+bindkey "^N"
+bindkey "^O"
+bindkey "^U"
+bindkey "^Y"
+bindkey "^[1"
+bindkey "^[2"
+bindkey "^[3"
+bindkey "^[4"
+bindkey "^[5"
+bindkey "^[6"
+bindkey "^[7"
+bindkey "^[8"
+bindkey "^[9"
+bindkey "^[;"
+bindkey "^[a"
+bindkey "^[f"
+bindkey "^[h"
+bindkey "^[i"
+bindkey "^[j"
+bindkey "^[k"
+bindkey "^[l"
+bindkey "^[n"
+bindkey "^[o"
+bindkey "^[p"
+bindkey "^[u"
+bindkey "^[y"
+bind Q
+bind i
+bind p
+bind s
+bind u
+
+# start at window 1
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+select 1
+
+# navigate
+bind ^j focus down
+bind ^k focus up
+bind ^h focus left
+bind ^l focus right
+
+# source screenrc
+bind R source ~/.config/screen/screenrc
+
+# vim: set filetype=screen foldmethod=marker foldlevel=0:
