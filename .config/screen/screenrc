@@ -55,6 +55,9 @@ defbce on
 attrcolor b ".I"
 attrcolor i "+b"
 
+# allow 256 colors
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
 # remove keybindings by binding them to nothing
 bind h
 bind ^h
@@ -130,6 +133,13 @@ bind ^h focus left
 bind ^l focus right
 
 # source screenrc
-bind R source ~/.config/screen/screenrc
+bind R source "$HOME/.config/screen/screenrc"
+
+# battery stats
+backtick 0 3 4 "$HOME/.bin/battery"
+
+# status line
+caption always '%{= bw}%-Lw%{= rW}%n%f+ %{+u}%t%{-}%{-}%+Lw%{= KW} /%-=/ %{= kg} %{= kK}/ %{= ky}%Y/%m/%d %{= kK}/ %{= kc}%c %{= kK}/ %{= kc}%`%{-}'
+shelltitle "> |bash"
 
 # vim: set filetype=screen foldmethod=marker foldlevel=0:
