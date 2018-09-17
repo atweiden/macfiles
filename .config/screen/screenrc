@@ -1,8 +1,8 @@
 # do not display copyright notice on startup
 startup_message off
 
-# always use login shell
-shell -$SHELL
+# use user-defined shell
+shell "$SHELL"
 
 # set default TERM to screen-256color
 term screen-256color
@@ -139,7 +139,7 @@ bind R source "$HOME/.config/screen/screenrc"
 backtick 0 3 4 "$HOME/.bin/battery"
 
 # status line
-caption always '%{= bw}%-Lw%{= rW}%n%f+ %{+u}%t%{-}%{-}%+Lw%{= KW} /%-=/ %{= kg} %{= kK}/ %{= ky}%Y/%m/%d %{= kK}/ %{= kc}%c %{= kK}/ %{= kc}%`%{-}'
+caption always '%{= bw}%-w%{= rW}%n. %t%{-}%+w%{= KW} /%-=/ %{= kg} %{= kK}/ %{= kc}%Y/%m/%d %{= kK}/ %{= kc}%c %{= kK}/ %{= kb}%0`%{-}'
 shelltitle "> |bash"
 
 # vim: set filetype=screen foldmethod=marker foldlevel=0:
