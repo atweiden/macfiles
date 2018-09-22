@@ -65,6 +65,9 @@ _keyids+=('65EEFE022108E2B708CBFCF7F9E712E59AF5F22A')
 # for software
 # -----------------------------------------------------------------------------
 
+# apparmor (https://gitlab.com/apparmor/apparmor/wikis/ReleaseProcess)
+_keyids+=('3ECDCBA5FB34D254961CC53F6689E64E3D3664BB')
+
 # bash (https://www.gnu.org/software/bash/)
 _keyids+=('7C0135FB088AAF6C66C650B9BB5869F064EA74AB')
 
