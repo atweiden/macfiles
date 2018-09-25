@@ -23,7 +23,7 @@ setw -g window-status-activity-fg "colour109"
 setw -g window-status-separator ""
 setw -g window-status-bg "colour233"
 set -g status-left "#[fg=colour233,bg=colour109] #S #[fg=colour109,bg=colour233,nobold,nounderscore,noitalics]"
-set -g status-right "#[fg=colour239,bg=colour233,nobold,nounderscore,noitalics]#[fg=colour253,bg=colour239] %Y-%m-%d  %H:%M #[fg=colour109,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour239,bg=colour109]ϟ#(pmset -g batt | awk 'NR==2 {print $2}' | sed 's/%;$//') "
+set -g status-right "#[fg=colour239,bg=colour233,nobold,nounderscore,noitalics]#[fg=colour253,bg=colour239] %Y-%m-%d  %H:%M #[fg=colour109,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour239,bg=colour109]ϟ#(pmset -g batt | awk 'NR==2 {print $3}' | sed 's/%;$//') "
 setw -g window-status-format "#[fg=colour109,bg=colour233] #I #[fg=colour109,bg=colour233] #W "
 setw -g window-status-current-format "#[fg=colour233,bg=colour109,nobold,nounderscore,noitalics]#[fg=colour252,bg=colour109] #I #[fg=colour233,bg=colour109,nobold,nounderscore,noitalics]#[fg=colour233,bg=colour109] #W #[fg=colour109,bg=colour233,nobold,nounderscore,noitalics]"
 
