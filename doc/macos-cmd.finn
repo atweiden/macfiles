@@ -71,20 +71,6 @@ open second instance of iTerm2:
 open -n -a iTerm
 ```
 
-perl6:
-
-```sh
-git clone https://github.com/tadzik/rakudobrew ~/.rakudobrew
-rakudobrew build moar 2018.02
-rakudobrew build zef
-zef update
-zef install Debugger::UI::CommandLine Grammar::Debugger
-zef list --installed
-echo '# vim: set filetype=perl6 foldmethod=marker foldlevel=0:' > Module.pm6
-rm -rf lib/.precomp/
-export PERL6LIB=lib
-```
-
 secure delete:
 
 ```sh
