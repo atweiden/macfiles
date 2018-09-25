@@ -127,6 +127,7 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
 fi
 
 # dnscrypt-proxy
+vim /usr/local/etc/dnscrypt-proxy.toml
 sudo brew services start dnscrypt-proxy
 
 # neovim
