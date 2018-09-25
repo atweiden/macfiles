@@ -4,4 +4,4 @@
 # battery: show battery remaining
 # ----------------------------------------------------------------------------
 
-echo "ϟ$(pmset -g batt | awk 'NR==2 {print $2}' | sed 's/%;$//')%"
+echo "ϟ$(pmset -g batt | awk 'NR==2 {print $3}' | sed 's/%;$//')%"
