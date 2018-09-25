@@ -167,10 +167,10 @@ homebrew-formulae
 git clone https://github.com/atweiden/homebrew-formulae
 
 # perl6
-pushd homebrew-formulae/perl6
-brew install moarvm.rb
-brew install nqp.rb
-brew install rakudo.rb
+pushd homebrew-formulae
+brew install moarvm/moarvm.rb
+brew install nqp/nqp.rb
+brew install rakudo/rakudo.rb
 cd ~/.src
 git clone https://github.com/ugexe/zef
 cd zef
