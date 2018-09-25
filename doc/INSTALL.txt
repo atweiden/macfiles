@@ -182,7 +182,7 @@ Bootstrap
 Configuration
 -------------
 
-Remap capslock key to backspace with Seil
+Remap capslock key to backspace with Karabiner-Elements
 
 System Preferences
 - System Preferences -> Spotlight
