@@ -211,8 +211,13 @@ System Preferences
 Little Snitch
 
 ```
-/usr/local/Caskroom/little-snitch/3.6.4/Little\ Snitch\ Installer.app/Contents/MacOS/Little\ Snitch\ Installer
+/usr/local/Caskroom/little-snitch/4.0.6/Little\ Snitch\ Installer.app/Contents/MacOS/Little\ Snitch\ Installer
 ```
+
+MacVim
+
+- Preferences -> Advanced
+  - uncheck Use Core Text renderer
 
 
 ******************************************************************************
