@@ -41,6 +41,9 @@ brew uses --recursive --installed icu4c
 
 # list files installed by formula
 brew ls --verbose vim
+
+# import homebrew in irb environment
+brew irb
 ```
 
 python:
