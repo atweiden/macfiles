@@ -161,6 +161,23 @@ brew cask install "${_casks[@]}"
 brew cleanup
 ```
 
+homebrew-formulae
+
+```sh
+git clone https://github.com/atweiden/homebrew-formulae
+
+# perl6
+pushd homebrew-formulae/perl6
+brew install moarvm.rb
+brew install nqp.rb
+brew install rakudo.rb
+cd ~/.src
+git clone https://github.com/ugexe/zef
+cd zef
+perl6 -I. bin/zef install .
+popd
+```
+
 More applications:
 - tmux patched [1]
 - monaco for powerline [2]

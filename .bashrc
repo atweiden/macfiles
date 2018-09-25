@@ -171,22 +171,7 @@ PATH="/usr/local/opt/openssl/bin:$PATH"
 # --- end openssl }}}
 # --- perl6 {{{
 
-# from output of `~/.rakudobrew/bin/rakudobrew init -`
-PATH="$HOME/.rakudobrew/bin:$PATH"
-rakudobrew() {
-  local command="$1"
-  [[ "$#" -gt 0 ]] && shift
-  case "$command" in
-    shell)
-      eval "$(rakudobrew "sh" "$@")";;
-    *)
-      command rakudobrew "$command" "$@";;
-  esac
-}
-
-# for locally-installed perl6 executables
-[[ $(command -v perl6) ]] \
-  && PATH="$(perl6 -e 'say ~CompUnit::RepositoryRegistry.repository-for-name(q<site>)')/bin:$PATH"
+PATH="$HOME/.perl6/bin:/usr/local/opt/rakudo/share/perl6/site/bin:/usr/local/opt/rakudo/share/perl6/vendor/bin:$PATH"
 
 # --- end perl6 }}}
 # --- sqlite {{{
