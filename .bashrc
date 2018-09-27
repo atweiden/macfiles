@@ -144,11 +144,22 @@ PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 PATH="$HOME/.bin:$PATH"
 
 # --- end dotfiles }}}
+# --- curl {{{
+
+PATH="/usr/local/opt/curl/bin:$PATH"
+
+# --- end curl }}}
+# --- gettext {{{
+
+PATH="/usr/local/opt/gettext/bin:$PATH"
+
+# --- end gettext }}}
 # --- gnu {{{
 
 # use GNU tools on OSX instead of BSD
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
@@ -159,6 +170,17 @@ MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 
 # --- end gnu }}}
+# --- icu4c {{{
+
+PATH="/usr/local/opt/icu4c/bin:$PATH"
+PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+# --- end icu4c }}}
+# --- llvm {{{
+
+PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# --- end llvm }}}
 # --- ncurses {{{
 
 PATH="/usr/local/opt/ncurses/bin:$PATH"
@@ -169,6 +191,11 @@ PATH="/usr/local/opt/ncurses/bin:$PATH"
 PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # --- end openssl }}}
+# --- pod2man {{{
+
+PATH="/usr/local/opt/pod2man/bin:$PATH"
+
+# --- end pod2man }}}
 # --- perl6 {{{
 
 PATH="$HOME/.perl6/bin:/usr/local/opt/rakudo/share/perl6/site/bin:/usr/local/opt/rakudo/share/perl6/vendor/bin:$PATH"
@@ -179,6 +206,11 @@ PATH="$HOME/.perl6/bin:/usr/local/opt/rakudo/share/perl6/site/bin:/usr/local/opt
 PATH="/usr/local/opt/sqlite3/bin:$PATH"
 
 # --- end sqlite }}}
+# --- unzip {{{
+
+PATH="/usr/local/opt/unzip/bin:$PATH"
+
+# --- end unzip }}}
 
 export PATH MANPATH
 
@@ -192,6 +224,10 @@ _has_colordiff=$(command -v colordiff)
 _has_curl=$(command -v curl)
 _has_erl=$(command -v erl)
 _has_gdb=$(command -v gdb)
+_has_glibtool=$(command -v glibtool)
+_has_gtime=$(command -v gtime)
+_has_gunits=$(command -v gunits)
+_has_gwhich=$(command -v gwhich)
 _has_icdiff=$(command -v icdiff)
 _has_iex=$(command -v iex)
 _has_irssi=$(command -v irssi)
@@ -292,6 +328,14 @@ alias bzip2='bzip2 -9'
 [[ -n "$_has_gdb" ]] && alias gdb='gdb -q -nh -x $HOME/.config/gdb/init'
 
 # --- end gdb }}}
+# --- gnu {{{
+
+[[ -n "$_has_glibtool" ]] && alias libtool='glibtool'
+[[ -n "$_has_gtime" ]] && alias time='gtime'
+[[ -n "$_has_gunits" ]] && alias units='gunits'
+[[ -n "$_has_gwhich" ]] && alias which='gwhich'
+
+# --- end gnu }}}
 # --- grepping {{{
 
 alias grep='grep --ignore-case --color=auto'
