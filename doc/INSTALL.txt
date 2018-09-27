@@ -169,25 +169,28 @@ homebrew-formulae
 
 ```sh
 git clone https://github.com/atweiden/homebrew-formulae
-
-# perl6
 pushd homebrew-formulae
+# enchive
+brew install enchive/enchive.rb
+# perl6
 brew install moarvm/moarvm.rb
 brew install nqp/nqp.rb
 brew install rakudo/rakudo.rb
-cd ~/.src
+pushd ~/.src
 git clone https://github.com/ugexe/zef
-cd zef
+pushd zef
 perl6 -I. bin/zef install .
+popd
+popd
+# tmux
+brew install tmux/tmux.rb
 popd
 ```
 
 More applications:
-- tmux patched [1]
 - monaco for powerline [2]
 - iTerm2 seoul256 colorscheme [3]
 - iTerm2 alt keybindings [4]
-- rakudobrew [5]
 
 
 Bootstrap
@@ -235,7 +238,7 @@ System Preferences
 Little Snitch
 
 ```
-/usr/local/Caskroom/little-snitch/4.0.6/Little\ Snitch\ Installer.app/Contents/MacOS/Little\ Snitch\ Installer
+/usr/local/Caskroom/little-snitch/4.2/LittleSnitch-4.2.dmg/Little\ Snitch\ Installer.app
 ```
 
 MacVim
@@ -250,4 +253,3 @@ MacVim
 [2] https://gist.github.com/rogual/6824790627960fc93077
 [3] https://github.com/atweiden/iterm2-seoul256-night
 [4] https://iterm2.com/faq.html
-[5] https://github.com/tadzik/rakudobrew
