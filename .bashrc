@@ -351,7 +351,9 @@ alias ps\?='ps -a -x -f | grep -v grep | grep "$@"'
 # --- end grepping }}}
 # --- ip {{{
 
-alias localip='ipconfig getifaddr en0'
+INTERFACE="en0"
+alias macaddr="ifconfig $INTERFACE ether | tail -n 1 | awk '{print \$2}' | sed 's#:#%3A#g'"
+alias localip="ipconfig getifaddr $INTERFACE"
 alias publicip='drill -V 3 myip.opendns.com @resolver1.opendns.com | grep IN | tail -n 1 | cut -f5 -s'
 
 # --- end ip }}}
