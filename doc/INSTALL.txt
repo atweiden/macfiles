@@ -84,6 +84,7 @@ _packages=('ack'
            'vim'
            'watch'
            'wget'
+           'wireguard-tools'
            'xz'
            'youtube-dl')
 
