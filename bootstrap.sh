@@ -98,6 +98,9 @@ _rsync_opts+=('--exclude=.git'
 # copy directories recursively
 _rsync_opts+=('--recursive')
 
+# copy symlinks as symlinks
+_rsync_opts+=('--links')
+
 # preserve permissions
 _rsync_opts+=('--perms')
 
@@ -123,17 +126,6 @@ if ! [[ -e "$HOME/.vim/autoload/plug.vim" ]]; then
   curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs "$_plug_url"
   vim +PlugInstall +qa
 fi
-
-
-# -----------------------------------------------------------------------------
-# neovim
-# -----------------------------------------------------------------------------
-
-mkdir -p "$HOME/.config"
-! [[ -d "$HOME/.config/nvim" ]] \
-  && ln -s "$HOME/.vim" "$HOME/.config/nvim"
-! [[ -e "$HOME/.config/nvim/init.vim" ]] \
-  && ln -s "$HOME/.vim/vimrc" "$HOME/.config/nvim/init.vim"
 
 
 # -----------------------------------------------------------------------------
