@@ -347,6 +347,7 @@ alias ps\?='ps -a -x -f | grep -v grep | grep "$@"'
 alias pkg\?='brew list -1 | grep -v grep | grep "$@"'
 [[ -n "$_has_ack" ]] && alias ack='ack --ackrc=$HOME/.config/ack/ackrc'
 [[ -n "$_has_ag" ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores'
+[[ -n "$_has_rg" ]] && alias rg='rg --hidden --smart-case'
 [[ -n "$_has_locate" ]] && alias locate='glocate --ignore-case'
 
 # --- end grepping }}}
