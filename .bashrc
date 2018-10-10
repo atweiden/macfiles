@@ -2,10 +2,12 @@
 # base {{{
 
 # if not running interactively, don't do anything
-[[ $- != *i* ]] && return
+[[ $- != *i* ]] \
+  && return
 
 # system defaults
-[[ -f /etc/bashrc ]] && source /etc/bashrc
+[[ -f "/etc/bashrc" ]] \
+  && source /etc/bashrc
 
 # end base }}}
 # ==============================================================================
@@ -14,15 +16,15 @@
 # --- editor {{{
 
 set -o vi
-export EDITOR=vim
-export FCEDIT=vim
-export VISUAL=vim
-export SUDO_EDITOR=rvim
+export EDITOR='vim'
+export FCEDIT='vim'
+export VISUAL='vim'
+export SUDO_EDITOR='rvim'
 
 # --- end editor }}}
 # --- history {{{
 
-export HISTCONTROL=ignoreboth
+export HISTCONTROL='ignoreboth'
 export HISTIGNORE='l:ls:cd:exit'
 export HISTSIZE=
 export HISTFILESIZE=
@@ -35,8 +37,8 @@ export LESS='-RSX'
 # --- end less }}}
 # --- locale {{{
 
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
 
 # --- end locale }}}
 # --- man pages {{{
@@ -80,7 +82,8 @@ shopt -s no_empty_cmd_completion
 # --- end shopt }}}
 # --- tmpdir {{{
 
-[[ -z "$TMPDIR" ]] && export TMPDIR=/tmp
+[[ -z "$TMPDIR" ]] \
+  && export TMPDIR='/tmp'
 
 # --- end tmpdir }}}
 # --- xdg {{{
@@ -97,25 +100,27 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # --- terminfo {{{
 
-export TERMINFO="/usr/local/Cellar/ncurses/6.1/share/terminfo"
+export TERMINFO='/usr/local/Cellar/ncurses/6.1/share/terminfo'
 
 # --- end terminfo }}}
 # --- display {{{
 
-if [[ "x$DISPLAY" != "x" ]]; then
-  export HAS_256_COLORS=yes
-  alias tmux="tmux -2"
-  [[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
+if [[ "x$DISPLAY" != 'x' ]]; then
+  export HAS_256_COLORS='yes'
+  alias tmux='tmux -2'
+  if [[ "$TERM" == 'xterm' ]]; then
+    export TERM='xterm-256color'
+  fi
 else
-  if [[ "$TERM" == "xterm" || "$TERM" =~ "256color" ]]; then
-    export HAS_256_COLORS=yes
-    alias tmux="tmux -2"
+  if [[ "$TERM" == 'xterm' || "$TERM" =~ '256color' ]]; then
+    export HAS_256_COLORS='yes'
+    alias tmux='tmux -2'
   fi
 fi
-if [[ "$TERM" == "screen" && "$HAS_256_COLORS" == "yes" ]]; then
-  export TERM=screen-256color
-elif [[ "$TERM" == "tmux" && "$HAS_256_COLORS" == "yes" ]]; then
-  export TERM=tmux-256color
+if [[ "$TERM" == 'screen' && "$HAS_256_COLORS" == 'yes' ]]; then
+  export TERM='screen-256color'
+elif [[ "$TERM" == 'tmux' && "$HAS_256_COLORS" == 'yes' ]]; then
+  export TERM='tmux-256color'
 fi
 
 # --- end display }}}
@@ -136,7 +141,7 @@ unset PATH MANPATH
 
 # --- defaults {{{
 
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin'
 
 # --- end defaults }}}
 # --- dotfiles {{{
@@ -198,7 +203,9 @@ PATH="/usr/local/opt/pod2man/bin:$PATH"
 # --- end pod2man }}}
 # --- perl6 {{{
 
-PATH="$HOME/.perl6/bin:/usr/local/opt/rakudo/share/perl6/site/bin:/usr/local/opt/rakudo/share/perl6/vendor/bin:$PATH"
+PATH="$HOME/.perl6/bin:$PATH"
+PATH="/usr/local/opt/rakudo/share/perl6/site/bin:$PATH"
+PATH="/usr/local/opt/rakudo/share/perl6/vendor/bin:$PATH"
 
 # --- end perl6 }}}
 # --- sqlite {{{
@@ -218,35 +225,35 @@ export PATH MANPATH
 # ==============================================================================
 # presence {{{
 
-_has_ack=$(command -v ack)
-_has_ag=$(command -v ag)
-_has_colordiff=$(command -v colordiff)
-_has_curl=$(command -v curl)
-_has_erl=$(command -v erl)
-_has_gdb=$(command -v gdb)
-_has_glibtool=$(command -v glibtool)
-_has_gtime=$(command -v gtime)
-_has_gunits=$(command -v gunits)
-_has_gwhich=$(command -v gwhich)
-_has_icdiff=$(command -v icdiff)
-_has_iex=$(command -v iex)
-_has_irssi=$(command -v irssi)
-_has_locate=$(command -v glocate)
-_has_mosh=$(command -v mosh)
-_has_mvim=$(command -v mvim)
-_has_ncdu=$(command -v ncdu)
-_has_nvim=$(command -v nvim)
-_has_perl6=$(command -v perl6)
-_has_pt=$(command -v pt)
-_has_rclone=$(command -v rclone)
-_has_rg=$(command -v rg)
-_has_rlwrap=$(command -v rlwrap)
-_has_sqlite3=$(command -v sqlite3)
-_has_subgit=$(command -v subgit)
-_has_subhg=$(command -v subhg)
-_has_tree=$(command -v tree)
-_has_vim=$(command -v vim)
-_has_wget=$(command -v wget)
+_has_ack="$(command -v ack)"
+_has_ag="$(command -v ag)"
+_has_colordiff="$(command -v colordiff)"
+_has_curl="$(command -v curl)"
+_has_erl="$(command -v erl)"
+_has_gdb="$(command -v gdb)"
+_has_glibtool="$(command -v glibtool)"
+_has_gtime="$(command -v gtime)"
+_has_gunits="$(command -v gunits)"
+_has_gwhich="$(command -v gwhich)"
+_has_icdiff="$(command -v icdiff)"
+_has_iex="$(command -v iex)"
+_has_irssi="$(command -v irssi)"
+_has_locate="$(command -v glocate)"
+_has_mosh="$(command -v mosh)"
+_has_mvim="$(command -v mvim)"
+_has_ncdu="$(command -v ncdu)"
+_has_nvim="$(command -v nvim)"
+_has_perl6="$(command -v perl6)"
+_has_pt="$(command -v pt)"
+_has_rclone="$(command -v rclone)"
+_has_rg="$(command -v rg)"
+_has_rlwrap="$(command -v rlwrap)"
+_has_sqlite3="$(command -v sqlite3)"
+_has_subgit="$(command -v subgit)"
+_has_subhg="$(command -v subhg)"
+_has_tree="$(command -v tree)"
+_has_vim="$(command -v vim)"
+_has_wget="$(command -v wget)"
 
 # end presence }}}
 # ==============================================================================
@@ -254,12 +261,17 @@ _has_wget=$(command -v wget)
 
 # --- history {{{
 
-export PROMPT_COMMAND="history -a; history -c; history -r"
+export PROMPT_COMMAND='history -a; history -c; history -r'
 
 # --- end history }}}
 # --- ps1 {{{
 
-PS1="\[\e[01;31m\]┌─[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME%%.*}\[\e[01;32m\]]:\w$\[\e[01;31m\]\n\[\e[01;31m\]└──\[\e[01;36m\]>>\[\e[0m\]"
+unset PS1
+PS1+="\[\e[01;31m\]"
+PS1+="┌─[\[\e[01;35m\u\e[01;31m\]]"
+PS1+="──[\[\e[00;37m\]${HOSTNAME%%.*}\[\e[01;32m\]]:\w$\[\e[01;31m\]\n\[\e[01;31m\]"
+PS1+="└──\[\e[01;36m\]>>\[\e[0m\]"
+export PS1
 
 # --- end ps1 }}}
 
@@ -269,13 +281,16 @@ PS1="\[\e[01;31m\]┌─[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME
 
 # --- curl {{{
 
-[[ -n "$_has_curl" ]] && alias curl='curl --config $HOME/.config/curl/curlrc'
+[[ -n "$_has_curl" ]] \
+  && alias curl='curl --config $HOME/.config/curl/curlrc'
 
 # --- end curl }}}
 # --- dbs {{{
 
-[[ -n "$_has_sqlite3" ]] && alias sqlite3='sqlite3 -init $HOME/.config/sqlite3/sqliterc'
-[[ -n "$_has_sqlite3" ]] && alias sql='sqlite3 -interactive :memory:'
+[[ -n "$_has_sqlite3" ]] \
+  && alias sqlite3='sqlite3 -init $HOME/.config/sqlite3/sqliterc'
+[[ -n "$_has_sqlite3" ]] \
+  && alias sql='sqlite3 -interactive :memory:'
 
 # --- end dbs }}}
 # --- diff {{{
@@ -289,12 +304,16 @@ fi
 # --- end diff }}}
 # --- directory navigation {{{
 
-alias ls='LC_COLLATE=C gls --color=auto --group-directories-first --time-style=long-iso'
+alias ls='LC_COLLATE=C gls \
+  --color=auto \
+  --group-directories-first \
+  --time-style=long-iso'
 alias l='ls -1F'
 alias l1='ls -1AF'
 alias la='ls -aF'
 alias ll='ls -laihF'
-[[ -n "$_has_tree" ]] && alias tree='tree -C --charset utf-8 --dirsfirst'
+[[ -n "$_has_tree" ]] \
+  && alias tree='tree -C --charset utf-8 --dirsfirst'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
@@ -313,7 +332,14 @@ alias :q='exit'
 alias df='df -h'
 alias du='du -h -d 1'
 alias dusort='du -x -m | sort -nr'
-[[ -n "$_has_ncdu" ]] && alias ncdu='ncdu --color dark -rr -x --si --confirm-quit --exclude-from $HOME/.ignore'
+[[ -n "$_has_ncdu" ]] \
+  && alias ncdu='ncdu \
+    --color dark \
+    -rr \
+    -x \
+    --si \
+    --confirm-quit \
+    --exclude-from $HOME/.ignore'
 
 # --- end disk space }}}
 # --- file compression {{{
@@ -325,15 +351,20 @@ alias bzip2='bzip2 -9'
 # --- end file compression }}}
 # --- gdb {{{
 
-[[ -n "$_has_gdb" ]] && alias gdb='gdb -q -nh -x $HOME/.config/gdb/init'
+[[ -n "$_has_gdb" ]] \
+  && alias gdb='gdb -q -nh -x $HOME/.config/gdb/init'
 
 # --- end gdb }}}
 # --- gnu {{{
 
-[[ -n "$_has_glibtool" ]] && alias libtool='glibtool'
-[[ -n "$_has_gtime" ]] && alias time='gtime'
-[[ -n "$_has_gunits" ]] && alias units='gunits'
-[[ -n "$_has_gwhich" ]] && alias which='gwhich'
+[[ -n "$_has_glibtool" ]] \
+  && alias libtool='glibtool'
+[[ -n "$_has_gtime" ]] \
+  && alias time='gtime'
+[[ -n "$_has_gunits" ]] \
+  && alias units='gunits'
+[[ -n "$_has_gwhich" ]] \
+  && alias which='gwhich'
 
 # --- end gnu }}}
 # --- grepping {{{
@@ -341,14 +372,18 @@ alias bzip2='bzip2 -9'
 alias grep='grep --ignore-case --color=auto'
 alias fgrep='fgrep --ignore-case --color=auto'
 alias egrep='egrep --ignore-case --color=auto'
-alias h\?='history | grep -v -E "grep|h\?" | grep "$@"'
+alias history\?='history | grep -v -E "grep|h\?" | grep "$@"'
 alias ls\?='ls -1F | grep "$@"'
 alias ps\?='ps -a -x -f | grep -v grep | grep "$@"'
 alias pkg\?='brew list -1 | grep -v grep | grep "$@"'
-[[ -n "$_has_ack" ]] && alias ack='ack --ackrc=$HOME/.config/ack/ackrc'
-[[ -n "$_has_ag" ]] && alias ag='ag --hidden --smart-case --skip-vcs-ignores'
-[[ -n "$_has_rg" ]] && alias rg='rg --hidden --smart-case'
-[[ -n "$_has_locate" ]] && alias locate='glocate --ignore-case'
+[[ -n "$_has_ack" ]] \
+  && alias ack='ack --ackrc=$HOME/.config/ack/ackrc'
+[[ -n "$_has_ag" ]] \
+  && alias ag='ag --hidden --smart-case --skip-vcs-ignores'
+[[ -n "$_has_rg" ]] \
+  && alias rg='rg --hidden --smart-case'
+[[ -n "$_has_locate" ]] \
+  && alias locate='glocate --ignore-case'
 
 # --- end grepping }}}
 # --- ip {{{
@@ -356,28 +391,38 @@ alias pkg\?='brew list -1 | grep -v grep | grep "$@"'
 INTERFACE="en0"
 alias macaddr="ifconfig $INTERFACE ether | tail -n 1 | awk '{print \$2}'"
 alias localip="ipconfig getifaddr $INTERFACE"
-alias publicip='drill -V 3 myip.opendns.com @resolver1.opendns.com | grep IN | tail -n 1 | cut -f5 -s'
+alias publicip='drill -V 3 myip.opendns.com @resolver1.opendns.com \
+  | grep IN \
+  | tail -n 1 \
+  | cut -f5 -s'
 
 # --- end ip }}}
 # --- irssi {{{
 
 [[ -n "$_has_irssi" ]] \
-  && alias irssi='irssi --config=$HOME/.config/irssi/config --home=$HOME/.config/irssi'
+  && alias irssi='irssi \
+    --config=$HOME/.config/irssi/config \
+    --home=$HOME/.config/irssi'
 
 # --- end irssi }}}
 # --- languages {{{
 
 # --- --- beam {{{
 
-[[ -n "$_has_iex" && -n "$_has_rlwrap" ]] && alias iex='rlwrap --always-readline --ansi-colour-aware iex'
-[[ -n "$_has_erl" && -n "$_has_rlwrap" ]] && alias erl='rlwrap --always-readline --ansi-colour-aware erl'
+[[ -n "$_has_erl" && -n "$_has_rlwrap" ]] \
+  && alias erl='rlwrap --always-readline --ansi-colour-aware erl'
+[[ -n "$_has_iex" && -n "$_has_rlwrap" ]] \
+  && alias iex='rlwrap --always-readline --ansi-colour-aware iex'
 
 # --- --- end beam }}}
 # --- --- perl6 {{{
 
-[[ -n "$_has_perl6" ]] && alias p6='perl6'
-[[ -n "$_has_perl6" ]] && alias prove6='prove -r -e perl6'
-[[ -n "$_has_perl6" && -n "$_has_rlwrap" ]] && alias rp='rlwrap perl6'
+[[ -n "$_has_perl6" ]] \
+  && alias p6='perl6'
+[[ -n "$_has_perl6" ]] \
+  && alias prove6='prove -r -e perl6'
+[[ -n "$_has_perl6" && -n "$_has_rlwrap" ]] \
+  && alias rp='rlwrap perl6'
 
 # --- --- end perl6 }}}
 
@@ -389,8 +434,10 @@ alias path='echo -e ${PATH//:/\\n}'
 # --- end path }}}
 # --- subrepo {{{
 
-[[ -n "$_has_subgit" ]] && alias sg='subgit'
-[[ -n "$_has_subhg" ]] && alias shg='subhg'
+[[ -n "$_has_subgit" ]] \
+  && alias sg='subgit'
+[[ -n "$_has_subhg" ]] \
+  && alias shg='subhg'
 
 # --- end subrepo }}}
 # --- safety {{{
@@ -402,22 +449,37 @@ alias rm='rm -i'
 # --- end safety }}}
 # --- osx {{{
 
-alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
+alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; \
+  sudo rm -rfv $HOME/.Trash; \
+  sudo rm -rfv /private/var/log/asl/*.asl; \
+  sqlite3 $HOME/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* \
+    "delete from LSQuarantineEvent"'
 
 # --- end osx }}}
 # --- rclone {{{
 
-[[ -n "$_has_rclone" ]] && alias rclone='rclone --transfers=16 --checkers=32 --ignore-size --low-level-retries=7 --retries=25 --delete-after'
+[[ -n "$_has_rclone" ]] \
+  && alias rclone='rclone \
+    --transfers=16 \
+    --checkers=32 \
+    --ignore-size \
+    --low-level-retries=7 \
+    --retries=25 \
+    --delete-after'
 
 # --- end rclone }}}
 # --- ssh {{{
 
-[[ -n "$_has_mosh" ]] && alias mosh='mosh -a'
+[[ -n "$_has_mosh" ]] \
+  && alias mosh='mosh -a'
 
 # --- end ssh }}}
 # --- stopwatch {{{
 
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias timer='echo "Timer started. Stop with Ctrl-D." \
+  && date \
+  && time cat \
+  && date'
 
 # --- end stopwatch }}}
 # --- timestamp {{{
@@ -504,33 +566,53 @@ alias dt-zurich='_t=$(TZ=Europe/Zurich dt)            ; echo "[$_t] Zürich"'
 # --- end timestamp }}}
 # --- text {{{
 
-alias hr='printf "$(printf "\e["$(shuf -i 91-97 -n 1)";1m%%%ds\e[0m\n" "$(tput cols)")" | tr " " ='
+alias hr='printf "$(printf "\e["$(shuf -i 91-97 -n 1)";1m%%%ds\e[0m\n" "$(tput cols)")" \
+  | tr " " ='
 
 # --- end text }}}
 # --- tmux {{{
 
-[[ -n "$TMUX" ]] && alias clear='clear; tmux clear-history'
-[[ -n "$TMUX" ]] && alias reset='reset; tmux clear-history'
+[[ -n "$TMUX" ]] \
+  && alias clear='clear; tmux clear-history'
+[[ -n "$TMUX" ]] \
+  && alias reset='reset; tmux clear-history'
 
 # --- end tmux }}}
 # --- vim {{{
 
 alias :e='"$EDITOR"'
-[[ -n "$_has_vim" ]] && alias view='vim -R'
-[[ -n "$_has_vim" ]] && alias vime='vim -u $HOME/.vim/vimrc.encrypt -x'
-[[ -n "$_has_vim" ]] && alias viml='vim -u $HOME/.vim/vimrc.lite'
-[[ -n "$_has_vim" ]] && alias vimmin='vim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
-[[ -n "$_has_mvim" ]] && alias mview='mvim -R'
-[[ -n "$_has_mvim" ]] && alias mvime='mvim -u $HOME/.vim/vimrc.encrypt -x'
-[[ -n "$_has_mvim" ]] && alias mviml='mvim -u $HOME/.vim/vimrc.lite'
-[[ -n "$_has_mvim" ]] && alias mvimmin='mvim -u NONE -U NONE --cmd "set nocompatible | syntax on | filetype plugin indent on"'
-[[ -n "$_has_nvim" ]] && alias nv='nvim'
-[[ -n "$_has_nvim" ]] && alias nview='nvim -R'
+[[ -n "$_has_vim" ]] \
+  && alias view='vim -R'
+[[ -n "$_has_vim" ]] \
+  && alias vime='vim -u $HOME/.vim/vimrc.encrypt -x'
+[[ -n "$_has_vim" ]] \
+  && alias viml='vim -u $HOME/.vim/vimrc.lite'
+[[ -n "$_has_vim" ]] \
+  && alias vimmin='vim \
+    -u NONE \
+    -U NONE \
+    --cmd "set nocompatible | syntax on | filetype plugin indent on"'
+[[ -n "$_has_mvim" ]] \
+  && alias mview='mvim -R'
+[[ -n "$_has_mvim" ]] \
+  && alias mvime='mvim -u $HOME/.vim/vimrc.encrypt -x'
+[[ -n "$_has_mvim" ]] \
+  && alias mviml='mvim -u $HOME/.vim/vimrc.lite'
+[[ -n "$_has_mvim" ]] \
+  && alias mvimmin='mvim \
+    -u NONE \
+    -U NONE \
+    --cmd "set nocompatible | syntax on | filetype plugin indent on"'
+[[ -n "$_has_nvim" ]] \
+  && alias nv='nvim'
+[[ -n "$_has_nvim" ]] \
+  && alias nview='nvim -R'
 
 # --- end vim }}}
 # --- wget {{{
 
-[[ -n "$_has_wget" ]] && alias wget='wget --hsts-file=$HOME/.config/wget/wget-hsts'
+[[ -n "$_has_wget" ]] \
+  && alias wget='wget --hsts-file=$HOME/.config/wget/wget-hsts'
 
 # --- end wget }}}
 
@@ -538,13 +620,15 @@ alias :e='"$EDITOR"'
 # ==============================================================================
 # functions {{{
 
-for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do source "$_fn"; done
+for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do
+  source "$_fn"
+done
 
 # end functions }}}
 # ==============================================================================
 # completions {{{
 
-[[ -f /usr/local/share/bash-completion/bash_completion ]] \
+[[ -r '/usr/local/share/bash-completion/bash_completion' ]] \
   && source /usr/local/share/bash-completion/bash_completion
 
 # end completions }}}
@@ -562,7 +646,7 @@ unset MAILCHECK
 # beam {{{
 
 # enable repl history
-export ERL_AFLAGS="-kernel shell_history enabled"
+export ERL_AFLAGS='-kernel shell_history enabled'
 
 # end beam }}}
 # ==============================================================================
@@ -589,13 +673,31 @@ export HOMEBREW_CASK_OPTS='--require-sha'
 
 # use rg/ag/pt/ack as the default source for fzf
 if [[ -n "$_has_rg" ]]; then
-  export FZF_DEFAULT_COMMAND='rg --hidden --smart-case --color never --ignore-vcs --files -g ""'
+  export FZF_DEFAULT_COMMAND='rg \
+    --hidden \
+    --smart-case \
+    --color never \
+    --ignore-vcs \
+    --files \
+    -g ""'
 elif [[ -n "$_has_ag" ]]; then
-  export FZF_DEFAULT_COMMAND='ag --hidden --smart-case --nocolor --skip-vcs-ignores -g ""'
+  export FZF_DEFAULT_COMMAND='ag \
+    --hidden \
+    --smart-case \
+    --nocolor \
+    --skip-vcs-ignores \
+    -g ""'
 elif [[ -n "$_has_pt" ]]; then
-  export FZF_DEFAULT_COMMAND='pt --hidden --nocolor -e -g=""'
+  export FZF_DEFAULT_COMMAND='pt \
+    --hidden \
+    --nocolor \
+    -e \
+    -g=""'
 elif [[ -n "$_has_ack" ]]; then
-  export FZF_DEFAULT_COMMAND='ack --nocolor --nopager -g ""'
+  export FZF_DEFAULT_COMMAND='ack \
+    --nocolor \
+    --nopager \
+    -g ""'
 fi
 
 # use rg/ag/pt/ack for ctrl-t completion
@@ -624,15 +726,18 @@ export FZF_DEFAULT_OPTS='
 # improved preview
 [[ -n "$_has_tree" ]] \
   && export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -$LINES'"
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden --bind ?:toggle-preview"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' \
+  --preview-window down:3:hidden \
+  --bind ?:toggle-preview"
 [[ -x "$HOME/.vim/plugged/fzf.vim/bin/preview.sh" ]] \
-  && export FZF_CTRL_T_OPTS="--preview '$HOME/.vim/plugged/fzf.vim/bin/preview.sh {} | head -200'"
+  && export FZF_CTRL_T_OPTS="--preview '$HOME/.vim/plugged/fzf.vim/bin/preview.sh {} \
+    | head -200'"
 
 # source fzf key bindings
-[[ -e "$HOME/.fzf.bash" ]] \
+[[ -r "$HOME/.fzf.bash" ]] \
   && source "$HOME/.fzf.bash"
 # source fzf functions
-[[ -e "$HOME/.fzf-extras/fzf-extras.sh" ]] \
+[[ -r "$HOME/.fzf-extras/fzf-extras.sh" ]] \
   && source "$HOME/.fzf-extras/fzf-extras.sh"
 
 # end fzf }}}
@@ -646,7 +751,7 @@ export CRYFS_NO_UPDATE_CHECK=true
 # gpg {{{
 
 # configure pinentry to use the correct tty
-GPG_TTY=$(tty)
+GPG_TTY="$(tty)"
 export GPG_TTY
 
 # end gpg }}}
