@@ -42,11 +42,17 @@ if ! [[ -n "$_macaddr" && -n "$_interface" ]]; then
   exit 1
 fi
 
+airport='/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport'
+
 main() {
   if ! [[ "$UID" == '0' ]]; then
     echo 'Sorry, requires root privileges'
     exit 1
   fi
+  # turn on the device, assuming it's an airport device
+  networksetup -setairportpower "$1" on 2>/dev/null || true
+  # disassociate from wifi networks, needed even when changing non-airport dev
+  "$airport" --disassociate
   ifconfig "$1" down
   ifconfig "$1" ether "$2"
   networksetup -detectnewhardware
