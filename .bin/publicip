@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# publicip: show public IP address
+# ----------------------------------------------------------------------------
+
+drill -V 3 myip.opendns.com @resolver1.opendns.com \
+  | grep IN \
+  | tail -n 1 \
+  | cut -f5 -s
