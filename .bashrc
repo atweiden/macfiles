@@ -388,7 +388,7 @@ alias pkg\?='brew list -1 | grep -v grep | grep "$@"'
 # --- end grepping }}}
 # --- ip {{{
 
-INTERFACE="en0"
+readonly INTERFACE="en0"
 alias macaddr="ifconfig $INTERFACE ether | tail -n 1 | awk '{print \$2}'"
 alias localip="ipconfig getifaddr $INTERFACE"
 alias publicip='drill -V 3 myip.opendns.com @resolver1.opendns.com \
