@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
 # ----------------------------------------------------------------------------
-# set-macaddr: set MAC address
+# set-macaddr: set MAC address on interface
 # ----------------------------------------------------------------------------
 
 _usage() {
 read -r -d '' _usage_string <<'EOF'
 Usage:
-  set-macaddr [-h|--help] <macaddr>
-  set-macaddr d4:9a:20:11:44:26
+  set-macaddr [-h|--help] <interface> <macaddr>
+  set-macaddr en0 d4:9a:20:11:44:26
 
 Options:
   -h, --help  Show this help text
 EOF
 echo "$_usage_string"
 }
+
+_POSITIONAL=()
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -23,13 +25,19 @@ while [[ $# -gt 0 ]]; do
       exit 0
       ;;
     *)
-      _macaddr="$1"
-      break
+      _POSITIONAL+=("$1")
+      shift
       ;;
   esac
 done
 
-if ! [[ -n "$_macaddr" ]]; then
+_interface="${_POSITIONAL[0]}"
+_macaddr="${_POSITIONAL[1]}"
+
+# restore positional params
+set -- "${_POSITIONAL[@]}"
+
+if ! [[ -n "$_macaddr" && -n "$_interface" ]]; then
   _usage
   exit 1
 fi
@@ -39,14 +47,10 @@ main() {
     echo 'Sorry, requires root privileges'
     exit 1
   fi
-  if ! [[ -n "$INTERFACE" ]]; then
-    echo 'Sorry, requires $INTERFACE be set'
-    exit 1
-  fi
-  networksetup -setairportpower "$INTERFACE" off
-  ifconfig "$INTERFACE" down
-  ifconfig "$INTERFACE" ether "$1"
+  ifconfig "$1" down
+  ifconfig "$1" ether "$2"
   networksetup -detectnewhardware
+  ifconfig "$1" up
 }
 
-main "$_macaddr"
+main "$_interface" "$_macaddr"
