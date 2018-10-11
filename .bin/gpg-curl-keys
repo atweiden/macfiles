@@ -30,7 +30,10 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-[[ ${#_keyids[@]} -gt 0 ]] || (_usage; exit 1)
+if ! [[ ${#_keyids[@]} -gt 0 ]]; then
+  _usage
+  exit 1
+fi
 
 _keyurl='https://sks-keyservers.net/pks/lookup?op=get&search=0x'
 _keydir="$HOME/.gnupg/public-keys"
