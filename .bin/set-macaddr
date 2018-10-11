@@ -53,10 +53,10 @@ main() {
   networksetup -setairportpower "$1" on 2>/dev/null || true
   # disassociate from wifi networks, needed even when changing non-airport dev
   "$airport" --disassociate
-  ifconfig "$1" down
   ifconfig "$1" ether "$2"
   networksetup -detectnewhardware
-  ifconfig "$1" up
+  networksetup -setairportpower "$1" off 2>/dev/null || true
+  networksetup -setairportpower "$1" on 2>/dev/null || true
 }
 
 main "$_interface" "$_macaddr"
