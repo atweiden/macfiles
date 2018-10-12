@@ -122,9 +122,6 @@ _keyids+=('A1EB079B8D3EB92B4EBD3139663AF51BD5E4D8D5')
 # lnd (https://github.com/lightningnetwork/lnd/releases)
 _keyids+=('65317176B6857F98834EDBE8964EA263DD637C21')
 
-# master password (https://gitlab.com/MasterPassword/MasterPassword)
-_keyids+=('5C2D1D61853F20F2FCDDCCB70EF21226F43EA6BC')
-
 # nginx (https://nginx.org/en/pgp_keys.html)
 _keyids+=('573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62')
 
