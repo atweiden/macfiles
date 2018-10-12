@@ -174,6 +174,9 @@ _keyids+=('EF6E286DDA85EA2A4BA7DE684E2C6E8793298290')
 # veracrypt (https://www.idrix.fr/Root/content/category/7/32/46/)
 _keyids+=('993B7D7E8E413809828F0F29EB559C7C54DDD393')
 
+# wireguard (https://www.zx2c4.com/)
+_keyids+=('AB9942E6D4A4CFC3412620A749FC7012A5DE03AE')
+
 
 # -----------------------------------------------------------------------------
 # import
