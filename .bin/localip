@@ -4,4 +4,14 @@
 # localip: show local IP address
 # ----------------------------------------------------------------------------
 
-ipconfig getifaddr "$INTERFACE"
+main() {
+  local _interface
+  _interface="${1:-$INTERFACE}"
+  if [[ -n "$_interface" ]]; then
+    ipconfig getifaddr "$_interface"
+  else
+    exit 1
+  fi
+}
+
+main "$1"
