@@ -4,11 +4,13 @@
 # macaddr: show hardware MAC address
 # ----------------------------------------------------------------------------
 
+set -o pipefail
+
 main() {
   local _interface
   _interface="${1:-$INTERFACE}"
   if [[ -n "$_interface" ]]; then
-    ifconfig "$_interface" ether \
+    ifconfig "$_interface" ether 2>/dev/null \
       | tail -n 1 \
       | awk '{print $2}'
   else

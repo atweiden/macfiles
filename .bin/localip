@@ -4,11 +4,13 @@
 # localip: show local IP address
 # ----------------------------------------------------------------------------
 
+set -o pipefail
+
 main() {
   local _interface
   _interface="${1:-$INTERFACE}"
   if [[ -n "$_interface" ]]; then
-    ipconfig getifaddr "$_interface"
+    ipconfig getifaddr "$_interface" 2>/dev/null
   else
     exit 1
   fi
