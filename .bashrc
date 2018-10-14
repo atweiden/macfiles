@@ -388,9 +388,7 @@ alias pkg\?='brew list -1 | grep -v grep | grep "$@"'
 # --- end grepping }}}
 # --- ip {{{
 
-export INTERFACE="$(networksetup -listallhardwareports \
-  | sed -n '/Wi-Fi/{n;p}' \
-  | awk -F ': ' '{print $2}')"
+export INTERFACE="$(interface)"
 
 # --- end ip }}}
 # --- irssi {{{

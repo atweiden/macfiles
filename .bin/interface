@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# ----------------------------------------------------------------------------
+# interface: show inet interface
+# ----------------------------------------------------------------------------
+
+set -o pipefail
+
+main() {
+  networksetup -listallhardwareports \
+    | sed -n '/Wi-Fi/{n;p}' \
+    | awk -F ': ' '{print $2}'
+}
+
+main
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
