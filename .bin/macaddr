@@ -19,3 +19,5 @@ main() {
 }
 
 main "$1"
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:

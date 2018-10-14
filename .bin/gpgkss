@@ -17,3 +17,5 @@ _keyservers=('hkps://hkps.pool.sks-keyservers.net'
 for _keyserver in "${_keyservers[@]}"; do
   gpg --keyserver "$_keyserver" "$@" && break || echo "Trying next keyserver..."
 done
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:

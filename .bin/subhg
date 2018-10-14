@@ -35,3 +35,5 @@ fi
 mv $DIR/.subhg $DIR/.hg
 (hg "$@")
 mv $DIR/.hg $DIR/.subhg
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:

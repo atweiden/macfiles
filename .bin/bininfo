@@ -6,8 +6,6 @@
 # Inspired by https://github.com/intoli/exodus#how-it-works
 # ----------------------------------------------------------------------------
 
-# _usage() {{{
-
 _usage() {
 read -r -d '' _usage_string <<EOF
 Usage:
@@ -21,8 +19,6 @@ Positionals:
 EOF
 echo "$_usage_string"
 }
-
-# end _usage() }}}
 
 _POSITIONAL=()
 
@@ -60,4 +56,4 @@ for _bin in "$@"; do
   _bininfo "$_bin"
 done
 
-# vim:set filetype=sh foldmethod=marker foldlevel=0:
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:

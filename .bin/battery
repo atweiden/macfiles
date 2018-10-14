@@ -5,3 +5,5 @@
 # ----------------------------------------------------------------------------
 
 echo "ϟ$(pmset -g batt | awk 'NR==2 {print $3}' | sed 's/%;$//')%"
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:

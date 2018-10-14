@@ -181,4 +181,4 @@ _keyids+=('AB9942E6D4A4CFC3412620A749FC7012A5DE03AE')
 
 "$DIR/.bin/gpg-curl-keys" "${_keyids[@]}"
 
-# vim: set filetype=sh foldmethod=marker foldlevel=0:
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:

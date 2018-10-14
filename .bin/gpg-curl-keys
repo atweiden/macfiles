@@ -48,3 +48,5 @@ for _keyid in "${_keyids[@]}"; do
   _key="${_keydir}/${_keyid}.asc"
   gpg --import "$_key"
 done
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
