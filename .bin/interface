@@ -7,7 +7,7 @@
 set -o pipefail
 
 main() {
-  networksetup -listallhardwareports \
+  networksetup -listallhardwareports 2>/dev/null \
     | sed -n '/Wi-Fi/{n;p}' \
     | awk -F ': ' '{print $2}'
 }
