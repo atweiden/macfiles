@@ -372,10 +372,11 @@ alias bzip2='bzip2 -9'
 alias grep='grep --ignore-case --color=auto'
 alias fgrep='fgrep --ignore-case --color=auto'
 alias egrep='egrep --ignore-case --color=auto'
-alias history\?='history | grep -v -E "grep|h\?" | grep "$@"'
+alias history\?='history | grep -v -E "grep|history\?" | grep "$@"'
 alias ls\?='ls -1F | grep "$@"'
 alias ps\?='ps -a -x -f | grep -v grep | grep "$@"'
 alias pkg\?='brew list -1 | grep -v grep | grep "$@"'
+alias sysctl\?='sysctl -a 2>/dev/null | grep -v grep | grep "$@"'
 [[ -n "$_has_ack" ]] \
   && alias ack='ack --ackrc=$HOME/.config/ack/ackrc'
 [[ -n "$_has_ag" ]] \
