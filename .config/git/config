@@ -51,3 +51,11 @@
 
 [push]
   default = simple
+
+# check that anything we're getting is complete/sane on a regular basis
+[transfer]
+  fsckobjects = true
+[fetch]
+  fsckobjects = true
+[receive]
+  fsckObjects = true
