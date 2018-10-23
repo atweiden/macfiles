@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# localipv6: show link local IPv6 address
+# ----------------------------------------------------------------------------
+
+set -o pipefail
+
+main() {
+  local _interface
+  _interface="${1:-$INTERFACE}"
+  if [[ -n "$_interface" ]]; then
+    ifconfig "$_interface" inet6 2>/dev/null \
+      | sed -n '/inet6/p' \
+      | tr '[:space:]' '\n' \
+      | sed -n '/inet6/{n;p}' \
+      | cut -d '%' -f 1
+  else
+    exit 1
+  fi
+}
+
+main "$1"
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
