@@ -110,33 +110,13 @@ gen_oui_hw() {
   echo "$oui"
 }
 
-# generate random MAC address
-# credit: https://unix.stackexchange.com/questions/88004/random-mac-address-each-time-at-startup#comment131421_88022
-gen_mac_addr_rnd() {
-  local gen_mac_addr_rnd
-  local mac_addr_rnd
-  read -r -d '' gen_mac_addr_rnd <<'EOF'
-$hex = <>;
-$hex = unpack("H*", $hex);
-$hex =~ s/(..)(?!.?$)/$1:/g;
-print "$hex\n";
-EOF
-  # use /dev/urandom to avoid running out of entropy
-  mac_addr_rnd="$(
-    dd if=/dev/urandom bs=2 count=3 2>/dev/null | perl -e "$gen_mac_addr_rnd"
-  )"
-  echo "$mac_addr_rnd"
-}
-
 # generate random Network Interface Controller (NIC) component
 gen_nic_rnd() {
-  local mac_addr_rnd
-  local nic
-  mac_addr_rnd="$(gen_mac_addr_rnd)"
-  nic="$(
-    awk -F: '{printf "%s:%s:%s\n", $4, $5, $6}' <<< "$mac_addr_rnd"
-  )"
-  echo "$nic"
+  local rnd
+  rnd=($(shuf --random-source=/dev/urandom -i 0-9999 \
+          | head -n 3 \
+          | while read -r _rnd; do sha1sum <<< "$_rnd" | cut -c -2; done))
+  printf '%s:%s:%s' ${rnd[@]}
 }
 
 main() {
