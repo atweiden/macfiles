@@ -113,8 +113,7 @@ gen_oui_hw() {
 # generate random Network Interface Controller (NIC) component
 gen_nic_rnd() {
   local rnd
-  rnd=($(shuf --random-source=/dev/urandom -i 0-9999 \
-          | head -n 3 \
+  rnd=($(shuf --random-source="/dev/urandom" -i0-9999 -n3 \
           | while read -r _rnd; do sha1sum <<< "$_rnd" | cut -c -2; done))
   printf '%s:%s:%s' ${rnd[@]}
 }
