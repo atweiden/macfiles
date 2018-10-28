@@ -32,7 +32,15 @@ export HISTFILESIZE=
 # --- end history }}}
 # --- less {{{
 
-export LESS='-RSX'
+export LESS='-MRSXi#16j.5'
+#             ||||||  |
+#             ||||||  +-- center on search matches
+#             |||||+----- scroll horizontally 16 columns at a time
+#             ||||+------ case-insensitive search unless pattern contains uppercase
+#             |||+------- don't clear the screen after exiting
+#             ||+-------- don't wrap long lines
+#             |+--------- parse color codes
+#             +---------- show more information in prompt
 
 # --- end less }}}
 # --- locale {{{
