@@ -736,6 +736,9 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' \
   && export FZF_CTRL_T_OPTS="--preview '$HOME/.vim/plugged/fzf.vim/bin/preview.sh {} \
     | head -200'"
 
+# source fzf completions
+[[ -r "$HOME/.vim/plugged/fzf/shell/completion.bash" ]] \
+  && source "$HOME/.vim/plugged/fzf/shell/completion.bash"
 # source fzf key bindings
 [[ -r "$HOME/.fzf.bash" ]] \
   && source "$HOME/.fzf.bash"
