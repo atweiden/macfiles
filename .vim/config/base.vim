@@ -96,7 +96,7 @@ set viminfo='100,<50,s10,h,!
 "           |    |   +--------- Exclude registers greater than N Kb
 "           |    +------------- Keep N lines for each register
 "           +------------------ Keep marks for N files
-rviminfo
+if filereadable(expand('~/.viminfo')) | rviminfo | endif
 
 " never write or update the contents of any buffer unless we say so
 set noautowrite
