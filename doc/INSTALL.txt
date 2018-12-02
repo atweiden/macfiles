@@ -112,7 +112,7 @@ _casks=('adium'
         'vlc'
         'vmware-fusion')
 
-# xcode
+# xcode (https://developer.apple.com/download/more/)
 xcode-select --install
 xcodebuild -license
 
