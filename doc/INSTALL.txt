@@ -145,6 +145,8 @@ brew install --HEAD universal-ctags
 git clone https://github.com/atweiden/fzf-extras ~/.fzf-extras
 
 # mac settings
+# - System Preferences -> Security & Privacy -> Privacy
+# - add iTerm.app to list of applications with Full Disk Access
 ./macos.sh
 
 # osxlockdown
