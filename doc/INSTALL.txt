@@ -192,10 +192,24 @@ brew install tmux/tmux.rb
 popd
 ```
 
-More applications:
-- monaco for powerline [2]
-- iTerm2 seoul256 colorscheme [3]
-- iTerm2 alt keybindings [4]
+Monaco for Powerline
+
+```sh
+brew install fondu
+brew install fontforge
+git clone https://github.com/Lokaltog/powerline
+git clone https://gist.github.com/atweiden/3666975d171cc862cc2beb35b94de921 mkmonaco
+cp mkmonaco/Makefile powerline/font
+make -C powerline/font
+```
+
+- open Font Book
+  - File -> Add Fonts
+    - add `Monaco for Powerline.ttf`
+
+iTerm2 seoul256 colorscheme [1]
+
+iTerm2 alt keybindings [2]
 
 
 Bootstrap
@@ -254,7 +268,5 @@ MacVim
 
 ******************************************************************************
 
-[1] https://github.com/atweiden/homebrew-formulae/tree/master/tmux
-[2] https://gist.github.com/rogual/6824790627960fc93077
-[3] https://github.com/atweiden/iterm2-seoul256-night
-[4] https://iterm2.com/faq.html
+[1] https://github.com/atweiden/iterm2-seoul256-night
+[2] https://iterm2.com/faq.html
