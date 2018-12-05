@@ -1,7 +1,6 @@
 :verbose: true
 :sources:
 - https://rubygems.org
-- https://gems.github.com
 :benchmark: false
 :update_sources: true
 gem: --user-install
