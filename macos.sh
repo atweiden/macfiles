@@ -771,6 +771,20 @@ defaults write com.apple.gamed Disabled -bool true
 launchctl limit core 0 100000
 
 ###############################################################################
+# Security                                                                    #
+###############################################################################
+
+# enable the firewall with logging and stealth mode
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode on
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
+
+# prevent built-in software as well as code-signed, downloaded software
+# from being whitelisted automatically
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned off
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsignedapp off
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
@@ -793,6 +807,10 @@ for app in "Activity Monitor" \
            "TextEdit"; do
   killall "$app" &> /dev/null
 done
+
+# restart firewall
+sudo pkill -HUP socketfilterfw
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
