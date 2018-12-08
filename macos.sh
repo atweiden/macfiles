@@ -235,10 +235,10 @@ defaults write com.apple.finder QuitMenuItem -bool true
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
 
-# Set $HOME as the default location for new Finder windows
+# Set ~/Downloads as the default location for new Finder windows
 # For Desktop, use `PfDe` and `file://$HOME/Desktop/`
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
-defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/"
+defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/Downloads/"
 
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
