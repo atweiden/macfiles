@@ -145,7 +145,7 @@ brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 
 # fzf-extras
-git clone https://github.com/atweiden/fzf-extras ~/.fzf-extras
+git clone https://github.com/atweiden/fzf-extras "$HOME/.fzf-extras"
 
 # mac settings
 # - System Preferences -> Security & Privacy -> Privacy
@@ -156,7 +156,8 @@ git clone https://github.com/atweiden/fzf-extras ~/.fzf-extras
 # (see also: https://objective-see.com/products.html)
 # (see also: https://github.com/drduh/macOS-Security-and-Privacy-Guide)
 # (see also: https://docs.hardentheworld.org/OS/MacOS_10.12_Sierra/)
-mkdir -p ~/.src/osxlockdown && cd ~/.src/osxlockdown
+mkdir -p "$HOME/.src/osxlockdown"
+cd "$HOME/.src/osxlockdown"
 export GOPATH="$PWD"
 go get -v -u github.com/SummitRoute/osxlockdown/...
 cp src/github.com/SummitRoute/osxlockdown/commands.yaml .
@@ -181,7 +182,7 @@ brew install enchive/enchive.rb
 brew install moarvm/moarvm.rb
 brew install nqp/nqp.rb
 brew install rakudo/rakudo.rb
-pushd ~/.src
+pushd "$HOME/.src"
 git clone https://github.com/ugexe/zef
 pushd zef
 perl6 -I. bin/zef install .
