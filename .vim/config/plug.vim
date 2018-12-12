@@ -32,12 +32,12 @@ Plug 'junegunn/fzf.vim'
 
 " movement
 Plug 'rhysd/clever-f.vim'
-Plug 'vim-scripts/matchit.zip'
+Plug 'benjifisher/matchit.zip'
 Plug 'christoomey/vim-tmux-navigator'
 
 " repeat
 Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/visualrepeat'
+Plug 'etihwnad/vim-visualrepeat'
 
 " undo
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -79,7 +79,7 @@ Plug 'junegunn/gv.vim'
 
 " crypto
 Plug 'jamessan/vim-gnupg'
-Plug 'vim-scripts/openssl.vim'
+Plug 'fcharlier/openssl.vim'
 
 " command runners
 Plug 'tpope/vim-tbone'
