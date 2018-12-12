@@ -57,8 +57,8 @@ Plug 't9md/vim-textmanip'
 
 " textobj
 Plug 'junegunn/vim-after-object'
-Plug 'vim-scripts/LineJuggler'
-Plug 'vim-scripts/LineJugglerCommands'
+Plug 'inkarkat/vim-LineJuggler'
+Plug 'inkarkat/vim-LineJugglerCommands'
 Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-entire'
 Plug 'reedes/vim-textobj-sentence'
@@ -155,7 +155,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/rainbow_parentheses.vim'
 
 " utilities / dependencies
-Plug 'vim-scripts/ingo-library'
+Plug 'inkarkat/vim-ingo-library'
 Plug 'Shougo/vimproc.vim'
 Plug 'tpope/vim-scriptease'
 Plug 'kana/vim-textobj-user'
