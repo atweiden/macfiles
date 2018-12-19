@@ -704,6 +704,10 @@ defaults write com.apple.commerce AutoUpdate -bool true
 # Allow the App Store to reboot machine on macOS updates
 defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 
+# Turn off video autoplay
+defaults write com.apple.AppStore UserSetAutoPlayVideoSetting -int 1
+defaults write com.apple.AppStore AutoPlayVideoSetting -string off
+
 # end mac app store }}}
 # ==============================================================================
 # photos {{{
