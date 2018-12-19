@@ -27,7 +27,7 @@ if !has('nvim') | Plug 'drmikehenry/vim-fixkey' | endif
 
 " search and replace
 Plug 'dyng/ctrlsf.vim'
-Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " movement

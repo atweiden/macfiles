@@ -162,6 +162,11 @@ PATH="$HOME/.bin:$PATH"
 PATH="/usr/local/opt/curl/bin:$PATH"
 
 # --- end curl }}}
+# --- fzf {{{
+
+PATH="$HOME/.vim/plugged/fzf/bin:$PATH"
+
+# --- end fzf }}}
 # --- gettext {{{
 
 PATH="/usr/local/opt/gettext/bin:$PATH"
@@ -740,8 +745,8 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' \
 [[ -r "$HOME/.vim/plugged/fzf/shell/completion.bash" ]] \
   && source "$HOME/.vim/plugged/fzf/shell/completion.bash"
 # source fzf key bindings
-[[ -r "$HOME/.fzf.bash" ]] \
-  && source "$HOME/.fzf.bash"
+[[ -r "$HOME/.vim/plugged/fzf/shell/key-bindings.bash" ]] \
+  && source "$HOME/.vim/plugged/fzf/shell/key-bindings.bash"
 # source fzf functions
 [[ -r "$HOME/.fzf-extras/fzf-extras.sh" ]] \
   && source "$HOME/.fzf-extras/fzf-extras.sh"
