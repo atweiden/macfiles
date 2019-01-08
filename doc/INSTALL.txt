@@ -63,6 +63,7 @@ _packages=('ack'
            'python'
            'python@2'
            'qrencode'
+           'rakudo'
            'rclone'
            'readline'
            'remarshal'
@@ -75,9 +76,10 @@ _packages=('ack'
            'sqlite'
            'sshuttle'
            'ssss'
+           'tealdeer'
            'the_platinum_searcher'
            'the_silver_searcher'
-           'tealdeer'
+           'tmux'
            'tor'
            'torsocks'
            'tree'
@@ -179,17 +181,11 @@ pushd homebrew-formulae
 # enchive
 brew install enchive/enchive.rb
 # perl6
-brew install moarvm/moarvm.rb
-brew install nqp/nqp.rb
-brew install rakudo/rakudo.rb
 pushd "$HOME/.src"
 git clone https://github.com/ugexe/zef
 pushd zef
 perl6 -I. bin/zef install .
 popd
-popd
-# tmux
-brew install tmux/tmux.rb
 popd
 ```
 
