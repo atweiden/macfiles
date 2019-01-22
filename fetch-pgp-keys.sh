@@ -128,6 +128,9 @@ _keyids+=('65317176B6857F98834EDBE8964EA263DD637C21')
 # nginx (https://nginx.org/en/pgp_keys.html)
 _keyids+=('573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62')
 
+# nilfs (https://github.com/nilfs-dev/nilfs-utils/releases)
+_keyids+=('6147BCD96F8AA0C3527DFF3C8B055AE86DEFF458')
+
 # openssh (https://www.openssh.com/portable.html)
 _keyids+=('5D7AE3047AB6D4C340EBD3D4A819A2D8691EF8DA'
           '59C2118ED206D927E667EBE3D3E5F56B6D920D30')
