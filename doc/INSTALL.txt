@@ -90,6 +90,7 @@ _packages=('ack'
            'youtube-dl')
 
 _casks=('adium'
+        'balenaetcher'
         'caffeine'
         'calibre'
         'coyim'
