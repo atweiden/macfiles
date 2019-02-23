@@ -185,7 +185,7 @@ set formatoptions+=j " Remove comment leader when joining two comments
 if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ --color\ never\ --hidden\ --smart-case\ --ignore-vcs
 elseif executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --smart-case\ --skip-vcs-ignores
+  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --smart-case\ --path-to-ignore\ $HOME/.ignore\ --skip-vcs-ignores
 elseif executable('pt')
   set grepprg=pt\ --nogroup\ --nocolor\ --hidden\ --nocolor\ -e
 elseif executable('ack')
