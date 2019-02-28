@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# otp: get otp authentication code for target service
+#
+# credit: https://www.sendthemtomir.com/blog/cli-2-factor-authentication
+# ----------------------------------------------------------------------------
+
+CONFIG_DIR="$HOME/.config/otp"
+CONFIG_FILE="$CONFIG_DIR/keys"
+HAS_OATHTOOL="$(command -v oathtool)"
+
+_usage() {
+read -r -d '' _usage_string <<EOF
+Usage:
+  otp [-h|--help] <service>
+  otp google
+
+Options:
+  -h, --help     Show this help text
+
+Positionals:
+  <service>      Get otp authentication code for this service
+
+Configuration:
+  File: $CONFIG_FILE
+  Format: name=key
+EOF
+echo "$_usage_string"
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help) _usage; exit 0;;
+    *) _service="$1"; shift;;
+  esac
+done
+
+# check for oathtool
+if ! [[ -n "$HAS_OATHTOOL" ]]; then
+  echo "Sorry, oathtool executable not found"
+  exit 1
+fi
+
+# check for config file
+if ! [[ -r "$CONFIG_FILE" ]]; then
+  echo "Sorry, config file not found at $CONFIG_FILE"
+  exit 1
+fi
+
+# get otp key
+_otpkey="$(sed -n "s/$_service=//p" "$CONFIG_FILE")"
+if [[ -z "$_otpkey" ]]; then
+  echo "Sorry, otp key not found for service name '$_service'"
+  exit 1
+fi
+
+oathtool --base32 --totp "$_otpkey"
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
