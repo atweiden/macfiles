@@ -10,6 +10,9 @@
   attributesfile = "~/.config/git/attributes"
   excludesfile = "~/.config/git/ignore"
 
+[sendemail]
+  annotate = yes
+
 [alias]
   br = branch
   ci = commit
