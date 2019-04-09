@@ -125,6 +125,15 @@ augroup END
 
 " }}}
 
+" enc {{{
+
+augroup enc
+  autocmd!
+  autocmd BufReadPre,FileReadPre *.enc set viminfo=
+  autocmd BufReadPre,FileReadPre *.enc set noswapfile noundofile nobackup
+augroup END
+
+" enc }}}
 " gpg {{{
 
 augroup gpg
