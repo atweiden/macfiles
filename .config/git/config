@@ -1,5 +1,5 @@
 [user]
-  name = "yourname"
+  name = yourname
   email = youremail
 
 [github]
@@ -7,8 +7,9 @@
 
 [core]
   editor = vim
-  attributesfile = "~/.config/git/attributes"
-  excludesfile = "~/.config/git/ignore"
+  attributesfile = ~/.config/git/attributes
+  excludesfile = ~/.config/git/ignore
+  autocrlf = input
 
 [sendemail]
   annotate = yes
@@ -68,10 +69,12 @@
 [push]
   default = simple
 
-# check that anything we're getting is complete/sane on a regular basis
+# regularly check anything we're getting is complete/sane
 [transfer]
   fsckobjects = true
 [fetch]
   fsckobjects = true
 [receive]
   fsckObjects = true
+
+# vim: set filetype=gitconfig foldmethod=marker foldlevel=0 nowrap:
