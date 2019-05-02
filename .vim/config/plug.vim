@@ -84,6 +84,9 @@ Plug 'fcharlier/openssl.vim'
 " command runners
 Plug 'tpope/vim-tbone'
 
+" sonic pi
+Plug 'dermusikman/sonicpi.vim'
+
 " languages {{{
 
 " --- c/c++ {{{
