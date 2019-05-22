@@ -86,6 +86,9 @@ _keyids+=('8756C4F765C9AC3CB6B85D62379CE192D401AB61')
 # cryfs (https://github.com/cryfs/cryfs/releases)
 _keyids+=('C3111FE656732704EF6DF059017DC932549E65B2')
 
+# crypto++ (https://www.cryptopp.com/signing.html)
+_keyids+=('B8CC19802062211A508B2F5CCE0586AF1F8E37BD')
+
 # cryptsetup (https://gitlab.com/cryptsetup/cryptsetup/wikis/home)
 _keyids+=('2A2918243FDE46648D0686F9D9B0577BD93E98FC')
 
