@@ -10,10 +10,14 @@ set guicursor=
 set title
 if has('title') && (has('gui_running') || &title)
   set titlestring=
-  set titlestring+=%f\                                              " File name
-  set titlestring+=%h%m%r%w                                         " Flags
-  set titlestring+=\ \|\ %{v:progname}                              " Program name
-  set titlestring+=\ \|\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')} " Working directory
+  " file name
+  set titlestring+=%f\
+  " flags
+  set titlestring+=%h%m%r%w
+  " program name
+  set titlestring+=\ \|\ %{v:progname}
+  " working directory
+  set titlestring+=\ \|\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
 endif
 
 " end window title }}}

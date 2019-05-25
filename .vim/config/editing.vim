@@ -31,9 +31,7 @@ set noshowmatch
 set wildmenu
 set wildmode=list:longest,full
 
-" disable some filetypes for completion
-" blocking possibly large directories that usually are
-" not of interest will speed up plugins like Command-T
+" disable some filetypes for completion efficiency
 set wildignore+=*.o,*.obj,*.dll,*.pyc
 set wildignore+=*~,*.DS_Store
 set wildignore+=.git/*,.subgit/*,.hg/*,.subhg/*,.svn/*
@@ -85,12 +83,18 @@ set tabstop=2
 " when enabled, causes spaces to be used instead of <Tab> characters
 set expandtab
 
-" when enabled, sets the amount of whitespace to be inserted/removed on <Tab> / <BS>
-" if softtabstop < tabstop, and expandtab is disabled (with noexpandtab), vim will start <Tab>s with whitespace
-" this initial whitespace will be dynamically converted to / from <Tab> characters as the indent level of 'tabstop' is reached / unreached
+" when enabled, sets the amount of whitespace to be inserted/removed on
+" <Tab> / <BS>
+"
+" if softtabstop < tabstop, and expandtab is disabled (with noexpandtab),
+" vim will start <Tab>s with whitespace
+"
+" this initial whitespace will be dynamically converted to / from <Tab>
+" characters as the indent level of 'tabstop' is reached / unreached
 set softtabstop=2
 
-" sets the amount of space to insert / remove while using indentation commands in normal mode (>, <)
+" sets the amount of space to insert / remove while using indentation
+" commands in normal mode (>, <)
 set shiftwidth=2
 
 " round indent to multiple of shiftwidth
@@ -171,15 +175,15 @@ set sessionoptions+=resize,tabpages,winpos,winsize
 "                   +-------------------------------- Size of the Vim window
 
 " automatic formatting options
-set formatoptions=
-set formatoptions+=r " Automatically insert the current comment leader after <Enter> in insert mode
-set formatoptions+=o " Automatically insert the current comment leader after 'o' or 'O' in normal mode
-set formatoptions+=q " Allow formatting of comments with gq
-set formatoptions+=n " Recognize numbered lists when formatting text
-set formatoptions+=2 " Use the indent of the second line of a paragraph for the rest of the paragraph instead of the first
-set formatoptions+=l " Don't break long lines in insert mode
-set formatoptions+=1 " Don't break a line after a one-letter word
-set formatoptions+=j " Remove comment leader when joining two comments
+set formatoptions=rqn2l1j
+"                 |||||||
+"                 ||||||+----- Remove comment leader when joining two comments
+"                 |||||+------ Don't break a line after a one-letter word
+"                 ||||+------- Don't break long lines in insert mode
+"                 |||+-------- Use the indent of the second line of a paragraph for the rest of the paragraph instead of the first
+"                 ||+--------- Recognize numbered lists when formatting text
+"                 |+---------- Allow formatting of comments with gq
+"                 +----------- Automatically insert the current comment leader after <Enter> in insert mode
 
 " use rg/ag/pt/ack for grepping if available
 if executable('rg')
