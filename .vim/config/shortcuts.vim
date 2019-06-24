@@ -95,8 +95,12 @@ nnoremap Q @q
 
 " digraphs
 if has('digraphs')
+  " (¡) inverted exclamation mark
+  digraph !! 161
   " (§) section sign
   digraph SS 167
+  " (¿) inverted question mark
+  digraph ?? 191
   " (ʹ) modifier letter prime
   digraph '' 697
   " (฿) BTC
