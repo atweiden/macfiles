@@ -103,7 +103,7 @@ if has('digraphs')
   digraph ?? 191
   " (ʹ) modifier letter prime
   digraph '' 697
-  " (฿) BTC
+  " (฿) thai baht
   digraph B\| 3647
   " (᚛) ogham feather mark
   digraph >\| 5787
