@@ -34,11 +34,11 @@ augroup languages
   autocmd BufNewFile,BufRead {*.fs,*.fsi,*.fsx} set ft=fsharp
   autocmd BufNewFile,BufRead {COMMIT_EDITMSG} set ft=gitcommit
   autocmd BufNewFile,BufRead {*.git/config,.gitconfig,.gitmodules,gitconfig} set ft=gitconfig
-  autocmd BufNewFile,BufRead {*gtkrc*} set ft=gtkrc
   autocmd BufNewFile,BufRead {*.go} set ft=go
   autocmd BufNewFile,BufRead {*.gs} set ft=gorilla
   autocmd BufNewFile,BufRead {*.groovy,*.gradle} set ft=groovy
   autocmd BufNewFile,BufRead {*.gsl} set ft=gsl
+  autocmd BufNewFile,BufRead {*gtkrc*} set ft=gtkrc
   autocmd BufNewFile,BufRead {*.haml,*.hamlbars,*.hamlc} set ft=haml
   autocmd BufNewFile,BufRead {*.hs} set ft=haskell
   autocmd BufNewFile,BufRead {*.hx} set ft=haxe
@@ -80,9 +80,9 @@ augroup languages
   autocmd BufNewFile,BufRead {*.pp} set ft=puppet
   autocmd BufNewFile,BufRead {*.py,.pdbrc,.pythonrc,.python_history} set ft=python
   autocmd BufNewFile,BufRead {*.r,*.R,*.s,*.S,*.Rhistory,*.Rprofile} set ft=r
+  autocmd BufNewFile,BufRead {*.rkt} set ft=racket
   autocmd BufNewFile,BufRead {*.raml} set ft=raml
   autocmd BufNewFile,BufRead {.inputrc} set ft=readline
-  autocmd BufNewFile,BufRead {*.rkt} set ft=racket
   autocmd BufNewFile,BufRead {*.re,*.rei} set ft=reason
   autocmd BufNewFile,BufRead {*.rmd,*.Rmd} set ft=rmd
   autocmd BufNewFile,BufRead {*.Rout*} set ft=rout
@@ -93,9 +93,9 @@ augroup languages
   autocmd BufNewFile,BufRead {*.sass} set ft=sass
   autocmd BufNewFile,BufRead {*.sbt} set ft=sbt
   autocmd BufNewFile,BufRead {*.scala} set ft=scala
-  autocmd BufNewFile,BufRead {*.scss} set ft=scss
   autocmd BufNewFile,BufRead {*.scm} set ft=scheme
   autocmd BufNewFile,BufRead {.screenrc} set ft=screen
+  autocmd BufNewFile,BufRead {*.scss} set ft=scss
   autocmd BufNewFile,BufRead {*.sh,*.install,.bashrc,.bash_logout,.bash_profile,.xinitrc,.xsession,PKGBUILD,bash-fc-*} set ft=sh
   autocmd BufNewFile,BufRead {*.slim} set ft=slim
   autocmd BufNewFile,BufRead {*.sls} set ft=sls
