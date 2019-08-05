@@ -167,6 +167,16 @@ PATH="/usr/local/opt/curl/bin:$PATH"
 PATH="$HOME/.vim/plugged/fzf/bin:$PATH"
 
 # --- end fzf }}}
+# --- gambit {{{
+
+PATH="/usr/local/opt/gambit-scheme/current/bin:$PATH"
+
+# --- end gambit }}}
+# --- gerbil {{{
+
+PATH="/usr/local/opt/gerbil-scheme/libexec/bin:$PATH"
+
+# --- end gerbil }}}
 # --- gettext {{{
 
 PATH="/usr/local/opt/gettext/bin:$PATH"
