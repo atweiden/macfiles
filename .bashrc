@@ -108,7 +108,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # --- terminfo {{{
 
-export TERMINFO='/usr/local/Cellar/ncurses/6.1/share/terminfo'
+export TERMINFO='/usr/local/opt/ncurses/share/terminfo'
 
 # --- end terminfo }}}
 # --- display {{{
