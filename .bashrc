@@ -184,7 +184,7 @@ PATH="/usr/local/opt/gettext/bin:$PATH"
 # --- end gettext }}}
 # --- gnu {{{
 
-# use GNU tools on OSX instead of BSD
+# use GNU tools on macOS instead of BSD
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
@@ -469,7 +469,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 # --- end safety }}}
-# --- osx {{{
+# --- macos {{{
 
 alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; \
   sudo rm -rfv $HOME/.Trash; \
@@ -477,7 +477,7 @@ alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; \
   sqlite3 $HOME/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* \
     "delete from LSQuarantineEvent"'
 
-# --- end osx }}}
+# --- end macos }}}
 # --- rclone {{{
 
 [[ -n "$_has_rclone" ]] \
@@ -660,7 +660,7 @@ done
 
 # end completions }}}
 # ==============================================================================
-# osx {{{
+# macos {{{
 
 # copy or tar files without ._ (dot underscore) files
 export COPYFILE_DISABLE=true
@@ -668,7 +668,7 @@ export COPYFILE_DISABLE=true
 # don't check mail when opening terminal
 unset MAILCHECK
 
-# end osx }}}
+# end macos }}}
 # ==============================================================================
 # beam {{{
 

@@ -143,7 +143,7 @@ XTerm.omitTranslation: fullscreen
 
 # end xterm }}}
 
-# osx {{{
+# macos {{{
 
 *VT100.translations: #override\
 <Key>Prior: scroll-back(1,pages) \n\
@@ -159,6 +159,6 @@ select-cursor-end(PRIMARY, CUT_BUFFER0) \n\
 Meta <Key> V: insert-selection(PRIMARY, CUT_BUFFER0) \n\
 Meta <Key> M: iconify() \n\
 
-# end osx }}}
+# end macos }}}
 
 # vim: set filetype=xdefaults foldmethod=marker foldlevel=0 nowrap:
