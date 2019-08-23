@@ -132,7 +132,7 @@ rsync --verbose "${_rsync_opts[@]}" "$DIR/" "$HOME"
 # vim-plug
 # -----------------------------------------------------------------------------
 
-_plug_url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+_plug_url='https://github.com/junegunn/vim-plug/raw/master/plug.vim'
 if ! [[ -e "$HOME/.vim/autoload/plug.vim" ]]; then
   curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs "$_plug_url"
   vim +PlugInstall +qa
