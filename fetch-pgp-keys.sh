@@ -177,6 +177,9 @@ _keyids+=('63CDA1E5D3FC22B998D20DD6327F26951A015CC4'
 # tor (https://www.torproject.org/docs/verifying-signatures.html.en)
 _keyids+=('EF6E286DDA85EA2A4BA7DE684E2C6E8793298290')
 
+# usbguard (https://usbguard.github.io/blog/2019/usbguard-0.7.5)
+_keyids+=('FD9B3F9DCEBB5537A8FAF5213B0C109510712034')
+
 # veracrypt (https://www.idrix.fr/Root/content/category/7/32/46/)
 _keyids+=('993B7D7E8E413809828F0F29EB559C7C54DDD393')
 
