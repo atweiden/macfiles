@@ -101,7 +101,7 @@ irrsi:
   - <kbd>Alt-Right</kbd>, <kbd>Ctrl-n</kbd> or `/window next`
   - <kbd>Alt-Left</kbd>, <kbd>Ctrl-p</kbd> or `/window previous`
 
-record screen with system sound
+record screen with system sound:
 
 ```
 brew cask install soundflower
@@ -124,3 +124,16 @@ brew cask install soundflower
       - select Soundflower (2ch)
 - stop recording screen
   - Ctrl+Cmd+Esc
+
+compress/convert .mov screen recording:
+
+```
+ffmpeg -i input.mov -qscale 31 output.mp4
+```
+
+- qscale sets the compression level
+  - the lower the qscale value, the higher the quality
+    - available qscale values range from 1 (hi-def) to 31 (low-def)
+- takes 5 minutes to compress a 3 minute video at qscale 31
+  - file size shrinks from 327M to 32M
+  - video and sound quality remains decent
