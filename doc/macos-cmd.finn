@@ -111,12 +111,16 @@ brew cask install soundflower
   sound card
   - System Preferences -> Sound -> Output
     - select Soundflower (2ch)
-- record screen
+- start recording screen
   - either
     - launch QuickTime Player
       - right click dock icon
         - New Screen Recording
     - Shift+Cmd+5
+      - Record Entire Screen
+      - Record Selected Portion
   - options
     - Microphone
       - select Soundflower (2ch)
+- stop recording screen
+  - Ctrl+Cmd+Esc
