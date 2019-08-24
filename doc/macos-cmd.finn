@@ -100,3 +100,23 @@ irrsi:
 - windows
   - <kbd>Alt-Right</kbd>, <kbd>Ctrl-n</kbd> or `/window next`
   - <kbd>Alt-Left</kbd>, <kbd>Ctrl-p</kbd> or `/window previous`
+
+record screen with system sound
+
+```
+brew cask install soundflower
+```
+
+- change system audio output from default speakers to soundflower
+  sound card
+  - System Preferences -> Sound -> Output
+    - select Soundflower (2ch)
+- record screen
+  - either
+    - launch QuickTime Player
+      - right click dock icon
+        - New Screen Recording
+    - Shift+Cmd+5
+  - options
+    - Microphone
+      - select Soundflower (2ch)
