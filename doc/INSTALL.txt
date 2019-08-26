@@ -119,6 +119,8 @@ _casks=('adium'
 # xcode (https://developer.apple.com/download/more/)
 xcode-select --install
 xcodebuild -license
+# xcode command line tools (https://stackoverflow.com/q/52509602)
+open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 
 # homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
