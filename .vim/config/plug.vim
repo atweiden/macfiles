@@ -31,7 +31,6 @@ Plug 'junegunn/fzf.vim'
 
 " movement
 Plug 'rhysd/clever-f.vim'
-Plug 'benjifisher/matchit.zip'
 Plug 'christoomey/vim-tmux-navigator'
 
 " repeat
