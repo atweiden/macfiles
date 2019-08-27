@@ -17,7 +17,7 @@ Plug 'Konfekt/FastFold'
 Plug 'Harenome/vim-neatfoldtext'
 
 " filesystem
-Plug 'dockyard/vim-easydir'
+Plug 'duggiefresh/vim-easydir'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 
