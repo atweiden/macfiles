@@ -23,7 +23,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 
 " keyboard
 Plug 'kana/vim-arpeggio'
-if !has('nvim') | Plug 'drmikehenry/vim-fixkey' | endif
+Plug 'drmikehenry/vim-fixkey'
 
 " search and replace
 Plug 'dyng/ctrlsf.vim'
