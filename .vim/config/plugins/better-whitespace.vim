@@ -1,11 +1,7 @@
 " disable whitespace highlights for specified filetypes
-let g:better_whitespace_filetypes_blacklist=[ 'calendar',
-                                            \ 'conque_term',
-                                            \ 'diff',
+let g:better_whitespace_filetypes_blacklist=[ 'diff',
                                             \ 'help',
                                             \ 'qf',
-                                            \ 'unite',
-                                            \ 'vimfiler',
                                             \ 'vim-plug' ]
 
 " seoul256 whitespace colors
