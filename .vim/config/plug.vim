@@ -26,7 +26,6 @@ Plug 'kana/vim-arpeggio'
 Plug 'drmikehenry/vim-fixkey'
 
 " search and replace
-Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
