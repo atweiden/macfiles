@@ -56,7 +56,6 @@ Plug 'tommcdo/vim-lion'
 Plug 't9md/vim-textmanip'
 
 " textobj
-Plug 'junegunn/vim-after-object'
 Plug 'inkarkat/vim-LineJuggler'
 Plug 'inkarkat/vim-LineJugglerCommands'
 Plug 'wellle/targets.vim'
