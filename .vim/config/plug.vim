@@ -134,6 +134,11 @@ Plug 'vim-perl/vim-perl6',             { 'for': 'perl6' }
 Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
 
 " --- end perl/perl6 }}}
+" --- reason {{{
+
+Plug 'jordwalke/vim-reason', { 'for': 'reason' }
+
+" --- end reason }}}
 " --- toml {{{
 
 Plug 'cespare/vim-toml', { 'for': [ 'finn', 'journal', 'markdown', 'toml' ] }
