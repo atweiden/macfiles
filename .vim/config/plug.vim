@@ -131,7 +131,7 @@ Plug 'jordwalke/vim-reason', { 'for': 'reason' }
 " --- end reason }}}
 " --- toml {{{
 
-Plug 'cespare/vim-toml', { 'for': [ 'journal', 'markdown', 'toml' ] }
+Plug 'cespare/vim-toml', { 'for': [ 'finn', 'journal', 'markdown', 'toml' ] }
 
 " --- end toml }}}
 " --- vim {{{
