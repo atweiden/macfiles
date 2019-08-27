@@ -73,7 +73,6 @@ Plug 'majutsushi/tagbar'
 " vcs
 Plug 'rhysd/committia.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
 
 " crypto
 Plug 'jamessan/vim-gnupg'
