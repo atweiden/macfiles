@@ -73,10 +73,6 @@ Plug 'majutsushi/tagbar'
 Plug 'rhysd/committia.vim'
 Plug 'tpope/vim-fugitive'
 
-" crypto
-Plug 'jamessan/vim-gnupg'
-Plug 'fcharlier/openssl.vim'
-
 " command runners
 Plug 'tpope/vim-tbone'
 
