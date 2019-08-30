@@ -1,55 +1,76 @@
 useful commands
 ===============
 
-copy photos from iphone import:
+## copy photos from iphone import
 
 ```sh
-cp /Users/user/Pictures/Photos\ Library.photoslibrary/Masters/2017/09/30/20170930-014311/IMG_0214.JPG ~/dad.jpg
+cp \
+  ~/Pictures/Photos\ Library.photoslibrary/Masters/2017/09/30/20170930-014311/IMG_0214.JPG \
+  ~/img.jpg
 ```
 
-convert jpgs into pdf:
+## convert jpgs into pdf
 
 ```sh
 brew install imagemagick
 convert $(ls -v *.jpg) document.pdf
 ```
 
-disk usage:
+## disk usage
 
 ```sh
 ncdu /
 ```
 
-homebrew:
+## homebrew
+
+view formulae
 
 ```sh
-# view formulae
 vim /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/just.rb
 vim /usr/local/Homebrew/Library/Taps/caskroom/homebrew-cask/Casks/adium.rb
+```
 
-# clear cache
+clear cache
+
+```sh
 brew cleanup
 brew --cache
 find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec echo rm -rf '{}' \;
 find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec rm -rf '{}' \;
+```
 
-# reinstall all
+reinstall all
+
+```sh
 brew list | xargs brew reinstall
+```
 
-# find formulae dependencies
+find formulae dependencies
+
+```sh
 brew deps --include-build --include-optional --include-requirements icu4c
+```
 
-# find formulae dependants
+find formulae dependants
+
+```sh
 brew uses --recursive --installed icu4c
+```
 
-# list files installed by formula
+list files installed by formula
+
+```sh
 brew ls --verbose vim
+```
 
-# import homebrew in irb environment
+import homebrew in irb environment
+
+```sh
 brew irb
 ```
 
-python:
+## python
 
 ```sh
 pip2 install --upgrade pip setuptools wheel
@@ -58,52 +79,57 @@ pip2 install ipython ptpython
 pip3 install ipython ptpython
 ```
 
-neovim:
+## neovim
 
 ```sh
 pip2 install -U neovim
 pip3 install -U neovim
 ```
 
-open second instance of iTerm2:
+## open second instance of iTerm2
 
 ```sh
 open -n -a iTerm
 ```
 
-secure delete:
+## secure delete
 
 ```sh
 srm -mz file
 ```
 
-copy saved wifi password:
+## copy saved wifi password
 
 - open *Keychain Access* application
 - ctrl-click target wifi network
   - Copy Password to Clipboard
 
-irrsi:
+## irrsi
 
-- configure
-  - `vim ~/.config/irssi/config`
-    - `:%s/yourname/your-real-irc-name/g`
-- authenticate
-  - `/msg nickserv identify password`
-- connect
-  - `/connect freenode`
-- join
-  - `/join #archlinux`
-- scroll
-  - <kbd>fn</kbd><kbd>shift</kbd><kbd>arrow</kbd>
-  - `/scrollback goto <time|lineno>`
-- windows
-  - <kbd>Alt-Right</kbd>, <kbd>Ctrl-n</kbd> or `/window next`
-  - <kbd>Alt-Left</kbd>, <kbd>Ctrl-p</kbd> or `/window previous`
+configure
+- `vim ~/.config/irssi/config`
+  - `:%s/yourname/your-real-irc-name/g`
 
-record screen with system sound:
+authenticate
+- `/msg nickserv identify password`
 
-```
+connect
+- `/connect freenode`
+
+join
+- `/join #archlinux`
+
+scroll
+- <kbd>fn</kbd><kbd>shift</kbd><kbd>arrow</kbd>
+- `/scrollback goto <time|lineno>`
+
+windows
+- <kbd>Alt-Right</kbd>, <kbd>Ctrl-n</kbd> or `/window next`
+- <kbd>Alt-Left</kbd>, <kbd>Ctrl-p</kbd> or `/window previous`
+
+## record screen with system sound
+
+```sh
 brew cask install soundflower
 ```
 
@@ -116,18 +142,18 @@ brew cask install soundflower
     - launch QuickTime Player
       - right click dock icon
         - New Screen Recording
-    - Shift+Cmd+5
+    - <kbd>Shift</kbd><kbd>Cmd</kbd><kbd>5</kbd>
       - Record Entire Screen
       - Record Selected Portion
   - options
     - Microphone
       - select Soundflower (2ch)
 - stop recording screen
-  - Ctrl+Cmd+Esc
+  - <kbd>Ctrl</kbd><kbd>Cmd</kbd><kbd>Esc</kbd>
 
-compress/convert .mov screen recording:
+## compress/convert .mov screen recording
 
-```
+```sh
 ffmpeg -i input.mov -qscale 31 output.mp4
 ```
 
@@ -137,3 +163,43 @@ ffmpeg -i input.mov -qscale 31 output.mp4
 - takes 5 minutes to compress a 3 minute video at qscale 31
   - file size shrinks from 327M to 32M
   - video and sound quality remains decent
+
+## docker
+
+install
+
+- `brew cask install docker`
+  - necessary to use cask on macos to avoid weirdness
+- launch the docker app
+  - it will ask for privileged access
+    - confirm
+      - wait a while for docker to load
+        - a whale icon should appear in the top bar
+          - click it and wait for "docker is running" to appear
+
+use
+
+```sh
+# obtain ocaml/rwo from dockerhub
+docker pull ocaml/rwo
+
+# obtain name: ocaml/rwo, tag: latest
+docker image list
+
+# run container interactively
+docker run -i -t ocaml/rwo:latest /bin/bash
+make
+exit
+
+# run container as daemon
+docker run -d -t ocaml/rwo:latest
+
+# container id: cd893186e3d0
+docker container ls
+
+# copy files from container
+docker cp cd893186e3d0:/home/opam/src/_build/default/static ~/.src/rwo
+
+# stop container
+docker stop cd893186e3d0
+```
