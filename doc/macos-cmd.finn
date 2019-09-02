@@ -1,3 +1,5 @@
+/* vim: set filetype=finn foldmethod=marker foldlevel=0 nowrap: */
+
 useful commands
 ===============
 
@@ -36,8 +38,10 @@ clear cache
 ```sh
 brew cleanup
 brew --cache
-find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec echo rm -rf '{}' \;
-find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" -exec rm -rf '{}' \;
+find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" \
+  -exec echo rm -rf '{}' \;
+find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" \
+  -exec rm -rf '{}' \;
 ```
 
 reinstall all
@@ -49,13 +53,20 @@ brew list | xargs brew reinstall
 find formulae dependencies
 
 ```sh
-brew deps --include-build --include-optional --include-requirements icu4c
+brew deps \
+  --include-build \
+  --include-optional \
+  --include-requirements \
+  icu4c
 ```
 
 find formulae dependants
 
 ```sh
-brew uses --recursive --installed icu4c
+brew uses \
+  --recursive \
+  --installed \
+  icu4c
 ```
 
 list files installed by formula
@@ -151,7 +162,7 @@ brew cask install soundflower
 - stop recording screen
   - <kbd>Ctrl</kbd><kbd>Cmd</kbd><kbd>Esc</kbd>
 
-## compress/convert .mov screen recording
+## compress/convert mov screen recording
 
 ```sh
 ffmpeg -i input.mov -qscale 31 output.mp4
@@ -163,6 +174,172 @@ ffmpeg -i input.mov -qscale 31 output.mp4
 - takes 5 minutes to compress a 3 minute video at qscale 31
   - file size shrinks from 327M to 32M
   - video and sound quality remains decent
+
+## compress pdf file size
+
+create custom pdf quartz filter for apple preview
+
+```sh
+vim ~/Library/Filters/Reduce\ File\ Size\ with\ Good\ Quality.qfilter
+```
+
+/* qfilter {{{ */
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Domains</key>
+    <dict>
+        <key>Applications</key>
+        <true/>
+        <key>Printing</key>
+        <true/>
+    </dict>
+    <key>FilterData</key>
+    <dict>
+        <key>ColorSettings</key>
+        <dict>
+            <key>DocumentColorSettings</key>
+            <dict>
+                <key>CustomLHSCorrection</key>
+                <array>
+                    <integer>8</integer>
+                    <integer>8</integer>
+                    <integer>8</integer>
+                </array>
+            </dict>
+            <key>ImageSettings</key>
+            <dict>
+                <key>Compression Quality</key>
+    <!-- ====== Set your custom quality <0,1> ======= -->
+                <real>0.0</real>
+                <key>ImageCompression</key>
+                <string>ImageJPEGCompress</string>
+                <key>ImageScaleSettings</key>
+                <dict>
+                    <key>ImageScaleFactor</key>
+    <!-- ====== Set your scale factor <0,1> ======= -->
+                    <real>0.75</real>
+                    <key>ImageScaleInterpolate</key>
+                    <true/>
+    <!-- ====== Set what sizes your images can reach ======= -->
+                    <key>ImageSizeMax</key>
+                    <integer>1684</integer>
+                    <key>ImageSizeMin</key>
+                    <integer>1200</integer>
+                </dict>
+            </dict>
+        </dict>
+    </dict>
+    <key>FilterType</key>
+    <integer>1</integer>
+    <key>Name</key>
+    <!-- ====== Set unique display name for your filter ======= -->
+    <string>Reduce Size Good Quality</string>
+</dict>
+</plist>
+```
+
+/* end qfilter }}} */
+
+- adjusting compression quality down to 0.0 reduces file size to 50%
+  of original with no discernable degradation in quality
+
+create custom pdf quartz filter for apple preview with apple colorsync
+
+- open apple colorsync util
+  - filters
+    - reduce file size
+      - click down-arrow drop menu on rhs
+        - duplicate filter
+          - rename duplicated filter to Better Reduce File Size
+    - better reduce file size
+      - image sampling
+        - quality: high
+        - set scale: (uncheck)
+        - set resolution: 300 pixels / inch
+        - constrain size: (uncheck)
+- further adjust Better Reduce File Size quartz filter
+  - compression quality: 0.0
+
+```sh
+vim ~/Library/Filters/Better\ Reduce\ File\ Size.qfilter
+```
+
+/* qfilter {{{ */
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Domains</key>
+  <dict>
+    <key>Applications</key>
+    <true/>
+    <key>Printing</key>
+    <true/>
+  </dict>
+  <key>FilterData</key>
+  <dict>
+    <key>ColorSettings</key>
+    <dict>
+      <key>ImageSettings</key>
+      <dict>
+        <key>Compression Quality</key>
+        <real>0.0</real>
+        <key>ImageCompression</key>
+        <string>ImageJPEGCompress</string>
+        <key>ImageScaleSettings</key>
+        <dict>
+          <key>ImageResolution</key>
+          <integer>300</integer>
+          <key>ImageScaleFactor</key>
+          <real>0.0</real>
+          <key>ImageScaleInterpolate</key>
+          <integer>3</integer>
+          <key>ImageSizeMax</key>
+          <integer>0</integer>
+          <key>ImageSizeMin</key>
+          <integer>0</integer>
+        </dict>
+      </dict>
+    </dict>
+  </dict>
+  <key>FilterType</key>
+  <integer>1</integer>
+  <key>Name</key>
+  <string>Better Reduce File Size</string>
+</dict>
+</plist>
+```
+
+/* end qfilter }}} */
+
+compress pdf with apple preview
+
+- open pdf in apple preview
+  - file
+    - export
+      - quartz filter
+        - select *Better Reduce File Size*, or
+        - select *Reduce File Size with Good Quality*
+      - save
+
+optionally squeeze pdf
+
+```sh
+brew install opam
+opam init
+eval $(opam env)
+# because cpdf currently requires 4.03 < $OCAML_VERSION < 4.06
+opam switch create 4.05.0
+eval $(opam env)
+opam install cpdf
+cpdf -squeeze in.pdf -o out.pdf
+```
 
 ## docker
 
