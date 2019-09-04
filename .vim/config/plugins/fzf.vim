@@ -11,6 +11,14 @@ let g:fzf_buffers_jump = 1
 let g:fzf_files_options = printf('--preview "%s {} | head -'.&lines.'"',
   \ g:plugs['fzf.vim'].dir.'/bin/preview.sh')
 
+" :FZFAg  - start fzf with hidden preview window, enabled with `?` key
+" :FZFAg! - start fzf in fullscreen and display preview window above
+command! -bang -nargs=* FZFAg
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
 " cat /usr/share/dict/words
 imap <C-X><C-K> <Plug>(fzf-complete-word)
 
@@ -23,14 +31,14 @@ imap <C-X><C-J> <Plug>(fzf-complete-file-ag)
 " line completion (current buffer only)
 imap <C-X><C-L> <Plug>(fzf-complete-line)
 
-" open files from CWD
+" open files from cwd
 nnoremap <silent> <leader>o :FZFFiles<CR>
 
 " select buffer
 nnoremap <silent> <leader>lz :FZFBuffers<CR>
 
-" select marks
-nnoremap <silent> <M-`> :FZFMarks<CR>
+" search with ag from cwd
+nnoremap <silent> <C-F> :FZFAg<CR>
 
 " search lines in current buffer
 nnoremap <silent> <M-f> :FZFBLines<CR>
