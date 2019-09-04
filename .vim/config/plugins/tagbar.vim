@@ -9,6 +9,7 @@ let g:tagbar_compact = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_foldlevel = 99
 let g:tagbar_iconchars = ['▾', '▸']
+let g:tagbar_status_func = 'TagbarStatusFunc'
 
 let g:tagbar_type_ada = {
     \ 'ctagstype' : 'ada',
