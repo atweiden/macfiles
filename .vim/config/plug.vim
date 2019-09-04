@@ -34,7 +34,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " repeat
 Plug 'tpope/vim-repeat'
-Plug 'etihwnad/vim-visualrepeat'
 
 " undo
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
