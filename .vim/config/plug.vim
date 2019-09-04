@@ -56,7 +56,6 @@ Plug 't9md/vim-textmanip'
 " textobj
 Plug 'inkarkat/vim-LineJuggler'
 Plug 'inkarkat/vim-LineJugglerCommands'
-Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-entire'
 Plug 'reedes/vim-textobj-sentence'
 
