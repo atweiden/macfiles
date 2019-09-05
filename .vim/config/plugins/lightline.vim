@@ -109,7 +109,6 @@ endfunction
 function! LightlineMode()
   let fname = expand('%:t')
   return
-    \ fname == '__Tagbar__' ? 'Tagbar' :
     \ fname =~ 'NERD_tree' ? 'NERDTree' :
     \ &ft == 'undotree' ? 'UndoTree' :
     \ &ft == 'vim-plug' ? 'Plug' :
@@ -128,11 +127,6 @@ function! LightlineTabModified(n) abort
   return
     \ gettabwinvar(a:n, winnr, '&modified') ? '+' :
     \ gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-'
-endfunction
-
-function! TagbarStatusFunc(current, sort, fname, ...) abort
-  let g:lightline.fname = a:fname
-  return lightline#statusline(0)
 endfunction
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

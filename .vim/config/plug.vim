@@ -64,9 +64,6 @@ Plug 'kshenoy/vim-signature'
 " auto-close
 Plug 'jiangmiao/auto-pairs'
 
-" tags
-Plug 'majutsushi/tagbar'
-
 " vcs
 Plug 'rhysd/committia.vim'
 Plug 'tpope/vim-fugitive'
