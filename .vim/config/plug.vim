@@ -8,9 +8,6 @@ Plug 'talek/obvious-resize'
 
 " buffers
 Plug 'mihaifm/bufstop'
-Plug 'vim-scripts/clone'
-Plug 'chrisbra/NrrwRgn'
-Plug 'chrisbra/Recover.vim'
 
 " folds
 Plug 'Konfekt/FastFold'
@@ -52,11 +49,9 @@ Plug 'tommcdo/vim-lion'
 Plug 't9md/vim-textmanip'
 
 " textobj
-Plug 'inkarkat/vim-LineJuggler'
-Plug 'inkarkat/vim-LineJugglerCommands'
 Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-entire'
-Plug 'reedes/vim-textobj-sentence'
+Plug 'kana/vim-textobj-user'
 
 " bookmarks
 Plug 'kshenoy/vim-signature'
@@ -65,52 +60,31 @@ Plug 'kshenoy/vim-signature'
 Plug 'jiangmiao/auto-pairs'
 
 " vcs
-Plug 'rhysd/committia.vim'
 Plug 'tpope/vim-fugitive'
 
 " command runners
 Plug 'tpope/vim-tbone'
 
-" sonic pi
-Plug 'dermusikman/sonicpi.vim'
-
 " languages {{{
 
-" --- c/c++ {{{
-
-Plug 'vim-jp/vim-cpp',                   { 'for': [ 'c', 'cpp' ] }
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': [ 'c', 'cpp' ] }
-
-" --- end c/c++ }}}
 " --- elixir {{{
 
 Plug 'elixir-editors/vim-elixir', { 'for': [ 'eelixir', 'elixir' ] }
 
 " --- end elixir }}}
-" --- go {{{
-
-Plug 'fatih/vim-go',        { 'for': 'go' }
-Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
-
-" --- end go }}}
-" --- journal/finn {{{
+" --- journal {{{
 
 Plug 'junegunn/vim-journal', { 'for': 'journal' }
 Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
 
-" --- end journal/finn }}}
-" --- markdown {{{
-
-Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
-
-" --- end markdown }}}
-" --- perl/perl6 {{{
+" --- end journal }}}
+" --- perl {{{
 
 Plug 'vim-perl/vim-perl',              { 'for': 'perl' }
 Plug 'vim-perl/vim-perl6',             { 'for': 'perl6' }
 Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
 
-" --- end perl/perl6 }}}
+" --- end perl }}}
 " --- reason {{{
 
 Plug 'jordwalke/vim-reason', { 'for': 'reason' }
@@ -121,16 +95,10 @@ Plug 'jordwalke/vim-reason', { 'for': 'reason' }
 Plug 'cespare/vim-toml', { 'for': [ 'finn', 'journal', 'markdown', 'toml' ] }
 
 " --- end toml }}}
-" --- vim {{{
-
-Plug 'vim-jp/syntax-vim-ex', { 'for': 'vim' }
-
-" --- end vim }}}
 
 " end languages }}}
 
 " colors
-Plug 'guns/jellyx.vim'
 Plug 'junegunn/seoul256.vim'
 
 " color utilities
@@ -138,12 +106,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mhinz/vim-hugefile'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/rainbow_parentheses.vim'
-
-" utilities / dependencies
-Plug 'inkarkat/vim-ingo-library'
-Plug 'Shougo/vimproc.vim'
-Plug 'tpope/vim-scriptease'
-Plug 'kana/vim-textobj-user'
 
 call plug#end()
 endif
