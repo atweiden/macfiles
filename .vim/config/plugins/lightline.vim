@@ -83,6 +83,17 @@ function! LightlineFileName()
     \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
+function! GitBranch() abort
+  if !exists('b:git_branch')
+    let b:git_branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  endif
+  return b:git_branch
+endfunction
+
+" refresh git branch periodically
+autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
+  \ silent! unlet b:git_branch
+
 function! LightlineGitBranch()
   try
     let _ = GitBranch()
@@ -90,13 +101,6 @@ function! LightlineGitBranch()
   catch
   endtry
   return ''
-endfunction
-
-function! GitBranch() abort
-  if !exists('b:git_branch')
-    let b:git_branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-  endif
-  return b:git_branch
 endfunction
 
 function! LightlineFileFormat()
