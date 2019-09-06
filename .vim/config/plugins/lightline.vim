@@ -6,7 +6,7 @@ let g:lightline = {
     \ 'active': {
     \   'left': [
     \     [ 'mode', 'paste' ],
-    \     [ 'fugitive', 'filename' ]
+    \     [ 'gitbranch', 'filename' ]
     \   ],
     \   'right': [
     \     [ 'lineinfo' ],
@@ -15,7 +15,7 @@ let g:lightline = {
     \   ]
     \ },
     \ 'component_function': {
-    \   'fugitive': 'LightlineFugitive',
+    \   'gitbranch': 'LightlineGitBranch',
     \   'filename': 'LightlineFileName',
     \   'fileformat': 'LightlineFileFormat',
     \   'filetype': 'LightlineFileType',
@@ -83,15 +83,20 @@ function! LightlineFileName()
     \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
-function! LightlineFugitive()
+function! LightlineGitBranch()
   try
-    if exists('*fugitive#head')
-      let _ = fugitive#head()
-      return strlen(_) ? ' ' . _ : ''
-    endif
+    let _ = GitBranch()
+    return strlen(_) ? ' ' . _ : ''
   catch
   endtry
   return ''
+endfunction
+
+function! GitBranch() abort
+  if !exists('b:git_branch')
+    let b:git_branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  endif
+  return b:git_branch
 endfunction
 
 function! LightlineFileFormat()

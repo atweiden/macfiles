@@ -59,9 +59,6 @@ Plug 'kshenoy/vim-signature'
 " auto-close
 Plug 'jiangmiao/auto-pairs'
 
-" vcs
-Plug 'tpope/vim-fugitive'
-
 " command runners
 Plug 'tpope/vim-tbone'
 
