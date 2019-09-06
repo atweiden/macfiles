@@ -49,7 +49,7 @@ nnoremap <silent> <M-F> :FZFLines<CR>
 " simple MRU file search
 nnoremap <silent> <M-m> :FZFHistory<CR>
 
-" hide statusline when fzf starts in a :terminal buffer
+" hide status line when fzf starts in a :terminal buffer
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler

@@ -21,7 +21,7 @@ set report=0
 " don't highlight the screen line or column
 set nocursorline nocursorcolumn
 
-" always show statusline
+" always show status line
 set laststatus=2
 
 " don't highlight matching parens
