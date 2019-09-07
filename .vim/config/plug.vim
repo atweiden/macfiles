@@ -77,9 +77,8 @@ Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
 " --- end journal }}}
 " --- perl {{{
 
-Plug 'vim-perl/vim-perl',              { 'for': 'perl' }
-Plug 'vim-perl/vim-perl6',             { 'for': 'perl6' }
-Plug 'yuuki1/perl-local-lib-path.vim', { 'for': [ 'perl', 'perl6' ] }
+Plug 'vim-perl/vim-perl',  { 'for': 'perl' }
+Plug 'vim-perl/vim-perl6', { 'for': 'perl6' }
 
 " --- end perl }}}
 " --- reason {{{
