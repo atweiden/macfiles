@@ -1,6 +1,4 @@
-" editing {{{
-
-" --- selecting {{{
+" selecting {{{
 
 " bind escape key
 call arpeggio#load()
@@ -20,24 +18,17 @@ vnoremap < <gv
 nnoremap > >>
 nnoremap < <<
 
-" --- end selecting }}}
-" --- toggle showcmd {{{
+" end selecting }}}
+" search and replace {{{
 
-nnoremap <silent> <leader>sc :set showcmd!<CR>
-
-" --- end toggle showcmd }}}
-" --- toggle virtualedit=all {{{
-
-nnoremap <silent> <leader><leader>v :let &virtualedit=&virtualedit=="block" ? "all" : "block" <Bar> set virtualedit?<CR>
-
-" --- end toggle virtualedit=all }}}
-" --- search and replace {{{
+" find two spaces after a period
+nnoremap <leader><leader>. /\.\s\s\+\w/s+1<CR>
 
 " remove search highlights
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
-" --- end search and replace }}}
-" --- pasting {{{
+" end search and replace }}}
+" pasting {{{
 
 " yank to end of line
 noremap Y y$
@@ -51,23 +42,14 @@ nnoremap <leader>Y "+y$
 noremap <leader>p "+p
 noremap <leader>P "+P
 
-" toggle paste mode
-set pastetoggle=<F2>
-
-" --- end pasting }}}
-" --- formatting {{{
+" end pasting }}}
+" formatting {{{
 
 " format visual selection with spacebar
 vnoremap <space> :!fmt<CR>
 
-" --- end formatting }}}
-" --- proofreading {{{
-
-" find two spaces after a period
-nnoremap <leader><leader>. /\.\s\s\+\w/s+1<CR>
-
-" --- end proofreading }}}
-" --- writing {{{
+" end formatting }}}
+" writing {{{
 
 " quick write
 nnoremap <silent> <leader>w :w<CR>
@@ -81,8 +63,8 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " change to directory of file
 nnoremap <silent> <leader>. :cd%:h<CR>
 
-" --- end writing }}}
-" --- redoing {{{
+" end writing }}}
+" redoing {{{
 
 " maintain location in document while redoing
 nnoremap . .`[
@@ -90,8 +72,8 @@ nnoremap . .`[
 " qq to record, Q to replay
 nnoremap Q @q
 
-" --- end redoing }}}
-" --- words {{{
+" end redoing }}}
+" digraphs {{{
 
 " digraphs
 if has('digraphs')
@@ -177,19 +159,17 @@ if has('digraphs')
   digraph s/ 10182
 endif
 
-" --- end words }}}
-" --- timestamp {{{
+" end digraphs }}}
+" timestamps {{{
 
 " insert timestamp
 nnoremap <silent> <leader>D :r !date --iso-8601=s<CR>
 
-" --- end timestamp }}}
+" end timestamps }}}
+" toggles {{{
 
-" end editing }}}
-
-" lines {{{
-
-" --- toggles {{{
+" toggle paste mode
+set pastetoggle=<F2>
 
 " toggle line wrap
 noremap <silent> <F3> :set nowrap!<CR>
@@ -211,14 +191,24 @@ noremap <silent> <F7> :set spell! spelllang=en_us<CR>
 inoremap <silent> <F7> <C-O>:set spell! spelllang=en_us<CR>
 vnoremap <silent> <F7> <ESC>:set spell! spelllang=en_us<CR>gv
 
+" scroll all windows simultaneously
+nnoremap <silent> <F9> :windo set scrollbind!<CR>
+inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
+
 " convert all tabs into spaces and continue session with spaces
 nnoremap <silent><expr> g<M-t> ':set expandtab<CR>:retab!<CR>:echo "Tabs have been converted to spaces"<CR>'
 
 " convert all spaces into tabs and continue session with tabs
 nnoremap <silent><expr> g<M-T> ':set noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>'
 
-" --- end toggles }}}
-" --- split/joins {{{
+" toggle showcmd
+nnoremap <silent> <leader>sc :set showcmd!<CR>
+
+" toggle virtualedit=all
+nnoremap <silent> <leader><leader>v :let &virtualedit=&virtualedit=="block" ? "all" : "block" <Bar> set virtualedit?<CR>
+
+" end toggles }}}
+" split/joins {{{
 
 " keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -226,14 +216,14 @@ nnoremap J mzJ`z
 " split line
 nnoremap <silent> S i<CR><ESC>^mwgk:silent! s/\v +$//<CR>:noh<CR>`w
 
-" --- end split/joins }}}
-" --- deletes {{{
+" end split/joins }}}
+" deletes {{{
 
 " delete char adjacent-right without moving cursor over one from the left
 nnoremap <silent> gx @='lxh'<CR>
 
-" --- end deletes }}}
-" --- movement {{{
+" end deletes }}}
+" movement {{{
 
 " move between beginning and end of line
 nnoremap H ^
@@ -251,13 +241,8 @@ nnoremap gI `.
 noremap <PageUp> <C-U>
 noremap <PageDown> <C-D>
 
-" --- end movement }}}
-
-" end lines }}}
-
-" programming {{{
-
-" --- tabs {{{
+" end movement }}}
+" whitespacing {{{
 
 " set tabstop, shiftwidth and softtabstop to same (specified) value
 nnoremap <leader>ts :Stab<CR>
@@ -265,8 +250,8 @@ nnoremap <leader>ts :Stab<CR>
 " echo tabstop, shiftwidth, softtabstop and expandtab values
 nnoremap <leader>st :call SummarizeTabs()<CR>
 
-" --- end tabs }}}
-" --- folds {{{
+" end whitespacing }}}
+" folds {{{
 
 " toggle folds with g+spacebar
 nnoremap <silent> g<space> :exe ":silent! normal za"<CR>
@@ -289,27 +274,8 @@ nnoremap <leader>f7 :set foldlevel=7<CR>
 nnoremap <leader>f8 :set foldlevel=8<CR>
 nnoremap <leader>f9 :set foldlevel=9<CR>
 
-" --- end folds }}}
-" --- merging {{{
-
-" jump to next conflict marker
-nnoremap <silent> <leader>jc /^\(<\\|=\\|>\)\{7\}\([^=].\+\)\?$<CR>
-
-" --- end merging }}}
-" --- hex {{{
-
-" toggle between hex and binary, after opening file with `vim -b`
-noremap <silent> <F9> :call HexMe()<CR>
-inoremap <silent> <F9> <C-O>:call HexMe()<CR>
-vnoremap <silent> <F9> <ESC>:call HexMe()<CR>gv
-
-" --- end hex }}}
-
-" end programming }}}
-
-" navigation {{{
-
-" --- buffers {{{
+" end folds }}}
+" buffers {{{
 
 " buffer navigation
 nnoremap <silent> gd :bdelete<CR>
@@ -325,8 +291,8 @@ nnoremap <silent> <leader>7 :<C-U>buffer 7<CR>
 nnoremap <silent> <leader>8 :<C-U>buffer 8<CR>
 nnoremap <silent> <leader>9 :<C-U>buffer 9<CR>
 
-" --- end buffers }}}
-" --- windows {{{
+" end buffers }}}
+" windows {{{
 
 " map alt-[h,j,k,l,=,_,|] to resizing a window split
 " map alt-[s,v] to horizontal and vertical split respectively
@@ -348,52 +314,6 @@ nnoremap <silent> <M-J> <C-W>J
 nnoremap <silent> <M-K> <C-W>K
 nnoremap <silent> <M-L> <C-W>L
 
-" create a split on the given side
-nnoremap <leader>swh :leftabove vsp<CR>
-nnoremap <leader>swl :rightbelow vsp<CR>
-nnoremap <leader>swk :leftabove sp<CR>
-nnoremap <leader>swj :rightbelow sp<CR>
-
-" scroll all windows simultaneously
-nnoremap <silent> <S-F5> :windo set scrollbind!<CR>
-inoremap <silent> <S-F5> <C-O>:windo set scrollbind!<CR>
-
-" --- end windows }}}
-" --- tabs {{{
-
-" new tab
-nnoremap <silent> <M-Down> :tabnew<CR>
-
-" close tab
-nnoremap <silent> <M-d> :tabclose<CR>
-
-" switch between tabs
-nnoremap <silent> ( @='gT'<CR>
-nnoremap <silent> ) @='gt'<CR>
-
-" move tab adjacent
-nnoremap <silent> g( :<C-U>:execute "tabmove -" . v:count1<CR>
-nnoremap <silent> g) :<C-U>:execute "tabmove +" . v:count1<CR>
-
-" move tab
-noremap <leader>tm :tabmove<space>
-
-" open specified file in new tab
-noremap <leader>te :tabedit <C-R>=expand("%:p:h")<CR>/
-
-" allows typing :tabv myfile.txt to view the specified file in a new read-only tab
-cabbrev tabv tab sview +setlocal\ nomodifiable
-
-" press Shift-F12 to show all buffers in tabs, or to close all tabs
-let notabs = 0
-nnoremap <silent> <S-F12> :let notabs=!notabs<Bar>:if notabs<Bar>:tabo<Bar>:else<Bar>:tab ball<Bar>:tabn<Bar>:endif<CR>
-
-" show and hide tabline
-nnoremap <silent> <M-S-Up> :set showtabline=0<CR>
-nnoremap <silent> <M-S-Down> :set showtabline=1<CR>
-
-" --- end tabs }}}
-
-" end navigation }}}
+" end windows }}}
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
