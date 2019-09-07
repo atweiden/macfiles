@@ -51,7 +51,7 @@ nnoremap <silent> <M-m> :FZFHistory<CR>
 
 " hide status line when fzf starts in a :terminal buffer
 autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+autocmd  FileType fzf set laststatus=0
+  \| autocmd BufLeave <buffer> set laststatus=2
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
