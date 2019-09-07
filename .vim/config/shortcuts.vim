@@ -123,7 +123,7 @@ if has('digraphs')
   digraph (U 8745
   " (∪) equivalent to `(|)`: https://doc.perl6.org/routine/%E2%88%AA
   digraph )U 8746
-  " (≅) equivalent to `=~=`
+  " (≅) equivalent to `=~=`: https://docs.perl6.org/routine/=~=
   digraph =~ 8773
   " (≼) equivalent to `(<+)`: https://doc.perl6.org/routine/%E2%89%BC
   digraph <+ 8828
