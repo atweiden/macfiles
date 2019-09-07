@@ -53,9 +53,6 @@ Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 
-" bookmarks
-Plug 'kshenoy/vim-signature'
-
 " auto-close
 Plug 'jiangmiao/auto-pairs'
 
