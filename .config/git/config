@@ -19,6 +19,8 @@
   ci = commit
   co = checkout
   diffr = "!f() { TARGET=$1; git diff -r $1~ -r $1; }; f"
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
   logv = log -v --pretty
   ls = ls-files
   p = format-patch HEAD^..HEAD --stdout
