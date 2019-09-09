@@ -1,8 +1,8 @@
 function! ToggleFindNerd()
   if IsNERDTreeOpen()
-    exec ':NERDTreeToggle'
+    execute ':NERDTreeToggle'
   else
-    exec ':NERDTreeFind'
+    execute ':NERDTreeFind'
   endif
 endfunction
 

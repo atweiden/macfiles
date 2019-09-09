@@ -7,10 +7,10 @@
 
 function! FocusLine()
   let b:save_pos = getpos(".")
-  exe ":silent! normal zM"
-  exe ":silent! normal zv"
-  exe ":silent! normal zz"
-  exe "normal! 15\<C-E>"
+  execute ":silent! normal zM"
+  execute ":silent! normal zv"
+  execute ":silent! normal zz"
+  execute "normal! 15\<C-E>"
   call setpos('.', b:save_pos)
 endfunction
 
