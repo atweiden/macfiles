@@ -207,10 +207,7 @@ augroup END
 " return to last edit position
 augroup cursormem
   autocmd!
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+  autocmd BufReadPost * call ReturnToLastEditPosition()
 augroup END
 
 " dictionary and spelling
