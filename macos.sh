@@ -36,6 +36,10 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 # Set standby delay to 7 hours (default is 1 hour)
 sudo pmset -a standbydelay 25200
 
+# Always boot in verbose mode (not MacOS GUI mode)
+# To undo this, type: sudo nvram -d boot-args
+sudo nvram boot-args="-v"
+
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
@@ -111,6 +115,9 @@ sudo systemsetup -setcomputersleep Off > /dev/null
 
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
+# Hide Notification Center icon
+sudo rm -f /System/Library/CoreServices/SystemUIServer.app/Contents/Resources/menuitemNormal.pdf
 
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
@@ -779,15 +786,30 @@ launchctl limit core 0 100000
 # ==============================================================================
 # security {{{
 
-# enable the firewall with logging and stealth mode
+# Enable the firewall with logging and stealth mode
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode on
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
-# prevent built-in software as well as code-signed, downloaded software
+# Prevent built-in software as well as code-signed, downloaded software
 # from being whitelisted automatically
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned off
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsignedapp off
+
+# Disable IR remote control
+sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController DeviceEnabled -bool false
+
+# Disable remote Apple events
+sudo systemsetup -setremoteappleevents off &> /dev/null
+
+# Disable wake-on LAN
+sudo systemsetup -setwakeonnetworkaccess off &> /dev/null
+
+# Disable Bonjour multicast advertisements
+sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool true
+
+# Disable guest account login
+sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
 
 # end security }}}
 # ==============================================================================
