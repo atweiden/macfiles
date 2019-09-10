@@ -81,6 +81,8 @@ if has('digraphs')
   digraph !! 161
   " (§) section sign
   digraph SS 167
+  " (°) degree symbol
+  digraph oo 176
   " (¿) inverted question mark
   digraph ?? 191
   " (ʹ) modifier letter prime
