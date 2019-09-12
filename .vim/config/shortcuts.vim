@@ -246,11 +246,11 @@ noremap <PageDown> <C-D>
 " end movement }}}
 " whitespacing {{{
 
-" append blank line
-nnoremap <silent> ]<space> @="m`o\eg``"<CR>
+" put blank line above current line
+nmap [<space> <Plug>PutBlankLineAbove
 
-" insert blank line
-nnoremap <silent> [<space> @="m`O\eg``"<CR>
+" put blank line below current line
+nmap ]<space> <Plug>PutBlankLineBelow
 
 " set tabstop, shiftwidth and softtabstop to same (specified) value
 nnoremap <leader>ts :Stab<CR>
