@@ -247,10 +247,10 @@ noremap <PageDown> <C-D>
 " whitespacing {{{
 
 " append blank line
-nnoremap ]<space> @="m`o\eg``"<CR>
+nnoremap <silent> ]<space> @="m`o\eg``"<CR>
 
 " insert blank line
-nnoremap [<space> @="m`O\eg``"<CR>
+nnoremap <silent> [<space> @="m`O\eg``"<CR>
 
 " set tabstop, shiftwidth and softtabstop to same (specified) value
 nnoremap <leader>ts :Stab<CR>
