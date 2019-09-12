@@ -175,15 +175,18 @@ set sessionoptions+=resize,tabpages,winpos,winsize
 "                   +-------------------------------- Size of the Vim window
 
 " automatic formatting options
-set formatoptions=rqn2l1j
-"                 |||||||
-"                 ||||||+----- Remove comment leader when joining two comments
-"                 |||||+------ Don't break a line after a one-letter word
-"                 ||||+------- Don't break long lines in insert mode
-"                 |||+-------- Use the indent of the second line of a paragraph for the rest of the paragraph instead of the first
-"                 ||+--------- Recognize numbered lists when formatting text
-"                 |+---------- Allow formatting of comments with gq
-"                 +----------- Automatically insert the current comment leader after <Enter> in insert mode
+augroup fmtopts
+  autocmd!
+  autocmd FileType * set formatoptions=rqn2l1j
+"                                      |||||||
+"                                      ||||||+----- Remove comment leader when joining two comments
+"                                      |||||+------ Don't break a line after a one-letter word
+"                                      ||||+------- Don't break long lines in insert mode
+"                                      |||+-------- Use the indent of the second line of a paragraph for the rest of the paragraph instead of the first
+"                                      ||+--------- Recognize numbered lists when formatting text
+"                                      |+---------- Allow formatting of comments with gq
+"                                      +----------- Automatically insert the current comment leader after <Enter> in insert mode
+augroup END
 
 " use rg/ag/pt/ack for grepping if available
 if executable('rg')
