@@ -48,3 +48,6 @@ Session.vim
 
 # NodeJS
 node_modules
+
+# ReasonML
+.merlin
