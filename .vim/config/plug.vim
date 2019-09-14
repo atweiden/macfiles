@@ -72,11 +72,6 @@ Plug 'junegunn/vim-journal', { 'for': 'journal' }
 Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
 
 " --- end journal }}}
-" --- nim {{{
-
-Plug 'alaviss/nim.nvim', { 'for': 'nim' }
-
-" --- end nim }}}
 " --- perl {{{
 
 Plug 'vim-perl/vim-perl',  { 'for': 'perl' }
