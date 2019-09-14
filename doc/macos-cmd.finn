@@ -18,6 +18,17 @@ brew install imagemagick
 convert $(ls -v *.jpg) document.pdf
 ```
 
+## combine pdfs
+
+```sh
+# credit: https://apple.stackexchange.com/a/230447
+"/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" \
+  -o /path/to/combined/doc.pdf \
+  /path/to/part/1.pdf \
+  /path/to/part/2.pdf \
+  /path/to/part/3.pdf
+```
+
 ## disk usage
 
 ```sh
