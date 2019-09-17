@@ -69,7 +69,7 @@ Plug 'elixir-editors/vim-elixir', { 'for': [ 'eelixir', 'elixir' ] }
 " --- journal {{{
 
 Plug 'junegunn/vim-journal', { 'for': 'journal' }
-Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
+Plug 'atweiden/vim-finn',    { 'for': 'finn' }
 
 " --- end journal }}}
 " --- perl {{{
@@ -78,14 +78,17 @@ Plug 'vim-perl/vim-perl',  { 'for': 'perl' }
 Plug 'vim-perl/vim-perl6', { 'for': 'perl6' }
 
 " --- end perl }}}
-" --- reason {{{
+" --- reasonml {{{
 
-Plug 'jordwalke/vim-reason', { 'for': 'reason' }
+Plug 'jordwalke/vim-reasonml', { 'for': [ 'ocaml', 'reason' ] }
 
-" --- end reason }}}
+" --- end reasonml }}}
 " --- toml {{{
 
-Plug 'cespare/vim-toml', { 'for': [ 'finn', 'journal', 'markdown', 'toml' ] }
+Plug 'cespare/vim-toml', { 'for': [ 'finn',
+                                  \ 'journal',
+                                  \ 'markdown',
+                                  \ 'toml' ] }
 
 " --- end toml }}}
 
