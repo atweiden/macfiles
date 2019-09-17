@@ -191,69 +191,10 @@ ffmpeg -i input.mov -qscale 31 output.mp4
 create custom pdf quartz filter for apple preview
 
 ```sh
-vim ~/Library/Filters/Reduce\ File\ Size\ with\ Good\ Quality.qfilter
+cp \
+  resources/Reduce\ File\ Size\ with\ Good\ Quality.qfilter \
+  ~/Library/Filters
 ```
-
-/* qfilter {{{ */
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Domains</key>
-    <dict>
-        <key>Applications</key>
-        <true/>
-        <key>Printing</key>
-        <true/>
-    </dict>
-    <key>FilterData</key>
-    <dict>
-        <key>ColorSettings</key>
-        <dict>
-            <key>DocumentColorSettings</key>
-            <dict>
-                <key>CustomLHSCorrection</key>
-                <array>
-                    <integer>8</integer>
-                    <integer>8</integer>
-                    <integer>8</integer>
-                </array>
-            </dict>
-            <key>ImageSettings</key>
-            <dict>
-                <key>Compression Quality</key>
-    <!-- ====== Set your custom quality <0,1> ======= -->
-                <real>0.0</real>
-                <key>ImageCompression</key>
-                <string>ImageJPEGCompress</string>
-                <key>ImageScaleSettings</key>
-                <dict>
-                    <key>ImageScaleFactor</key>
-    <!-- ====== Set your scale factor <0,1> ======= -->
-                    <real>0.75</real>
-                    <key>ImageScaleInterpolate</key>
-                    <true/>
-    <!-- ====== Set what sizes your images can reach ======= -->
-                    <key>ImageSizeMax</key>
-                    <integer>1684</integer>
-                    <key>ImageSizeMin</key>
-                    <integer>1200</integer>
-                </dict>
-            </dict>
-        </dict>
-    </dict>
-    <key>FilterType</key>
-    <integer>1</integer>
-    <key>Name</key>
-    <!-- ====== Set unique display name for your filter ======= -->
-    <string>Reduce Size Good Quality</string>
-</dict>
-</plist>
-```
-
-/* end qfilter }}} */
 
 - adjusting compression quality down to 0.0 reduces file size to 50%
   of original with no discernable degradation in quality
@@ -276,58 +217,10 @@ create custom pdf quartz filter for apple preview with apple colorsync
   - compression quality: 0.0
 
 ```sh
-vim ~/Library/Filters/Better\ Reduce\ File\ Size.qfilter
+cp \
+  resources/Better\ Reduce\ File\ Size.qfilter \
+  ~/Library/Filters
 ```
-
-/* qfilter {{{ */
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Domains</key>
-  <dict>
-    <key>Applications</key>
-    <true/>
-    <key>Printing</key>
-    <true/>
-  </dict>
-  <key>FilterData</key>
-  <dict>
-    <key>ColorSettings</key>
-    <dict>
-      <key>ImageSettings</key>
-      <dict>
-        <key>Compression Quality</key>
-        <real>0.0</real>
-        <key>ImageCompression</key>
-        <string>ImageJPEGCompress</string>
-        <key>ImageScaleSettings</key>
-        <dict>
-          <key>ImageResolution</key>
-          <integer>300</integer>
-          <key>ImageScaleFactor</key>
-          <real>0.0</real>
-          <key>ImageScaleInterpolate</key>
-          <integer>3</integer>
-          <key>ImageSizeMax</key>
-          <integer>0</integer>
-          <key>ImageSizeMin</key>
-          <integer>0</integer>
-        </dict>
-      </dict>
-    </dict>
-  </dict>
-  <key>FilterType</key>
-  <integer>1</integer>
-  <key>Name</key>
-  <string>Better Reduce File Size</string>
-</dict>
-</plist>
-```
-
-/* end qfilter }}} */
 
 compress pdf with apple preview
 
