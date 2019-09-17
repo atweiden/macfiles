@@ -75,7 +75,8 @@ _keyids+=('7C0135FB088AAF6C66C650B9BB5869F064EA74AB')
 _keyids+=('A558062B6D5DA1347CD468D52B0AE2C1B09B07CB')
 
 # bisq (https://github.com/bisq-network/exchange/releases)
-_keyids+=('1DC3C8C4316A698AC494039CF5B84436F379A1C6')
+_keyids+=('1DC3C8C4316A698AC494039CF5B84436F379A1C6'
+          'CB36D7D2EBB2E35D9B75500BCD5DC1C529CDFD3B')
 
 # bitcoin (https://bitcoin.org/en/full-node#other-linux-distributions)
 _keyids+=('01EA5486DE18A882D4C2684590C8019E36C2E964')
@@ -91,6 +92,9 @@ _keyids+=('B8CC19802062211A508B2F5CCE0586AF1F8E37BD')
 
 # cryptsetup (https://gitlab.com/cryptsetup/cryptsetup/wikis/home)
 _keyids+=('2A2918243FDE46648D0686F9D9B0577BD93E98FC')
+
+# curl, c-ares, libssh2 (https://curl.haxx.se/download.html)
+_keyids+=('27EDEAF22F3ABCEB50DB9A125CC908FDB71E12C2')
 
 # electrum (https://electrum.org/download.html)
 _keyids+=('6694D8DE7BE8EE5631BED9502BD5824B7F9470E6')
@@ -124,6 +128,9 @@ _keyids+=('7EE65E3082A5FB06AC7C368D00CCB587DDBEF0E1')
 
 # libressl (https://www.libressl.org/signing.html)
 _keyids+=('A1EB079B8D3EB92B4EBD3139663AF51BD5E4D8D5')
+
+# libssh (https://www.libssh.org/get-it/)
+_keyids+=('8DFF53E18F2ABC8D8F3C92237EE0FC4DCC014E3D')
 
 # lnd (https://github.com/lightningnetwork/lnd/releases)
 _keyids+=('65317176B6857F98834EDBE8964EA263DD637C21')
