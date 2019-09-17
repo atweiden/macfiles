@@ -110,6 +110,9 @@ _keyids+=('D8692123C4065DEA5E0F3AB5249B39D24F25E3B6'
           '46CC730865BB5C78EBABADCF04376F3EE0856959'
           '5B80C5754298F0CB55D8ED6ABCEF7E294B092E28')
 
+# glibc (https://ftp.gnu.org/gnu/glibc/)
+_keyids+=('7273542B39962DF7B299931416792B4EA25340F8')
+
 # go
 # (https://github.com/golang/go/issues/14739)
 _keyids+=('EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796')
@@ -134,6 +137,9 @@ _keyids+=('8DFF53E18F2ABC8D8F3C92237EE0FC4DCC014E3D')
 
 # lnd (https://github.com/lightningnetwork/lnd/releases)
 _keyids+=('65317176B6857F98834EDBE8964EA263DD637C21')
+
+# musl (https://www.musl-libc.org/download.html)
+_keyids+=('836489290BB6B70F99FFDA0556BCDB593020450F')
 
 # nginx (https://nginx.org/en/pgp_keys.html)
 _keyids+=('573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62')
