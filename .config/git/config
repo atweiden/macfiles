@@ -69,8 +69,8 @@
   newHighlight = green bold 22
 
 [pager]
-  #diff = diffr ${DIFFR[@]} | less
-  show = diffr ${DIFFR[@]} | less
+  #diff = diffr $DIFFR | less
+  show = diffr $DIFFR | less
 
 [push]
   default = simple
