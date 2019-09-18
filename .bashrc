@@ -327,7 +327,7 @@ fi
 
 if [[ -n "$_has_diffr" ]]; then
   # for use with git config and diffrous
-  export DIFFR='--colors refine-added:none:background:71:bold
+  export DIFFR='--colors refine-added:none:background:71:bold \
                 --colors refine-removed:none:background:131:bold'
   alias diffr="diffr $DIFFR"
 fi
