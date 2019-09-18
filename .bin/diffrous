@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# diffrous: diffr wrapper
+# ----------------------------------------------------------------------------
+
+_usage() {
+read -r -d '' _usage_string <<EOF
+Usage:
+  diffrous [-h|--help] <path> <path>
+
+Options:
+  -h, --help
+    Show this help text
+
+Environment:
+  DIFFR
+    pass cmdline options to diffr
+
+Positionals:
+  <path>
+    Path to file
+EOF
+echo "$_usage_string"
+}
+
+_version() {
+echo "$VERSION"
+}
+
+_files=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help) _usage; exit 0;;
+    *) _files+=("$1"); shift;;
+  esac
+done
+
+if ! [[ ${#_files[@]} -eq 2 ]]; then
+  _usage
+  exit 1
+fi
+
+main() {
+  local _diff_exe
+  local _file_left
+  local _file_right
+  _diff_exe='/usr/bin/env diff'
+  _file_left="$1"
+  _file_right="$2"
+  $_diff_exe -u "$_file_left" "$_file_right" | diffr $DIFFR
+}
+
+main "${_files[@]}"
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
