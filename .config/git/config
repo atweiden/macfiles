@@ -68,6 +68,11 @@
   newNormal = green bold
   newHighlight = green bold 22
 
+[pager]
+  log  = diffr | less
+  show = diffr | less
+  diff = diffr | less
+
 [push]
   default = simple
 
