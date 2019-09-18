@@ -252,6 +252,7 @@ _has_ack="$(command -v ack)"
 _has_ag="$(command -v ag)"
 _has_colordiff="$(command -v colordiff)"
 _has_curl="$(command -v curl)"
+_has_diffr="$(command -v diffr)"
 _has_erl="$(command -v erl)"
 _has_gdb="$(command -v gdb)"
 _has_glibtool="$(command -v glibtool)"
@@ -322,6 +323,12 @@ if [[ -n "$_has_icdiff" ]]; then
   alias diff='icdiff'
 elif [[ -n "$_has_colordiff" ]]; then
   alias diff='colordiff'
+fi
+
+if [[ -n "$_has_diffr" ]]; then
+  alias diffr='diffr \
+    --colors refine-added:none:background:71:bold \
+    --colors refine-removed:none:background:131:bold'
 fi
 
 # --- end diff }}}
