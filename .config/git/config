@@ -68,10 +68,10 @@
   newNormal = green bold
   newHighlight = green bold 22
 
-[pager]
-  diff = diffr $DIFFR | less
-  log = diffr $DIFFR | less
-  show = diffr $DIFFR | less
+# [pager]
+#  diff = diffr $DIFFR | less
+#  log = diffr $DIFFR | less
+#  show = diffr $DIFFR | less
 
 [push]
   default = simple
