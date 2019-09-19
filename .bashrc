@@ -326,9 +326,10 @@ elif [[ -n "$_has_colordiff" ]]; then
 fi
 
 if [[ -n "$_has_diffr" ]]; then
-  # for use with git config and diffrous
-  DIFFR+=' --colors refine-added:none:background:71:bold'
-  DIFFR+=' --colors refine-removed:none:background:131:bold'
+  # seoul256 diffr colors
+  DIFFR+=' --colors refine-added:none:background:71'
+  DIFFR+=' --colors refine-removed:none:background:131'
+  # export for use with git config and diffrous
   export DIFFR
   alias diffr="diffr $DIFFR"
 fi
