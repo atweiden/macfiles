@@ -326,12 +326,14 @@ elif [[ -n "$_has_colordiff" ]]; then
 fi
 
 if [[ -n "$_has_diffr" ]]; then
-  # seoul256 diffr colors
-  DIFFR+=' --colors refine-added:none:background:71'
-  DIFFR+=' --colors refine-removed:none:background:131'
-  # export for use with git config and diffrous
-  export DIFFR
+  # from junegunn/seoul256.vim rgb_map: 65 => #5f875f
+  DIFFR+=' --colors refine-added:none:background:95,135,95'
+  # from junegunn/seoul256.vim rgb_map: 131 => #af5f5f
+  DIFFR+=' --colors refine-removed:none:background:175,95,95'
+  # use seoul256 colors
   alias diffr="diffr $DIFFR"
+  # for git config and diffrous
+  export DIFFR
 fi
 
 # --- end diff }}}
