@@ -69,7 +69,7 @@ Plug 'elixir-editors/vim-elixir', { 'for': [ 'eelixir', 'elixir' ] }
 " --- journal {{{
 
 Plug 'junegunn/vim-journal', { 'for': 'journal' }
-Plug 'atweiden/vim-finn',    { 'for': 'finn' }
+Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
 
 " --- end journal }}}
 " --- perl {{{
