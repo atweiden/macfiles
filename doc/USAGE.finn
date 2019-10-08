@@ -11,6 +11,13 @@ cp \
   ~/img.jpg
 ```
 
+## convert svg to png
+
+```sh
+brew install librsvg
+rsvg-convert -h 600 logo.svg > logo-600.png
+```
+
 ## convert jpgs into pdf
 
 ```sh
