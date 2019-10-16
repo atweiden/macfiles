@@ -291,3 +291,19 @@ docker cp cd893186e3d0:/home/opam/src/_build/default/static ~/.src/rwo
 # stop container
 docker stop cd893186e3d0
 ```
+
+## disable/enable system integrity protection
+
+disable
+
+1. reboot and go to cmd+r recovery mode
+2. use top menu to select terminal from utilities
+3. disable system integrity protection by typing `csrutil disable`
+4. reboot normally
+
+enable
+
+1. reboot and go to cmd+r recovery mode
+2. use top menu to select terminal from utilities
+3. enable system integrity protection by typing `csrutil enable`
+4. reboot normally
