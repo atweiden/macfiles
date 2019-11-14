@@ -84,6 +84,9 @@ _keyids+=('01EA5486DE18A882D4C2684590C8019E36C2E964')
 # boost (https://www.boost.org/users/download/)
 _keyids+=('8756C4F765C9AC3CB6B85D62379CE192D401AB61')
 
+# btcd (https://github.com/btcsuite/btcd/releases)
+_keyids+=('9769140D255C759B1EB77B46A96387A57CAAE94D')
+
 # colordiff (https://www.colordiff.org/)
 _keyids+=('CF3A93EF01E616C5AE7A1D2745E1E473378BB197')
 
