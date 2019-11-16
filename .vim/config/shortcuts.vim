@@ -265,7 +265,7 @@ nnoremap <leader>st :call SummarizeTabs()<CR>
 nnoremap <silent> g<space> :execute ":silent! normal za"<CR>
 
 " focus just the current line with minimal number of folds open
-nnoremap <silent> <leader><leader><space> :call FocusLine()<CR>
+nnoremap <silent> <leader><space> :call FocusLine()<CR>
 
 " make zO recursively open whatever fold we're in, even if it's partially open
 nnoremap zO zczO
