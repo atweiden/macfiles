@@ -77,26 +77,6 @@ nnoremap Q @q
 
 " digraphs
 if has('digraphs')
-  " (⁰) superscript zero
-  digraph 00 8304
-  " (¹) superscript one
-  digraph 11 185
-  " (²) superscript two
-  digraph 22 178
-  " (³) superscript three
-  digraph 33 179
-  " (⁴) superscript four
-  digraph 44 8308
-  " (⁵) superscript five
-  digraph 55 8309
-  " (⁶) superscript six
-  digraph 66 8310
-  " (⁷) superscript seven
-  digraph 77 8311
-  " (⁸) superscript eight
-  digraph 88 8312
-  " (⁹) superscript nine
-  digraph 99 8313
   " (¡) inverted exclamation mark
   digraph !! 161
   " (§) section sign
