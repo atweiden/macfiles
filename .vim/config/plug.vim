@@ -54,7 +54,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 
 " auto-close
-Plug 'jiangmiao/auto-pairs'
+Plug 'tmsvg/pear-tree'
 
 " command runners
 Plug 'tpope/vim-tbone'
