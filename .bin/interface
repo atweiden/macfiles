@@ -7,9 +7,10 @@
 set -o pipefail
 
 main() {
-  networksetup -listallhardwareports 2>/dev/null \
-    | sed -n '/Wi-Fi/{n;p}' \
-    | awk -F ': ' '{print $2}'
+  netstat -rn \
+    | grep default \
+    | awk '{print $NF}' \
+    | head -1
 }
 
 main
