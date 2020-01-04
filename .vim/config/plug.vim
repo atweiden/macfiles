@@ -77,11 +77,11 @@ Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
 Plug 'Raku/vim-raku', { 'for': 'raku' }
 
 " --- end raku }}}
-" --- reasonml {{{
+" --- reason {{{
 
 Plug 'jordwalke/vim-reasonml', { 'for': [ 'ocaml', 'reason' ] }
 
-" --- end reasonml }}}
+" --- end reason }}}
 " --- toml {{{
 
 Plug 'cespare/vim-toml', { 'for': [ 'finn',

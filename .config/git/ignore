@@ -49,5 +49,5 @@ Session.vim
 # NodeJS
 node_modules
 
-# ReasonML
+# Reason
 .merlin
