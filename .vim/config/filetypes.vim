@@ -70,7 +70,6 @@ augroup languages
   autocmd BufNewFile,BufRead {*.ml,*.mli} set ft=ocaml
   autocmd BufNewFile,BufRead {.AURINFO,.SRCINFO} set ft=PKGBUILD
   autocmd BufNewFile,BufRead {cpanfile} set ft=perl
-  autocmd BufNewFile,BufRead {*.p6,*.pl6,*.pm6,*.t6,*.nqp} set ft=perl6
   autocmd BufNewFile,BufRead {*.php,*.phpt,*.ctp,*.hh,*.hhi} set ft=php
   autocmd BufNewFile,BufRead {*.pod} set ft=pod
   autocmd BufNewFile,BufRead {*.pod6} set ft=pod6
@@ -81,6 +80,7 @@ augroup languages
   autocmd BufNewFile,BufRead {*.py,.pdbrc,.pythonrc,.python_history} set ft=python
   autocmd BufNewFile,BufRead {*.r,*.R,*.s,*.S,*.Rhistory,*.Rprofile} set ft=r
   autocmd BufNewFile,BufRead {*.rkt} set ft=racket
+  autocmd BufNewFile,BufRead {*.raku,*.rakudoc,*.rakutest,*.p6,*.pl6,*.pm6,*.t6,*.nqp} set ft=raku
   autocmd BufNewFile,BufRead {*.raml} set ft=raml
   autocmd BufNewFile,BufRead {.inputrc} set ft=readline
   autocmd BufNewFile,BufRead {*.re,*.rei} set ft=reason

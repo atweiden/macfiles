@@ -72,12 +72,11 @@ Plug 'junegunn/vim-journal', { 'for': 'journal' }
 Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
 
 " --- end journal }}}
-" --- perl {{{
+" --- raku {{{
 
-Plug 'vim-perl/vim-perl',  { 'for': 'perl' }
-Plug 'vim-perl/vim-perl6', { 'for': 'perl6' }
+Plug 'Raku/vim-raku', { 'for': 'raku' }
 
-" --- end perl }}}
+" --- end raku }}}
 " --- reasonml {{{
 
 Plug 'jordwalke/vim-reasonml', { 'for': [ 'ocaml', 'reason' ] }
