@@ -95,7 +95,7 @@
 # https://github.com/buildinspace/peru
 --ignore-directory=is:.peru
 
-# Perl6 precompilation
+# Raku precompilation
 --ignore-directory=is:.precomp
 
 # Node modules created by npm

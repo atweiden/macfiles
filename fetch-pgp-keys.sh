@@ -165,14 +165,14 @@ _keyids+=('8657ABB260F056B1E5190839D9C4D26D0E604491'
           'E5E52560DD91C556DDBDA5D02064C53641C25E5D'
           'D099684DC7C21E02E14A8AFEF23479455C51B27C')
 
-# perl6
-# (https://github.com/MoarVM/MoarVM/issues/186)
-_keyids+=('E2AEB3D93FB3940B844C9E08A68DF012C3881D62')
-# (https://rakudo.perl6.org/downloads/rakudo/)
-_keyids+=('E1A575CCC2D58C7AA5609FE14710D9D434A4A3C6')
-
 # python (https://www.python.org/downloads/source/)
 _keyids+=('0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D')
+
+# raku
+# (https://github.com/MoarVM/MoarVM/issues/186)
+_keyids+=('E2AEB3D93FB3940B844C9E08A68DF012C3881D62')
+# (https://github.com/rakudo/rakudo/releases)
+_keyids+=('E1A575CCC2D58C7AA5609FE14710D9D434A4A3C6')
 
 # ricochet (https://ricochet.im)
 _keyids+=('9032CAE4CBFA933A5A2145D5FF97C53F183C045D')
