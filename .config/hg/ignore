@@ -45,7 +45,7 @@ Session.vim
 # https://github.com/buildinspace/peru
 .peru
 
-# Perl 6
+# Raku
 .precomp
 
 # NodeJS
