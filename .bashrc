@@ -1,6 +1,10 @@
 # ==============================================================================
 # base {{{
 
+# configure pinentry to use the correct tty
+GPG_TTY="$(tty)"
+export GPG_TTY
+
 # if not running interactively, don't do anything
 [[ $- != *i* ]] \
   && return
@@ -802,9 +806,10 @@ export CRYFS_NO_UPDATE_CHECK=true
 # ==============================================================================
 # gpg {{{
 
-# configure pinentry to use the correct tty
-GPG_TTY="$(tty)"
-export GPG_TTY
+# refresh gpg-agent tty
+if ! [[ "$UID" == '0' ]]; then
+  gpg-connect-agent updatestartuptty /bye >/dev/null
+fi
 
 # end gpg }}}
 # ==============================================================================
