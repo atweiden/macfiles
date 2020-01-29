@@ -156,6 +156,15 @@ pip2 install --upgrade neovim
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 
+# clojure
+brew tap adoptopenjdk/openjdk
+brew cask install adoptopenjdk/openjdk
+brew cask install graalvm/tap/graalvm-ce-java11
+brew install clojure
+brew install leiningen
+brew install boot-clj
+brew install lumo
+
 # fzf-extras
 git clone https://github.com/atweiden/fzf-extras "$HOME/.fzf-extras"
 
