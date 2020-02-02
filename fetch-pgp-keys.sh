@@ -105,6 +105,9 @@ _keyids+=('27EDEAF22F3ABCEB50DB9A125CC908FDB71E12C2')
 # electrum (https://electrum.org/download.html)
 _keyids+=('6694D8DE7BE8EE5631BED9502BD5824B7F9470E6')
 
+# enchive (https://nullprogram.com/about/)
+_keyids+=('5EEB8C8D5069C4E9B94AA852AFD1503A8C8FF42A')
+
 # enigmail (https://www.enigmail.net/home/members.php)
 _keyids+=('4F9F89F5505AC1D1A260631CDB1187B9DD5F693B'
           '10B2E4A0E718BB1B2791DAC4F040E41B9369CDF3')
