@@ -199,11 +199,11 @@ git clone https://github.com/atweiden/homebrew-formulae
 pushd homebrew-formulae
 # enchive
 brew install enchive/enchive.rb
-# perl6
+# raku
 pushd "$HOME/.src"
 git clone https://github.com/ugexe/zef
 pushd zef
-perl6 -I. bin/zef install .
+raku -I. bin/zef install .
 popd
 popd
 ```
