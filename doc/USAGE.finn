@@ -3,7 +3,12 @@
 Usage
 =====
 
-## copy photos from iphone import
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Media
+-----
+
+### copy photos from iphone import
 
 ```sh
 cp \
@@ -11,21 +16,21 @@ cp \
   ~/img.jpg
 ```
 
-## convert svg to png
+### convert svg to png
 
 ```sh
 brew install librsvg
 rsvg-convert -h 600 logo.svg > logo-600.png
 ```
 
-## convert jpgs into pdf
+### convert jpgs into pdf
 
 ```sh
 brew install imagemagick
 convert $(ls -v *.jpg) document.pdf
 ```
 
-## combine pdfs
+### combine pdfs
 
 ```sh
 # credit: https://apple.stackexchange.com/a/230447
@@ -36,158 +41,7 @@ convert $(ls -v *.jpg) document.pdf
   /path/to/part/3.pdf
 ```
 
-## disk usage
-
-```sh
-ncdu /
-```
-
-## homebrew
-
-view formulae
-
-```sh
-vim /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/just.rb
-vim /usr/local/Homebrew/Library/Taps/caskroom/homebrew-cask/Casks/adium.rb
-```
-
-clear cache
-
-```sh
-brew cleanup
-brew --cache
-find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" \
-  -exec echo rm -rf '{}' \;
-find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" \
-  -exec rm -rf '{}' \;
-```
-
-reinstall all
-
-```sh
-brew list | xargs brew reinstall
-```
-
-find formulae dependencies
-
-```sh
-brew deps \
-  --include-build \
-  --include-optional \
-  --include-requirements \
-  icu4c
-```
-
-find formulae dependants
-
-```sh
-brew uses \
-  --recursive \
-  --installed \
-  icu4c
-```
-
-list files installed by formula
-
-```sh
-brew ls --verbose vim
-```
-
-import homebrew in irb environment
-
-```sh
-brew irb
-```
-
-## python
-
-```sh
-pip2 install --upgrade pip setuptools wheel
-pip3 install --upgrade pip setuptools wheel
-pip2 install ipython ptpython
-pip3 install ipython ptpython
-```
-
-## neovim
-
-```sh
-pip2 install -U neovim
-pip3 install -U neovim
-```
-
-## open second instance of iTerm2
-
-```sh
-open -n -a iTerm
-```
-
-## copy saved wifi password
-
-- open *Keychain Access* application
-- ctrl-click target wifi network
-  - Copy Password to Clipboard
-
-## irrsi
-
-configure
-- `vim ~/.config/irssi/config`
-  - `:%s/yourname/your-real-irc-name/g`
-
-authenticate
-- `/msg nickserv identify password`
-
-connect
-- `/connect freenode`
-
-join
-- `/join #archlinux`
-
-scroll
-- <kbd>fn</kbd><kbd>shift</kbd><kbd>arrow</kbd>
-- `/scrollback goto <time|lineno>`
-
-windows
-- <kbd>Alt-Right</kbd>, <kbd>Ctrl-n</kbd> or `/window next`
-- <kbd>Alt-Left</kbd>, <kbd>Ctrl-p</kbd> or `/window previous`
-
-## record screen with system sound
-
-```sh
-brew cask install soundflower
-```
-
-- change system audio output from default speakers to soundflower
-  sound card
-  - System Preferences -> Sound -> Output
-    - select Soundflower (2ch)
-- start recording screen
-  - either
-    - launch QuickTime Player
-      - right click dock icon
-        - New Screen Recording
-    - <kbd>Shift</kbd><kbd>Cmd</kbd><kbd>5</kbd>
-      - Record Entire Screen
-      - Record Selected Portion
-  - options
-    - Microphone
-      - select Soundflower (2ch)
-- stop recording screen
-  - <kbd>Ctrl</kbd><kbd>Cmd</kbd><kbd>Esc</kbd>
-
-## compress/convert mov screen recording
-
-```sh
-ffmpeg -i input.mov -qscale 31 output.mp4
-```
-
-- qscale sets the compression level
-  - the lower the qscale value, the higher the quality
-    - available qscale values range from 1 (hi-def) to 31 (low-def)
-- takes 5 minutes to compress a 3 minute video at qscale 31
-  - file size shrinks from 327M to 32M
-  - video and sound quality remains decent
-
-## compress pdf file size
+### compress pdf file size
 
 create custom pdf quartz filter for apple preview
 
@@ -246,6 +100,183 @@ opam install cpdf
 cpdf -squeeze in.pdf -o out.pdf
 ```
 
+### record screen with system sound
+
+```sh
+brew cask install soundflower
+```
+
+- change system audio output from default speakers to soundflower
+  sound card
+  - System Preferences -> Sound -> Output
+    - select Soundflower (2ch)
+- start recording screen
+  - either
+    - launch QuickTime Player
+      - right click dock icon
+        - New Screen Recording
+    - <kbd>Shift</kbd><kbd>Cmd</kbd><kbd>5</kbd>
+      - Record Entire Screen
+      - Record Selected Portion
+  - options
+    - Microphone
+      - select Soundflower (2ch)
+- stop recording screen
+  - <kbd>Ctrl</kbd><kbd>Cmd</kbd><kbd>Esc</kbd>
+
+### compress/convert mov screen recording
+
+```sh
+ffmpeg -i input.mov -qscale 31 output.mp4
+```
+
+- qscale sets the compression level
+  - the lower the qscale value, the higher the quality
+    - available qscale values range from 1 (hi-def) to 31 (low-def)
+- takes 5 minutes to compress a 3 minute video at qscale 31
+  - file size shrinks from 327M to 32M
+  - video and sound quality remains decent
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+System
+------
+
+### disable/enable system integrity protection
+
+disable
+
+1. reboot and go to cmd+r recovery mode
+2. use top menu to select terminal from utilities
+3. disable system integrity protection by typing `csrutil disable`
+4. reboot normally
+
+enable
+
+1. reboot and go to cmd+r recovery mode
+2. use top menu to select terminal from utilities
+3. enable system integrity protection by typing `csrutil enable`
+4. reboot normally
+
+### check disk usage
+
+```sh
+ncdu /
+```
+
+### open second instance of iTerm2
+
+```sh
+open -n -a iTerm
+```
+
+### copy saved wifi password
+
+- open *Keychain Access* application
+- ctrl-click target wifi network
+  - Copy Password to Clipboard
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Software
+--------
+
+### homebrew
+
+view formulae
+
+```sh
+vim /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/just.rb
+vim /usr/local/Homebrew/Library/Taps/caskroom/homebrew-cask/Casks/adium.rb
+```
+
+clear cache
+
+```sh
+brew cleanup
+brew --cache
+find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" \
+  -exec echo rm -rf '{}' \;
+find /usr/local/Cellar/llvm/ -mindepth 1 -maxdepth 1 -type d ! -name "5\.0\.1" \
+  -exec rm -rf '{}' \;
+```
+
+reinstall all
+
+```sh
+brew list | xargs brew reinstall
+```
+
+find formulae dependencies
+
+```sh
+brew deps \
+  --include-build \
+  --include-optional \
+  --include-requirements \
+  icu4c
+```
+
+find formulae dependants
+
+```sh
+brew uses \
+  --recursive \
+  --installed \
+  icu4c
+```
+
+list files installed by formula
+
+```sh
+brew ls --verbose vim
+```
+
+import homebrew in irb environment
+
+```sh
+brew irb
+```
+
+### python
+
+```sh
+pip2 install --upgrade pip setuptools wheel
+pip3 install --upgrade pip setuptools wheel
+pip2 install ipython ptpython
+pip3 install ipython ptpython
+```
+
+### neovim
+
+```sh
+pip2 install -U neovim
+pip3 install -U neovim
+```
+
+### irrsi
+
+configure
+- `vim ~/.config/irssi/config`
+  - `:%s/yourname/your-real-irc-name/g`
+
+authenticate
+- `/msg nickserv identify password`
+
+connect
+- `/connect freenode`
+
+join
+- `/join #archlinux`
+
+scroll
+- <kbd>fn</kbd><kbd>shift</kbd><kbd>arrow</kbd>
+- `/scrollback goto <time|lineno>`
+
+windows
+- <kbd>Alt-Right</kbd>, <kbd>Ctrl-n</kbd> or `/window next`
+- <kbd>Alt-Left</kbd>, <kbd>Ctrl-p</kbd> or `/window previous`
+
 ## docker
 
 install
@@ -285,19 +316,3 @@ docker cp cd893186e3d0:/home/opam/src/_build/default/static ~/.src/rwo
 # stop container
 docker stop cd893186e3d0
 ```
-
-## disable/enable system integrity protection
-
-disable
-
-1. reboot and go to cmd+r recovery mode
-2. use top menu to select terminal from utilities
-3. disable system integrity protection by typing `csrutil disable`
-4. reboot normally
-
-enable
-
-1. reboot and go to cmd+r recovery mode
-2. use top menu to select terminal from utilities
-3. enable system integrity protection by typing `csrutil enable`
-4. reboot normally
