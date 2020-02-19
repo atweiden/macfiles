@@ -121,12 +121,6 @@ pip3 install -U neovim
 open -n -a iTerm
 ```
 
-## secure delete
-
-```sh
-srm -mz file
-```
-
 ## copy saved wifi password
 
 - open *Keychain Access* application
