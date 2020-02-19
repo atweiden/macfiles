@@ -176,6 +176,14 @@ open -n -a iTerm
 - ctrl-click target wifi network
   - Copy Password to Clipboard
 
+### set mac address
+
+```sh
+sudo /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -z
+sudo ifconfig en0 ether YY:YY:YY:YY:YY:YY
+networksetup -detectnewhardware
+```
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Software
