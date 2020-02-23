@@ -285,7 +285,7 @@ windows
 - <kbd>Alt-Right</kbd>, <kbd>Ctrl-n</kbd> or `/window next`
 - <kbd>Alt-Left</kbd>, <kbd>Ctrl-p</kbd> or `/window previous`
 
-## docker
+### docker
 
 install
 
@@ -323,4 +323,16 @@ docker cp cd893186e3d0:/home/opam/src/_build/default/static ~/.src/rwo
 
 # stop container
 docker stop cd893186e3d0
+```
+
+### signify
+
+verify void linux iso
+
+```sh
+signify \
+  -C \
+  -p /path/to/voidpkgs/srcpkgs/void-release-keys/files/void-release-20191109.pub \
+  -x /path/to/sha256.sig \
+  /path/to/void-live-x86_64-musl-20191109.iso
 ```
