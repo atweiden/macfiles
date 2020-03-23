@@ -137,6 +137,12 @@ ffmpeg -i input.mov -qscale 31 output.mp4
   - file size shrinks from 327M to 32M
   - video and sound quality remains decent
 
+### convert mov screen recording to mp4
+
+```sh
+ffmpeg -i file.mov -pix_fmt yuv420p -q:v 0 -strict -2 file.mp4
+```
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 System
