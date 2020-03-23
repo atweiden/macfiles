@@ -139,8 +139,21 @@ ffmpeg -i input.mov -qscale 31 output.mp4
 
 ### convert mov screen recording to mp4
 
+with ffmpeg
+
 ```sh
 ffmpeg -i file.mov -pix_fmt yuv420p -q:v 0 -strict -2 file.mp4
+```
+
+with handbrake
+
+```sh
+# cli (https://handbrake.fr/docs/en/latest/cli/cli-options.html)
+brew install handbrake
+HandBrakeCLI -i file.mov -o file.mp4
+
+# gui
+brew cask install handbrake
 ```
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
