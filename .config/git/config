@@ -41,9 +41,13 @@
   prompt = false
 
 [diff]
-  tool = vimdiff
-  algorithm = minimal
+  algorithm = histogram
+  colorMoved = true
   compactionHeuristic = true
+  indentHeuristic = true
+  renames = copies
+  tool = vimdiff
+  wsErrorHighlight = all
 
 [diff "exif"]
   textconv = exiftool
