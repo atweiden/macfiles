@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# repl: start readline-aware repl in specified language
+# ----------------------------------------------------------------------------
+
+# ==============================================================================
+# constants {{{
+
+# launch repl in this language by default
+readonly REPL_LANG_DEFAULT='janet'
+readonly REPL_LANG="${REPL_LANG:-$REPL_LANG_DEFAULT}"
+
+# repl version number
+readonly VERSION=0.0.1
+
+# end constants }}}
+# ==============================================================================
+# usage {{{
+
+_usage() {
+read -r -d '' _usage_string <<EOF
+Usage:
+  repl [-h|--help]
+  repl [-g|--language <language>]
+
+Options:
+  -h, --help       Show this help text
+  -v, --version    Show program version
+  -g, --language   Launch repl in this language (Default: $REPL_LANG)
+
+Language
+  List of acceptable languages:
+  | elixir
+  | erlang
+  | janet
+  | raku
+EOF
+echo "$_usage_string"
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      _usage
+      exit 0
+      ;;
+    -v|--version)
+      echo "$VERSION"
+      exit 0
+      ;;
+    -g|--language)
+      _repl_lang="$2"
+      shift
+      shift
+      ;;
+    -*)
+      # unknown option
+      _usage
+      exit 1
+      ;;
+    *)
+      # unknown command
+      _usage
+      exit 1
+      ;;
+  esac
+done
+
+# end usage }}}
+# ==============================================================================
+
+# sanitize compression algorithm input
+_repl_lang="${_repl_lang:-$REPL_LANG}"
+case "$_repl_lang" in
+  # proper repl language chosen, no action necessary
+  elixir|erlang|janet|raku)
+    ;;
+  # improper repl language chosen, reset to default
+  *)
+    _repl_lang="$REPL_LANG_DEFAULT"
+    ;;
+esac
+
+main() {
+  case "$_repl_lang" in
+    elixir)
+      rlwrap --always-readline --ansi-colour-aware iex
+      ;;
+    erlang)
+      rlwrap --always-readline --ansi-colour-aware erl
+      ;;
+    janet)
+      rlwrap janet -s
+      ;;
+    raku)
+      rlwrap raku
+      ;;
+  esac
+}
+
+main
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:

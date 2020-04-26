@@ -444,28 +444,6 @@ export INTERFACE="$(interface)"
     --home=$HOME/.config/irssi'
 
 # --- end irssi }}}
-# --- languages {{{
-
-# --- --- beam {{{
-
-[[ -n "$_has_erl" && -n "$_has_rlwrap" ]] \
-  && alias erl='rlwrap --always-readline --ansi-colour-aware erl'
-[[ -n "$_has_iex" && -n "$_has_rlwrap" ]] \
-  && alias iex='rlwrap --always-readline --ansi-colour-aware iex'
-
-# --- --- end beam }}}
-# --- --- raku {{{
-
-[[ -n "$_has_raku" ]] \
-  && alias p6='raku'
-[[ -n "$_has_raku" ]] \
-  && alias prove6='prove -r -e raku'
-[[ -n "$_has_raku" && -n "$_has_rlwrap" ]] \
-  && alias rp='rlwrap raku'
-
-# --- --- end raku }}}
-
-# --- end languages }}}
 # --- path {{{
 
 alias path='echo -e ${PATH//:/\\n}'
@@ -507,6 +485,11 @@ alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; \
     --delete-after'
 
 # --- end rclone }}}
+# --- repl {{{
+
+alias r='repl'
+
+# --- end repl }}}
 # --- ssh {{{
 
 [[ -n "$_has_mosh" ]] \
