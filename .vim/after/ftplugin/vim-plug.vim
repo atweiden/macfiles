@@ -18,6 +18,9 @@ function! s:setup_extra_keys()
   " nmap <silent> <buffer> <C-K> <C-P>o
 endfunction
 
-autocmd! FileType vim-plug call s:setup_extra_keys()
+augroup vimplugkeys
+  autocmd!
+  autocmd FileType vim-plug call s:setup_extra_keys()
+augroup END
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
