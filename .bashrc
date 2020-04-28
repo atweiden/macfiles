@@ -79,6 +79,9 @@ shopt -s checkwinsize
 # save multi-line commands in history as single line
 shopt -s cmdhist
 
+# enable recursive globbing, e.g. `echo **/*.txt`
+shopt -s globstar
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -87,6 +90,9 @@ shopt -s histreedit
 
 # edit a recalled history line before executing
 shopt -s histverify
+
+# enable case-insensitive globbing, used in pathname expansion
+shopt -s nocaseglob
 
 # don't attempt completion if cmdline empty
 shopt -s no_empty_cmd_completion
