@@ -213,6 +213,13 @@ augroup cursormem
   autocmd BufReadPost * call ReturnToLastEditPosition()
 augroup END
 
+" periodically check for/warn about external changes to buffer
+augroup checktimestamp
+  autocmd!
+  autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
+    \ checktime
+augroup END
+
 " dictionary and spelling
 "set dictionary=/usr/share/dict/words
 set nospell
