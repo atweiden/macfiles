@@ -7,59 +7,107 @@
 
 [core]
   editor = vim
-  attributesfile = ~/.config/git/attributes
-  excludesfile = ~/.config/git/ignore
+  # path to global attributes config file
+  attributesFile = ~/.config/git/attributes
+  # path to global ignore config file
+  excludesFile = ~/.config/git/ignore
+  # convert crlf to lf on commit but not the other way around
+  # https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_formatting_and_whitespace
   autocrlf = input
+  # prevent showing filenames containing non-ascii symbols as unversioned
+  # https://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+  precomposeUnicode = false
+  # display utf-8 characters in filenames
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-corequotePath
+  quotePath = false
+  # make rebase safer on macos
+  # https://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+  trustCtime = false
+  # speed up commands involving untracked files, e.g. `git status`
+  # https://git-scm.com/docs/git-update-index#_untracked_cache
+  untrackedCache = true
+
+[push]
+  # use recommended push settings
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault
+  default = simple
 
 [sendemail]
+  # review and edit each patch to be sent
   annotate = yes
 
-[alias]
-  br = branch
-  ci = commit
-  co = checkout
-  diffr = "!f() { TARGET=$1; git diff -r $1~ -r $1; }; f"
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
-  logv = log -v --pretty
-  ls = ls-files
-  p = format-patch HEAD^..HEAD --stdout
-  st = status --short --branch
-  fixup = "!f() { TARGET=$(git rev-parse $1); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
-  merc = merge --no-ff
-  please = push --force-with-lease
-  squash = "!f() { git rebase -i HEAD~$1; }; f"
-  stsh = stash --keep-index
-  staash = stash --include-untracked
-  staaash = stash --all
-  touch = "!f() { git commit --amend --no-edit && git push -f; }; f"
-
-[mergetool]
-  keepBackup = true
-
-[difftool]
-  prompt = false
-
-[diff]
-  algorithm = histogram
-  colorMoved = true
-  compactionHeuristic = true
-  indentHeuristic = true
-  renames = copies
-  tool = vimdiff
-  wsErrorHighlight = all
-
-[diff "exif"]
-  textconv = exiftool
+# for integrity, regularly check anything we're getting is complete/sane
+# https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
+[transfer]
+  fsckObjects = true
+[fetch]
+  fsckObjects = true
+[receive]
+  fsckObjects = true
 
 [rerere]
+  # remember how to resolve hunk conflicts
+  # https://git-scm.com/book/en/v2/Git-Tools-Rerere
   enabled = 1
 
+[diff]
+  # dispatch to vimdiff for diffing
+  tool = vimdiff
+  # use histogram algorithm, successor to `patience`
+  # https://git-scm.com/docs/git-diff#Documentation/git-diff.txt-codehistogramcode
+  algorithm = histogram
+  # color moved lines per default but with dimming of uninteresting parts
+  # https://git-scm.com/docs/git-diff#Documentation/git-diff.txt-dimmed-zebra
+  colorMoved = dimmed-zebra
+  # create prettier diffs favoring whitespace lines to hunk boundaries
+  compactionHeuristic = true
+  indentHeuristic = true
+  # track more renamed files (grep diff_rename_limit_default git/diff.c)
+  renameLimit = 3000
+  # detect copied files in addition to basic renames
+  renames = copies
+  # highlight whitespace errors in diff
+  wsErrorHighlight = all
+
+[diff "bin"]
+  # dispatch to hexdump for diffing binaries
+  textconv = hexdump -v -C
+
+[diff "exif"]
+  # dispatch to exiftool for diffing images
+  textconv = exiftool
+
+[difftool]
+  # launch difftool without prompting
+  prompt = false
+
+[merge]
+  # dispatch to vimdiff for merging
+  tool = vimdiff
+  # include original source along with changes made by each side in diff
+  conflictStyle = diff3
+  # include merged commit summaries in newly created merge commit messages
+  log = true
+
+[mergetool]
+  # remove *.orig backups as files are successfully merged
+  # https://git-scm.com/docs/git-mergetool#_temporary_files
+  keepBackup = false
+
+[mergetool "vimdiff"]
+  cmd = "vim -f -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J'"
+  # vimdiff correctly indicates success of merge resolution with exit code
+  trustExitCode = true
+
 [format]
+  # be concise in merge commits
+  # https://git-scm.com/docs/pretty-formats
   pretty = oneline
 
 [color]
-  ui = true
+  # colorize command output if possible, unless sent to pipe/file
+  # https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_colors_in_git
+  ui = auto
 
 [color "diff"]
   old = red bold
@@ -72,20 +120,60 @@
   newNormal = green bold
   newHighlight = green bold 22
 
-# [pager]
+# use diffr diff highlighter
+# https://github.com/mookid/diffr#how-to-use-it
+#[pager]
 #  diff = diffr $DIFFR | less
 #  log = diffr $DIFFR | less
 #  show = diffr $DIFFR | less
+#
+#[interactive]
+#  diffFilter = path/to/diffr
 
-[push]
-  default = simple
+[alias]
+  # common
+  br = branch
+  ci = commit
+  co = checkout
+  pul = pull
+  pus = push
+  st = status --short --branch
 
-# regularly check anything we're getting is complete/sane
-[transfer]
-  fsckobjects = true
-[fetch]
-  fsckobjects = true
-[receive]
-  fsckObjects = true
+  # function
+  # show diff between latest commit and current state
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+  # show diff between state from number of revisions ago and current state
+  di = !"f() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; f"
+  # diff revision against antecedent revision, like github
+  diffrev = "!f() { TARGET=$1; git diff -r $1~ -r $1; }; f"
+  # find branches containing commit
+  find-branch-by-commit = "!f() { git branch -a --contains $1; }; f"
+  # find commits containing source code
+  find-commit-by-code = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+  # find commits containing commit message
+  find-commit-by-message = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+  # find tags containing commit
+  find-tag-by-commit = "!f() { git describe --always --contains $1; }; f"
+  # remove old tag of this name, tag latest commit with it
+  retag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; f"
+  # perform interactive rebase with given number of most recent commits
+  squash = "!f() { git rebase -i HEAD~$1; }; f"
+  # force push latest revision without modifications, useful for travis-ci
+  touch = "!f() { git commit --amend --no-edit && git push -f; }; f"
+
+  # list
+  ls-aliases = config --get-regexp alias
+  ls-branches = branch -a
+  ls-contributors = shortlog --summary --numbered
+  ls-remotes = remote -v
+  ls-tags = tag -l
+
+  # log
+  # view abbreviated sha, desc, and history graph of latest 20 commits
+  l = log --graph --pretty=oneline --abbrev-commit --max-count=20
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+  logjson = log --pretty=format:'{%n  \"commit\": \"%H\",%n  \"abbreviated_commit\": \"%h\",%n  \"tree\": \"%T\",%n  \"abbreviated_tree\": \"%t\",%n  \"parent\": \"%P\",%n  \"abbreviated_parent\": \"%p\",%n  \"refs\": \"%D\",%n  \"encoding\": \"%e\",%n  \"subject\": \"%s\",%n  \"sanitized_subject_line\": \"%f\",%n  \"body\": \"%b\",%n  \"commit_notes\": \"%N\",%n  \"verification_flag\": \"%G?\",%n  \"signer\": \"%GS\",%n  \"signer_key\": \"%GK\",%n  \"author\": {%n    \"name\": \"%aN\",%n    \"email\": \"%aE\",%n    \"date\": \"%aD\"%n  },%n  \"commiter\": {%n    \"name\": \"%cN\",%n    \"email\": \"%cE\",%n    \"date\": \"%cD\"%n  }%n},'
+  logv = log -v --pretty
 
 # vim: set filetype=gitconfig foldmethod=marker foldlevel=0 nowrap:
