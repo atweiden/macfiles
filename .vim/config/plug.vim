@@ -103,7 +103,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/rainbow_parentheses.vim'
 
 " macos
-Plug 'sjl/vitality.vim'
+Plug 'nickeb96/vitality.vim'
 
 call plug#end()
 endif
