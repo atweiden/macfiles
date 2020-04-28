@@ -8,7 +8,7 @@
 # constants {{{
 
 # launch repl in this language by default
-readonly REPL_LANG_DEFAULT='janet'
+readonly REPL_LANG_DEFAULT='raku'
 readonly REPL_LANG="${REPL_LANG:-$REPL_LANG_DEFAULT}"
 
 # repl version number
