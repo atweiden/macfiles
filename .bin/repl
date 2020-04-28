@@ -84,6 +84,9 @@ esac
 
 main() {
   case "$_repl_lang" in
+    chicken)
+      rlwrap csi -quiet
+      ;;
     elixir)
       rlwrap --always-readline --ansi-colour-aware iex
       ;;
@@ -92,6 +95,9 @@ main() {
       ;;
     janet)
       rlwrap janet -s
+      ;;
+    ocaml)
+      rlwrap ocaml
       ;;
     raku)
       rlwrap raku
