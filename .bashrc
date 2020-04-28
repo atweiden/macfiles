@@ -46,6 +46,18 @@ export LESS='-MRSXi#16j.5'
 #             |+--------- parse color codes
 #             +---------- show more information in prompt
 
+# colors
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"; a="${a%_}"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"; a="${a%_}"
+export LESS_TERMCAP_so="$(printf '%b' '[00;47;30m')"; a="${a%_}"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
+
+# disable less history file
+export LESSHISTFILE=-
+
 # --- end less }}}
 # --- locale {{{
 
@@ -55,6 +67,8 @@ export LC_ALL='en_US.UTF-8'
 # --- end locale }}}
 # --- man pages {{{
 
+# colorize/paginate man pages with less
+export GROFF_NO_SGR=1
 export MANPAGER="less $LESS"
 
 # --- end man pages }}}
