@@ -31,9 +31,11 @@ Options:
 
 Language
   List of acceptable languages:
+  | chicken
   | elixir
   | erlang
   | janet
+  | ocaml
   | raku
 EOF
 echo "$_usage_string"
@@ -74,7 +76,7 @@ done
 _repl_lang="${_repl_lang:-$REPL_LANG}"
 case "$_repl_lang" in
   # proper repl language chosen, no action necessary
-  elixir|erlang|janet|raku)
+  chicken|elixir|erlang|janet|ocaml|raku)
     ;;
   # improper repl language chosen, reset to default
   *)
