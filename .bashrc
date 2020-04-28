@@ -662,6 +662,7 @@ done
 # ==============================================================================
 # completions {{{
 
+# ensure existing homebrew v1 completions continue to work
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] \
