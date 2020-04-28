@@ -72,6 +72,7 @@
 [diff "bin"]
   # dispatch to hexdump for diffing binaries
   textconv = hexdump -v -C
+  binary = true
 
 [diff "exif"]
   # dispatch to exiftool for diffing images
