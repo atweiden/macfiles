@@ -91,8 +91,11 @@ function! GitBranch() abort
 endfunction
 
 " refresh git branch periodically
-autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
-  \ silent! unlet b:git_branch
+augroup gitbranch
+  autocmd!
+  autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
+    \ silent! unlet b:git_branch
+augroup END
 
 function! LightlineGitBranch()
   try
