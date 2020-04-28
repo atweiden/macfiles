@@ -128,4 +128,8 @@ set lazyredraw
 set ttyfast
 if !has('nvim') | set ttymouse=xterm2 | endif
 
+" use histogram diff algorithm, indent heuristic for internal diff library
+set diffopt+=algorithm:histogram
+set diffopt+=indent-heuristic
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
