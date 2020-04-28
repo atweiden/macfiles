@@ -434,6 +434,11 @@ alias sysctl\?='sysctl -a 2>/dev/null | grep -v grep | grep "$@"'
   && alias locate='glocate --ignore-case'
 
 # --- end grepping }}}
+# --- info {{{
+
+alias info='info --vi-keys'
+
+# --- end info }}}
 # --- ip {{{
 
 export INTERFACE="$(interface)"
