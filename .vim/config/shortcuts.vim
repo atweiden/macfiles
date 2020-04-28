@@ -27,6 +27,9 @@ nnoremap <leader><leader>. /\.\s\s\+\w/s+1<CR>
 " remove search highlights
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
+" find merge conflict markers
+cnoremap <expr> !! getcmdtype() =~ '[/?]' ? '\v^[<=>]{7}( .*\|$)' : '!!'
+
 " end search and replace }}}
 " pasting {{{
 
