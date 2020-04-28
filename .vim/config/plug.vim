@@ -59,6 +59,9 @@ Plug 'tmsvg/pear-tree'
 " command runners
 Plug 'tpope/vim-tbone'
 
+" dvcs
+Plug 'sjl/splice.vim'
+
 " languages {{{
 
 " --- elixir {{{

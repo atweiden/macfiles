@@ -8,6 +8,12 @@ interface = curses
 [diff]
 git = True
 
+[merge-tools]
+splice.executable = vim
+splice.args = -f $base $local $other $output -c 'SpliceInit'
+splice.premerge = keep
+splice.priority = 1
+
 [bookmarks]
 track.current = True
 
@@ -71,3 +77,5 @@ pager = LESS='FSRX' less
 
 [progress]
 delay = 1.5
+
+# vim: set filetype=cfg foldmethod=marker foldlevel=0 nowrap:

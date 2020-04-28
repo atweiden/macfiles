@@ -83,8 +83,8 @@
   prompt = false
 
 [merge]
-  # dispatch to vimdiff for merging
-  tool = vimdiff
+  # dispatch to splice.vim for merging
+  tool = splice
   # include original source along with changes made by each side in diff
   conflictStyle = diff3
   # include merged commit summaries in newly created merge commit messages
@@ -94,11 +94,14 @@
   # remove *.orig backups as files are successfully merged
   # https://git-scm.com/docs/git-mergetool#_temporary_files
   keepBackup = false
+  # all correctly indicate success of merge resolution with exit code
+  trustExitCode = true
+
+[mergetool "splice"]
+  cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 
 [mergetool "vimdiff"]
   cmd = "vim -f -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J'"
-  # vimdiff correctly indicates success of merge resolution with exit code
-  trustExitCode = true
 
 [format]
   # be concise in merge commits
