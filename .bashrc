@@ -286,6 +286,7 @@ _has_gwhich="$(command -v gwhich)"
 _has_icdiff="$(command -v icdiff)"
 _has_irssi="$(command -v irssi)"
 _has_locate="$(command -v glocate)"
+_has_lynx="$(command -v lynx)"
 _has_mosh="$(command -v mosh)"
 _has_mvim="$(command -v mvim)"
 _has_ncdu="$(command -v ncdu)"
@@ -492,6 +493,12 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 # --- end safety }}}
+# --- lynx {{{
+
+[[ -n "$_has_lynx" ]] \
+  && alias lynx='lynx -cfg $HOME/.config/lynx/lynx.cfg'
+
+# --- end lynx }}}
 # --- macos {{{
 
 alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; \
