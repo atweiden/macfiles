@@ -102,6 +102,9 @@ Plug 'mhinz/vim-hugefile'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/rainbow_parentheses.vim'
 
+" macos
+Plug 'sjl/vitality.vim'
+
 call plug#end()
 endif
 
