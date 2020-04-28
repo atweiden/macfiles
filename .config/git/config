@@ -129,7 +129,7 @@
 #  show = diffr $DIFFR | less
 #
 #[interactive]
-#  diffFilter = path/to/diffr
+#  diffFilter = diffr $DIFFR
 
 [alias]
   # common
