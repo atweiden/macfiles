@@ -146,6 +146,19 @@ highlight SpellLocal term=underline cterm=underline
 " conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+" don't distinguish between delete, add and change using bright colors,
+" because:
+"
+" - add: appears opposite filler markers
+" - delete: appears opposite filler markers
+" - change: appears highlighted in changed portion of line
+highlight DiffAdd ctermbg=0
+highlight DiffDelete ctermbg=0
+highlight DiffChange ctermbg=0
+
+" use reverse foreground colors for +legibility (-consistency of color)
+highlight DiffText cterm=reverse ctermbg=none
+
 " neovim terminal URxvt-like underline cursor
 if has('nvim')
   highlight clear TermCursor
