@@ -372,9 +372,10 @@ alias :q='exit'
 # --- end directory navigation }}}
 # --- disk space {{{
 
-alias df='df -h'
-alias du='du -h -d 1'
-alias dusort='du -x -m | sort -nr'
+alias df='df --si'
+alias du='du --si --max-depth=1'
+alias dusort='du --block-size=M --max-depth=0 --one-file-system --total * \
+  | sort --numeric-sort --reverse'
 [[ -n "$_has_ncdu" ]] \
   && alias ncdu='ncdu \
     --color dark \
