@@ -11,7 +11,7 @@ else
 endif
 
 " open terminal in current window
-cnoremap t!! terminal ++curwin
+Arpeggio cnoremap <expr> te getcmdtype() == ':' ? "terminal ++curwin" : ''
 
 " enter normal mode in terminal mode
 tnoremap <C-W>N <C-\><C-N>

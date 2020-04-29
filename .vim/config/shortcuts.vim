@@ -28,7 +28,7 @@ nnoremap <leader><leader>. /\.\s\s\+\w/s+1<CR>
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
 " find merge conflict markers
-cnoremap <expr> !! getcmdtype() =~ '[/?]' ? '\v^[<=>]{7}( .*\|$)' : '!!'
+Arpeggio cnoremap <expr> <> getcmdtype() =~ '[/?]' ? '\v^[<=>]{7}( .*\|$)' : ''
 
 " end search and replace }}}
 " pasting {{{
@@ -57,8 +57,8 @@ vnoremap <space> :!fmt<CR>
 " quick write
 nnoremap <silent> <leader>w :w<CR>
 
-" sudo to write
-cnoremap w!! w !sudo tee '%' >/dev/null
+" sudo write
+Arpeggio cnoremap <expr> wr getcmdtype() == ':' ? "w !sudo tee '%' >/dev/null" : ''
 
 " expand %% to the path of the current buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
