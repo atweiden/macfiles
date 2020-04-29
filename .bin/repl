@@ -97,6 +97,11 @@ while [[ $# -gt 0 ]]; do
       _usage
       exit 1
       ;;
+    *)
+      # invalid argument
+      _usage
+      exit 1
+      ;;
   esac
 done
 
