@@ -7,11 +7,19 @@
 # ==============================================================================
 # constants {{{
 
-# launch repl in this language by default
+# $REPL_HOME contains path to directory for files produced through the
+# use of this script
+readonly REPL_HOME="$HOME/.config/repl"
+
+# $REPL_LANG_DEFAULT contains language with which to launch repl in
+# by default
 readonly REPL_LANG_DEFAULT='raku'
+
+# $REPL_LANG contains language with which to launch repl in, customizable
+# via environment variable
 readonly REPL_LANG="${REPL_LANG:-$REPL_LANG_DEFAULT}"
 
-# repl version number
+# $VERSION contains repl version number
 readonly VERSION=0.0.1
 
 # end constants }}}
@@ -23,6 +31,7 @@ read -r -d '' _usage_string <<EOF
 Usage:
   repl [-h|--help]
   repl [-g|--language <language>]
+  repl -- [<arg> <arg>..]
 
 Options:
   -h, --help       Show this help text
@@ -37,12 +46,39 @@ Language
   | janet
   | ocaml
   | raku
+
+Examples
+
+    # launch readline-aware iex -S mix
+    repl --language elixir -- -S mix
 EOF
 echo "$_usage_string"
 }
 
+# end usage }}}
+# ==============================================================================
+
+# $_POSITIONAL contains positional arguments passed to this script
+_POSITIONAL=()
+
+# $_repl_lang contains sanitized language with which to launch
+# readline-aware repl
+_repl_lang=""
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
+    --)
+      shift
+      # process args for dispatch to launched language repl
+      while [[ $# -gt 0 ]]; do
+        case "$1" in
+          *)
+            _POSITIONAL+=("$1")
+            shift
+            ;;
+        esac
+      done
+      ;;
     -h|--help)
       _usage
       exit 0
@@ -61,52 +97,183 @@ while [[ $# -gt 0 ]]; do
       _usage
       exit 1
       ;;
-    *)
-      # unknown command
-      _usage
-      exit 1
-      ;;
   esac
 done
 
-# end usage }}}
-# ==============================================================================
+# restore positional params
+set -- "${_POSITIONAL[@]}"
 
 # sanitize compression algorithm input
 _repl_lang="${_repl_lang:-$REPL_LANG}"
-case "$_repl_lang" in
-  # proper repl language chosen, no action necessary
-  chicken|elixir|erlang|janet|ocaml|raku)
-    ;;
-  # improper repl language chosen, reset to default
-  *)
-    _repl_lang="$REPL_LANG_DEFAULT"
-    ;;
-esac
 
-main() {
+sanitize_input() {
+  # $_apology contains apologetic text in case unsanitary input is
+  # encountered
+  local _apology
   case "$_repl_lang" in
-    chicken)
-      rlwrap csi -quiet
+    chicken|elixir|erlang|janet|ocaml|raku)
+      # proper repl language chosen, no action necessary
       ;;
-    elixir)
-      rlwrap --always-readline --ansi-colour-aware iex
-      ;;
-    erlang)
-      rlwrap --always-readline --ansi-colour-aware erl
-      ;;
-    janet)
-      rlwrap janet -s
-      ;;
-    ocaml)
-      rlwrap ocaml
-      ;;
-    raku)
-      rlwrap raku
+    *)
+      # improper repl language chosen, reset to default
+      _apology="Sorry, couldn't find repl language $_repl_lang."
+      _apology+=" Using $REPL_LANG_DEFAULT."
+      echo "$_apology"
+      _repl_lang="$REPL_LANG_DEFAULT"
       ;;
   esac
 }
 
-main
+sanitize_input
+
+main() {
+# $_break_characters determines which characters are considered
+# word-breaking
+local _break_characters
+
+# $_file_extension is appended to temporary filename for filetype
+# detection if $EDITOR is launched from rlwrap (Ctrl+^ by default)
+local _file_extension
+
+# $_is_kebab_case determines whether language allows for kebab-cased
+# variable names
+local _is_kebab_case
+
+# $_is_lisp determines whether language uses single-quotes as quote
+# character
+local _is_lisp
+
+# $_quote_characters determines which characters in rlwrap act as quotes,
+# e.g. when matching parentheses
+local _quote_characters
+
+# $_repl_completions_file is path to file containing saved rlwrap
+# completions
+local _repl_completions_file
+
+# $_repl_history_file is path to file containing saved rlwrap command
+# history
+local _repl_history_file
+
+# $_repl_launch_command is command passed to rlwrap to launch language
+# repl
+local _repl_launch_command
+
+# $_rlwrap_opts are passed as cmdline options to `rlwrap` command
+local _rlwrap_opts=()
+
+case "$_repl_lang" in
+  chicken)
+    _file_extension='.scm'
+    _is_kebab_case=true
+    _is_lisp=true
+    _repl_completions_file="$REPL_HOME/chicken/completions"
+    _repl_history_file="$REPL_HOME/chicken/history"
+    _repl_launch_command='csi -quiet'
+    ;;
+  elixir)
+    _file_extension='.ex'
+    _repl_completions_file="$REPL_HOME/elixir/completions"
+    _repl_history_file="$REPL_HOME/elixir/history"
+    _repl_launch_command='iex'
+    _rlwrap_opts+=('--ansi-colour-aware')
+    _rlwrap_opts+=('--always-readline')
+    ;;
+  erlang)
+    _file_extension='.erl'
+    _repl_completions_file="$REPL_HOME/erlang/completions"
+    _repl_history_file="$REPL_HOME/erlang/history"
+    _repl_launch_command='erl'
+    _rlwrap_opts+=('--ansi-colour-aware')
+    _rlwrap_opts+=('--always-readline')
+    ;;
+  janet)
+    _file_extension='.janet'
+    _is_kebab_case=true
+    _is_lisp=true
+    _repl_completions_file="$REPL_HOME/janet/completions"
+    _repl_history_file="$REPL_HOME/janet/history"
+    _repl_launch_command='janet -s'
+    ;;
+  ocaml)
+    _file_extension='.ml'
+    _repl_completions_file="$REPL_HOME/ocaml/completions"
+    _repl_history_file="$REPL_HOME/ocaml/history"
+    _repl_launch_command='ocaml'
+    ;;
+  raku)
+    _file_extension='.raku'
+    _is_kebab_case=true
+    _repl_completions_file="$REPL_HOME/raku/completions"
+    _repl_history_file="$REPL_HOME/raku/history"
+    _repl_launch_command='raku'
+    ;;
+esac
+
+setup() {
+  for _file in "$_repl_completions_file" \
+               "$_repl_history_file"; do
+    mkdir -p "$(dirname "$_file")"
+    touch "$_file"
+  done
+}
+
+setup
+
+_break_characters+='('
+_break_characters+=')'
+_break_characters+='{'
+_break_characters+='}'
+_break_characters+='['
+_break_characters+=']'
+_break_characters+="'"
+_break_characters+='"'
+_break_characters+='`'
+_break_characters+='.'
+_break_characters+=','
+_break_characters+='+'
+if [[ -z "$_is_kebab_case" ]]; then
+  # hyphen isn't a word break character in kebab-cased languages
+  _break_characters+="-"
+fi
+_break_characters+='='
+_break_characters+='&'
+_break_characters+='^'
+_break_characters+='%'
+_break_characters+='$'
+_break_characters+='#'
+_break_characters+='@'
+_break_characters+=';'
+_break_characters+='|'
+_break_characters+='\'
+
+_quote_characters+='"'
+if [[ -z "$_is_lisp" ]]; then
+  # single quote is not a quote character in lisp
+  _quote_characters+="'"
+fi
+
+_rlwrap_opts+=('--file'
+               "$_repl_completions_file")
+_rlwrap_opts+=('--history-filename'
+               "$_repl_history_file")
+# complete filenames (case-sensitive)
+_rlwrap_opts+=('--complete-filenames')
+# put all words seen on input and output on completion list
+_rlwrap_opts+=('--remember')
+_rlwrap_opts+=('--break-chars'
+               "$_break_characters")
+_rlwrap_opts+=('--quote-characters'
+               "$_quote_characters")
+# enable multi-line input using a newline substitute character sequence
+# (default: space-backslash-space)
+_rlwrap_opts+=('--multi-line')
+_rlwrap_opts+=('--multi-line-ext'
+               "$_file_extension")
+
+rlwrap "${_rlwrap_opts[@]}" -- $_repl_launch_command $@
+}
+
+main "$@"
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
