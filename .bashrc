@@ -712,6 +712,15 @@ unset MAILCHECK
 
 # end macos }}}
 # ==============================================================================
+# rlwrap {{{
+
+export RLWRAP_HOME="$HOME/.config/rlwrap"
+
+# %L,%C = line, column number of cursor position in rlwrap's edit buffer
+export RLWRAP_EDITOR="vim '+call cursor(%L,%C)'"
+
+# end rlwrap }}}
+# ==============================================================================
 # beam {{{
 
 # enable repl history
