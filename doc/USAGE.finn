@@ -274,6 +274,14 @@ pip2 install ipython ptpython
 pip3 install ipython ptpython
 ```
 
+### vim
+
+insert unicode by codepoint
+
+```markdown
+<kbd>Ctrl-V</kbd>`Unnnnnnnn`<kbd>Enter</kbd>
+```
+
 ### neovim
 
 ```sh
