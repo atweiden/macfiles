@@ -21,11 +21,11 @@ nnoremap < <<
 " end selecting }}}
 " search and replace {{{
 
-" find two spaces after a period
-nnoremap <leader><leader>. /\.\s\s\+\w/s+1<CR>
-
 " remove search highlights
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
+
+" find >=2 spaces after any non-space character
+Arpeggio cnoremap <expr> ,. getcmdtype() =~ '[/?]' ? '\S\s\s\+\S/s+1' : ''
 
 " find merge conflict markers
 Arpeggio cnoremap <expr> <> getcmdtype() =~ '[/?]' ? '\v^[<=>]{7}( .*\|$)' : ''
@@ -60,11 +60,8 @@ nnoremap <silent> <leader>w :w<CR>
 " sudo write
 Arpeggio cnoremap <expr> wr getcmdtype() == ':' ? "w !sudo tee '%' >/dev/null" : ''
 
-" expand %% to the path of the current buffer
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-" change to directory of file
-nnoremap <silent> <leader>. :cd%:h<CR>
+" get path of current buffer
+Arpeggio cnoremap <expr> ,. getcmdtype() == ':' ? expand('%:h').'/' : ''
 
 " end writing }}}
 " redoing {{{
