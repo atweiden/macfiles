@@ -61,7 +61,7 @@ nnoremap <silent> <leader>w :w<CR>
 Arpeggio cnoremap <expr> wr getcmdtype() == ':' ? "w !sudo tee '%' >/dev/null" : ''
 
 " get path of current buffer
-Arpeggio cnoremap <expr> ,. getcmdtype() == ':' ? expand('%:h').'/' : ''
+Arpeggio cnoremap <expr> ./ getcmdtype() == ':' ? expand('%:h').'/' : ''
 
 " end writing }}}
 " redoing {{{
