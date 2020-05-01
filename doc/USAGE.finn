@@ -282,6 +282,12 @@ insert unicode by codepoint
 <kbd>Ctrl-V</kbd>`Unnnnnnnn`<kbd>Enter</kbd>
 ```
 
+open terminal in current window
+
+```vim
+terminal ++curwin
+```
+
 ### neovim
 
 ```sh
