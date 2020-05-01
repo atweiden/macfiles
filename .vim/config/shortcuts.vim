@@ -25,10 +25,10 @@ nnoremap < <<
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
 " find >=2 spaces after any non-space character
-Arpeggio cnoremap <expr> ,. getcmdtype() =~ '[/?]' ? '\S\s\s\+\S/s+1' : ''
+Arpeggio cnoremap <expr> ,. getcmdtype() =~ '[/?]' ? '\S\s\s\+\S/s+1' : ',.'
 
 " find merge conflict markers
-Arpeggio cnoremap <expr> <> getcmdtype() =~ '[/?]' ? '\v^[<=>]{7}( .*\|$)' : ''
+Arpeggio cnoremap <expr> <> getcmdtype() =~ '[/?]' ? '\v^[<=>]{7}( .*\|$)' : '<>'
 
 " end search and replace }}}
 " pasting {{{
@@ -58,10 +58,10 @@ vnoremap <space> :!fmt<CR>
 nnoremap <silent> <leader>w :w<CR>
 
 " sudo write
-Arpeggio cnoremap <expr> wr getcmdtype() == ':' ? "w !sudo tee '%' >/dev/null" : ''
+Arpeggio cnoremap <expr> wr getcmdtype() == ':' ? "w !sudo tee '%' >/dev/null" : 'wr'
 
 " get path of current buffer
-Arpeggio cnoremap <expr> ./ getcmdtype() == ':' ? expand('%:h').'/' : ''
+Arpeggio cnoremap <expr> 45 getcmdtype() == ':' ? expand('%:h').'/' : '45'
 
 " end writing }}}
 " redoing {{{

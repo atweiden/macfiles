@@ -10,9 +10,6 @@ else
   nnoremap <silent> <leader><leader><space> :terminal<CR>
 endif
 
-" open terminal in current window
-Arpeggio cnoremap <expr> te getcmdtype() == ':' ? "terminal ++curwin" : ''
-
 " enter normal mode in terminal mode
 tnoremap <C-W>N <C-\><C-N>
 
