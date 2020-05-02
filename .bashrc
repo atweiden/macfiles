@@ -351,13 +351,14 @@ fi
 # --- directory navigation {{{
 
 alias ls='LC_COLLATE=C gls \
+  --classify \
   --color=auto \
   --group-directories-first \
   --time-style=long-iso'
-alias l='ls -1F'
-alias l1='ls -1AF'
-alias la='ls -aF'
-alias ll='ls -laihF'
+alias l='ls -1'
+alias l1='ls -1A'
+alias la='ls -a'
+alias ll='ls -laih'
 [[ -n "$_has_tree" ]] \
   && alias tree='tree -C --charset utf-8 --dirsfirst'
 alias ..='cd ..'
