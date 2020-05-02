@@ -369,3 +369,12 @@ signify \
   -x /path/to/sha256.sig \
   /path/to/void-live-x86_64-musl-20191109.iso
 ```
+
+### units
+
+convert fahrenheit to celsius
+
+```
+You have: tempF(70)
+You want: tempC
+```
