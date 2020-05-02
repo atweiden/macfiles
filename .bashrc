@@ -867,5 +867,11 @@ export PGSERVICEFILE="$HOME/.config/pg/pg_service.conf"
 
 # end pg }}}
 # ==============================================================================
+# wget {{{
+
+export WGETRC="$HOME/.config/wget/wgetrc"
+
+# end wget }}}
+# ==============================================================================
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
