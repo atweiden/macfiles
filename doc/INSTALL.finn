@@ -6,7 +6,7 @@ Installation
 Install Software
 ----------------
 
-```sh
+```bash
 _packages=('ack'
            'aria2'
            'bash'
@@ -142,34 +142,6 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash
 fi
 
-# python
-pip install --upgrade pip setuptools
-pip3 install --upgrade pip setuptools
-
-# dnscrypt-proxy
-vim /usr/local/etc/dnscrypt-proxy.toml
-sudo brew services start dnscrypt-proxy
-
-# neovim
-pip3 install --upgrade neovim
-pip2 install --upgrade neovim
-
-# universal-ctags
-brew tap universal-ctags/universal-ctags
-brew install --HEAD universal-ctags
-
-# clojure
-brew tap adoptopenjdk/openjdk
-brew cask install adoptopenjdk/openjdk
-brew cask install graalvm/tap/graalvm-ce-java11
-brew install clojure
-brew install leiningen
-brew install boot-clj
-brew install lumo
-
-# fzf-extras
-git clone https://github.com/atweiden/fzf-extras "$HOME/.fzf-extras"
-
 # mac settings
 # - System Preferences -> Security & Privacy -> Privacy
 # - add iTerm.app to list of applications with Full Disk Access
@@ -196,12 +168,15 @@ brew cleanup
 
 homebrew-formulae
 
-```sh
+```bash
 git clone https://github.com/atweiden/homebrew-formulae
 pushd homebrew-formulae
-# enchive
 brew install enchive/enchive.rb
-# raku
+```
+
+raku
+
+```bash
 pushd "$HOME/.src"
 git clone https://github.com/ugexe/zef
 pushd zef
@@ -210,9 +185,69 @@ popd
 popd
 ```
 
+python
+
+```bash
+pip install --upgrade pip setuptools
+pip3 install --upgrade pip setuptools
+```
+
+dnscrypt-proxy
+
+```bash
+vim /usr/local/etc/dnscrypt-proxy.toml
+sudo brew services start dnscrypt-proxy
+```
+
+fzf-extras
+
+```bash
+git clone https://github.com/atweiden/fzf-extras "$HOME/.fzf-extras"
+```
+
+neovim
+
+```bash
+pip3 install --upgrade neovim
+pip2 install --upgrade neovim
+```
+
+universal-ctags
+
+```bash
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
+```
+
+clojure
+
+```bash
+brew tap adoptopenjdk/openjdk
+brew cask install adoptopenjdk/openjdk
+brew cask install graalvm/tap/graalvm-ce-java11
+brew install clojure
+brew install leiningen
+brew install boot-clj
+brew install lumo
+# pending resolution of https://clojure.atlassian.net/browse/TDEPS-99
+cat > $HOME.config/maven/settings.xml <<'EOF'
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <localRepository>${env.XDG_CACHE_HOME}/maven/repository</localRepository>
+</settings>
+EOF
+alias mvn='mvn --global-settings $HOME/.config/maven/settings.xml'
+unset _JAVA_OPTIONS
+_JAVA_OPTIONS+=" -Djava.util.prefs.userRoot=$HOME/.config/java"
+_JAVA_OPTIONS+=" -Dorg.apache.maven.user-settings=$HOME/.config/maven/settings.xml"
+export _JAVA_OPTIONS
+```
+
 Monaco for Powerline
 
-```sh
+```bash
 brew install fondu
 brew install fontforge
 git clone https://github.com/Lokaltog/powerline
@@ -238,7 +273,7 @@ iTerm2 alt keybindings [2]
 Bootstrap
 ---------
 
-```sh
+```bash
 ./bootstrap.sh
 ```
 
