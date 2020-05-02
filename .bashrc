@@ -421,7 +421,7 @@ alias bzip2='bzip2 -9'
 [[ -n "$_has_gtime" ]] \
   && alias time='gtime'
 [[ -n "$_has_gunits" ]] \
-  && alias units='gunits'
+  && alias units='gunits --history $HOME/.config/units/history'
 [[ -n "$_has_gwhich" ]] \
   && alias which='gwhich'
 
