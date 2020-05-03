@@ -463,21 +463,6 @@ alias info='info --vi-keys'
 alias path='echo -e ${PATH//:/\\n}'
 
 # --- end path }}}
-# --- subrepo {{{
-
-[[ -n "$_has_subgit" ]] \
-  && alias sg='subgit'
-[[ -n "$_has_subhg" ]] \
-  && alias shg='subhg'
-
-# --- end subrepo }}}
-# --- safety {{{
-
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-
-# --- end safety }}}
 # --- lynx {{{
 
 [[ -n "$_has_lynx" ]] \
@@ -510,6 +495,13 @@ alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; \
 alias r='repl'
 
 # --- end repl }}}
+# --- safety {{{
+
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# --- end safety }}}
 # --- ssh {{{
 
 [[ -n "$_has_mosh" ]] \
@@ -524,6 +516,14 @@ alias timer='echo "Timer started. Stop with Ctrl-D." \
   && date'
 
 # --- end stopwatch }}}
+# --- subrepo {{{
+
+[[ -n "$_has_subgit" ]] \
+  && alias sg='subgit'
+[[ -n "$_has_subhg" ]] \
+  && alias shg='subhg'
+
+# --- end subrepo }}}
 # --- timestamp {{{
 
 alias dt='date --iso-8601=s'
