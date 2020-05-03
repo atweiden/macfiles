@@ -658,7 +658,9 @@ alias :e='"$EDITOR"'
 # --- wget {{{
 
 [[ -n "$_has_wget" ]] \
-  && alias wget='wget --hsts-file=$HOME/.config/wget/wget-hsts'
+  && alias wget='wget \
+    --config=$HOME/.config/wget/wgetrc \
+    --hsts-file=$HOME/.config/wget/wget-hsts'
 
 # --- end wget }}}
 # --- xyz {{{
@@ -864,11 +866,6 @@ export RLWRAP_EDITOR="vim '+call cursor(%L,%C)'"
 export SCREENRC="$HOME/.config/screen/screenrc"
 
 # --- end screen }}}
-# --- wget {{{
-
-export WGETRC="$HOME/.config/wget/wgetrc"
-
-# --- end wget }}}
 
 # end software }}}
 # ==============================================================================
