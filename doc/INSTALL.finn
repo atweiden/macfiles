@@ -6,6 +6,8 @@ Installation
 Install Software
 ----------------
 
+### core
+
 ```bash
 _packages=('ack'
            'aria2'
@@ -166,7 +168,7 @@ brew cask install "${_casks[@]}"
 brew cleanup
 ```
 
-homebrew-formulae
+### custom
 
 ```bash
 git clone https://github.com/atweiden/homebrew-formulae
@@ -174,50 +176,7 @@ pushd homebrew-formulae
 brew install enchive/enchive.rb
 ```
 
-raku
-
-```bash
-pushd "$HOME/.src"
-git clone https://github.com/ugexe/zef
-pushd zef
-raku -I. bin/zef install .
-popd
-popd
-```
-
-python
-
-```bash
-pip install --upgrade pip setuptools
-pip3 install --upgrade pip setuptools
-```
-
-dnscrypt-proxy
-
-```bash
-vim /usr/local/etc/dnscrypt-proxy.toml
-sudo brew services start dnscrypt-proxy
-```
-
-fzf-extras
-
-```bash
-git clone https://github.com/atweiden/fzf-extras "$HOME/.fzf-extras"
-```
-
-neovim
-
-```bash
-pip3 install --upgrade neovim
-pip2 install --upgrade neovim
-```
-
-universal-ctags
-
-```bash
-brew tap universal-ctags/universal-ctags
-brew install --HEAD universal-ctags
-```
+### langs
 
 clojure
 
@@ -245,7 +204,39 @@ _JAVA_OPTIONS+=" -Dorg.apache.maven.user-settings=$HOME/.config/maven/settings.x
 export _JAVA_OPTIONS
 ```
 
-Monaco for Powerline
+python
+
+```bash
+pip install --upgrade pip setuptools
+pip3 install --upgrade pip setuptools
+```
+
+raku
+
+```bash
+pushd "$HOME/.src"
+git clone https://github.com/ugexe/zef
+pushd zef
+raku -I. bin/zef install .
+popd
+popd
+```
+
+reason
+
+```bash
+npm install --global esy
+pushd "$HOME/.src"
+git clone https://github.com/esy-ocaml/hello-reason
+pushd hello-reason
+esy
+popd
+popd
+```
+
+### font
+
+monaco for powerline
 
 ```bash
 brew install fondu
@@ -256,43 +247,70 @@ cp mkmonaco/Makefile powerline/font
 make -C powerline/font
 ```
 
-- open Font Book
+- open *Font Book*
   - File -> Add Fonts
     - add `Monaco for Powerline.ttf`
 
-iTerm2 seoul256 colorscheme [1]
+### dev
 
-iTerm2 alt keybindings [2]
-
-- Q: How do I make the option/alt key act like Meta or send escape codes?
-- A: Go to Preferences > Profiles tab. Select your profile on the left,
-  and then open the Keyboard tab. At the bottom is a set of buttons that
-  lets you select the behavior of the Option key. For most users, Esc+
-  will be the best choice.
-
-Bootstrap
----------
+dots
 
 ```bash
 ./bootstrap.sh
 ```
 
+fzf-extras
+
+```bash
+git clone https://github.com/atweiden/fzf-extras "$HOME/.fzf-extras"
+```
+
+neovim
+
+```bash
+pip2 install --upgrade neovim
+pip3 install --upgrade neovim
+```
+
+universal-ctags
+
+```bash
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
+```
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configuration
 -------------
 
-Remap capslock key to backspace with Karabiner-Elements
+### preferences
 
-System Preferences
+audio
+- System Preferences -> Sound
+  - Show volume in menu bar
+
+dnscrypt-proxy
+- enable system service
+  - | vim /usr/local/etc/dnscrypt-proxy.toml
+    | sudo brew services start dnscrypt-proxy
 - System Preferences -> Network -> Advanced
   - DNS
     - set DNS Servers to 127.0.0.1
-- System Preferences -> Spotlight
-  - Search Results
-    - uncheck "Bing Web Searches"
-    - uncheck "Allow Spotlight Suggestions in Spotlight and Look up"
+
+iterm2
+- setup iterm2 seoul256 colorscheme [1]
+- setup iterm2 alt keybindings [2]
+  - | Q: How do I make the option/alt key act like Meta or send escape
+    |    codes?
+    |
+    | A: Go to Preferences > Profiles tab. Select your profile on the
+    |    left, and then open the Keyboard tab. At the bottom is a set
+    |    of buttons that lets you select the behavior of the Option
+    |    key. For most users, Esc+ will be the best choice.
+
+keyboard
+- remap capslock key to backspace with karabiner-elements
 - System Preferences -> Keyboard
   - Keyboard
     - Repeat: fastest
@@ -309,19 +327,16 @@ System Preferences
       - uncheck all
     - App Shortcuts
       - uncheck all
-- System Preferences -> Sound
-  - Show volume in menu bar
 
-Little Snitch
-
-```
-/usr/local/Caskroom/little-snitch/4.2/LittleSnitch-4.2.dmg/Little\ Snitch\ Installer.app
-```
-
-MacVim
-
+macvim
 - Preferences -> Advanced
   - uncheck Use Core Text renderer
+
+privacy
+- System Preferences -> Spotlight
+  - Search Results
+    - uncheck "Bing Web Searches"
+    - uncheck "Allow Spotlight Suggestions in Spotlight and Look up"
 
 
 ******************************************************************************
