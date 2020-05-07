@@ -744,6 +744,12 @@ if [[ -n "$_has_diffr" ]]; then
 fi
 
 # --- end diffr }}}
+# --- elixir {{{
+
+export HEX_HOME="$XDG_DATA_HOME/hex"
+export MIX_HOME="$XDG_DATA_HOME/mix"
+
+# --- end elixir }}}
 # --- fzf {{{
 
 # use rg/ag/pt/ack as the default source for fzf
