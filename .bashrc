@@ -284,6 +284,7 @@ _has_gtime="$(command -v gtime)"
 _has_gunits="$(command -v gunits)"
 _has_gwhich="$(command -v gwhich)"
 _has_icdiff="$(command -v icdiff)"
+_has_iex="$(command -v iex)"
 _has_irssi="$(command -v irssi)"
 _has_locate="$(command -v glocate)"
 _has_lynx="$(command -v lynx)"
@@ -391,6 +392,12 @@ alias dusort='du --block-size=M --max-depth=0 --one-file-system --total * \
     --exclude-from $HOME/.ignore'
 
 # --- end disk space }}}
+# --- elixir {{{
+
+[[ -n "$_has_iex" ]] \
+  && alias iex='iex --dot-iex $HOME/.config/elixir/iex.exs'
+
+# --- end elixir }}}
 # --- file compression {{{
 
 alias zip='zip -9'
