@@ -389,7 +389,7 @@ alias dusort='du --block-size=M --max-depth=0 --one-file-system --total * \
     -x \
     --si \
     --confirm-quit \
-    --exclude-from $HOME/.ignore'
+    --exclude-from $HOME/.config/search/ignore'
 
 # --- end disk space }}}
 # --- elixir {{{
@@ -439,10 +439,13 @@ alias sysctl\?='sysctl -a 2>/dev/null | grep -v grep | grep "$@"'
   && alias ag='ag \
       --hidden \
       --smart-case \
-      --path-to-ignore $HOME/.ignore \
+      --path-to-ignore $HOME/.config/search/ignore \
       --skip-vcs-ignores'
 [[ -n "$_has_rg" ]] \
-  && alias rg='rg --hidden --smart-case'
+  && alias rg='rg \
+      --hidden \
+      --ignore-file $HOME/.config/search/ignore \
+      --smart-case'
 [[ -n "$_has_locate" ]] \
   && alias locate='glocate --ignore-case'
 
@@ -765,6 +768,7 @@ if [[ -n "$_has_rg" ]]; then
     --hidden \
     --smart-case \
     --color never \
+    --ignore-file $HOME/.config/search/ignore \
     --ignore-vcs \
     --files \
     -g ""'
@@ -773,7 +777,7 @@ elif [[ -n "$_has_ag" ]]; then
     --hidden \
     --smart-case \
     --nocolor \
-    --path-to-ignore $HOME/.ignore \
+    --path-to-ignore $HOME/.config/search/ignore \
     --skip-vcs-ignores \
     -g ""'
 elif [[ -n "$_has_pt" ]]; then
@@ -795,20 +799,37 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # use rg/ag/pt/ack for ** completion
 _fzf_compgen_path() {
   if [[ -n "$_has_rg" ]]; then
-    rg --hidden --smart-case --color never --ignore-vcs --files -g "" "$1"
+    rg \
+      --hidden \
+      --smart-case \
+      --color never \
+      --ignore-file "$HOME/.config/search/ignore" \
+      --ignore-vcs \
+      --files \
+      -g "" \
+      "$1"
   elif [[ -n "$_has_ag" ]]; then
     ag \
       --hidden \
       --smart-case \
       --nocolor \
-      --path-to-ignore "$HOME/.ignore" \
+      --path-to-ignore "$HOME/.config/search/ignore" \
       --skip-vcs-ignores \
       -g "" \
       "$1"
   elif [[ -n "$_has_pt" ]]; then
-    pt --hidden --nocolor -e -g="" "$1"
+    pt \
+      --hidden \
+      --nocolor \
+      -e \
+      -g="" \
+      "$1"
   elif [[ -n "$_has_ack" ]]; then
-    ack --nocolor --nopager -g "" "$1"
+    ack \
+      --nocolor \
+      --nopager \
+      -g "" \
+      "$1"
   fi
 }
 

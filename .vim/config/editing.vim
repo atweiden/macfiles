@@ -190,9 +190,9 @@ augroup END
 
 " use rg/ag/pt/ack for grepping if available
 if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading\ --color\ never\ --hidden\ --smart-case\ --ignore-vcs
+  set grepprg=rg\ --vimgrep\ --no-heading\ --color\ never\ --hidden\ --smart-case\ --ignore-file\ $HOME/.config/search/ignore\ --ignore-vcs
 elseif executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --smart-case\ --path-to-ignore\ $HOME/.ignore\ --skip-vcs-ignores
+  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --smart-case\ --path-to-ignore\ $HOME/.config/search/ignore\ --skip-vcs-ignores
 elseif executable('pt')
   set grepprg=pt\ --nogroup\ --nocolor\ --hidden\ --nocolor\ -e
 elseif executable('ack')
