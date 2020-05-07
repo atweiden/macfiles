@@ -8,3 +8,5 @@ install: --env-shebang --no-rdoc --no-ri
 update: --env-shebang --no-rdoc --no-ri
 search: --remote
 specification: --remote
+
+# vim: set filetype=yaml foldmethod=marker foldlevel=0 nowrap:
