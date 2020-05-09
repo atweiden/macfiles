@@ -43,6 +43,7 @@ Language
   | chicken
   | elixir
   | erlang
+  | fennel
   | janet
   | ocaml
   | raku
@@ -116,7 +117,7 @@ sanitize_input() {
   # encountered
   local _apology
   case "$_repl_lang" in
-    chicken|elixir|erlang|janet|ocaml|raku)
+    chicken|elixir|erlang|fennel|janet|ocaml|raku)
       # proper repl language chosen, no action necessary
       ;;
     *)
@@ -191,6 +192,14 @@ case "$_repl_lang" in
     _repl_launch_command='erl'
     _rlwrap_opts+=('--ansi-colour-aware')
     _rlwrap_opts+=('--always-readline')
+    ;;
+  fennel)
+    _file_extension='.fnl'
+    _is_kebab_case=true
+    _is_lisp=true
+    _repl_completions_file="$REPL_HOME/fennel/completions"
+    _repl_history_file="$REPL_HOME/fennel/history"
+    _repl_launch_command='fennel'
     ;;
   janet)
     _file_extension='.janet'

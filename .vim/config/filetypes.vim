@@ -30,6 +30,7 @@ augroup languages
   autocmd BufNewFile,BufRead {*.ex,*.exs,mix.lock} set ft=elixir
   autocmd BufNewFile,BufRead {*.erl,*.es,*.hrl,*.xrl,*.yaws,rebar.config} set ft=erlang
   autocmd BufNewFile,BufRead {*.erb,*.rhtml} set ft=eruby
+  autocmd BufNewFile,BufRead {*.fnl} set ft=fennel
   autocmd BufNewFile,BufRead {*.finn} set ft=finn
   autocmd BufNewFile,BufRead {*.fs,*.fsi,*.fsx} set ft=fsharp
   autocmd BufNewFile,BufRead {COMMIT_EDITMSG} set ft=gitcommit
@@ -46,6 +47,7 @@ augroup languages
   autocmd BufNewFile,BufRead {*.html,*.htm,*.ejs} set ft=html
   autocmd BufNewFile,BufRead {*.html.ep,*.html.epl} set ft=html.epl
   autocmd BufNewFile,BufRead {*.hxml} set ft=hxml
+  autocmd BufNewFile,BufRead {*.janet} set ft=janet
   autocmd BufNewFile,BufRead {*.java} set ft=java
   autocmd BufNewFile,BufRead {*.javap} set ft=java-bytecode
   autocmd BufNewFile,BufRead {*.js,*.jsm,*.jss,*.jsx,Jakefile} set ft=javascript
