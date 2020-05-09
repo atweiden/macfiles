@@ -204,6 +204,17 @@ _JAVA_OPTIONS+=" -Dorg.apache.maven.user-settings=$HOME/.config/maven/settings.x
 export _JAVA_OPTIONS
 ```
 
+fennel
+
+```bash
+brew install LuaJIT
+git clone https://github.com/bakpakin/Fennel
+pushd Fennel
+make fennel
+cp fennel "$HOME/.bin"
+popd
+```
+
 python
 
 ```bash
