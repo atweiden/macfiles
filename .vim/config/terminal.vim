@@ -1,13 +1,9 @@
 if has('nvim')
   " scrollback lines
   let g:terminal_scrollback_buffer_size = 100000
-  " open terminal in lower split
-  nnoremap <silent> <leader><leader><space> :split term://bash<CR>
 else
   " scrollback lines
   set termwinscroll=100000
-  " open terminal in lower split
-  nnoremap <silent> <leader><leader><space> :terminal<CR>
 endif
 
 " enter normal mode in terminal mode
