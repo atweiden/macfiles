@@ -28,6 +28,26 @@ if has('gui_running')
   " light colorscheme
   set background=light
   colorscheme seoul256-light
+  highlight clear Cursor
+  highlight Cursor guifg=NONE guibg=#E3E7E4
+  highlight clear iCursor
+  highlight iCursor guifg=#87AF87 guibg=#87AF87
+  highlight clear vCursor
+  highlight vCursor guifg=white guibg=#5FAFAF
+  highlight clear rCursor
+  highlight rCursor guifg=black guibg=#DF005F
+  highlight clear oCursor
+  highlight oCursor guifg=black guibg=gray
+  " set normal mode cursor to unblinking Cursor highlighted block
+  set guicursor+=n:blinkon0-block-Cursor
+  " set insert and command line mode cursor to 25% width unblinking iCursor highlighted block
+  set guicursor+=i-c:blinkon0-ver25-iCursor
+  " set visual mode cursor to unblinking vCursor highlighted block
+  set guicursor+=v:blinkon0-block-vCursor
+  " set replace mode cursor to unblinking rCursor highlighted block
+  set guicursor+=r:blinkon0-block-rCursor
+  " set operator pending mode cursor to 50% height unblinking oCursor highlighted block
+  set guicursor+=o:blinkon0-hor50-oCursor
   " no menu bar
   set guioptions-=m
   " no toolbar
@@ -46,23 +66,11 @@ if has('gui_running')
   set guifont=Monaco\ for\ Powerline:h24
   " allow macvim window to occupy whole screen
   set guiheadroom=0
-  " set normal mode cursor to unblinking Cursor highlighted block
-  set guicursor+=n:blinkon0-block-Cursor
-  " set insert and command line mode cursor to 25% width unblinking iCursor highlighted block
-  set guicursor+=i-c:blinkon0-ver25-iCursor
-  " set visual mode cursor to unblinking vCursor highlighted block
-  set guicursor+=v:blinkon0-block-vCursor
-  " set replace mode cursor to unblinking rCursor highlighted block
-  set guicursor+=r:blinkon0-block-rCursor
-  " set operator pending mode cursor to 50% height unblinking oCursor highlighted block
-  set guicursor+=o:blinkon0-hor50-oCursor
   " no visual bell
-  if has('autocmd')
-    augroup errorbells
-      autocmd!
-      autocmd GUIEnter * set vb t_vb=
-    augroup END
-  endif
+  augroup errorbells
+    autocmd!
+    autocmd GUIEnter * set vb t_vb=
+  augroup END
   " resize font
   noremap <silent> <M--> :Smaller<CR>
   noremap <silent> <M-+> :Bigger<CR>
@@ -73,15 +81,29 @@ endif
 
 " end macvim }}}
 
+" neovim {{{
+
+if has('nvim')
+  " set all cursors to 20% height unblinking block by default
+  set guicursor+=a:blinkon0-hor20
+  " set insert mode cursor to 25% width unblinking block
+  set guicursor+=i:blinkon0-ver25
+  " set :terminal cursor to URxvt-like underline
+  highlight clear TermCursor
+  highlight TermCursor ctermfg=red cterm=underline gui=underline
+  highlight clear TermCursorNC
+  highlight TermCursorNC ctermfg=red cterm=underline gui=underline
+endif
+
+" end neovim }}}
+
 " highlighting {{{
 
 " turn off any existing search
-if has('autocmd')
-  augroup searchhighlight
-    autocmd!
-    autocmd VimEnter * nohls
-  augroup END
-endif
+augroup searchhighlight
+  autocmd!
+  autocmd VimEnter * nohlsearch
+augroup END
 
 " searches
 highlight clear Search
@@ -92,18 +114,6 @@ highlight IncSearch term=bold cterm=bold ctermfg=0 ctermbg=217 gui=bold guifg=bl
 " matching parens
 highlight clear MatchParen
 highlight MatchParen term=bold,NONE cterm=bold,NONE ctermfg=179 gui=bold,NONE guifg=#D7AF5F
-
-" cursor
-highlight clear Cursor
-highlight Cursor guifg=NONE guibg=#E3E7E4
-highlight clear iCursor
-highlight iCursor guifg=#87AF87 guibg=#87AF87
-highlight clear vCursor
-highlight vCursor guifg=white guibg=#5FAFAF
-highlight clear rCursor
-highlight rCursor guifg=black guibg=#DF005F
-highlight clear oCursor
-highlight oCursor guifg=black guibg=gray
 
 " cursor line and column
 highlight clear CursorLine
@@ -158,14 +168,6 @@ highlight DiffChange ctermbg=0
 
 " use reverse foreground colors for +legibility (-consistency of color)
 highlight DiffText cterm=reverse ctermbg=none
-
-" neovim terminal URxvt-like underline cursor
-if has('nvim')
-  highlight clear TermCursor
-  highlight TermCursor ctermfg=red cterm=underline gui=underline
-  highlight clear TermCursorNC
-  highlight TermCursorNC ctermfg=red cterm=underline gui=underline
-endif
 
 " end highlighting }}}
 
