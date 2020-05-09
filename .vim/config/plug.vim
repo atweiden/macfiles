@@ -21,6 +21,9 @@ Plug 'preservim/nerdtree'
 Plug 'kana/vim-arpeggio'
 Plug 'drmikehenry/vim-fixkey'
 
+" cursor
+Plug 'nickeb96/vitality.vim'
+
 " search and replace
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -104,9 +107,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mhinz/vim-hugefile'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/rainbow_parentheses.vim'
-
-" macos
-Plug 'nickeb96/vitality.vim'
 
 call plug#end()
 endif
