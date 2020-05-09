@@ -58,7 +58,7 @@ vnoremap <space> :!fmt<CR>
 nnoremap <silent> <leader>w :w<CR>
 
 " sudo write
-Arpeggio cnoremap <expr> wr getcmdtype() == ':' ? "w !sudo tee '%' >/dev/null" : 'wr'
+command! W w !sudo tee '%' >/dev/null
 
 " get path of current buffer
 Arpeggio cnoremap <expr> 12 getcmdtype() == ':' ? expand('%:h').'/' : '12'
