@@ -27,28 +27,42 @@
   # https://git-scm.com/docs/git-update-index#_untracked_cache
   untrackedCache = true
 
+[status]
+  # show individual files in untracked directories
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-statusshowUntrackedFiles
+  showUntrackedFiles = all
+  # show summary of commits for modified submodules
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-statussubmoduleSummary
+  submoduleSummary = true
+
+[branch]
+  # always set up tracking for new branches, not just remote branches
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchautoSetupMerge
+  autoSetupMerge = always
+  # configure `git pull`s on branches tracking others to rebase, not merge
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchautoSetupRebase
+  autoSetupRebase = always
+
 [push]
   # use recommended push settings
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault
   default = simple
+  # push changes to submodules
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushrecurseSubmodules
+  recurseSubmodules = on-demand
 
-[sendemail]
-  # review and edit each patch to be sent
-  annotate = yes
-
-# for integrity, regularly check anything we're getting is complete/sane
-# https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
-[transfer]
-  fsckObjects = true
-[fetch]
-  fsckObjects = true
-[receive]
-  fsckObjects = true
+[rebase]
+  # abort rebase and print warning if commits were removed during rebase
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-rebasemissingCommitsCheck
+  missingCommitsCheck = error
 
 [rerere]
   # remember how to resolve hunk conflicts
   # https://git-scm.com/book/en/v2/Git-Tools-Rerere
   enabled = 1
+  # auto-stage files solved by rerere
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-rerereautoUpdate
+  autoupdate = true
 
 [diff]
   # dispatch to vimdiff for diffing
@@ -56,16 +70,22 @@
   # use histogram algorithm, successor to `patience`
   # https://git-scm.com/docs/git-diff#Documentation/git-diff.txt-codehistogramcode
   algorithm = histogram
-  # color moved lines per default but with dimming of uninteresting parts
-  # https://git-scm.com/docs/git-diff#Documentation/git-diff.txt-dimmed-zebra
-  colorMoved = dimmed-zebra
   # create prettier diffs favoring whitespace lines to hunk boundaries
   compactionHeuristic = true
   indentHeuristic = true
+  # use prefix pair different from standard `a/` and `b/` as appropriate
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-diffmnemonicPrefix
+  mnemonicPrefix = true
   # track more renamed files (grep diff_rename_limit_default git/diff.c)
   renameLimit = 3000
   # detect copied files in addition to basic renames
   renames = copies
+  # show changed submodule contents rather than list of commits
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-diffsubmodule
+  submodule = diff
+  # only display changed lines once, with word delimiter of any 3+ chars
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-diffwordRegex
+  wordRegex = .{3,}
   # highlight whitespace errors in diff
   wsErrorHighlight = all
 
@@ -103,6 +123,29 @@
 [mergetool "vimdiff"]
   cmd = "vim -f -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J'"
 
+[stash]
+  # make `git stash show` display stash entry in patch form
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-stashshowPatch
+  showPatch = true
+
+[sendemail]
+  # review and edit each patch to be sent
+  annotate = yes
+
+# for integrity, regularly check anything we're getting is complete/sane
+# https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
+[transfer]
+  fsckObjects = true
+[fetch]
+  fsckObjects = true
+[receive]
+  fsckObjects = true
+
+# enable optimizations for repos with many files in working directory
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-featuremanyFiles
+[feature]
+  manyFiles = true
+
 [format]
   # be concise in merge commits
   # https://git-scm.com/docs/pretty-formats
@@ -139,6 +182,7 @@
   br = branch
   ci = commit
   co = checkout
+  pf = push --force-with-lease
   pul = pull
   pus = push
   st = status --short --branch
