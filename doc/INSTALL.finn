@@ -126,6 +126,7 @@ _casks=('abstract'
         'zeplin')
 
 # xcode (https://developer.apple.com/download/more/)
+sudo rm -rf /Library/Developer/CommandLineTools
 xcode-select --install
 xcodebuild -license
 # xcode command line tools (https://stackoverflow.com/q/52509602)
