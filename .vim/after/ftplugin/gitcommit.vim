@@ -7,9 +7,9 @@ set shiftwidth=2
 
 augroup gitdiffcommit
   autocmd!
-  " show diff of current commit in preview window (ft-gitcommit-plugin)
+  " show diff of current commit in preview window
   autocmd BufEnter <buffer>
-    \ DiffGitCached | setlocal nofoldenable nowrap | wincmd p
+    \ call RunDiffGitCached()
   " close preview window when commit message buffer is unloaded
   autocmd BufUnload <buffer>
     \ pclose
