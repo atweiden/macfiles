@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
 
 _usage_function() {
-read -r -d '' _usage_string <<'EOF'
+read -r -d '' _usage_string <<EOF
 Usage:
   ./bootstrap.sh [-h|--help]
   ./bootstrap.sh [-n|--name <name>]
@@ -17,13 +17,13 @@ Options:
   -h, --help
     print this help message
   -n, --name <name>
-    set full name (defaults to "Andy Weidenbaum")
+    set full name (defaults to "$USER")
   -e, --email <email>
-    set email address (defaults to "archbaum@gmail.com")
+    set email address (defaults to "$USER@$HOSTNAME")
   -g, --github <github>
-    set GitHub username (defaults to "atweiden")
+    set GitHub username (defaults to "$USER")
   -i, --irssi <irssi>
-    set irssi username (defaults to "atweiden")
+    set irssi username (defaults to "$USER")
 EOF
 echo "$_usage_string"
 }
@@ -68,10 +68,14 @@ done
 # settings
 # -----------------------------------------------------------------------------
 
-name="${_name:-Andy Weidenbaum}"      # Name    (GitHub)
-email="${_email:-archbaum@gmail.com}" # Email   (GitHub)
-github="${_github:-atweiden}"         # Account (GitHub)
-irssi="${_irssi:-atweiden}"           # Account (IRC)
+# e.g. Andy Weidenbaum (for github)
+name="${_name:-$USER}"
+# e.g. archbaum@gmail.com (for github)
+email="${_email:-$USER@$HOSTNAME}"
+# e.g. atweiden (for github)
+github="${_github:-$USER}"
+# e.g. atweiden (for irc)
+irssi="${_irssi:-$USER}"
 
 
 # -----------------------------------------------------------------------------
@@ -146,9 +150,10 @@ fi
 
 gsed -i "s#yourname#$name#"         "$HOME/.config/git/config"
 gsed -i "s#youremail#$email#"       "$HOME/.config/git/config"
-gsed -i "s#yourgithubacct#$github#" "$HOME/.config/git/config"
+gsed -i "s#githubusername#$github#" "$HOME/.config/git/config"
 gsed -i "s#yourname#$name#"         "$HOME/.config/hg/hgrc"
 gsed -i "s#youremail#$email#"       "$HOME/.config/hg/hgrc"
+gsed -i "s#githubusername#$github#" "$HOME/.ssh/config"
 
 
 # -----------------------------------------------------------------------------
@@ -162,6 +167,7 @@ gsed -i "s#yourname#$irssi#"        "$HOME/.config/irssi/config"
 # permissions
 # -----------------------------------------------------------------------------
 
-chmod 700 "$HOME/.gnupg" "$HOME/.ssh"
+chmod 700 "$HOME/.gnupg"
+chmod 700 "$HOME/.ssh"
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:

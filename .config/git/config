@@ -1,9 +1,10 @@
 [user]
-  name = yourname
-  email = youremail
+  #name = yourname
+  #email = youremail
+  useConfigOnly = true
 
 [github]
-  user = yourgithubacct
+  #user = githubusername
 
 [core]
   editor = vim
