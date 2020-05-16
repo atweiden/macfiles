@@ -184,8 +184,7 @@
   ci = commit
   co = checkout
   pf = push --force-with-lease
-  pul = pull
-  pus = push
+  sq = squash
   st = status --short --branch
 
   # function
