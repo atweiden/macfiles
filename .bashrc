@@ -503,6 +503,7 @@ alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; \
 # --- repl {{{
 
 alias r='repl'
+alias rex='repl --language elixir -- --dot-iex $HOME/.config/elixir/iex.exs'
 
 # --- end repl }}}
 # --- safety {{{
