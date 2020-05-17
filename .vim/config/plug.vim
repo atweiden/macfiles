@@ -80,7 +80,14 @@ Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
 " --- end journal }}}
 " --- lisp {{{
 
+Plug 'bakpakin/fennel.vim', { 'for': 'fennel' }
 Plug 'janet-lang/janet.vim', { 'for': 'janet' }
+
+if has('nvim')
+  Plug 'Olical/conjure', { 'for': [ 'fennel',
+                                  \ 'janet' ],
+                         \ 'tag': 'v3.0.0' }
+endif
 
 " --- end lisp }}}
 " --- raku {{{
