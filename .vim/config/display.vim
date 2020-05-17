@@ -179,11 +179,8 @@ set listchars+=trail:·
 
 " screen {{{
 
-" use old regex engine
-set regexpengine=1
-
 " turn off syntax coloring of long lines
-set synmaxcol=1024
+set synmaxcol=200
 
 " readjust window sizing
 augroup autoresize
