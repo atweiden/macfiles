@@ -10,6 +10,11 @@ $if mode=vi
     "jk": vi-movement-mode
 $endif
 
+# Change cursor shape
+#set show-mode-in-prompt on
+#set vi-cmd-mode-string "\1\e[4 q\2"
+#set vi-ins-mode-string "\1\e[6 q\2"
+
 # Don't bind control chars w/ special kernel treatment to readline equiv
 set bind-tty-special-chars off
 
