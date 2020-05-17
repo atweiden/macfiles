@@ -84,9 +84,7 @@ Plug 'bakpakin/fennel.vim', { 'for': 'fennel' }
 Plug 'janet-lang/janet.vim', { 'for': 'janet' }
 
 if has('nvim')
-  Plug 'Olical/conjure', { 'for': [ 'fennel',
-                                  \ 'janet' ],
-                         \ 'tag': 'v3.0.0' }
+  Plug 'Olical/conjure', { 'for': 'fennel' }
 endif
 
 " --- end lisp }}}
