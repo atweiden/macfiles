@@ -30,6 +30,7 @@ Plug 'junegunn/fzf.vim'
 
 " movement
 Plug 'rhysd/clever-f.vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 
 " repeat
