@@ -27,6 +27,7 @@ Plug 'nickeb96/vitality.vim'
 " search and replace
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 't9md/vim-quickhl'
 
 " movement
 Plug 'rhysd/clever-f.vim'
