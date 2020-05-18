@@ -63,6 +63,9 @@ Plug 'tmsvg/pear-tree'
 " command runners
 Plug 'tpope/vim-tbone'
 
+" ex mode
+Plug 'tyru/capture.vim', { 'on': 'Capture' }
+
 " dvcs
 Plug 'sjl/splice.vim'
 
