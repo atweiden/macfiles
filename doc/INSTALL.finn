@@ -216,6 +216,16 @@ cp fennel "$HOME/.bin"
 popd
 ```
 
+lisp
+
+```bash
+brew install sbcl
+curl -O https://beta.quicklisp.org/quicklisp.lisp{,.asc}
+sbcl --load quicklisp.lisp
+* (quicklisp-quickstart:install)
+* (ql:add-to-init-file)
+```
+
 python
 
 ```bash
