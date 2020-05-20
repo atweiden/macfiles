@@ -10,13 +10,24 @@ _usage() {
 read -r -d '' _usage_string <<'EOF'
 Usage:
   gpg-curl-keys [-h|--help] <fingerprint> [<fingerprint> <fingerprint>..]
+  gpg-curl-keys [-k|--keyserver <keyserver>] <fingerprint>
   gpg-curl-keys 0482D84022F52DF1C4E7CD43293ACD0907D9495A
 
 Options:
-  -h, --help  Show this help text
+  -h, --help         Show this help text
+  -k, --keyserver    Keyserver for key lookups (defaults to 'circl')
 
 Positionals:
   <fingerprint>      PGP key fingerprint without leading '0x'
+
+Keyserver
+  Acceptable values:
+  | circl          : https://pgp.circl.lu
+  | gnupg.net      : http://keys.gnupg.net
+  | mailvelope     : https://keys.mailvelope.com
+  | openpgp.onion  : http://zkaan2xfbuxia2wpf7ofnkbz6r5zdbbvxbunvp5g2iebopbfc4iqmbad.onion
+  | openpgp.org    : https://keys.openpgp.org
+  | sks            : https://sks-keyservers.net
 EOF
 echo "$_usage_string"
 }
@@ -25,8 +36,18 @@ _keyids=()
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    -h|--help) _usage; exit 0;;
-    *) _keyids+=("$1"); shift;;
+    -h|--help)
+      _usage
+      exit 0
+      ;;
+    -k|--keyserver)
+      _keyserver="$1"
+      shift
+      ;;
+    *)
+      _keyids+=("$1")
+      shift
+      ;;
   esac
 done
 
@@ -35,17 +56,41 @@ if ! [[ ${#_keyids[@]} -gt 0 ]]; then
   exit 1
 fi
 
-_keyurl='https://sks-keyservers.net/pks/lookup?op=get&search=0x'
+_keyserver="${_keyserver:-circl}"
+
+# configure curl options
+_curl_opts=()
+_curl_opts+=('--location')
+_curl_opts+=('--retry' 7)
+_curl_opts+=('--silent')
+# use proxy for onion lookups
+if [[ "$_keyserver" =~ ".onion"  ]]; then
+  _curl_opts+=('--proxy' '127.0.0.1:9050')
+fi
+
+declare -A _keyurls
+_keyurls=([circl]='https://pgp.circl.lu'
+          [gnupg.net]='http://keys.gnupg.net'
+          [mailvelope]='https://keys.mailvelope.com'
+          [openpgp.onion]='zkaan2xfbuxia2wpf7ofnkbz6r5zdbbvxbunvp5g2iebopbfc4iqmbad.onion'
+          [openpgp.org]='https://keys.openpgp.org'
+          [sks]='https://sks-keyservers.net')
+_keyurl="${_keyurls[$_keyserver]}"
+
 _keydir="$HOME/.gnupg/public-keys"
 mkdir -p "$_keydir"
+
 for _keyid in "${_keyids[@]}"; do
-  _url="${_keyurl}${_keyid}"
-  _key="${_keydir}/${_keyid}.asc"
-  curl --retry 7 --silent "$_url" | sed -n '1,/<pre>/d;/<\/pre>/q;p' > "$_key" &
+  _url="$_keyurl/pks/lookup?op=get&options=mr&search=0x$_keyid"
+  _key="$_keydir/$_keyid.asc"
+  curl \
+    "${_curl_opts[@]}" \
+    --output "$_key" \
+    "$_url" &
 done
 wait
 for _keyid in "${_keyids[@]}"; do
-  _key="${_keydir}/${_keyid}.asc"
+  _key="$_keydir/$_keyid.asc"
   gpg --import "$_key"
 done
 
