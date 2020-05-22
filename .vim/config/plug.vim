@@ -31,7 +31,6 @@ Plug 't9md/vim-quickhl'
 
 " movement
 Plug 'rhysd/clever-f.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 
 " repeat
