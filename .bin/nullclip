@@ -1,0 +1,174 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# nullclip: clear the clipboard
+# ----------------------------------------------------------------------------
+
+# ==============================================================================
+# constants {{{
+
+# $DELAY contains number of seconds by which to delay initial clipboard
+# clearing invocation assuming appropriate cmdline flag is passed
+readonly DELAY=30
+
+# $EVERY contains number of seconds by which to sleep before repeating
+# clipboard clear assuming appropriate cmdline flag is passed
+readonly EVERY=420
+
+# $VERSION contains nullclip version number
+readonly VERSION=0.0.1
+
+# end constants }}}
+# ==============================================================================
+# usage {{{
+
+_usage() {
+read -r -d '' _usage_string <<EOF
+Usage:
+  nullclip [-h|--help]
+  nullclip [-a|--delay]
+           [-r|--every]
+
+Options:
+  -h, --help      Show this help text
+  -v, --version   Show program version
+  -a, --delay     Delay initial clipboard clear N seconds (defaults to $DELAY)
+  -r, --every     Repeat clipboard clear every N seconds (defaults to $EVERY)
+
+Examples
+
+    # clear clipboard once, now
+    nullclip
+
+    # clear clipboard once, ${DELAY}s from now
+    nullclip --delay
+
+    # clear clipboard once now, plus once every ${EVERY}s from now
+    nullclip --every
+
+    # clear clipboard ${DELAY}s from now, plus every ${EVERY}s from then
+    nullclip --delay --every
+EOF
+echo "$_usage_string"
+}
+
+# end usage }}}
+# ==============================================================================
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      _usage
+      exit 0
+      ;;
+    -v|--version)
+      echo "$VERSION"
+      exit 0
+      ;;
+    -a|--delay)
+      _delay="$DELAY"
+      shift
+      ;;
+    -r|--every)
+      _every="$EVERY"
+      shift
+      ;;
+    -*)
+      # unknown option
+      _usage
+      exit 1
+      ;;
+    *)
+      # invalid argument
+      _usage
+      exit 1
+      ;;
+  esac
+done
+
+nullclip_pbcopy() {
+  pbcopy < /dev/null
+}
+
+nullclip_wlcopy() {
+  wl-copy --clear
+}
+
+nullclip_xsel() {
+  xsel \
+    --display ':0' \
+    --clear \
+    --clipboard \
+    --primary \
+    --secondary
+}
+
+nullclip_xclip() {
+  xclip -in /dev/null
+}
+
+nullclip() {
+  # $_exe contains executable with which to clear clipboard
+  local _exe
+  _exe="$1"
+
+  case $_exe in
+    pbcopy)
+      nullclip_pbcopy
+      ;;
+    wl-copy)
+      nullclip_wlcopy
+      ;;
+    xsel)
+      nullclip_xsel
+      ;;
+    xclip)
+      nullclip_xclip
+      ;;
+  esac
+
+  # loop if/as requested
+  if [[ -n "$_every" ]]; then
+    sleep "$_every"
+    nullclip "$_exe"
+  fi
+}
+
+main() {
+# $_has_pbcopy stores availability of `pbcopy` executable
+local _has_pbcopy
+
+# $_has_wlcopy stores availability of `wl-copy` executable
+local _has_wlcopy
+
+# $_has_xsel stores availability of `xsel` executable
+local _has_xsel
+
+# $_has_xclip stores availability of `xclip` executable
+local _has_xclip
+
+_has_pbcopy="$(command -v pbcopy)"
+_has_wlcopy="$(command -v wl-copy)"
+_has_xsel="$(command -v xsel)"
+_has_xclip="$(command -v xclip)"
+
+# delay initial clipboard clearing once if requested
+if [[ -n "$_delay" ]]; then
+  sleep "$_delay"
+fi
+
+# dispatch clipboard clearing by executable
+if [[ -n "$_has_pbcopy" ]]; then
+  nullclip 'pbcopy'
+elif [[ -n "$_has_wlcopy" ]]; then
+  nullclip 'wl-copy'
+elif [[ -n "$_has_xsel" ]]; then
+  nullclip 'xsel'
+elif [[ -n "$_has_xclip" ]]; then
+  nullclip 'xclip'
+fi
+}
+
+main
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
