@@ -73,13 +73,15 @@ Plug 'sjl/splice.vim'
 
 " --- elixir {{{
 
-Plug 'elixir-editors/vim-elixir', { 'for': [ 'eelixir', 'elixir' ] }
+Plug 'elixir-editors/vim-elixir', { 'for': [ 'eelixir',
+                                           \ 'elixir' ] }
 
 " --- end elixir }}}
 " --- journal {{{
 
 Plug 'junegunn/vim-journal', { 'for': 'journal' }
-Plug 'atweiden/vim-finn',    { 'for': 'finn', 'branch': 'finn' }
+Plug 'atweiden/vim-finn',    { 'branch': 'finn',
+                                \ 'for': 'finn' }
 
 " --- end journal }}}
 " --- lisp {{{
@@ -88,7 +90,8 @@ Plug 'bakpakin/fennel.vim', { 'for': 'fennel' }
 Plug 'janet-lang/janet.vim', { 'for': 'janet' }
 
 if has('nvim')
-  Plug 'Olical/conjure', { 'for': 'fennel' }
+  Plug 'Olical/conjure', { 'for': [ 'fennel',
+                                  \ 'janet' ] }
 endif
 
 " --- end lisp }}}
@@ -99,7 +102,8 @@ Plug 'Raku/vim-raku', { 'for': 'raku' }
 " --- end raku }}}
 " --- reason {{{
 
-Plug 'jordwalke/vim-reasonml', { 'for': [ 'ocaml', 'reason' ] }
+Plug 'jordwalke/vim-reasonml', { 'for': [ 'ocaml',
+                                        \ 'reason' ] }
 
 " --- end reason }}}
 " --- toml {{{
