@@ -1,0 +1,150 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# cyborg-create: make borgbackup/borg create play nice
+# ----------------------------------------------------------------------------
+
+# ==============================================================================
+# constants {{{
+
+# $DATETIME contains present utc full date and time
+readonly DATETIME="$(date --utc '+%FT%T')"
+
+# $PROGNAME contains name of this program
+readonly PROGNAME='cyborg-create'
+
+# $VERSION contains $PROGNAME version number
+readonly VERSION=0.0.1
+
+# end constants }}}
+# ==============================================================================
+# usage {{{
+
+_usage() {
+read -r -d '' _usage_string <<EOF
+Usage:
+  $PROGNAME [-h|--help]
+  $PROGNAME <archive> <path> [<path> <path>..]
+
+Options:
+  -h, --help      Show this help text
+  -v, --version   Show program version
+
+Positionals:
+  <archive>       Name of borgbackup/borg archive
+  <path>          Path to files for borg archival
+
+Examples
+
+    # create archive named tiberium-$DATETIME of resources dir
+    export BORG_REPO='user@host:/path/to/borg/repo'
+    export BORG_PASSPHRASE='password for borg repo'
+    export BORG_RSH="ssh -i \$HOME/.ssh/repo/id_ed25519"
+    $PROGNAME 'tiberium-{utcnow}' resources
+EOF
+echo "$_usage_string"
+}
+
+# end usage }}}
+# ==============================================================================
+
+_POSITIONAL=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      _usage
+      exit 0
+      ;;
+    -v|--version)
+      echo "$VERSION"
+      exit 0
+      ;;
+    -*)
+      # unknown option
+      _usage
+      exit 1
+      ;;
+    *)
+      _POSITIONAL+=("$1")
+      shift
+      ;;
+  esac
+done
+
+# restore positional params
+set -- "${_POSITIONAL[@]}"
+
+if ! [[ ${#_POSITIONAL[@]} -ge 1 ]]; then
+  echo 'Sorry, missing borg archive name. Please supply name.'
+  _usage
+  exit 1
+fi
+
+if ! [[ ${#_POSITIONAL[@]} -ge 2 ]]; then
+  echo 'Sorry, missing path(s) for archival. Please supply path(s).'
+  _usage
+  exit 1
+fi
+
+if [[ -z "$BORG_REPO" ]]; then
+  echo 'Sorry, missing $BORG_REPO environment variable. Please export it.'
+  _usage
+  exit 1
+fi
+
+# $_borg_create_exit_code contains exit code for executed
+# $BORG_CREATE_CMDLINE
+_borg_create_exit_code=""
+
+# function borg_create evals $BORG_CREATE_CMD and stores exit code in
+# $_borg_create_exit_code
+borg_create() {
+  # $_args contains list of arguments passed to function borg_create
+  local _args=()
+
+  # $_archive_name contains name of borgbackup/borg archive
+  local _archive_name
+
+  # $_opts contains list of cmdline options for `borg create`
+  local _opts=()
+
+  # $_paths_for_archival contains list of paths to files for borg archival
+  local _paths_for_archival
+
+  _args=("$@")
+  _archive_name="$1"
+  _paths_for_archival="${_args[@]:1}"
+
+  # be communicative
+  _opts+=('--verbose'
+          '--stats'
+          '--progress')
+
+  # don't cross filesystem boundaries
+  _opts+=('--one-file-system')
+
+  # anticipate remote host connection errors
+  # see: https://github.com/borgbackup/borg/issues/3988#issuecomment-478807213
+  _opts+=('--lock-wait=600')
+
+  borg \
+    create \
+    ${_opts[@]} \
+    "::$_archive_name" \
+    "${_paths_for_archival[@]}"
+
+  _borg_create_exit_code="$?"
+}
+
+# function main loops function borg_create until `borg create` exits
+# successfully
+main() {
+  until [[ "$_borg_create_exit_code" == '0' ]]; do
+    borg_create "$@"
+  done
+}
+
+main "$@"
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
