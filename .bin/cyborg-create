@@ -93,11 +93,10 @@ if [[ -z "$BORG_REPO" ]]; then
   exit 1
 fi
 
-# $_borg_create_exit_code contains exit code for executed
-# $BORG_CREATE_CMDLINE
+# $_borg_create_exit_code contains exit code for executed `borg create`
 _borg_create_exit_code=""
 
-# function borg_create evals $BORG_CREATE_CMD and stores exit code in
+# function borg_create executes `borg create` and stores exit code in
 # $_borg_create_exit_code
 borg_create() {
   # $_args contains list of arguments passed to function borg_create
