@@ -70,7 +70,7 @@ done
 
 # e.g. Andy Weidenbaum (for github)
 name="${_name:-$USER}"
-# e.g. archbaum@gmail.com (for github)
+# e.g. atweiden@tutanota.de (for github)
 email="${_email:-$USER@$HOSTNAME}"
 # e.g. atweiden (for github)
 github="${_github:-$USER}"
