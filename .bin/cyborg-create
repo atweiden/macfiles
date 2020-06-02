@@ -36,11 +36,20 @@ Positionals:
 
 Examples
 
-    # create archive named tiberium-$DATETIME of resources dir
+    # path to borg repo
     export BORG_REPO='user@host:/path/to/borg/repo'
+
+    # passphrase to borg repo
     export BORG_PASSPHRASE='password for borg repo'
+
+    # ssh options on client for connecting to remote host
     export BORG_RSH="ssh -i \$HOME/.ssh/repo/id_ed25519"
-    $PROGNAME 'tiberium-{utcnow}' resources
+
+    # path to borg executable on remote host
+    export BORG_REMOTE_PATH='borg1'
+
+    # create archive named tiberium-$DATETIME of resources dir
+    $PROGNAME tiberium-{utcnow} resources
 EOF
 echo "$_usage_string"
 }
