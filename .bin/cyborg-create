@@ -118,11 +118,11 @@ borg_create() {
   local _opts=()
 
   # $_paths_for_archival contains list of paths to files for borg archival
-  local _paths_for_archival
+  local _paths_for_archival=()
 
   _args=("$@")
   _archive_name="$1"
-  _paths_for_archival="${_args[@]:1}"
+  _paths_for_archival=("${_args[@]:1}")
 
   # be communicative
   _opts+=('--verbose'
@@ -138,7 +138,7 @@ borg_create() {
 
   borg \
     create \
-    ${_opts[@]} \
+    "${_opts[@]}" \
     "::$_archive_name" \
     "${_paths_for_archival[@]}"
 
