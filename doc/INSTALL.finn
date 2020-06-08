@@ -150,17 +150,15 @@ fi
 # - add iTerm.app to list of applications with Full Disk Access
 ./macos.sh
 
-# osxlockdown
-# (see also: https://objective-see.com/products.html)
-# (see also: https://github.com/drduh/macOS-Security-and-Privacy-Guide)
-# (see also: https://docs.hardentheworld.org/OS/MacOS_10.12_Sierra/)
-mkdir -p "$HOME/.src/osxlockdown"
-cd "$HOME/.src/osxlockdown"
-export GOPATH="$PWD"
-go get -v -u github.com/SummitRoute/osxlockdown/...
-cp src/github.com/SummitRoute/osxlockdown/commands.yaml .
-sudo bin/osxlockdown
-sudo bin/osxlockdown --remediate
+# security settings
+#
+# see also:
+# - https://objective-see.com/products.html
+# - https://github.com/drduh/macOS-Security-and-Privacy-Guide
+# - https://docs.hardentheworld.org/OS/MacOS_10.12_Sierra/
+git clone https://github.com/kristovatlas/osx-config-check
+cd osx-config-check
+python app.py
 
 # casks
 brew tap caskroom/cask
