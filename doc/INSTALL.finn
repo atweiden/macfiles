@@ -299,6 +299,12 @@ brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 ```
 
+little snitch
+
+```bash
+open /usr/local/Caskroom/little-snitch/4.5.2/LittleSnitch-4.5.2.dmg
+```
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configuration
