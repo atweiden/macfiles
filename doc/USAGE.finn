@@ -387,6 +387,17 @@ signify \
   /path/to/void-live-x86_64-musl-20191109.iso
 ```
 
+### tor browser
+
+georestrict tor browser exit node
+
+```sh
+cat >> "$HOME/Library/Application\ Support/TorBrowser-Data/Tor/torrc" <<'EOF'
+ExitNodes {us}
+StrictNodes 1
+EOF
+```
+
 ### units
 
 convert fahrenheit to celsius
