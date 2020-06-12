@@ -265,6 +265,23 @@ import homebrew in irb environment
 brew irb
 ```
 
+### iTerm2
+
+disable semantic history
+
+- Preferences -> Profiles -> Advanced -> Semantic History
+  - select *Run command*
+    - leave blank
+      - note
+        - re-enable pointer integration if needed
+          - in Pointer -> General
+          - due to option being greyed out
+- Preferences -> Advanced -> Underline Semantic History-selectable items
+  under the cursor while holding ⌘?
+  - set to *no*
+- Preferences -> Advanced
+  - search for `semantic`
+
 ### python
 
 ```sh
