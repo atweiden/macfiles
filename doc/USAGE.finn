@@ -12,8 +12,8 @@ Media
 
 ```sh
 cp \
-  ~/Pictures/Photos\ Library.photoslibrary/Masters/2017/09/30/20170930-014311/IMG_0214.JPG \
-  ~/img.jpg
+  "$HOME/Pictures/Photos\ Library.photoslibrary/Masters/2017/09/30/20170930-014311/IMG_0214.JPG" \
+  "$HOME/img.jpg"
 ```
 
 ### convert svg to png
@@ -48,7 +48,7 @@ create custom pdf quartz filter for apple preview
 ```sh
 cp \
   resources/Reduce\ File\ Size\ with\ Good\ Quality.qfilter \
-  ~/Library/Filters
+  "$HOME/Library/Filters"
 ```
 
 - adjusting compression quality down to 0.0 reduces file size to 50%
@@ -74,7 +74,7 @@ create custom pdf quartz filter for apple preview with apple colorsync
 ```sh
 cp \
   resources/Better\ Reduce\ File\ Size.qfilter \
-  ~/Library/Filters
+  "$HOME/Library/Filters"
 ```
 
 compress pdf with apple preview
@@ -315,7 +315,7 @@ pip3 install -U neovim
 ### irrsi
 
 configure
-- `vim ~/.config/irssi/config`
+- `vim $HOME/.config/irssi/config`
   - `:%s/yourname/your-real-irc-name/g`
 
 authenticate
@@ -369,7 +369,7 @@ docker run -d -t ocaml/rwo:latest
 docker container ls
 
 # copy files from container
-docker cp cd893186e3d0:/home/opam/src/_build/default/static ~/.src/rwo
+docker cp cd893186e3d0:/home/opam/src/_build/default/static "$HOME/.src/rwo"
 
 # stop container
 docker stop cd893186e3d0
