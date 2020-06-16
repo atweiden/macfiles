@@ -203,6 +203,11 @@ sudo ifconfig en0 ether YY:YY:YY:YY:YY:YY
 networksetup -detectnewhardware
 ```
 
+### disable dictionary lookup
+
+- System Preferences -> Trackpad -> Point & Click
+  - untick *Look up & data detectors*
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Software
