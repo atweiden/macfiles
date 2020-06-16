@@ -189,6 +189,9 @@ sudo systemsetup -settimezone "America/New_York" > /dev/null
 # Stop iTunes from responding to the keyboard media keys
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
+# Disable dictionary definition keyboard shortcut
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
+
 # end trackpad, mouse, keyboard, bluetooth accessories, and input }}}
 # ==============================================================================
 # energy saving {{{
