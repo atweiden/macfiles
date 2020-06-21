@@ -107,6 +107,9 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 # Show date and time in the menu bar
 defaults write com.apple.menuextra.clock "DateFormat" "EEE MMM d H.mm"
 
+# Show battery percentage in the menu bar
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
