@@ -147,6 +147,9 @@ _keyids+=('8DFF53E18F2ABC8D8F3C92237EE0FC4DCC014E3D')
 # lnd (https://github.com/lightningnetwork/lnd/releases)
 _keyids+=('65317176B6857F98834EDBE8964EA263DD637C21')
 
+# luarocks (https://hisham.hm/public_key)
+_keyids+=('8460980B2B79786DE0C7FCC83FD8F43C2BB3C478')
+
 # musl (https://www.musl-libc.org/download.html)
 _keyids+=('836489290BB6B70F99FFDA0556BCDB593020450F')
 
@@ -193,8 +196,7 @@ _keyids+=('DAC43860630556B6DBF0898FA5DAAEFCB14D13CC')
 # rust (https://www.rust-lang.org/en-US/other-installers.html)
 _keyids+=('108F66205EAEB0AAA8DD5E1C85AB96E6FA1BE5FE')
 
-# sbcl
-# (http://www.sbcl.org/keys.html)
+# sbcl (http://www.sbcl.org/keys.html)
 _keyids+=('E32324E0932E9419797ED8B353826AFF01F53D51')
 _keyids+=('D6839CA0A67F74D9DFB70922EBD595A9100D63CD')
 _keyids+=('915EAFE27C6AFA8B3373744369D74038B48ACB71')
