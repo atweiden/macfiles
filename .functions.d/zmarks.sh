@@ -1,25 +1,22 @@
 #!/usr/bin/env bash
 
 # -----------------------------------------------------------------------------
-# jmarks: quickly navigate your filesystem from the command-line
+# zmarks: quickly navigate your filesystem from the command-line
 #
 # credit: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 # -----------------------------------------------------------------------------
 
-readonly MARKPATH="$HOME/.config/jmarks"
+readonly MARKPATH="$HOME/.config/zmarks"
 
-jump() {
-  mkdir -p "$MARKPATH"
+z() {
   cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
 
 mark() {
-  mkdir -p "$MARKPATH"
   ln -s "$(pwd)" "$MARKPATH/$1"
 }
 
 unmark() {
-  mkdir -p "$MARKPATH"
   rm -i "$MARKPATH/$1"
 }
 
@@ -37,7 +34,7 @@ _completemarks() {
   return 0
 }
 
-complete -F _completemarks jump unmark
+complete -F _completemarks z unmark
 export MARKPATH
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
