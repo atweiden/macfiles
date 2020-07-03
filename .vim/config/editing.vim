@@ -74,6 +74,9 @@ set whichwrap+=<,>,[,]
 " indicate wrapped characters
 set showbreak=⁍
 
+" prevent two spaces after punctuation on a line join
+set nojoinspaces
+
 " copy indent from current line when starting a new line
 set autoindent
 
