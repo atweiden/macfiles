@@ -492,6 +492,9 @@ alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; \
   sqlite3 $HOME/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* \
     "delete from LSQuarantineEvent"'
 
+# usage: wifi <on|off>
+alias wifi='networksetup -setairportpower en0'
+
 # --- end macos }}}
 # --- rclone {{{
 
