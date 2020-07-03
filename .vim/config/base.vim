@@ -1,5 +1,9 @@
-" set mapleader from backslash to comma
+" set leader to comma
 let mapleader=","
+
+" set localleader to space
+nnoremap <space> <nop>
+let maplocalleader=" "
 
 " map ; to :
 nnoremap ; :
