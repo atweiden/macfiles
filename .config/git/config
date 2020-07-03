@@ -52,6 +52,11 @@
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushrecurseSubmodules
   recurseSubmodules = on-demand
 
+[pull]
+  # only allow fast-forward merges, never create an extra merge commit
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pullff
+  ff = only
+
 [rebase]
   # abort rebase and print warning if commits were removed during rebase
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-rebasemissingCommitsCheck
