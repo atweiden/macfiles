@@ -89,10 +89,15 @@ Plug 'atweiden/vim-finn',    { 'branch': 'finn',
 Plug 'mnacamura/vim-fennel-syntax', { 'for': 'fennel' }
 Plug 'janet-lang/janet.vim', { 'for': 'janet' }
 
+" repl
 if has('nvim')
   Plug 'Olical/conjure', { 'for': [ 'fennel',
                                   \ 'janet' ] }
 endif
+
+" structured editing
+Plug 'guns/vim-sexp', { 'for': g:lispft }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': g:lispft }
 
 " --- end lisp }}}
 " --- raku {{{
