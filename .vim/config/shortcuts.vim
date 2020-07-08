@@ -12,13 +12,13 @@ nnoremap <expr> gV '`[' . strpart(getregtype(), 0, 1) . '`]'
 " visually select the last inserted text
 nnoremap g. :normal! `[v`]<CR><Left>
 
-" DWIM indenting: preserve visual selection, normal mode tab `count` times
+" DWIM indenting:
+" preserve visual selection
 vnoremap > >gv
 vnoremap < <gv
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
-nnoremap <expr> <Tab> Repeatable('Indent')
-nnoremap <expr> <S-Tab> Repeatable('Dedent')
+" normal mode tab `count` number of times, repeatably
+nnoremap <expr> > Repeatable('Indent')
+nnoremap <expr> < Repeatable('Dedent')
 
 " end selecting }}}
 " search and replace {{{
