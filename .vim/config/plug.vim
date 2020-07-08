@@ -97,7 +97,6 @@ endif
 
 " structured editing
 Plug 'guns/vim-sexp', { 'for': g:lispft }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': g:lispft }
 
 " --- end lisp }}}
 " --- raku {{{
