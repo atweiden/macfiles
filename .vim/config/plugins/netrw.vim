@@ -1,6 +1,9 @@
 " suppress banner
 let g:netrw_banner = 0
 
+" don't generate .netrwhist files
+let g:netrw_dirhistmax = 0
+
 " do network file transfers silently
 let g:netrw_silent = 1
 
