@@ -3,10 +3,25 @@
 Installation
 ============
 
-Install Software
+install xcode command line tools [1]
+------------------------------------
+
+```bash
+sudo rm -rf /Library/Developer/CommandLineTools
+xcode-select --install
+xcodebuild -license
+```
+
+install homebrew
 ----------------
 
-### core
+```bash
+/bin/bash -c "$(curl -fsSL https://github.com/Homebrew/install/raw/master/install.sh)"
+brew analytics off
+```
+
+install homebrew core packages
+------------------------------
 
 ```bash
 packages=('ack'
@@ -22,14 +37,10 @@ packages=('ack'
           'diffr'
           'diffutils'
           'dnscrypt-proxy'
-          'elixir'
-          'erlang'
           'exiftool'
           'ffmpeg'
           'findutils'
           'gawk'
-          'gcc'
-          'gdb'
           'git'
           'gnu-getopt'
           'gnu-sed'
@@ -39,14 +50,10 @@ packages=('ack'
           'gnu-which'
           'gnupg'
           'gnutls'
-          'go'
-          'gotags'
           'grep'
           'gzip'
           'icdiff'
-          'jhead'
           'jq'
-          'llvm'
           'macvim'
           'make'
           'mas'
@@ -61,24 +68,17 @@ packages=('ack'
           'openssl'
           'openvpn'
           'p7zip'
-          'perl'
-          'pod2man'
           'proxychains-ng'
-          'python'
-          'python@2'
           'qrencode'
-          'rakudo'
           'rclone'
           'readline'
           'remarshal'
           'ripgrep'
           'rlwrap'
           'rsync'
-          'sdcv'
           'shellcheck'
           'signify-osx'
           'socat'
-          'sqlite'
           'sshuttle'
           'ssss'
           'tealdeer'
@@ -88,90 +88,213 @@ packages=('ack'
           'tor'
           'torsocks'
           'tree'
-          'watch'
-          'websocat'
           'wget'
           'wireguard-tools'
           'xz'
           'youtube-dl')
 
-casks=('abstract'
-       'adium'
-       'balenaetcher'
-       'calibre'
-       'canary'
-       'coyim'
-       'dropbox'
-       'firefox'
-       'flux'
-       'google-chrome'
-       'iina'
-       'ishowu-instant'
-       'iterm2'
-       'kap'
-       'karabiner-elements'
-       'keepassx'
-       'keepingyouawake'
-       'keycastr'
-       'little-snitch'
-       'micro-snitch'
-       'osxfuse'
-       'ricochet'
-       'sketch'
-       'sublime-text'
-       'textmate'
-       'tor-browser'
-       'unetbootin'
-       'veracrypt'
-       'virtualbox'
-       'virtualbox-extension-pack'
-       'vlc'
-       'vmware-fusion'
-       'zeplin')
-
-# xcode (https://developer.apple.com/download/more/)
-sudo rm -rf /Library/Developer/CommandLineTools
-xcode-select --install
-xcodebuild -license
-# xcode command line tools (https://stackoverflow.com/q/52509602)
-open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
-
-# homebrew
-/bin/bash -c "$(curl -fsSL https://github.com/Homebrew/install/raw/master/install.sh)"
-brew analytics off
-
-# brews
 brew install "${packages[@]}"
+```
 
-# bash
+configure shell
+---------------
+
+```bash
 if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
   echo '/usr/local/bin/bash' | sudo tee -a /etc/shells
   chsh -s /usr/local/bin/bash
 fi
+```
 
-# mac settings
-# - System Preferences -> Security & Privacy -> Privacy
-# - add iTerm.app to list of applications with Full Disk Access
+configure macos: general settings
+---------------------------------
+
+```bash
 ./macos.sh
+```
 
-# security settings
-#
-# see also:
-# - https://objective-see.com/products.html
-# - https://github.com/drduh/macOS-Security-and-Privacy-Guide
-# - https://docs.hardentheworld.org/OS/MacOS_10.12_Sierra/
+configure macos: security settings [2][3][4]
+--------------------------------------------
+
+```bash
 git clone https://github.com/kristovatlas/osx-config-check
 cd osx-config-check
 python app.py
-
-# casks
-brew tap caskroom/cask
-brew cask install "${casks[@]}"
-
-brew cleanup
 ```
 
-### custom
+install homebrew cask packages
+------------------------------
+
+```bash
+# chat
+casks+=('adium'
+        'coyim'
+        'ricochet')
+
+# design
+casks+=('abstract'
+        'sketch'
+        'zeplin')
+
+# display
+casks+=('keepingyouawake')
+
+# email
+casks+=('canary')
+
+# keyboard
+casks+=('karabiner-elements')
+
+# media player
+casks+=('iina'
+        'vlc')
+
+# office
+casks+=('calibre')
+
+# os image flasher
+casks+=('balenaetcher'
+        'unetbootin')
+
+# password management
+casks+=('keepassx')
+
+# screencasting
+casks+=('ishowu-instant'
+        'kap'
+        'keycastr')
+
+# security
+casks+=('little-snitch'
+        'micro-snitch'
+        'veracrypt')
+
+# storage
+casks+=('dropbox')
+
+# system
+casks+=('osxfuse')
+
+# terminal emulators
+casks+=('iterm2')
+
+# text editors
+casks+=('sublime-text'
+        'textmate')
+
+# virtualization
+casks+=('virtualbox'
+        'virtualbox-extension-pack'
+        'vmware-fusion')
+
+# web browsers
+casks+=('firefox'
+        'google-chrome'
+        'tor-browser')
+
+brew tap caskroom/cask
+brew cask install "${casks[@]}"
+```
+
+configure security software
+---------------------------
+
+### dnscrypt-proxy
+
+```bash
+vim /usr/local/etc/dnscrypt-proxy.toml
+sudo brew services start dnscrypt-proxy
+```
+
+- System Preferences -> Network -> Advanced
+  - DNS
+    - set DNS Servers to 127.0.0.1
+
+### little snitch
+
+```bash
+open /usr/local/Caskroom/little-snitch/4.5.2/LittleSnitch-4.5.2.dmg
+```
+
+configure desktop
+-----------------
+
+### audio
+
+- System Preferences -> Sound
+  - Show volume in menu bar
+
+### iterm2
+
+- setup iterm2 seoul256 colorscheme [5]
+- setup iterm2 alt keybindings [6]
+  - | Q: How do I make the option/alt key act like Meta or send escape
+    |    codes?
+    |
+    | A: Go to Preferences > Profiles tab. Select your profile on the
+    |    left, and then open the Keyboard tab. At the bottom is a set
+    |    of buttons that lets you select the behavior of the Option
+    |    key. For most users, Esc+ will be the best choice.
+
+### keyboard
+
+- remap capslock key to backspace with karabiner-elements
+- System Preferences -> Keyboard
+  - Keyboard
+    - Repeat: fastest
+    - Delay: second shortest
+  - Shortcuts
+    - Launchpad & Dock
+      - uncheck all
+    - Mission Control
+      - uncheck all except "Show Desktop"
+      - change "Show Desktop" to Super+D
+    - Keyboard
+      - uncheck all except "Move focus to next window"
+    - Accessibility
+      - uncheck all
+    - App Shortcuts
+      - uncheck all
+
+configure developer environment
+-------------------------------
+
+### monaco for powerline
+
+```bash
+brew install fondu
+brew install fontforge
+git clone https://github.com/Lokaltog/powerline
+git clone https://gist.github.com/atweiden/3666975d171cc862cc2beb35b94de921 mkmonaco
+cp mkmonaco/Makefile powerline/font
+make -C powerline/font
+```
+
+- open *Font Book*
+  - File -> Add Fonts
+    - add `Monaco for Powerline.ttf`
+
+### macfiles
+
+```bash
+./bootstrap.sh
+```
+
+### fzf-extras
+
+```bash
+git clone https://github.com/atweiden/fzf-extras "$HOME/.fzf-extras"
+```
+
+### universal-ctags
+
+```bash
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
+```
+
+install homebrew custom packages
+--------------------------------
 
 ```bash
 git clone https://github.com/atweiden/homebrew-formulae
@@ -179,9 +302,17 @@ pushd homebrew-formulae
 brew install enchive/enchive.rb
 ```
 
-### langs
+install programming languages
+-----------------------------
 
-clojure
+### c
+
+```bash
+brew install gcc
+brew install llvm
+```
+
+### clojure
 
 ```bash
 brew tap adoptopenjdk/openjdk
@@ -207,7 +338,14 @@ _JAVA_OPTIONS+=" -Dorg.apache.maven.user-settings=$HOME/.config/maven/settings.x
 export _JAVA_OPTIONS
 ```
 
-fennel
+### elixir
+
+```bash
+brew install elixir
+brew install erlang
+```
+
+### fennel
 
 ```bash
 brew install LuaJIT
@@ -218,7 +356,22 @@ cp fennel "$HOME/.bin"
 popd
 ```
 
-lisp
+### go
+
+```bash
+brew install go
+brew install goreleaser
+brew install gotags
+```
+
+### javascript
+
+```bash
+brew install node
+brew install yarn
+```
+
+### lisp
 
 ```bash
 brew install sbcl
@@ -228,16 +381,20 @@ sbcl --load quicklisp.lisp
 * (ql:add-to-init-file)
 ```
 
-python
+### python
 
 ```bash
+brew install python
+brew install python@2
 pip install --upgrade pip setuptools
 pip3 install --upgrade pip setuptools
 ```
 
-raku
+### raku
 
 ```bash
+brew install perl
+brew install rakudo
 pushd "$HOME/.src"
 git clone https://github.com/ugexe/zef
 pushd zef
@@ -246,7 +403,7 @@ popd
 popd
 ```
 
-reason
+### reason
 
 ```bash
 npm install --global esy
@@ -258,118 +415,18 @@ popd
 popd
 ```
 
-### font
-
-monaco for powerline
+### rust
 
 ```bash
-brew install fondu
-brew install fontforge
-git clone https://github.com/Lokaltog/powerline
-git clone https://gist.github.com/atweiden/3666975d171cc862cc2beb35b94de921 mkmonaco
-cp mkmonaco/Makefile powerline/font
-make -C powerline/font
+brew install rust
 ```
-
-- open *Font Book*
-  - File -> Add Fonts
-    - add `Monaco for Powerline.ttf`
-
-### dev
-
-dots
-
-```bash
-./bootstrap.sh
-```
-
-fzf-extras
-
-```bash
-git clone https://github.com/atweiden/fzf-extras "$HOME/.fzf-extras"
-```
-
-neovim
-
-```bash
-pip2 install --upgrade neovim
-pip3 install --upgrade neovim
-```
-
-universal-ctags
-
-```bash
-brew tap universal-ctags/universal-ctags
-brew install --HEAD universal-ctags
-```
-
-little snitch
-
-```bash
-open /usr/local/Caskroom/little-snitch/4.5.2/LittleSnitch-4.5.2.dmg
-```
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Configuration
--------------
-
-### preferences
-
-audio
-- System Preferences -> Sound
-  - Show volume in menu bar
-
-dnscrypt-proxy
-- enable system service
-  - | vim /usr/local/etc/dnscrypt-proxy.toml
-    | sudo brew services start dnscrypt-proxy
-- System Preferences -> Network -> Advanced
-  - DNS
-    - set DNS Servers to 127.0.0.1
-
-iterm2
-- setup iterm2 seoul256 colorscheme [1]
-- setup iterm2 alt keybindings [2]
-  - | Q: How do I make the option/alt key act like Meta or send escape
-    |    codes?
-    |
-    | A: Go to Preferences > Profiles tab. Select your profile on the
-    |    left, and then open the Keyboard tab. At the bottom is a set
-    |    of buttons that lets you select the behavior of the Option
-    |    key. For most users, Esc+ will be the best choice.
-
-keyboard
-- remap capslock key to backspace with karabiner-elements
-- System Preferences -> Keyboard
-  - Keyboard
-    - Repeat: fastest
-    - Delay: second shortest
-  - Shortcuts
-    - Launchpad & Dock
-      - uncheck all
-    - Mission Control
-      - uncheck all except "Show Desktop"
-      - change "Show Desktop" to Super+D
-    - Keyboard
-      - uncheck all except "Move focus to next window"
-    - Accessibility
-      - uncheck all
-    - App Shortcuts
-      - uncheck all
-
-macvim
-- Preferences -> Advanced
-  - uncheck Use Core Text renderer
-
-privacy
-- System Preferences -> Spotlight
-  - Search Results
-    - uncheck "Bing Web Searches"
-    - uncheck "Allow Spotlight Suggestions in Spotlight and Look up"
 
 
 ******************************************************************************
 
-[1] https://github.com/atweiden/iterm2-seoul256-night
-[2] https://iterm2.com/faq.html
+[1]: https://developer.apple.com/download/more/
+[2]: https://objective-see.com/products.html
+[3]: https://github.com/drduh/macOS-Security-and-Privacy-Guide
+[4]: https://docs.hardentheworld.org/OS/MacOS_10.12_Sierra/
+[5]: https://github.com/atweiden/iterm2-seoul256-night
+[6]: https://iterm2.com/faq.html

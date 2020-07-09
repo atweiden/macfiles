@@ -272,6 +272,11 @@ brew irb
 
 ### iTerm2
 
+grant iTerm2 full disk access
+
+- System Preferences -> Security & Privacy -> Privacy
+  - add *iTerm.app* to list of applications with Full Disk Access
+
 disable semantic history
 
 - Preferences -> Profiles -> Advanced -> Semantic History
