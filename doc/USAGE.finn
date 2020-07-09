@@ -287,6 +287,11 @@ disable semantic history
 - Preferences -> Advanced
   - search for `semantic`
 
+remap right option key to left option
+
+- Preferences -> Keys -> Remap Modifiers
+  - Remap right option key to: Left Option
+
 ### python
 
 ```sh
