@@ -52,10 +52,6 @@ Plug 'ciaranm/securemodelines'
 Plug 'tommcdo/vim-lion'
 Plug 't9md/vim-textmanip'
 
-" textobj
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-user'
-
 " auto-close
 Plug 'tmsvg/pear-tree'
 
