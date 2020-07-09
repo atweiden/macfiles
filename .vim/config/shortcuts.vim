@@ -26,6 +26,7 @@ nnoremap <expr> < Repeatable('Dedent')
 " don't use # to search word under cursor
 " frees up unused # key for binding elsewhere
 nnoremap # <nop>
+xnoremap # <nop>
 
 " remove search highlights
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
