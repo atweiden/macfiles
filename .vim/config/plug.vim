@@ -91,6 +91,11 @@ Plug 'janet-lang/janet.vim', { 'for': 'janet' }
 
 " repl
 if has('nvim')
+  " set conjure shortcuts prefix to hash
+  let g:conjure#mapping#prefix = "#"
+  " don't nmap K, gd respectively
+  let g:conjure#mapping#def_word = v:false
+  let g:conjure#mapping#doc_word = v:false
   Plug 'Olical/conjure', { 'for': [ 'fennel',
                                   \ 'janet' ] }
 endif

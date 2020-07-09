@@ -23,6 +23,10 @@ nnoremap <expr> < Repeatable('Dedent')
 " end selecting }}}
 " search and replace {{{
 
+" don't use # to search word under cursor
+" frees up unused # key for binding elsewhere
+nnoremap # <nop>
+
 " remove search highlights
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
@@ -269,6 +273,11 @@ nnoremap <expr> gx Repeatable('DeleteCharRight')
 " end deletes }}}
 " movement {{{
 
+" don't use -/+ for line-wise navigation
+" frees up unused - key for binding elsewhere
+nnoremap - <nop>
+nnoremap + <nop>
+
 " move between beginning and end of line
 nnoremap H ^
 vnoremap H ^
@@ -276,14 +285,10 @@ nnoremap L g_
 vnoremap L g_
 
 " move to middle of current line
-nnoremap <expr> - (strlen(getline("."))/2)."<Bar>"
+nnoremap <expr> -- (strlen(getline("."))/2)."<Bar>"
 
 " move to last change
 nnoremap gI `.
-
-" <PageUp> and <PageDown> do silly things in normal mode with folds
-noremap <PageUp> <C-U>
-noremap <PageDown> <C-D>
 
 " end movement }}}
 " whitespacing {{{
@@ -344,25 +349,17 @@ nnoremap <silent> <leader>9 :<C-U>buffer 9<CR>
 " end buffers }}}
 " windows {{{
 
-" map alt-[h,j,k,l,=,_,|] to resizing a window split
-" map alt-[s,v] to horizontal and vertical split respectively
-" map alt-[N,P] to moving to next and previous window respectively
-" map alt-[H,J,K,L] to repositioning a window split
+" map alt-[h,j,k,l] to resizing a window split
 nnoremap <silent> <M-h> :<C-U>ObviousResizeLeft<CR>
 nnoremap <silent> <M-j> :<C-U>ObviousResizeDown<CR>
 nnoremap <silent> <M-k> :<C-U>ObviousResizeUp<CR>
 nnoremap <silent> <M-l> :<C-U>ObviousResizeRight<CR>
-nnoremap <silent> <M-=> <C-W>=
-nnoremap <silent> <M-_> <C-W>_
-nnoremap <silent> <M-\|> <C-W>\|
-nnoremap <silent> <M-s> :split<CR>
-nnoremap <silent> <M-v> :vsplit<CR>
-nnoremap <silent> <M-N> <C-W><C-W>
-nnoremap <silent> <M-P> <C-W><S-W>
-nnoremap <silent> <M-H> <C-W>H
-nnoremap <silent> <M-J> <C-W>J
-nnoremap <silent> <M-K> <C-W>K
-nnoremap <silent> <M-L> <C-W>L
+
+" map alt-[←,↓,↑,→] to resizing a window split (fallback)
+nnoremap <silent> <Left>  :<C-U>ObviousResizeLeft<CR>
+nnoremap <silent> <Down>  :<C-U>ObviousResizeDown<CR>
+nnoremap <silent> <Up>    :<C-U>ObviousResizeUp<CR>
+nnoremap <silent> <Right> :<C-U>ObviousResizeRight<CR>
 
 " end windows }}}
 
