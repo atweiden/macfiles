@@ -1,6 +1,3 @@
-" disable pear tree when editing lisp files
-let g:pear_tree_ft_disabled = g:lispft
-
 " automatically map <BS>, <CR> and <ESC>
 let g:pear_tree_map_special_keys = 1
 
