@@ -53,7 +53,6 @@ Plug 'tommcdo/vim-lion'
 Plug 't9md/vim-textmanip'
 
 " textobj
-Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 
