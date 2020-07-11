@@ -81,7 +81,7 @@ Plug 'atweiden/vim-finn',    { 'branch': 'finn',
 " --- end journal }}}
 " --- lisp {{{
 
-Plug 'mnacamura/vim-fennel-syntax', { 'for': 'fennel' }
+Plug 'atweiden/vim-fennel', { 'for': 'fennel' }
 Plug 'janet-lang/janet.vim', { 'for': 'janet' }
 
 " repl
