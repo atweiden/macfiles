@@ -2,11 +2,14 @@
 nnoremap <leader>rp :RainbowParentheses!!<CR>
 
 let g:rainbow#max_level = 16
-let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+let g:rainbow#pairs = [
+\   ['(', ')'],
+\   ['[', ']'],
+\   ['{', '}']
+\ ]
 
-" By default, colors will be picked from the current color scheme
-" To override this behavior, define g:rainbow#colors as follows
-" (The colors in the example were taken from VimClojure)
+" don't pick colors from current color scheme per plugin default
+" use colors from VimClojure (see: vimclojure#ParenRainbowColorsDark)
 let g:rainbow#colors = {
 \   'dark': [
 \     ['yellow',  'orange1'     ],
