@@ -132,6 +132,9 @@ set lazyredraw
 set ttyfast
 if !has('nvim') | set ttymouse=xterm2 | endif
 
+" use option (alt) as meta key in macvim
+set macmeta
+
 " use histogram diff algorithm, indent heuristic for internal diff library
 set diffopt+=algorithm:histogram
 set diffopt+=indent-heuristic
