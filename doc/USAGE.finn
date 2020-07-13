@@ -320,6 +320,12 @@ open terminal in current window
 terminal ++curwin
 ```
 
+hide cursor
+
+```vim
+set t_ve=
+```
+
 ### neovim
 
 ```sh
