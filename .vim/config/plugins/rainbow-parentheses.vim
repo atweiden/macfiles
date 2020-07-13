@@ -4,8 +4,7 @@ nnoremap <leader>rp :RainbowParentheses!!<CR>
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [
 \   ['(', ')'],
-\   ['[', ']'],
-\   ['{', '}']
+\   ['[', ']']
 \ ]
 
 " don't pick colors from current color scheme per plugin default
