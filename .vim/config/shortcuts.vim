@@ -23,11 +23,6 @@ nnoremap <expr> < Repeatable('Dedent')
 " end selecting }}}
 " search and replace {{{
 
-" don't use # to search word under cursor
-" frees up unused # key for binding elsewhere
-nnoremap # <nop>
-xnoremap # <nop>
-
 " remove search highlights
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
@@ -274,19 +269,11 @@ nnoremap <expr> gx Repeatable('DeleteCharRight')
 " end deletes }}}
 " movement {{{
 
-" don't use -/+ for line-wise navigation
-" frees up unused - key for binding elsewhere
-nnoremap - <nop>
-nnoremap + <nop>
-
 " move between beginning and end of line
 nnoremap H ^
 vnoremap H ^
 nnoremap L g_
 vnoremap L g_
-
-" move to middle of current line
-nnoremap <expr> -- (strlen(getline("."))/2)."<Bar>"
 
 " move to last change
 nnoremap gI `.
@@ -310,13 +297,10 @@ nnoremap <leader>st :call SummarizeTabs()<CR>
 " folds {{{
 
 " toggle folds with g+spacebar
-nnoremap <silent> g<space> :execute ":silent! normal za"<CR>
+nnoremap <silent> g<space> za
 
 " focus just the current line with minimal number of folds open
-nnoremap <silent> <leader><space> :call FocusLine()<CR>
-
-" make zO recursively open whatever fold we're in, even if it's partially open
-nnoremap zO zczO
+nnoremap <silent> <leader><space> zMzvzz
 
 " set fold level
 nnoremap <leader>f0 :set foldlevel=0<CR>
