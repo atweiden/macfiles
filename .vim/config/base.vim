@@ -130,10 +130,14 @@ set lazyredraw
 
 " indicates fast terminal connection
 set ttyfast
-if !has('nvim') | set ttymouse=xterm2 | endif
 
-" use option (alt) as meta key in macvim
-set macmeta
+if !has('nvim')
+  " terminal type for mouse codes
+  set ttymouse=xterm2
+
+  " use option (alt) as meta key in macvim
+  set macmeta
+endif
 
 " use histogram diff algorithm, indent heuristic for internal diff library
 set diffopt+=algorithm:histogram
