@@ -12,11 +12,13 @@ augroup gpg
   autocmd QuitPre *.gpg call system('pkill gpg-agent')
 augroup END
 
-let g:lispft = [ 'clojure',
-               \ 'fennel',
-               \ 'janet',
-               \ 'lisp',
-               \ 'racket',
-               \ 'scheme' ]
+let g:lispft = [
+    \ 'clojure',
+    \ 'fennel',
+    \ 'janet',
+    \ 'lisp',
+    \ 'racket',
+    \ 'scheme'
+    \ ]
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
