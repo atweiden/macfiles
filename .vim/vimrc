@@ -3,12 +3,6 @@ if &compatible | set nocompatible | endif
 
 let $VIMPATH = expand('~/.vim')
 let $CFGPATH = $VIMPATH . '/config'
-let g:lispft = [ 'clojure',
-               \ 'fennel',
-               \ 'janet',
-               \ 'lisp',
-               \ 'racket',
-               \ 'scheme' ]
 
 function! s:source_cfg(path)
   execute 'source' fnameescape($CFGPATH . '/' . a:path)
