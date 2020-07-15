@@ -52,9 +52,6 @@ Plug 'ciaranm/securemodelines'
 Plug 'tommcdo/vim-lion'
 Plug 't9md/vim-textmanip'
 
-" auto-close
-Plug 'tmsvg/pear-tree'
-
 " command runners
 Plug 'tpope/vim-tbone'
 
