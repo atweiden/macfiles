@@ -47,6 +47,10 @@ nnoremap <leader>Y "+y$
 noremap <leader>p "+p
 noremap <leader>P "+P
 
+" paste from clipboard holding cursor position steady
+noremap <leader><leader>p mz"+p`z
+noremap <leader><leader>P mz"+p`z
+
 " end pasting }}}
 " formatting {{{
 
