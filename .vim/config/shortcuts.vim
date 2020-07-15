@@ -165,8 +165,8 @@ endif
 " end digraphs }}}
 " timestamps {{{
 
-" insert timestamp
-nnoremap <silent> <leader>D :r !date --iso-8601=s<CR>
+" add ISO 8601 timestamp sans newline
+nnoremap <silent> <leader>D a<C-R>=substitute(strtrans(system("date --iso-8601=s")),'\^@','','g')<CR><ESC>
 
 " end timestamps }}}
 " toggles {{{
