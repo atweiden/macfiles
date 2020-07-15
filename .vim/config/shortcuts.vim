@@ -23,11 +23,14 @@ nnoremap <expr> < Repeatable('Dedent')
 " remove search highlights
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
+" find >=2 spaces after a period or question mark
+nnoremap <localleader><localleader><CR> /[\.\?]\s\s\+\w/s+1<CR>
+
 " find >=2 spaces after any non-space character
-silent! Arpeggio cnoremap <expr> ,. getcmdtype() =~ '[/?]' ? '\S\s\s\+\S/s+1' : ',.'
+nnoremap <localleader><localleader><localleader><CR> /\S\s\s\+\S/s+1<CR>
 
 " find merge conflict markers
-silent! Arpeggio cnoremap <expr> <> getcmdtype() =~ '[/?]' ? '\v^[<=>]{7}( .*\|$)' : '<>'
+nnoremap <F6> /\v^[<=>]{7}( .*\|$)
 
 " end search and replace }}}
 " pasting {{{
@@ -60,7 +63,7 @@ nnoremap <silent> <leader>w :w<CR>
 command! W execute 'silent! write !sudo tee % >/dev/null' <Bar> edit!
 
 " get path of current buffer
-silent! Arpeggio cnoremap <expr> 12 getcmdtype() == ':' ? expand('%:h') . '/' : '12'
+cnoremap <expr> <F1> getcmdtype() == ':' ? expand('%:h') . '/' : ''
 
 " end writing }}}
 " redoing {{{
