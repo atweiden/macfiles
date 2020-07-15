@@ -1,10 +1,10 @@
-" selecting {{{
-
 " bind escape key
 silent! call arpeggio#load()
 silent! Arpeggio noremap jk <ESC>
 silent! Arpeggio inoremap jk <ESC>
 silent! Arpeggio cnoremap jk <C-C>
+
+" selecting {{{
 
 " visually select the text that was last edited/pasted
 nnoremap <expr> gV '`[' . strpart(getregtype(), 0, 1) . '`]'
