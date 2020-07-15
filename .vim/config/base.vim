@@ -248,6 +248,10 @@ vnoremap <C-X> <nop>
 nnoremap g<C-X> <nop>
 vnoremap g<C-X> <nop>
 
+" don't use <C-L> for redrawing screen
+nnoremap <C-L> <nop>
+vnoremap <C-L> <nop>
+
 " don't use ZZ or ZQ for writing buffer, exiting
 nmap ZZ <nop>
 nmap ZQ <nop>
