@@ -74,7 +74,6 @@ nnoremap Q @q
 " end redoing }}}
 " digraphs {{{
 
-" built-ins
 if has('digraphs')
   " (¡) inverted exclamation mark
   digraph !! 161
@@ -158,46 +157,6 @@ if has('digraphs')
   digraph s\ 10181
   " (⟆) right s-shaped bag delimiter
   digraph s/ 10182
-endif
-
-" emoji
-if has('digraphs')
-  " (💪) flexed bicep
-  digraph +9 128170
-  " (🤝) handshake
-  digraph +5 129309
-  " (🙏) folded hands
-  digraph +4 128591
-  " (😂) face with tears of joy
-  digraph +3 128514
-  " (😍) smiling face with heart eyes
-  digraph +2 128525
-  " (👍) thumbs up
-  digraph +1 128077
-  " (👌) ok hand
-  digraph +0 128076
-  " (👎) thumbs down
-  digraph -1 128078
-  " (🥺) pleading face
-  digraph -2 129402
-  " (🤔) thinking face
-  digraph -3 129300
-  " (😒) unamused face
-  digraph -4 128530
-  " (👿) angry face with horns
-  digraph -5 128127
-  " (😿) crying cat
-  digraph -9 128575
-  " (🙁) slightly frowning face
-  digraph :( 128577
-  " (😊) smiling face with smiling eyes
-  digraph :) 128522
-  " (😸) grinning cat with smiling eyes
-  digraph :D 128568
-  " (😝) squinting face with tongue
-  digraph :P 128541
-  " (🤍) white heart
-  digraph <3 129293
 endif
 
 " end digraphs }}}
