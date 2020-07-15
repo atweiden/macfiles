@@ -30,7 +30,7 @@ let g:lightline = {
     \   'left': '',
     \   'right': ''
     \ }
-  \ }
+    \ }
 
 let g:lightline.tab = {
     \ 'active': [
@@ -43,14 +43,14 @@ let g:lightline.tab = {
     \   'lightlinetabname',
     \   'lightlinetabmodified'
     \ ]
-  \ }
+    \ }
 
 let g:lightline.tab_component_function = {
     \ 'lightlinetabname': 'LightlineTabName',
     \ 'lightlinetabmodified': 'LightlineTabModified',
     \ 'readonly': 'lightline#tab#readonly',
     \ 'tabnum': 'lightline#tab#tabnum'
-  \ }
+    \ }
 
 function! LightlineModified()
   try

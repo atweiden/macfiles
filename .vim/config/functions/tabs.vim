@@ -1,4 +1,5 @@
 " Source: http://vimcasts.org/episodes/tabs-and-spaces/
+
 function! SummarizeTabs()
   try
     echohl ModeMsg
@@ -15,7 +16,7 @@ function! SummarizeTabs()
   endtry
 endfunction
 
-" Set tabstop, softtabstop and shiftwidth to the same value
+" set tabstop, softtabstop and shiftwidth to the same value
 function! Stab()
   let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
   if l:tabstop > 0

@@ -1,5 +1,5 @@
 " save fzf history in $VIMPATH
-let g:fzf_history_dir = $VIMPATH.'/.fzf-history'
+let g:fzf_history_dir = $VIMPATH . '/.fzf-history'
 
 " prepend FZF to commands
 let g:fzf_command_prefix = 'FZF'
@@ -8,16 +8,16 @@ let g:fzf_command_prefix = 'FZF'
 let g:fzf_buffers_jump = 1
 
 " preview files using highlight
-let g:fzf_files_options = printf('--preview "%s {} | head -'.&lines.'"',
-  \ g:plugs['fzf.vim'].dir.'/bin/preview.sh')
+let g:fzf_files_options = printf('--preview "%s {} | head -' . &lines . '"',
+  \ g:plugs['fzf.vim'].dir . '/bin/preview.sh')
 
 " :FZFAg  - start fzf with hidden preview window, enabled with `?` key
 " :FZFAg! - start fzf in fullscreen and display preview window above
 command! -bang -nargs=* FZFAg
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
+    \ call fzf#vim#ag(<q-args>,
+    \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+    \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+    \                 <bang>0)
 
 " cat /usr/share/dict/words
 imap <C-X><C-K> <Plug>(fzf-complete-word)

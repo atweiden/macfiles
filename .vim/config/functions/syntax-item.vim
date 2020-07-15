@@ -1,7 +1,8 @@
-" SyntaxItem() - get syntax highlight group under cursor
 " Source: https://github.com/kongo2002/dotfiles/blob/master/vimrc
+
+" SyntaxItem() - get syntax highlight group under cursor
 function! SyntaxItem()
-  let synGrp=synIDattr(synID(line("."), col("."), 1), "name")
+  let synGrp = synIDattr(synID(line("."), col("."), 1), "name")
   if synGrp != ""
     return "[" . synGrp . "]"
   else

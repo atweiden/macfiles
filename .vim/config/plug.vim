@@ -1,4 +1,4 @@
-silent! if plug#begin($VIMPATH.'/plugged')
+silent! if plug#begin($VIMPATH . '/plugged')
 
 " status
 Plug 'itchyny/lightline.vim'
