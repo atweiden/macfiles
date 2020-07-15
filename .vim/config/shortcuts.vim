@@ -252,8 +252,8 @@ nnoremap <leader>st :call SummarizeTabs()<CR>
 " end whitespacing }}}
 " folds {{{
 
-" toggle folds with g+spacebar
-nnoremap <silent> g<space> za
+" toggle folds with g+spacebar, don't echo error message if not in fold
+nnoremap <silent> g<space> :execute ":silent! normal za"<CR>
 
 " focus just the current line with minimal number of folds open
 nnoremap <silent> <leader><space> zMzvzz
