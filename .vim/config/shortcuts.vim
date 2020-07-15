@@ -1,10 +1,10 @@
 " selecting {{{
 
 " bind escape key
-call arpeggio#load()
-Arpeggio noremap jk <ESC>
-Arpeggio inoremap jk <ESC>
-Arpeggio cnoremap jk <C-C>
+silent! call arpeggio#load()
+silent! Arpeggio noremap jk <ESC>
+silent! Arpeggio inoremap jk <ESC>
+silent! Arpeggio cnoremap jk <C-C>
 
 " visually select the text that was last edited/pasted
 nnoremap <expr> gV '`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -27,10 +27,10 @@ nnoremap <expr> < Repeatable('Dedent')
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
 " find >=2 spaces after any non-space character
-Arpeggio cnoremap <expr> ,. getcmdtype() =~ '[/?]' ? '\S\s\s\+\S/s+1' : ',.'
+silent! Arpeggio cnoremap <expr> ,. getcmdtype() =~ '[/?]' ? '\S\s\s\+\S/s+1' : ',.'
 
 " find merge conflict markers
-Arpeggio cnoremap <expr> <> getcmdtype() =~ '[/?]' ? '\v^[<=>]{7}( .*\|$)' : '<>'
+silent! Arpeggio cnoremap <expr> <> getcmdtype() =~ '[/?]' ? '\v^[<=>]{7}( .*\|$)' : '<>'
 
 " end search and replace }}}
 " pasting {{{
@@ -63,7 +63,7 @@ nnoremap <silent> <leader>w :w<CR>
 command! W execute 'silent! write !sudo tee % >/dev/null' <Bar> edit!
 
 " get path of current buffer
-Arpeggio cnoremap <expr> 12 getcmdtype() == ':' ? expand('%:h') . '/' : '12'
+silent! Arpeggio cnoremap <expr> 12 getcmdtype() == ':' ? expand('%:h') . '/' : '12'
 
 " end writing }}}
 " redoing {{{

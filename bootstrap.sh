@@ -125,13 +125,7 @@ _rsync_opts+=('--perms')
 _rsync_opts+=('--backup'
               "--backup-dir=$HOME/.local/share/dotfiles")
 
-# output numbers in a more human-readable format
-_rsync_opts+=('--human-readable')
-
-# print information showing the progress of the transfer
-_rsync_opts+=('--progress')
-
-rsync --verbose "${_rsync_opts[@]}" "$DIR/" "$HOME"
+rsync "${_rsync_opts[@]}" "$DIR/" "$HOME"
 
 
 # -----------------------------------------------------------------------------
@@ -140,8 +134,16 @@ rsync --verbose "${_rsync_opts[@]}" "$DIR/" "$HOME"
 
 _plug_url='https://github.com/junegunn/vim-plug/raw/master/plug.vim'
 if ! [[ -e "$HOME/.vim/autoload/plug.vim" ]]; then
-  curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs "$_plug_url"
-  vim +PlugInstall +qa
+  echo -n 'Installing vim plugins... '
+  curl \
+    --create-dirs \
+    --fail \
+    --location \
+    --output "$HOME/.vim/autoload/plug.vim" \
+    --silent \
+    "$_plug_url"
+  vim +PlugInstall +qall > /dev/null 2>&1
+  echo 'done.'
 fi
 
 
