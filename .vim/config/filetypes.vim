@@ -1,4 +1,3 @@
-autocmd BufNewFile,BufRead {*.bin} set filetype=xxd
 autocmd BufNewFile,BufRead {*.enc} set filetype=enc
 autocmd BufNewFile,BufRead {*.txn} set filetype=txn
 
