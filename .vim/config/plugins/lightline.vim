@@ -93,7 +93,7 @@ endfunction
 " refresh git branch periodically
 augroup gitbranch
   autocmd!
-  autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
+  autocmd BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
     \ silent! unlet b:git_branch
     \ | silent! redraw
 augroup END
