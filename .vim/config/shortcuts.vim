@@ -309,5 +309,11 @@ nnoremap <silent> <M-K> <C-W>K
 nnoremap <silent> <M-L> <C-W>L
 
 " end windows }}}
+" screen {{{
+
+" redraw screen
+nnoremap <localleader><CR> :redraw!
+
+" end screen }}}
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
