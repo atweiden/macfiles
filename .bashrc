@@ -296,8 +296,6 @@ _has_pt="$(command -v pt)"
 _has_rclone="$(command -v rclone)"
 _has_rg="$(command -v rg)"
 _has_sqlite3="$(command -v sqlite3)"
-_has_subgit="$(command -v subgit)"
-_has_subhg="$(command -v subhg)"
 _has_tree="$(command -v tree)"
 _has_vim="$(command -v vim)"
 _has_wget="$(command -v wget)"
@@ -536,14 +534,12 @@ alias timer='echo "Timer started. Stop with Ctrl-D." \
   && date'
 
 # --- end stopwatch }}}
-# --- subrepo {{{
+# --- text {{{
 
-[[ -n "$_has_subgit" ]] \
-  && alias sg='subgit'
-[[ -n "$_has_subhg" ]] \
-  && alias shg='subhg'
+alias hr='printf "$(printf "\e["$(shuf -i 91-97 -n 1)";1m%%%ds\e[0m\n" "$(tput cols)")" \
+  | tr " " ='
 
-# --- end subrepo }}}
+# --- end text }}}
 # --- timestamp {{{
 
 alias dt='date --iso-8601=s'
@@ -630,12 +626,6 @@ alias dt-zagreb='_t=$(TZ=Europe/Zagreb dt)            ; echo "[$_t] Zagreb"'
 alias dt-zurich='_t=$(TZ=Europe/Zurich dt)            ; echo "[$_t] Zürich"'
 
 # --- end timestamp }}}
-# --- text {{{
-
-alias hr='printf "$(printf "\e["$(shuf -i 91-97 -n 1)";1m%%%ds\e[0m\n" "$(tput cols)")" \
-  | tr " " ='
-
-# --- end text }}}
 # --- tmux {{{
 
 [[ -n "$TMUX" ]] \
