@@ -9,9 +9,6 @@ silent! Arpeggio cnoremap jk <C-C>
 " visually select the text that was last edited/pasted
 nnoremap <expr> gV '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" visually select the last inserted text
-nnoremap g. :normal! `[v`]<CR><Left>
-
 " DWIM indenting:
 " preserve visual selection
 vnoremap > >gv
@@ -274,9 +271,6 @@ nnoremap H ^
 vnoremap H ^
 nnoremap L g_
 vnoremap L g_
-
-" move to last change
-nnoremap gI `.
 
 " end movement }}}
 " whitespacing {{{
