@@ -512,6 +512,7 @@ alias wifi='networksetup -setairportpower en0'
 
 alias r='repl'
 alias rex='repl --language elixir -- --dot-iex $HOME/.config/elixir/iex.exs'
+alias rnl='repl --language fennel'
 
 # --- end repl }}}
 # --- safety {{{
