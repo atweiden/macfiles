@@ -1,4 +1,4 @@
-" Source: https://github.com/dahu/vim-help
+" Credit: https://github.com/dahu/vim-help
 
 " jump to links with enter
 nmap <buffer> <CR> <C-]>

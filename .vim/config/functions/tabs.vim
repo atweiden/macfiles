@@ -1,4 +1,4 @@
-" Source: http://vimcasts.org/episodes/tabs-and-spaces/
+" Credit: http://vimcasts.org/episodes/tabs-and-spaces/
 
 function! SummarizeTabs()
   try

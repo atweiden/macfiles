@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------
 # gpg-curl-keys: download pgp keys with curl
 #
-# credit: https://dev-notes.eu/2017/09/verify-and-setup-litecoin-core/
+# Credit: https://dev-notes.eu/2017/09/verify-and-setup-litecoin-core/
 # ----------------------------------------------------------------------------
 
 _usage() {

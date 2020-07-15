@@ -1,4 +1,4 @@
-" Source: https://github.com/bronson/vim-trailing-whitespace
+" Credit: https://github.com/bronson/vim-trailing-whitespace
 
 function! s:FixWhitespace(line1,line2)
   let l:save_pos = getpos('.')

@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 # zmarks: quickly navigate your filesystem from the command-line
 #
-# credit: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+# Credit: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 # -----------------------------------------------------------------------------
 
 readonly MARKPATH="$HOME/.config/zmarks"

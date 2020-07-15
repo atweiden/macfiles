@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------
 # otp: get otp authentication code for target service
 #
-# credit: https://www.sendthemtomir.com/blog/cli-2-factor-authentication
+# Credit: https://www.sendthemtomir.com/blog/cli-2-factor-authentication
 # ----------------------------------------------------------------------------
 
 CONFIG_DIR="$HOME/.config/otp"

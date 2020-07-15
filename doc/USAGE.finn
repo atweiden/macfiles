@@ -30,10 +30,9 @@ brew install imagemagick
 convert $(ls -v *.jpg) document.pdf
 ```
 
-### combine pdfs
+### combine pdfs [1]
 
 ```sh
-# credit: https://apple.stackexchange.com/a/230447
 "/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" \
   -o /path/to/combined/doc.pdf \
   /path/to/part/1.pdf \
@@ -427,3 +426,8 @@ convert fahrenheit to celsius
 You have: tempF(70)
 You want: tempC
 ```
+
+
+******************************************************************************
+
+[1]: https://apple.stackexchange.com/a/230447

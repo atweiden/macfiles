@@ -1,4 +1,4 @@
-" Source: https://github.com/kongo2002/dotfiles/blob/master/vimrc
+" Credit: https://github.com/kongo2002/dotfiles/blob/master/vimrc
 
 " SyntaxItem() - get syntax highlight group under cursor
 function! SyntaxItem()

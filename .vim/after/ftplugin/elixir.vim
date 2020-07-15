@@ -1,4 +1,5 @@
-" Source: https://gist.github.com/ddresselhaus/98b022e295bc27e9264dece7823e74e8
+" Credit: https://gist.github.com/ddresselhaus/98b022e295bc27e9264dece7823e74e8
+
 function! TestCmd(path, lineno)
   let cmd = join(["mix test --only", " line:", a:lineno, " ", a:path], "")
   return cmd

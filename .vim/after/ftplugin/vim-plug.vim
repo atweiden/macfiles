@@ -1,4 +1,4 @@
-" Source: https://github.com/junegunn/vim-plug/pull/255#issuecomment-119524529
+" Credit: https://github.com/junegunn/vim-plug/pull/255#issuecomment-119524529
 
 function! s:scroll_preview(down)
   silent! wincmd P

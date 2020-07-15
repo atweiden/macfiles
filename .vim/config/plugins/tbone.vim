@@ -1,4 +1,4 @@
-" Source: https://github.com/junegunn/dotfiles/blob/master/vimrc
+" Credit: https://github.com/junegunn/dotfiles/blob/master/vimrc
 
 " ----------------------------------------------------------------------------
 " <leader>t | vim-tbone
