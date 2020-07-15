@@ -221,6 +221,7 @@ augroup checktimestamp
   autocmd!
   autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
     \ silent! checktime
+    \ | silent! redraw
 augroup END
 
 " dictionary and spelling
