@@ -24,10 +24,10 @@ nnoremap <expr> < Repeatable('Dedent')
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
 " find >=2 spaces after a period or question mark
-nnoremap <localleader><localleader><CR> /[\.\?]\s\s\+\w/s+1<CR>
+nnoremap <localleader><CR> /[\.\?]\s\s\+\w/s+1<CR>
 
 " find >=2 spaces after any non-space character
-nnoremap <localleader><localleader><localleader><CR> /\S\s\s\+\S/s+1<CR>
+nnoremap <localleader><localleader><CR> /\S\s\s\+\S/s+1<CR>
 
 " find merge conflict markers
 nnoremap <F6> /\v^[<=>]{7}( .*\|$)
