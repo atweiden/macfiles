@@ -193,13 +193,34 @@ augroup END
 
 " use rg/ag/pt/ack for grepping if available
 if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading\ --color\ never\ --hidden\ --smart-case\ --ignore-file\ $HOME/.config/search/ignore\ --ignore-vcs
+  set grepprg =rg
+  set grepprg+=\ --vimgrep
+  set grepprg+=\ --no-heading
+  set grepprg+=\ --color\ never
+  set grepprg+=\ --hidden
+  set grepprg+=\ --smart-case
+  set grepprg+=\ --ignore-file\ $HOME/.config/search/ignore
+  set grepprg+=\ --ignore-vcs
 elseif executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --smart-case\ --path-to-ignore\ $HOME/.config/search/ignore\ --skip-vcs-ignores
+  set grepprg =ag
+  set grepprg+=\ --nogroup
+  set grepprg+=\ --nocolor
+  set grepprg+=\ --hidden
+  set grepprg+=\ --smart-case
+  set grepprg+=\ --path-to-ignore\ $HOME/.config/search/ignore
+  set grepprg+=\ --skip-vcs-ignores
 elseif executable('pt')
-  set grepprg=pt\ --nogroup\ --nocolor\ --hidden\ --nocolor\ -e
+  set grepprg =pt
+  set grepprg+=\ --nogroup
+  set grepprg+=\ --nocolor
+  set grepprg+=\ --hidden
+  set grepprg+=\ --nocolor
+  set grepprg+=\ -e
 elseif executable('ack')
-  set grepprg=ack\ --nogroup\ --nocolor\ --nopager
+  set grepprg =ack
+  set grepprg+=\ --nogroup
+  set grepprg+=\ --nocolor
+  set grepprg+=\ --nopager
 endif
 
 " don't move back the cursor one position upon esc
