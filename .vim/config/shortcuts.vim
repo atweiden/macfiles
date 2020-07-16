@@ -20,6 +20,9 @@ nnoremap <expr> < Repeatable('Dedent')
 " end selecting }}}
 " search and replace {{{
 
+" remove search highlights
+nnoremap <silent> <leader><CR> :nohlsearch<CR>
+
 " find >=2 spaces after a period or question mark (repeatable with n/N)
 nnoremap <silent> <localleader><CR> :let @/ = '[\.\?]\ze\s\s\+\S'<CR>:call search(@/, "sz")<CR>
 
