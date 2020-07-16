@@ -20,17 +20,17 @@ nnoremap <expr> < Repeatable('Dedent')
 " end selecting }}}
 " search and replace {{{
 
-" remove search highlights
-nnoremap <silent> <leader><CR> :nohlsearch<CR>
+" find >=2 spaces after a period or question mark (repeatable with n/N)
+nnoremap <silent> <localleader><CR> :let @/ = '[\.\?]\ze\s\s\+\S'<CR>:call search(@/, "sz")<CR>
 
-" find >=2 spaces after a period or question mark
-nnoremap <localleader><CR> /[\.\?]\s\s\+\w/s+1<CR>
+" find >=2 spaces after any non-space character (repeatable with n/N)
+nnoremap <silent> <localleader><localleader><CR> :let @/ = '\S\ze\s\s\+\S'<CR>:call search(@/, "sz")<CR>
 
-" find >=2 spaces after any non-space character
-nnoremap <localleader><localleader><CR> /\S\s\s\+\S/s+1<CR>
+" find merge conflict markers forward (repeatable with n/N)
+nnoremap <silent> <F6> :let @/ = '\v^[<=>]{7}'<CR>:call search(@/, "sz")<CR>
 
-" find merge conflict markers
-nnoremap <F6> /\v^[<=>]{7}( .*\|$)
+" find merge conflict markers backward (repeatable with n/N)
+nnoremap <silent> <S-F6> :let @/ = '\v^[<=>]{7}'<CR>:call search(@/, "bsz")<CR>
 
 " end search and replace }}}
 " pasting {{{
