@@ -228,9 +228,13 @@ augroup redrawscreen
   autocmd BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer> silent! redraw!
 augroup END
 
-" dictionary and spelling
-"set dictionary=/usr/share/dict/words
+" disable spell check
 set nospell
+
+" don't download spell files from the internet
 let g:spellfile_URL = '/usr/share/vim/vimfiles/spell'
+
+" words for <C-X><C-K> completion
+"set dictionary=/usr/share/dict/words
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
