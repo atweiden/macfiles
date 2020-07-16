@@ -143,6 +143,12 @@ highlight MoreMsg term=bold cterm=bold ctermfg=179 gui=bold guifg=#4E4E43
 highlight clear Directory
 highlight Directory term=bold cterm=bold ctermfg=110 gui=bold guifg=#87AFD7
 
+" seoul256 wild menu completion
+highlight clear StatusLine
+highlight StatusLine term=reverse cterm=reverse ctermfg=95 ctermbg=181 gui=reverse guifg=#875F5F guibg=#D7AFAF
+highlight clear WildMenu
+highlight WildMenu term=bold cterm=bold ctermfg=95 ctermbg=181 gui=bold guifg=#875F5F guibg=#D7AFAF
+
 " spelling
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
