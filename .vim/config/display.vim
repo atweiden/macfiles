@@ -147,7 +147,7 @@ highlight Directory term=bold cterm=bold ctermfg=110 gui=bold guifg=#87AFD7
 highlight clear StatusLine
 highlight StatusLine term=reverse cterm=reverse ctermfg=95 ctermbg=181 gui=reverse guifg=#875F5F guibg=#D7AFAF
 highlight clear WildMenu
-highlight WildMenu term=bold cterm=bold ctermfg=95 ctermbg=181 gui=bold guifg=#875F5F guibg=#D7AFAF
+highlight WildMenu term=bold cterm=bold ctermfg=95 ctermbg=222 gui=bold guifg=#875F5F guibg=#FFD787
 
 " spelling
 highlight clear SpellBad
