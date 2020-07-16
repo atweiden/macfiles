@@ -93,9 +93,7 @@ endfunction
 " refresh git branch periodically
 augroup gitbranch
   autocmd!
-  autocmd BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
-    \ silent! unlet b:git_branch
-    \ | silent! redraw
+  autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer> silent! unlet b:git_branch
 augroup END
 
 function! LightlineGitBranch()

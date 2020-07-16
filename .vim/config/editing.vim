@@ -219,9 +219,13 @@ augroup END
 " periodically check for/warn about external changes to buffer
 augroup checktimestamp
   autocmd!
-  autocmd BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
-    \ silent! checktime
-    \ | silent! redraw
+  autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer> silent! checktime
+augroup END
+
+" periodically redraw screen to fend off nonsense NonText rendering
+augroup redrawscreen
+  autocmd!
+  autocmd BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer> silent! redraw!
 augroup END
 
 " dictionary and spelling
