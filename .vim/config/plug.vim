@@ -21,9 +21,6 @@ Plug 'preservim/nerdtree'
 Plug 'kana/vim-arpeggio'
 Plug 'drmikehenry/vim-fixkey'
 
-" cursor
-Plug 'nickeb96/vitality.vim'
-
 " search and replace
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
