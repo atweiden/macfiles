@@ -9,7 +9,7 @@ augroup END
 
 augroup gpg
   autocmd!
-  autocmd QuitPre *.gpg call system('pkill gpg-agent')
+  autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
 augroup END
 
 let g:lispft = [
