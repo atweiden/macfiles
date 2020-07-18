@@ -236,6 +236,9 @@ vnoremap zw <nop>
 
 " --- end spelling }}}
 
+" don't let netrw vmap gx
+vnoremap gx <nop>
+
 " don't use <C-A> for incrementing, interferes with tmux prefix
 nnoremap <C-A> <nop>
 vnoremap <C-A> <nop>
