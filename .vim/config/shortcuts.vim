@@ -131,7 +131,7 @@ nnoremap <silent> <F1> :let &wildmode=&wildmode=~"full" ? "list:longest" : "list
 set pastetoggle=<F2>
 
 " toggle line wrap
-noremap <silent> <F3> :set nowrap!<CR>
+nnoremap <silent> <F3> :set nowrap!<CR>
 inoremap <silent> <F3> <C-O>:set nowrap!<CR>
 vnoremap <silent> <F3> <ESC>:set nowrap!<CR>gv
 
@@ -141,30 +141,27 @@ inoremap <silent> <F4> <C-O>:set norelativenumber!<CR>
 vnoremap <silent> <F4> <ESC>:set norelativenumber!<CR>gv
 
 " toggle line and column highlighting
-noremap <silent> <F5> :set nocursorline! nocursorcolumn!<CR>
+nnoremap <silent> <F5> :set nocursorline! nocursorcolumn!<CR>
 inoremap <silent> <F5> <C-O>:set nocursorline! nocursorcolumn!<CR>
 vnoremap <silent> <F5> <ESC>:set nocursorline! nocursorcolumn!<CR>gv
 
-" toggle spell checking
-noremap <silent> <F7> :set spell! spelllang=en_us<CR>
-inoremap <silent> <F7> <C-O>:set spell! spelllang=en_us<CR>
-vnoremap <silent> <F7> <ESC>:set spell! spelllang=en_us<CR>gv
+" toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
+nnoremap <silent> <F7> :ToggleIndentGuides<CR>
+inoremap <silent> <F7> <C-O>:ToggleIndentGuides<CR>
+vnoremap <silent> <F7> <ESC>:ToggleIndentGuides<CR>gv
 
 " scroll all windows simultaneously
 nnoremap <silent> <F9> :windo set scrollbind!<CR>
 inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
 
-" toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
-nnoremap <silent> <leader>ig :ToggleIndentGuides<CR>
+" toggle showcmd
+nnoremap <silent> <leader>sc :set showcmd!<CR>
 
 " convert all tabs into spaces and continue session with spaces
 nnoremap <silent> <leader>st :set expandtab<CR>:%retab!<CR>:echo "Tabs have been converted to spaces"<CR>
 
 " convert all spaces into tabs and continue session with tabs
 nnoremap <silent> <leader>sT :set noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>
-
-" toggle showcmd
-nnoremap <silent> <leader>sc :set showcmd!<CR>
 
 " toggle virtualedit=all
 nnoremap <silent> <leader><leader>v :let &virtualedit=&virtualedit=="block" ? "all" : "block" <Bar> set virtualedit?<CR>
@@ -202,11 +199,15 @@ vnoremap L g_
 " end movement }}}
 " folds {{{
 
-" toggle folds with g+spacebar, don't echo error message if not in fold
-nnoremap <silent> g<space> :execute ":silent! normal za"<CR>
+" toggle folds with g+spacebar
+nnoremap <silent> g<space> za
 
 " focus just the current line with minimal number of folds open
 nnoremap <silent> <leader><space> zMzvzz
+
+" navigate folds
+nnoremap <silent> <leader>fk zk
+nnoremap <silent> <leader>fj zj
 
 " set fold level
 nnoremap <silent> <leader>f0 :set foldlevel=0<CR>
