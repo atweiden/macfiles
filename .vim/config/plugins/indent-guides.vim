@@ -1,4 +1,4 @@
-" activate on startup
+" don't activate on startup
 let g:indent_guides_enable_on_vim_startup = 0
 
 " disable default mapping <leader>ig for toggling indent-guides
