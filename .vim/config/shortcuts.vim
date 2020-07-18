@@ -154,6 +154,9 @@ vnoremap <silent> <F7> <ESC>:set spell! spelllang=en_us<CR>gv
 nnoremap <silent> <F9> :windo set scrollbind!<CR>
 inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
 
+" toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
+nnoremap <silent> <leader>ig :ToggleIndentGuides<CR>
+
 " convert all tabs into spaces and continue session with spaces
 nnoremap <silent> <leader>st :set expandtab<CR>:%retab!<CR>:echo "Tabs have been converted to spaces"<CR>
 
