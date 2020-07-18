@@ -164,7 +164,7 @@ nnoremap <silent> <leader>st :set expandtab<CR>:%retab!<CR>:echo "Tabs have been
 nnoremap <silent> <leader>sT :set noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>
 
 " toggle virtualedit=all
-nnoremap <silent> <leader><leader>v :let &virtualedit=&virtualedit=="block" ? "all" : "block" <Bar> set virtualedit?<CR>
+nnoremap <silent> <leader>sv :let &virtualedit=&virtualedit=="block" ? "all" : "block" <Bar> set virtualedit?<CR>
 
 " end toggles }}}
 " lines {{{
