@@ -4,7 +4,7 @@ function! RunDiffGitCached()
   if exists('t:diffgitcached')
     return
   endif
-  execute "DiffGitCached"
+  silent! execute "DiffGitCached"
   let t:diffgitcached = 1
   setlocal nofoldenable
   setlocal nowrap
