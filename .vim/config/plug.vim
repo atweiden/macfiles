@@ -111,7 +111,7 @@ Plug 'cespare/vim-toml', { 'for': [ 'finn',
 " end languages }}}
 
 " colors
-Plug 'atweiden/seoul256.vim'
+Plug 'atweiden/seoul256.vim', { 'branch': 'fix-todo-hi' }
 
 " color utilities
 Plug 'ntpeters/vim-better-whitespace'
