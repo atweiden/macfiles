@@ -6,7 +6,7 @@ silent! Arpeggio cnoremap jk <C-C>
 
 " selecting {{{
 
-" visually select the text that was last edited/pasted
+" visually select text last edited/pasted
 nnoremap <expr> gV '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " DWIM indenting:
@@ -97,10 +97,6 @@ if has('digraphs')
   digraph '' 697
   " (฿) thai baht
   digraph B\| 3647
-  " (᚛) ogham feather mark
-  digraph >\| 5787
-  " (᚜) ogham reversed feather mark
-  digraph <\| 5788
   " (–) en dash
   digraph -- 8211
   " (—) em dash
@@ -115,58 +111,8 @@ if has('digraphs')
   digraph qr 8221
   " (…) ellipsis
   digraph ., 8230
-  " (⁅) left square bracket with quill
-  digraph [- 8261
-  " (⁆) right square bracket with quill
-  digraph -] 8262
-  " (∈) equivalent to `(elem)`: https://docs.raku.org/routine/(elem),%20infix%20%E2%88%88
-  digraph (- 8712
-  " (∉) equivalent to `!(elem)`: https://docs.raku.org/routine/%E2%88%89
-  digraph (/ 8713
-  " (∋) equivalent to `(cont)`: https://docs.raku.org/routine/(cont),%20infix%20%E2%88%8B
-  digraph -) 8715
-  " (∌) equivalent to `!(cont)`: https://docs.raku.org/routine/%E2%88%8C
-  digraph /) 8716
-  " (∖) equivalent to `(-)`: https://docs.raku.org/routine/(-),%20infix%20%E2%88%96
-  digraph \\ 8726
-  " (∩) equivalent to `(&)`: https://docs.raku.org/routine/(&),%20infix%20%E2%88%A9
-  digraph (U 8745
-  " (∪) equivalent to `(|)`: https://docs.raku.org/routine/(%7C),%20infix%20%E2%88%AA
-  digraph )U 8746
-  " (≅) equivalent to `=~=`: https://docs.raku.org/routine/=~=
-  digraph =~ 8773
-  " (≼) equivalent to `(<+)`: https://docs.raku.org/language/unicode_ascii#index-entry-%E2%89%BC
-  digraph <+ 8828
-  " (≽) equivalent to `(+>)`: https://docs.raku.org/language/unicode_ascii#index-entry-%E2%89%BD
-  digraph +> 8829
-  " (⊂) equivalent to `(<)`: https://docs.raku.org/routine/(%3C),%20infix%20%E2%8A%82
-  digraph (c 8834
-  " (⊃) equivalent to `(>)`: https://docs.raku.org/routine/(%3E),%20infix%20%E2%8A%83
-  digraph )c 8835
-  " (⊄) equivalent to `!(<)`: https://docs.raku.org/routine/%E2%8A%84
-  digraph c/ 8836
-  " (⊅) equivalent to `!(>)`: https://docs.raku.org/routine/%E2%8A%85
-  digraph \c 8837
-  " (⊆) equivalent to `(<=)`: https://docs.raku.org/routine/(%3C=),%20infix%20%E2%8A%86
-  digraph (_ 8838
-  " (⊇) equivalent to `(>=)`: https://docs.raku.org/routine/(%3E=),%20infix%20%E2%8A%87
-  digraph )_ 8839
-  " (⊈) equivalent to `!(<=)`: https://docs.raku.org/routine/%E2%8A%88
-  digraph _/ 8840
-  " (⊉) equivalent to `!(>=)`: https://docs.raku.org/routine/%E2%8A%89
-  digraph \_ 8841
-  " (⊍) equivalent to `(.)`: https://docs.raku.org/routine/(.),%20infix%20%E2%8A%8D
-  digraph U. 8845
-  " (⊎) equivalent to `(+)`: https://docs.raku.org/routine/(+),%20infix%20%E2%8A%8E
-  digraph U+ 8846
-  " (⊖) equivalent to `(^)`: https://docs.raku.org/routine/($CIRCUMFLEX_ACCENT),%20infix%20%E2%8A%96
-  digraph 0- 8854
   " (✓) checkmark
   digraph ./ 10003
-  " (⟅) left s-shaped bag delimiter
-  digraph s\ 10181
-  " (⟆) right s-shaped bag delimiter
-  digraph s/ 10182
 endif
 
 " end digraphs }}}
@@ -177,6 +123,9 @@ nnoremap <silent> <leader>D a<C-R>=substitute(strtrans(system("date --iso-8601=s
 
 " end timestamps }}}
 " toggles {{{
+
+" toggle show tab-completed wild menu
+nnoremap <silent> <F1> :let &wildmode=&wildmode=~"full" ? "list:longest" : "list:longest,full" <Bar> set wildmode?<CR>
 
 " toggle paste mode
 set pastetoggle=<F2>
@@ -206,10 +155,10 @@ nnoremap <silent> <F9> :windo set scrollbind!<CR>
 inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
 
 " convert all tabs into spaces and continue session with spaces
-nnoremap <silent><expr> g<M-t> ':set expandtab<CR>:retab!<CR>:echo "Tabs have been converted to spaces"<CR>'
+nnoremap <silent> <leader>st :set expandtab<CR>:%retab!<CR>:echo "Tabs have been converted to spaces"<CR>
 
 " convert all spaces into tabs and continue session with tabs
-nnoremap <silent><expr> g<M-T> ':set noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>'
+nnoremap <silent> <leader>sT :set noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>
 
 " toggle showcmd
 nnoremap <silent> <leader>sc :set showcmd!<CR>
@@ -218,15 +167,21 @@ nnoremap <silent> <leader>sc :set showcmd!<CR>
 nnoremap <silent> <leader><leader>v :let &virtualedit=&virtualedit=="block" ? "all" : "block" <Bar> set virtualedit?<CR>
 
 " end toggles }}}
-" split/joins {{{
+" lines {{{
 
 " keep the cursor in place while joining lines
 nnoremap J mzJ`z
 
-" split line
-nnoremap <silent> S i<CR><ESC>^mwgk:silent! s/\v +$//<CR>:noh<CR>`w
+" split line without clobbering search history
+nnoremap <silent> S i<CR><ESC>^mwgk:silent! keeppatterns s/\v +$//<CR>:noh<CR>`w
 
-" end split/joins }}}
+" put blank line above current line
+nmap [<space> <Plug>PutBlankLineAbove
+
+" put blank line below current line
+nmap ]<space> <Plug>PutBlankLineBelow
+
+" end lines }}}
 " deletes {{{
 
 " delete char adjacent-right without moving cursor over one from the left
@@ -242,21 +197,6 @@ nnoremap L g_
 vnoremap L g_
 
 " end movement }}}
-" whitespacing {{{
-
-" put blank line above current line
-nmap [<space> <Plug>PutBlankLineAbove
-
-" put blank line below current line
-nmap ]<space> <Plug>PutBlankLineBelow
-
-" set tabstop, shiftwidth and softtabstop to same (specified) value
-nnoremap <leader>ts :Stab<CR>
-
-" echo tabstop, shiftwidth, softtabstop and expandtab values
-nnoremap <leader>st :call SummarizeTabs()<CR>
-
-" end whitespacing }}}
 " folds {{{
 
 " toggle folds with g+spacebar, don't echo error message if not in fold

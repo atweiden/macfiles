@@ -29,7 +29,7 @@ set noshowmatch
 
 " turn on wildmenu completion
 set wildmenu
-set wildmode=list:longest,full
+set wildmode=list:longest
 
 " disable some filetypes for completion efficiency
 set wildignore+=*.o,*.obj,*.dll,*.pyc
@@ -45,6 +45,9 @@ set suffixes+=.bak,~,.swp,.o,.info,.aux
 set suffixes+=.log,.dvi,.bbl,.blg,.brf
 set suffixes+=.cb,.ind,.idx,.ilg,.inx
 set suffixes+=.out,.toc,CVS/,tags
+
+" case sensitive file completion
+set nofileignorecase
 
 " vertical diffsplit by default
 set diffopt+=vertical
@@ -103,24 +106,19 @@ set shiftwidth=2
 " round indent to multiple of shiftwidth
 set shiftround
 
-" jump between the following characters that form pairs
-set matchpairs+=<:>
-set matchpairs+=«:»
-set matchpairs+=「:」
-
 " triple matching curly braces form a fold
 set foldmethod=marker
 
-" higher numbers close fewer folds, 0 closes all folds.
+" higher numbers close fewer folds, 0 closes all folds
 set foldlevel=1
 
 " automatically open folds on these commands
 set foldopen=insert,mark,percent,tag,undo
 
-" deepest fold is 3 levels
+" when foldmethod is indent or syntax, don't fold more than N levels deep
 set foldnestmax=3
 
-" visually break lines
+" wrap lines by default
 set wrap
 
 " show the line number in front of each line
@@ -151,10 +149,10 @@ set hlsearch
 " ignore case in search patterns
 set ignorecase
 
-" override the ignorecase option if the search pattern contains upper case characters
+" override ignorecase option if search pattern contains upper case chars
 set smartcase
 
-" adjust the case of the match depending on the typed text
+" adjust case of match depending on typed text
 set infercase
 
 " save and restore session data
@@ -173,9 +171,9 @@ set sessionoptions+=globals,help,localoptions,options
 set sessionoptions+=resize,tabpages,winpos,winsize
 "                   |      |        |      |
 "                   |      |        |      +--------- Window sizes
-"                   |      |        +---------------- Position of the whole Vim window
+"                   |      |        +---------------- Position of Vim window
 "                   |      +------------------------- All tab pages
-"                   +-------------------------------- Size of the Vim window
+"                   +-------------------------------- Size of Vim window
 
 " automatic formatting options
 augroup fmtopts
@@ -183,12 +181,12 @@ augroup fmtopts
   autocmd FileType * set formatoptions=rqn2l1j
 "                                      |||||||
 "                                      ||||||+----- Remove comment leader when joining two comments
-"                                      |||||+------ Don't break a line after a one-letter word
+"                                      |||||+------ Don't break line after one-letter word
 "                                      ||||+------- Don't break long lines in insert mode
-"                                      |||+-------- Use the indent of the second line of a paragraph for the rest of the paragraph instead of the first
+"                                      |||+-------- Use indent of second line of paragraph for rest of paragraph, not first
 "                                      ||+--------- Recognize numbered lists when formatting text
 "                                      |+---------- Allow formatting of comments with gq
-"                                      +----------- Automatically insert the current comment leader after <Enter> in insert mode
+"                                      +----------- Automatically insert current comment leader after <Enter> in insert mode
 augroup END
 
 " use rg/ag/pt/ack for grepping if available
@@ -226,9 +224,9 @@ endif
 " don't move back the cursor one position upon esc
 augroup cursorpos
   autocmd!
-  autocmd InsertEnter * let CursorColumnI = col('.')
-  autocmd CursorMovedI * let CursorColumnI = col('.')
-  autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+  autocmd InsertEnter * let b:curcol = col('.')
+  autocmd CursorMovedI * let b:curcol = col('.')
+  autocmd InsertLeave * if col('.') != b:curcol | call cursor(0, col('.') + 1) | endif
 augroup END
 
 " return to last edit position

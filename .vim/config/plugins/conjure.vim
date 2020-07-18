@@ -1,4 +1,4 @@
-" set conjure shortcuts prefix to hash
+" set conjure shortcuts prefix to localleader
 let g:conjure#mapping#prefix = "<localleader>"
 
 " don't nmap K, gd respectively

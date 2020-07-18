@@ -1,6 +1,6 @@
 " Credit: http://vimcasts.org/episodes/tabs-and-spaces/
 
-function! SummarizeTabs()
+function! TabstopSummarize()
   try
     echohl ModeMsg
     echon 'tabstop=' . &l:ts
@@ -17,16 +17,17 @@ function! SummarizeTabs()
 endfunction
 
 " set tabstop, softtabstop and shiftwidth to the same value
-function! Stab()
+function! TabstopSet()
   let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
   if l:tabstop > 0
     let &l:sts = l:tabstop
     let &l:ts = l:tabstop
     let &l:sw = l:tabstop
   endif
-  call SummarizeTabs()
+  call TabstopSummarize()
 endfunction
 
-command! -nargs=* Stab call Stab()
+command! -nargs=* TabstopSet call TabstopSet()
+command! TabstopSummarize call TabstopSummarize()
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

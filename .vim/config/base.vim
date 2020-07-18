@@ -304,8 +304,12 @@ if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
 endif
 
-" hide intro screen, use all abbreviations, omit redundant messages
+" short messages
 set shortmess=aIoO
+"             |||
+"             ||+----- Omit redundant messages
+"             |+------ Don't give intro message when starting vim
+"             +------- Abbreviate messages without loss of information
 
 " turn on mouse in all modes
 if has('mouse')
@@ -339,10 +343,7 @@ set switchbuf=useopen,usetab,newtab
 "             |       |      |
 "             |       |      +-------- Prefer opening quickfix windows in new tabs
 "             |       +--------------- Consider windows in other tab pages wrt useopen
-"             +----------------------- Jump to the first open window that contains the specified buffer if there is one
-
-" do not consider octal numbers for C-A/C-X
-set nrformats-=octal
+"             +----------------------- Jump to first open window with specified buffer
 
 " configure viminfo then read from it
 set viminfo='100,<50,s10,h,!
@@ -352,7 +353,15 @@ set viminfo='100,<50,s10,h,!
 "           |    |   +--------- Exclude registers greater than N Kb
 "           |    +------------- Keep N lines for each register
 "           +------------------ Keep marks for N files
-if filereadable(expand('~/.viminfo')) | rviminfo | endif
+if !has('nvim')
+  if filereadable($HOME . '/.viminfo')
+    rviminfo
+  endif
+else
+  if filereadable($XDG_DATA_HOME . '/nvim/shada/main.shada')
+    rshada
+  endif
+endif
 
 " never write or update the contents of any buffer unless we say so
 set noautowrite

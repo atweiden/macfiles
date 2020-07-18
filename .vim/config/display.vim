@@ -8,12 +8,12 @@ set guicursor=
 " window title {{{
 
 set title
-if has('title') && (has('gui_running') || &title)
+if has('title') && (&title || has('gui_running'))
   set titlestring=
   " file name
-  set titlestring+=%f\
+  set titlestring+=%f
   " flags
-  set titlestring+=%h%m%r%w
+  set titlestring+=\ %h%m%r%w
   " program name
   set titlestring+=\ \|\ %{v:progname}
   " working directory
@@ -29,13 +29,13 @@ if has('gui_running')
   set background=light
   silent! colorscheme seoul256-light
   highlight clear Cursor
-  highlight Cursor guifg=NONE guibg=#E3E7E4
+  highlight Cursor guifg=NONE guibg=#FFEADF
   highlight clear iCursor
-  highlight iCursor guifg=#87AF87 guibg=#87AF87
+  highlight iCursor guifg=#98C798 guibg=#98C798
   highlight clear vCursor
   highlight vCursor guifg=white guibg=#5FAFAF
   highlight clear rCursor
-  highlight rCursor guifg=black guibg=#DF005F
+  highlight rCursor guifg=black guibg=#79C579
   highlight clear oCursor
   highlight oCursor guifg=black guibg=gray
   " set normal mode cursor to unblinking Cursor highlighted block
@@ -117,9 +117,9 @@ highlight MatchParen term=bold,NONE cterm=bold,NONE ctermfg=179 gui=bold,NONE gu
 
 " cursor line and column
 highlight clear CursorLine
-highlight CursorLine term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#E3E7E4
+highlight CursorLine term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#FFFCFA
 highlight clear CursorColumn
-highlight CursorColumn term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#E3E7E4
+highlight CursorColumn term=NONE cterm=NONE ctermbg=234 gui=NONE guibg=#FFFCFA
 highlight clear ColorColumn
 highlight ColorColumn term=NONE cterm=NONE ctermbg=95 gui=NONE guibg=#875F5F
 
@@ -149,6 +149,15 @@ highlight StatusLine term=reverse cterm=reverse ctermfg=234 ctermbg=242 gui=reve
 highlight clear WildMenu
 highlight WildMenu term=bold cterm=bold ctermfg=87 ctermbg=234 gui=bold guifg=#D8AF5F guibg=#FFFFFF
 
+" whitespace
+if !has('nvim')
+  " vim uses hl-SpecialKey for nbsp, space, tab and trail
+  highlight SpecialKey ctermfg=234 guifg=#F4F4F4
+else
+  " neovim uses hl-WhiteSpace for nbsp, space, tab and trail
+  highlight WhiteSpace ctermfg=234 guifg=#F4F4F4
+endif
+
 " spelling
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
@@ -177,16 +186,34 @@ highlight DiffText cterm=reverse ctermbg=none
 
 " end highlighting }}}
 
-" show listchars {{{
+" listchars {{{
 
-set nolist
-set listchars =tab:▷⋅
-set listchars+=extends:›
-set listchars+=precedes:‹
-set listchars+=nbsp:·
-set listchars+=trail:·
+" align cursor position flush with line beginnings having leading tabs
+" while using nathanaelkane/vim-indent-guides to highlight indentation:
+" - show listchars
+" - set tab listchar to blank (`\ `)
+" - enable nathanaelkane/vim-indent-guides
+"
+" but default to minimalist approach for rendering indentation:
+" - use ┊ for tui
+" - use ⎸for gui
+" - highlight SpecialKey/WhiteSpace ctermfg=234 guifg=#F4F4F4 for vim/nvim
+"
+" because:
+" - dotted variant looks great and is significantly easier to read on tui
+" - solid thin vertical bar variant allows lighter highlight color on gui
+" - approach more closely resembles default experience in other editors
+"
+" and toggle between minimalism and nathanaelkane/vim-indent-guides with:
+"
+"     :ToggleIndentGuides
+"
+" see also: ⸫,⸪,⸬,⋮,⫶,ⵗ,⦙,⁞,⦚,¦,┆,┊,▏,│,⎸
+set list
+call SetListCharsTabVisible()
+call SetListCharsRemaining()
 
-" end show listchars }}}
+" end listchars }}}
 
 " screen {{{
 

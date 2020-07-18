@@ -10,4 +10,6 @@ function! SyntaxItem()
   endif
 endfunction
 
+command! SyntaxItem echo SyntaxItem()
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
