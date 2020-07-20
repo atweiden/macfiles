@@ -155,6 +155,12 @@ set smartcase
 " adjust case of match depending on typed text
 set infercase
 
+" set timeout value for mappings to 1s, keycodes to 1/20th of a second
+set timeout
+set nottimeout
+set timeoutlen=1000
+set ttimeoutlen=50
+
 " save and restore session data
 set sessionoptions+=blank,buffers,curdir,folds
 "                   |     |       |      |

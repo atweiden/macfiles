@@ -231,13 +231,4 @@ set t_ut=""
 
 " end screen }}}
 
-" timeout {{{
-
-set timeout
-set nottimeout
-set timeoutlen=1000
-set ttimeoutlen=50
-
-" end timeout }}}
-
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
