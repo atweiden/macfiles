@@ -15,7 +15,17 @@ Plug 'Harenome/vim-neatfoldtext'
 
 " filesystem
 Plug 'duggiefresh/vim-easydir'
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree', { 'on': [ 'NERDTree',
+                                   \ 'NERDTreeFind',
+                                   \ 'NERDTreeMirror',
+                                   \ 'NERDTreeToggleVCS',
+                                   \ 'NERDTreeCWD',
+                                   \ 'NERDTreeFocus',
+                                   \ 'NERDTreeRefreshRoot',
+                                   \ 'NERDTreeVCS',
+                                   \ 'NERDTreeClose',
+                                   \ 'NERDTreeFromBookmark',
+                                   \ 'NERDTreeToggle' ] }
 
 " keyboard
 Plug 'kana/vim-arpeggio'
