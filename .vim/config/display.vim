@@ -169,7 +169,7 @@ highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
 " conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}'
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " don't distinguish between delete, add and change using bright colors,
 " because:
