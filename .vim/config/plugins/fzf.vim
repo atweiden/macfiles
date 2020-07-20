@@ -7,6 +7,33 @@ let g:fzf_command_prefix = 'FZF'
 " jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
+" use light colors for fzf running in gui vim
+if has('gui_running')
+  let g:fzf_colors = {
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'bg+':     ['bg', 'Normal'],
+    \ 'border':  ['fg', 'Ignore'],
+    \ 'fg':      ['bg', 'StatusLine'],
+    \ 'fg+':     ['bg', 'PmenuThumb'],
+    \ 'header':  ['fg', 'Comment'],
+    \ 'hl':      ['fg', 'Identifier'],
+    \ 'hl+':     ['bg', 'PmenuSel'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'spinner': ['fg', 'Label']
+    \ }
+
+  " hide status line when fzf starts in a :terminal buffer
+  augroup fzflaststatus
+    autocmd!
+    autocmd! FileType fzf
+    autocmd FileType fzf set laststatus=0
+    autocmd BufLeave <buffer> set laststatus=2
+  augroup END
+endif
+
 " preview files using highlight
 let g:fzf_files_options = printf('--preview "%s {} | head -' . &lines . '"',
   \ g:plugs['fzf.vim'].dir . '/bin/preview.sh')
@@ -48,13 +75,5 @@ nnoremap <silent> <M-F> :FZFLines<CR>
 
 " simple MRU file search
 nnoremap <silent> <M-m> :FZFHistory<CR>
-
-" hide status line when fzf starts in a :terminal buffer
-augroup fzflaststatus
-  autocmd!
-  autocmd! FileType fzf
-  autocmd FileType fzf set laststatus=0
-  autocmd BufLeave <buffer> set laststatus=2
-augroup END
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
