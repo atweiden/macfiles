@@ -8,6 +8,7 @@ function! s:source_cfg(path)
   execute 'source' fnameescape($CFGPATH . '/' . a:path)
 endfunction
 
+call s:source_cfg('reset.vim')
 call s:source_cfg('base.vim')
 call s:source_cfg('filetypes.vim')
 call s:source_cfg('plug.vim')
