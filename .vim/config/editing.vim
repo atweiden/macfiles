@@ -161,26 +161,6 @@ set nottimeout
 set timeoutlen=1000
 set ttimeoutlen=50
 
-" save and restore session data
-set sessionoptions+=blank,buffers,curdir,folds
-"                   |     |       |      |
-"                   |     |       |      +------- Manually created folds, opened/closed folds, local fold options
-"                   |     |       +-------------- The current directory
-"                   |     +---------------------- Hidden and unloaded buffers
-"                   +---------------------------- Empty windows
-set sessionoptions+=globals,help,localoptions,options
-"                   |       |    |            |
-"                   |       |    |            +--------- All options and mappings, global values for local options
-"                   |       |    +---------------------- Options and mappings local to a window or buffer
-"                   |       +--------------------------- The help window
-"                   +----------------------------------- Global variables that start with an uppercase letter and contain at least one lowercase letter
-set sessionoptions+=resize,tabpages,winpos,winsize
-"                   |      |        |      |
-"                   |      |        |      +--------- Window sizes
-"                   |      |        +---------------- Position of Vim window
-"                   |      +------------------------- All tab pages
-"                   +-------------------------------- Size of Vim window
-
 " automatic formatting options
 augroup fmtopts
   autocmd!
