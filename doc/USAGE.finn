@@ -325,6 +325,17 @@ hide cursor
 set t_ve=
 ```
 
+profile startup performance
+
+```sh
+# get baseline
+vim --startuptime startup-baseline.log -u NONE +q
+# with plugins
+git clone https://github.com/hyiltiz/vim-plugins-profile
+cd vim-plugins-profile
+./vim-plugins-profile.rb
+```
+
 ### neovim
 
 ```sh
