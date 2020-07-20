@@ -24,10 +24,10 @@ nnoremap <expr> < Repeatable('Dedent')
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
 " find >=2 spaces after a period or question mark (repeatable with n/N)
-nnoremap <silent> <localleader><CR> :let @/ = '[\.\?]\ze\s\s\+\S'<CR>:call search(@/, "sz")<CR>
+nnoremap <silent> <localleader><CR> :let @/ = '[\.\?]\zs\s\s\+\ze\S'<CR>:call search(@/, "sz")<CR>
 
 " find >=2 spaces after any non-space character (repeatable with n/N)
-nnoremap <silent> <localleader><localleader><CR> :let @/ = '\S\ze\s\s\+\S'<CR>:call search(@/, "sz")<CR>
+nnoremap <silent> <localleader><localleader><CR> :let @/ = '\S\zs\s\s\+\ze\S'<CR>:call search(@/, "sz")<CR>
 
 " find merge conflict markers forward (repeatable with n/N)
 nnoremap <silent> <F6> :let @/ = '\v^[<=>]{7}'<CR>:call search(@/, "sz")<CR>
