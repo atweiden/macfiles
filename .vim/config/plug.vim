@@ -59,6 +59,9 @@ Plug 'ciaranm/securemodelines'
 Plug 'tommcdo/vim-lion'
 Plug 't9md/vim-textmanip'
 
+" narrow region
+Plug 'Jorengarenar/ViewPort'
+
 " command runners
 Plug 'tpope/vim-tbone'
 
