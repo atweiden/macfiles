@@ -24,19 +24,23 @@ if has('gui_running')
     \ 'prompt':  ['fg', 'Conditional'],
     \ 'spinner': ['fg', 'Label']
     \ }
-
-  " hide status line when fzf starts in a :terminal buffer
-  augroup fzflaststatus
-    autocmd!
-    autocmd! FileType fzf
-    autocmd FileType fzf set laststatus=0
-    autocmd BufLeave <buffer> set laststatus=2
-  augroup END
 endif
 
 " preview files using highlight
 let g:fzf_files_options = printf('--preview "%s {} | head -' . &lines . '"',
   \ g:plugs['fzf.vim'].dir . '/bin/preview.sh')
+
+" paint pleasant monotone statusline in fzf buffer
+" fixes disappearing statusline in main vim window
+function! s:fzf_statusline()
+  highlight fzf1 ctermbg=95 guibg=#DFFFFF
+  setlocal statusline=%#fzf1#%{'\ '}
+endfunction
+
+augroup fzfstatusline
+  autocmd!
+  autocmd User FzfStatusLine call <SID>fzf_statusline()
+augroup END
 
 " :FZFAg  - start fzf with hidden preview window, enabled with `?` key
 " :FZFAg! - start fzf in fullscreen and display preview window above
