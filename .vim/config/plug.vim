@@ -16,16 +16,16 @@ Plug 'Harenome/vim-neatfoldtext'
 " filesystem
 Plug 'duggiefresh/vim-easydir'
 Plug 'preservim/nerdtree', { 'on': [ 'NERDTree',
-                                   \ 'NERDTreeFind',
-                                   \ 'NERDTreeMirror',
-                                   \ 'NERDTreeToggleVCS',
                                    \ 'NERDTreeCWD',
-                                   \ 'NERDTreeFocus',
-                                   \ 'NERDTreeRefreshRoot',
-                                   \ 'NERDTreeVCS',
                                    \ 'NERDTreeClose',
+                                   \ 'NERDTreeFind',
+                                   \ 'NERDTreeFocus',
                                    \ 'NERDTreeFromBookmark',
-                                   \ 'NERDTreeToggle' ] }
+                                   \ 'NERDTreeMirror',
+                                   \ 'NERDTreeRefreshRoot',
+                                   \ 'NERDTreeToggle',
+                                   \ 'NERDTreeToggleVCS',
+                                   \ 'NERDTreeVCS' ] }
 
 " keyboard
 Plug 'kana/vim-arpeggio'
