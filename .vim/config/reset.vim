@@ -266,4 +266,8 @@ inoremap <F1> <nop>
 nnoremap K <nop>
 vnoremap K <nop>
 
+" don't press M to position cursor on middle line of window
+nnoremap M <nop>
+vnoremap M <nop>
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
