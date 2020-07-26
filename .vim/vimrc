@@ -1,7 +1,7 @@
 " to avoid side effects when reloading vimrc, only set nocp when needed
 if &compatible | set nocompatible | endif
 
-let $VIMPATH = expand('~/.vim')
+let $VIMPATH = $HOME . '/.vim'
 let $CFGPATH = $VIMPATH . '/config'
 
 function! s:source_cfg(path)
