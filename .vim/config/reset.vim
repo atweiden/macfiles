@@ -13,9 +13,13 @@ let g:loaded_getscriptPlugin = 1
 let g:loaded_logipat = 1
 let g:loaded_man = 1
 
-" don't use spacebar to push cursor to the right
+" don't use spacebar to push cursor right
 nnoremap <space> <nop>
 vnoremap <space> <nop>
+
+" don't use backspace to push cursor left
+nnoremap <BS> <nop>
+vnoremap <BS> <nop>
 
 " don't use # or * to search word under cursor
 nnoremap # <nop>
