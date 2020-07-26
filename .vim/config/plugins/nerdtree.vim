@@ -39,6 +39,9 @@ let g:NERDTreeMapJumpPrevSibling = ''
 " show lock symbol in place of 'RO' for readonly files
 let g:NERDTreeGlyphReadOnly = ''
 
+" use M to toggle nerdtree menu, not m
+let g:NERDTreeMapMenu = 'M'
+
 " toggle nerdtree with F12
 nnoremap <silent> <F12> :NERDTreeToggle<CR>
 inoremap <silent> <F12> <C-O>:NERDTreeToggle<CR>
