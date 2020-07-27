@@ -57,8 +57,9 @@ noremap <leader><leader>P mz"+p`z
 " end pasting }}}
 " formatting {{{
 
-" format visual selection with spacebar
-vnoremap <space> :!fmt<CR>
+" use K to fmt lines with cursor position maintained
+nnoremap <silent> K mzgqq`z
+vnoremap <silent> K mzgq`z
 
 " end formatting }}}
 " writing {{{
