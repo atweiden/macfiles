@@ -77,6 +77,10 @@ if has('gui_running')
   " paste selection with <S-Ins>
   inoremap <S-Insert> <MiddleMouse>
   cnoremap <S-Insert> <MiddleMouse>
+  " display ligatures in macvim
+  set macligatures
+  " render text a bit lighter in macvim
+  set macthinstrokes
 endif
 
 " end macvim }}}
