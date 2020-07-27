@@ -146,6 +146,11 @@ set nowrapscan
 set incsearch
 set hlsearch
 
+" enable substitution live preview in neovim
+if has('nvim')
+  set inccommand=nosplit
+endif
+
 " ignore case in search patterns
 set ignorecase
 
