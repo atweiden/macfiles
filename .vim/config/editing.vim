@@ -29,7 +29,7 @@ set noshowmatch
 
 " turn on wildmenu completion
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:longest,full
 
 " disable some filetypes for completion efficiency
 set wildignore+=*.o,*.obj,*.dll,*.pyc
