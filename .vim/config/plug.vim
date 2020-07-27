@@ -134,6 +134,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mhinz/vim-hugefile'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 
 call plug#end()
 endif
