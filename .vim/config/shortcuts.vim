@@ -20,6 +20,13 @@ nnoremap <expr> < Repeatable('Dedent')
 " end selecting }}}
 " search and replace {{{
 
+" quick substitute
+nnoremap gs :s/
+xnoremap gs :s/
+
+" global substitute current visual selection
+xnoremap gS y:%s/<C-R>"//gc<Left><Left><Left>
+
 " remove search highlights
 nnoremap <silent> <leader><CR> :nohlsearch<CR>
 
