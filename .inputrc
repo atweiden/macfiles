@@ -2,13 +2,13 @@
 set editing-mode vi
 set keymap vi
 
-# Press 'jk' to ESC insert mode
 $if mode=vi
     set keymap vi-command
     # Don't search history with j/k
     "j": nop
     "k": nop
     set keymap vi-insert
+    # Press 'jk' to ESC insert mode
     "jk": vi-movement-mode
 $endif
 
