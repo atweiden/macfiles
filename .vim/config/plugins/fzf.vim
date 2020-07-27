@@ -77,7 +77,7 @@ nnoremap <silent> <M-f> :FZFBLines<CR>
 " search lines in loaded buffers
 nnoremap <silent> <M-F> :FZFLines<CR>
 
-" simple MRU file search
-nnoremap <silent> <M-m> :FZFHistory<CR>
+" search marks
+nnoremap <silent> <M-m> :FZFMarks<CR>
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
