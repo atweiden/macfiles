@@ -2,10 +2,12 @@
 set editing-mode vi
 set keymap vi
 
-# Remap ESC to use 'jk' keypress to toggle insert or movement mode
+# Press 'jk' to ESC insert mode
 $if mode=vi
     set keymap vi-command
-    "jk": vi-insertion-mode
+    # Don't search history with j/k
+    "j": nop
+    "k": nop
     set keymap vi-insert
     "jk": vi-movement-mode
 $endif
