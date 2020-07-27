@@ -55,6 +55,9 @@ Plug 'tpope/vim-commentary'
 " modelines
 Plug 'ciaranm/securemodelines'
 
+" registers
+Plug 'junegunn/vim-peekaboo'
+
 " align
 Plug 'tommcdo/vim-lion'
 Plug 't9md/vim-textmanip'
