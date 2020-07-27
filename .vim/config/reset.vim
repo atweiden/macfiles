@@ -4,14 +4,16 @@ let g:loaded_tar = 1
 let g:loaded_tarPlugin = 1
 let g:loaded_zip = 1
 let g:loaded_zipPlugin = 1
-let g:loaded_rrhelper = 1
-let g:loaded_2html_plugin = 1
-let g:loaded_vimball = 1
-let g:loaded_vimballPlugin = 1
 let g:loaded_getscript = 1
 let g:loaded_getscriptPlugin = 1
-let g:loaded_logipat = 1
+let g:loaded_vimball = 1
+let g:loaded_vimballPlugin = 1
+let g:loaded_2html_plugin = 1
+let g:loaded_logiPat = 1
 let g:loaded_man = 1
+let g:loaded_matchparen = 1
+let g:loaded_spellfile_plugin = 1
+let g:loaded_rrhelper = 1
 
 " don't use spacebar to push cursor right
 nnoremap <space> <nop>
@@ -252,6 +254,15 @@ nnoremap zw <nop>
 vnoremap zw <nop>
 
 " --- end spelling }}}
+
+" don't use gQ to enter ex mode
+nnoremap gQ <nop>
+
+" don't use gq to format text
+nnoremap gq <nop>
+
+" don't use gw to format text
+nnoremap gw <nop>
 
 " don't let netrw vmap gx
 vnoremap gx <nop>
