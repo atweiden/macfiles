@@ -1,5 +1,5 @@
-" toggle rainbow_parentheses.vim
-nnoremap <leader>rp :RainbowParentheses!!<CR>
+" toggle rainbow parentheses
+nnoremap <silent> <leader>sr :RainbowParentheses!!
 
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [
