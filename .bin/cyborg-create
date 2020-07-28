@@ -14,7 +14,7 @@ readonly DATETIME="$(date --utc '+%FT%T')"
 readonly PROGNAME='cyborg-create'
 
 # $VERSION contains $PROGNAME version number
-readonly VERSION=0.0.1
+readonly VERSION=0.0.2
 
 # end constants }}}
 # ==============================================================================
@@ -24,15 +24,16 @@ _usage() {
 read -r -d '' _usage_string <<EOF
 Usage:
   $PROGNAME [-h|--help]
-  $PROGNAME <archive> <path> [<path> <path>..]
+  $PROGNAME [--exclude-from <file>] <archive> <path> [<path> <path>..]
 
 Options:
-  -h, --help      Show this help text
-  -v, --version   Show program version
+  -h, --help               Show this help text
+  -v, --version            Show program version
+  --exclude-from <file>    Dispatch exclude patterns file to borg
 
 Positionals:
-  <archive>       Name of borgbackup/borg archive
-  <path>          Path to files for borg archival
+  <archive>                Name of borgbackup/borg archive
+  <path>                   Path to files for borg archival
 
 Examples
 
@@ -47,6 +48,9 @@ Examples
 
     # path to borg executable on remote host
     export BORG_REMOTE_PATH='borg1'
+
+    # path to exclude patterns file for borg
+    export CYBORG_EXCLUDE_FROM="\$HOME/.config/borg/exclude"
 
     # create archive named tiberium-$DATETIME of resources dir
     $PROGNAME tiberium-{utcnow} resources
@@ -68,6 +72,12 @@ while [[ $# -gt 0 ]]; do
     -v|--version)
       echo "$VERSION"
       exit 0
+      ;;
+    --exclude-from)
+      _cyborg_exclude_from="$2"
+      # shift past argument and value
+      shift
+      shift
       ;;
     -*)
       # unknown option
@@ -102,6 +112,9 @@ if [[ -z "$BORG_REPO" ]]; then
   exit 1
 fi
 
+# --exclude-from cmdline flag takes precedence over environment variable
+_borg_exclude_from="${_cyborg_exclude_from:-$CYBORG_EXCLUDE_FROM}"
+
 # $_borg_create_exit_code contains exit code for executed `borg create`
 _borg_create_exit_code=""
 
@@ -135,6 +148,11 @@ borg_create() {
   # anticipate remote host connection errors
   # see: https://github.com/borgbackup/borg/issues/3988#issuecomment-478807213
   _opts+=('--lock-wait=600')
+
+  # pass exclude patterns file if one was provided to cyborg
+  if [[ -n "$_borg_exclude_from" ]]; then
+    _opts+=("--exclude-from=$_borg_exclude_from")
+  fi
 
   borg \
     create \
