@@ -1,5 +1,5 @@
-" enable insert mode mappings
-let g:sexp_enable_insert_mode_mappings = 1
+" disable insert mode mappings
+let g:sexp_enable_insert_mode_mappings = 0
 
 " activate vim-sexp on lisp filetypes
 let g:sexp_filetypes = join(g:lispft, ',')
