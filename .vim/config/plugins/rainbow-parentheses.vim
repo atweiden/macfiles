@@ -1,5 +1,5 @@
 " toggle rainbow parentheses
-nnoremap <silent> <leader>sr :RainbowParentheses!!
+nnoremap <silent> <leader>sr :RainbowParentheses!!<CR>
 
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [
