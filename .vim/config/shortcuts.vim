@@ -208,6 +208,40 @@ nnoremap L g_
 vnoremap L g_
 
 " end movement }}}
+" filetypes {{{
+
+nnoremap <leader>sfa mz:setfiletype ada<CR>`z
+nnoremap <leader>sfc mz:setfiletype clojure<CR>`z
+nnoremap <leader>sfC mz:setfiletype chicken<CR>`z
+nnoremap <leader>sfd mz:setfiletype diff<CR>`z
+nnoremap <leader>sfe mz:setfiletype elixir<CR>`z
+nnoremap <leader>sfE mz:setfiletype erlang<CR>`z
+nnoremap <leader>sff mz:setfiletype finn<CR>`z
+nnoremap <leader>sfF mz:setfiletype fennel<CR>`z
+nnoremap <leader>sfg mz:setfiletype gitcommit<CR>`z
+nnoremap <leader>sfG mz:setfiletype go<CR>`z
+nnoremap <leader>sfh mz:setfiletype help<CR>`z
+nnoremap <leader>sfj mz:setfiletype journal<CR>`z
+nnoremap <leader>sfJ mz:setfiletype janet<CR>`z
+nnoremap <leader>sfl mz:setfiletype lisp<CR>`z
+nnoremap <leader>sfL mz:setfiletype lua<CR>`z
+nnoremap <leader>sfm mz:setfiletype markdown<CR>`z
+nnoremap <leader>sfo mz:setfiletype ocaml<CR>`z
+nnoremap <leader>sfp mz:setfiletype php<CR>`z
+nnoremap <leader>sfr mz:setfiletype raku<CR>`z
+nnoremap <leader>sfR mz:setfiletype reason<CR>`z
+nnoremap <leader>sfs mz:setfiletype sh<CR>`z
+nnoremap <leader>sfS mz:setfiletype scheme<CR>`z
+nnoremap <leader>sft mz:setfiletype toml<CR>`z
+nnoremap <leader>sfT mz:setfiletype tex<CR>`z
+nnoremap <leader>sfu mz:setfiletype rust<CR>`z
+nnoremap <leader>sfv mz:setfiletype vim<CR>`z
+nnoremap <leader>sfx mz:setfiletype text<CR>`z
+nnoremap <leader>sfy mz:setfiletype yaml<CR>`z
+nnoremap <leader>sfz mz:setfiletype zig<CR>`z
+nnoremap <leader>sF :setfiletype<space>
+
+" end filetypes }}}
 " folds {{{
 
 " toggle folds with g+spacebar
