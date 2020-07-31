@@ -6,6 +6,7 @@
 .svn
 .peru
 .precomp
+lua_modules
 node_modules
 .gitattributes
 .gitignore
