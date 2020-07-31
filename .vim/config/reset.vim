@@ -300,4 +300,43 @@ vnoremap K <nop>
 nnoremap M <nop>
 vnoremap M <nop>
 
+" don't use Ctrl-H to delete
+inoremap <C-H> <nop>
+" don't use Ctrl-J to begin new line
+inoremap <C-J> <nop>
+" don't use Ctrl-K to input digraph
+inoremap <C-K> <nop>
+" don't use Ctrl-L to insert ^L or switch to normal mode
+inoremap <C-L> <nop>
+
+" don't use Ctrl-M to begin new line
+inoremap <C-M> <nop>
+
+" don't use Ctrl-E to insert character below cursor
+inoremap <C-E> <nop>
+" don't use Ctrl-Y to insert character above cursor
+inoremap <C-Y> <nop>
+" don't use Ctrl-A to insert previously inserted text
+inoremap <C-A> <nop>
+" don't use Ctrl-@ to insert previously inserted text and stop insert
+inoremap <C-@> <nop>
+
+" don't use Ctrl-W to delete word before cursor
+inoremap <C-W> <nop>
+" don't use Ctrl-U to delete characters before cursor on current line
+inoremap <C-U> <nop>
+
+" don't use Shift-← to move cursor one word back
+inoremap <S-Left> <nop>
+" don't use Ctrl-← to move cursor one word back
+inoremap <C-Left> <nop>
+" don't use Shift-→ to move cursor one word forward
+inoremap <S-Right> <nop>
+" don't use Ctrl-→ to move cursor one word forward
+inoremap <C-Right> <nop>
+" don't use Shift-↑ to move window one page up
+inoremap <S-Up> <nop>
+" don't use Shift-↓ to move window one page down
+inoremap <S-Down> <nop>
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
