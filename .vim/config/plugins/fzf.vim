@@ -7,6 +7,18 @@ let g:fzf_command_prefix = 'FZF'
 " jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
+" default to using large, centered popup window
+let g:fzf_layout = {
+    \ 'window': {
+    \   'width': 1,
+    \   'height': 0.88,
+    \   'xoffset': 0.5,
+    \   'yoffset': 0.5,
+    \   'highlight': 'NonText',
+    \   'border': 'sharp'
+    \ }
+    \ }
+
 " use light colors for fzf running in gui vim
 if has('gui_running')
   let g:fzf_colors = {
@@ -42,34 +54,41 @@ augroup fzfstatusline
   autocmd User FzfStatusLine call <SID>fzf_statusline()
 augroup END
 
-" :FZFAg  - start fzf with hidden preview window, enabled with `?` key
-" :FZFAg! - start fzf in fullscreen and display preview window above
-command! -bang -nargs=* FZFAg
-    \ call fzf#vim#ag(<q-args>,
-    \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-    \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-    \                 <bang>0)
+" word completion using `cat /usr/share/dict/words`
+inoremap <expr> <C-X><C-K> fzf#vim#complete(fzf#wrap({
+    \ 'source': 'cat /usr/share/dict/words',
+    \ 'window': {
+    \   'width': 0.2,
+    \   'height': 0.9,
+    \   'xoffset': 1,
+    \   'highlight': 'NonText',
+    \   'border': 'sharp'
+    \ }}))
 
-" cat /usr/share/dict/words
-imap <C-X><C-K> <Plug>(fzf-complete-word)
+" path completion using rg
+inoremap <expr> <C-X><C-F> fzf#vim#complete(fzf#wrap({
+    \ 'source': 'rg --hidden --files',
+    \ 'window': {
+    \   'width': 0.9,
+    \   'height': 0.35,
+    \   'yoffset': 0.9,
+    \   'highlight': 'NonText',
+    \   'border': 'sharp'
+    \ }}))
 
-" path completion using find (file + dir)
-imap <C-X><C-F> <Plug>(fzf-complete-path)
-
-" file completion using ag
-imap <C-X><C-J> <Plug>(fzf-complete-file-ag)
-
-" line completion (current buffer only)
-imap <C-X><C-L> <Plug>(fzf-complete-line)
+" global line completion using rg (not just open buffers)
+inoremap <expr> <C-X><C-L> fzf#vim#complete(fzf#wrap({
+    \ 'source': 'rg -n ^ --color=always',
+    \ 'options': '--ansi --delimiter : --nth 3..',
+    \ 'prefix': '^.*$',
+    \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }
+    \ }))
 
 " open files from cwd
 nnoremap <silent> <leader>o :FZFFiles<CR>
 
 " select buffer
 nnoremap <silent> <leader>lz :FZFBuffers<CR>
-
-" search with ag from cwd
-nnoremap <silent> <C-F> :FZFAg<CR>
 
 " search lines in current buffer
 nnoremap <silent> <M-f> :FZFBLines<CR>
