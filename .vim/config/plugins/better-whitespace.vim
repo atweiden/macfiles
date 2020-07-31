@@ -2,6 +2,7 @@ let g:better_whitespace_operator = '<leader>sw'
 
 " disable whitespace highlights for specified filetypes
 let g:better_whitespace_filetypes_blacklist = [
+    \ 'ctrlsf',
     \ 'diff',
     \ 'help',
     \ 'qf',

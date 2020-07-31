@@ -32,6 +32,10 @@ Plug 'kana/vim-arpeggio'
 Plug 'drmikehenry/vim-fixkey'
 
 " search and replace
+Plug 'dyng/ctrlsf.vim', { 'on': [ ':CtrlSF',
+                                \ ':CtrlSFClose',
+                                \ ':CtrlSFOpen',
+                                \ ':CtrlSFToggle' ] }
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 't9md/vim-quickhl'
