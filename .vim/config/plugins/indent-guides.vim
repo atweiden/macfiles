@@ -15,10 +15,10 @@ augroup END
 " exclude filetypes
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 
-" don't consider spaces as indention
+" don't classify spaces as indention
 let g:indent_guides_space_guides = 0
 
-" only match spaces at the beginning of the line
+" only match spaces at beginning of line
 " uncomment if g:indent_guides_space_guides = 1
 "let g:indent_guides_soft_pattern = ' '
 

@@ -230,7 +230,7 @@ augroup autoresize
   autocmd VimResized * :wincmd =
 augroup END
 
-" fix background color bleed in tmux / screen
+" fix background color bleed in tmux/screen
 set t_ut=""
 
 " end screen }}}
