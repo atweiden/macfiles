@@ -145,9 +145,6 @@ nnoremap <silent> <leader>D a<C-R>=substitute(strtrans(system("date --iso-8601=s
 " end timestamps }}}
 " toggles {{{
 
-" toggle show tab-completed wild menu
-nnoremap <silent> <F1> :let &wildmode=&wildmode=~"full" ? "list:longest" : "list:longest,full" <Bar> set wildmode?<CR>
-
 " toggle paste mode
 set pastetoggle=<F2>
 
