@@ -290,19 +290,38 @@ nnoremap <silent> <leader>9 :<C-U>buffer 9<CR>
 " end buffers }}}
 " windows {{{
 
-" map alt-[h,j,k,l] to resizing a window split
-" map alt-[N,P] to moving to next and previous window respectively
-" map alt-[H,J,K,L] to repositioning a window split
-nnoremap <silent> <M-h> :<C-U>ObviousResizeLeft<CR>
-nnoremap <silent> <M-j> :<C-U>ObviousResizeDown<CR>
-nnoremap <silent> <M-k> :<C-U>ObviousResizeUp<CR>
-nnoremap <silent> <M-l> :<C-U>ObviousResizeRight<CR>
-nnoremap <silent> <M-N> <C-W><C-W>
-nnoremap <silent> <M-P> <C-W><S-W>
+" use alt-{n,p} to move to next and previous window respectively
+" use alt-{H,J,K,L} to reposition window split
+nnoremap <silent> <M-n> <C-W><C-W>
+inoremap <silent> <M-n> <C-O><C-W><C-W>
+vnoremap <silent> <M-n> <ESC><C-W><C-W>gv
+cnoremap <silent> <M-n> <C-C><C-W><C-W>
+tnoremap <silent> <M-n> <C-W><C-W>
+nnoremap <silent> <M-p> <C-W><S-W>
+inoremap <silent> <M-p> <C-O><C-W><S-W>
+vnoremap <silent> <M-p> <ESC><C-W><S-W>gv
+cnoremap <silent> <M-p> <C-C><C-W><S-W>
+tnoremap <silent> <M-p> <C-W><S-W>
 nnoremap <silent> <M-H> <C-W>H
+inoremap <silent> <M-H> <C-O><C-W>H
+vnoremap <silent> <M-H> <ESC><C-W>Hgv
+cnoremap <silent> <M-H> <C-C><C-W>H
+tnoremap <silent> <M-H> <C-W>H
 nnoremap <silent> <M-J> <C-W>J
+inoremap <silent> <M-J> <C-O><C-W>J
+vnoremap <silent> <M-J> <ESC><C-W>Jgv
+cnoremap <silent> <M-J> <C-C><C-W>J
+tnoremap <silent> <M-J> <C-W>J
 nnoremap <silent> <M-K> <C-W>K
+inoremap <silent> <M-K> <C-O><C-W>K
+vnoremap <silent> <M-K> <ESC><C-W>Kgv
+cnoremap <silent> <M-K> <C-C><C-W>K
+tnoremap <silent> <M-K> <C-W>K
 nnoremap <silent> <M-L> <C-W>L
+inoremap <silent> <M-L> <C-O><C-W>L
+vnoremap <silent> <M-L> <ESC><C-W>Lgv
+cnoremap <silent> <M-L> <C-C><C-W>L
+tnoremap <silent> <M-L> <C-W>L
 
 " end windows }}}
 " screen {{{
