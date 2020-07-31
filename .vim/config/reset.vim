@@ -26,8 +26,12 @@ vnoremap <BS> <nop>
 " don't use # or * to search word under cursor
 nnoremap # <nop>
 vnoremap # <nop>
+nnoremap g# <nop>
+vnoremap g# <nop>
 nnoremap * <nop>
 vnoremap * <nop>
+nnoremap g* <nop>
+vnoremap g* <nop>
 
 " don't use & to repeat last substitute
 nnoremap & <nop>
@@ -314,9 +318,6 @@ cnoremap <C-K> <nop>
 inoremap <C-L> <nop>
 " don't use Ctrl-L in pattern match entry
 cnoremap <C-L> <nop>
-
-" don't use Ctrl-M to begin new line
-inoremap <C-M> <nop>
 
 " don't use Ctrl-E to insert character below cursor
 inoremap <C-E> <nop>
