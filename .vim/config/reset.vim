@@ -302,12 +302,18 @@ vnoremap M <nop>
 
 " don't use Ctrl-H to delete
 inoremap <C-H> <nop>
+cnoremap <C-H> <nop>
 " don't use Ctrl-J to begin new line
 inoremap <C-J> <nop>
+" don't use Ctrl-J to start entered command
+cnoremap <C-J> <nop>
 " don't use Ctrl-K to input digraph
 inoremap <C-K> <nop>
+cnoremap <C-K> <nop>
 " don't use Ctrl-L to insert ^L or switch to normal mode
 inoremap <C-L> <nop>
+" don't use Ctrl-L in pattern match entry
+cnoremap <C-L> <nop>
 
 " don't use Ctrl-M to begin new line
 inoremap <C-M> <nop>
@@ -318,6 +324,8 @@ inoremap <C-E> <nop>
 inoremap <C-Y> <nop>
 " don't use Ctrl-A to insert previously inserted text
 inoremap <C-A> <nop>
+" don't use Ctrl-A to insert all names matching pattern in front of cursor
+cnoremap <C-A> <nop>
 " don't use Ctrl-@ to insert previously inserted text and stop insert
 inoremap <C-@> <nop>
 
@@ -328,15 +336,23 @@ inoremap <C-U> <nop>
 
 " don't use Shift-← to move cursor one word back
 inoremap <S-Left> <nop>
+cnoremap <S-Left> <nop>
 " don't use Ctrl-← to move cursor one word back
 inoremap <C-Left> <nop>
+cnoremap <C-Left> <nop>
 " don't use Shift-→ to move cursor one word forward
 inoremap <S-Right> <nop>
+cnoremap <S-Right> <nop>
 " don't use Ctrl-→ to move cursor one word forward
 inoremap <C-Right> <nop>
+cnoremap <C-Right> <nop>
 " don't use Shift-↑ to move window one page up
 inoremap <S-Up> <nop>
+" don't use Shift-↑ to recall older command from history
+cnoremap <S-Up> <nop>
 " don't use Shift-↓ to move window one page down
 inoremap <S-Down> <nop>
+" don't use Shift-↓ to recall older command from history
+cnoremap <S-Down> <nop>
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
