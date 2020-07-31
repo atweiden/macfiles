@@ -1,9 +1,9 @@
 " don't return to last edit position
 let b:noreturntopos = 1
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+setlocal tabstop=2
+setlocal softtabstop=2
+setlocal shiftwidth=2
 
 augroup gitdiffcommit
   autocmd!

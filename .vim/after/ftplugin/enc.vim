@@ -1,11 +1,11 @@
-set viminfo=
-set nobackup
-set noswapfile
-set noundofile
-set nowritebackup
-set noshelltemp
-set history=0
-set cryptmethod=blowfish2
+setlocal viminfo=
+setlocal nobackup
+setlocal noswapfile
+setlocal noundofile
+setlocal nowritebackup
+setlocal noshelltemp
+setlocal history=0
+setlocal cryptmethod=blowfish2
 
 nnoremap <leader>e :%!enchive archive \| base64<CR>
 nnoremap <leader>d :%!base64 -d \| enchive --agent --pinentry extract<CR>

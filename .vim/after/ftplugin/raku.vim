@@ -1,9 +1,9 @@
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set matchpairs+=<:>
-set matchpairs+=«:»
-set matchpairs+=「:」
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal matchpairs+=<:>
+setlocal matchpairs+=«:»
+setlocal matchpairs+=「:」
 
 if has('digraphs')
   " (᚛) ogham feather mark
