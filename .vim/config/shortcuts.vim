@@ -101,6 +101,10 @@ nnoremap Q @q
 " end redoing }}}
 " digraphs {{{
 
+" use Ctrl-U to insert digraphs
+inoremap <C-U> <C-K>
+cnoremap <C-U> <C-K>
+
 if has('digraphs')
   " (¡) inverted exclamation mark
   digraph !! 161
