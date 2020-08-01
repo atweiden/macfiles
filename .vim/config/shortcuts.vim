@@ -48,8 +48,11 @@ nnoremap <silent> <S-F6> :let @/ = '\v^[<=>]{7}([^=].+)?$'<CR>:call search(@/, "
 " yank to end of line
 noremap Y y$
 
+" maintain cursor position post visual mode yank
+vnoremap y ygv<ESC>
+
 " copy to clipboard
-vnoremap <leader>y "+yy<ESC>
+vnoremap <leader>y "+ygv<ESC>
 nnoremap <leader>y "+y
 nnoremap <leader>Y "+y$
 
