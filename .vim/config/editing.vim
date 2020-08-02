@@ -248,4 +248,7 @@ let g:spellfile_URL = '/usr/share/vim/vimfiles/spell'
 " words for <C-X><C-K> completion
 "set dictionary=/usr/share/dict/words
 
+" make help window more likely to open at half existing window height
+set helpheight=12
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
