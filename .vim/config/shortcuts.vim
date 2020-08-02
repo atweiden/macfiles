@@ -263,7 +263,7 @@ nnoremap <leader>sF :setfiletype<space>
 nnoremap <silent> g<space> za
 
 " toggle folds recursively
-nnoremap <silent> <localleader>g<space> zA
+nnoremap <silent> <localleader>- zA
 
 " focus current line with minimal number of folds open
 nnoremap <silent> <leader><space> zMzvzz
