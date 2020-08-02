@@ -29,7 +29,13 @@ set noshowmatch
 
 " turn on wildmenu completion
 set wildmenu
-set wildmode=list:longest,full
+if !has('nvim')
+  set wildmode=list:longest,full
+else
+  " display wildmenu completion options in popup menu on neovim
+  set wildmode=full
+  set wildoptions+=pum
+endif
 
 " disable some filetypes for completion efficiency
 set wildignore+=*.o,*.obj,*.dll,*.pyc
@@ -253,6 +259,9 @@ let g:spellfile_URL = '/usr/share/vim/vimfiles/spell'
 
 " words for <C-X><C-K> completion
 "set dictionary=/usr/share/dict/words
+
+" lower maximum height of popup menu
+set pumheight=20
 
 " make help window more likely to open at half existing window height
 set helpheight=12
