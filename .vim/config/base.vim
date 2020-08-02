@@ -140,8 +140,11 @@ set updatecount=20
 " do not redraw screen when executing macros
 set lazyredraw
 
-" indicates fast terminal connection
+" improve redraw performance
 set ttyfast
+
+" make syntax highlighting more robust post vim 8
+set redrawtime=10000
 
 if !has('nvim')
   " terminal type for mouse codes
