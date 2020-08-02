@@ -218,7 +218,7 @@ elseif executable('ack')
   set grepprg+=\ --nopager
 endif
 
-" don't move back the cursor one position upon esc
+" don't move back cursor one position upon esc
 augroup cursorpos
   autocmd!
   autocmd InsertEnter * let b:curcol = col('.')
@@ -237,6 +237,12 @@ augroup checktimestamp
   autocmd!
   autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
     \ silent! checktime
+augroup END
+
+" write file and create its parent directories simultaneously
+augroup easydir
+  autocmd!
+  autocmd BufWritePre,FileWritePre * call MkdirP(expand('<afile>:p:h'), v:cmdbang)
 augroup END
 
 " disable spell check

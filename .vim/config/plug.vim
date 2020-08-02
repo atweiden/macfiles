@@ -14,7 +14,6 @@ Plug 'Konfekt/FastFold'
 Plug 'Harenome/vim-neatfoldtext'
 
 " filesystem
-Plug 'duggiefresh/vim-easydir'
 Plug 'preservim/nerdtree', { 'on': [ 'NERDTree',
                                    \ 'NERDTreeCWD',
                                    \ 'NERDTreeClose',
