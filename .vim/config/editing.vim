@@ -77,6 +77,15 @@ set whichwrap+=<,>,[,]
 " indicate wrapped characters
 set showbreak=⁍
 
+" visually indent wrapped lines
+if exists('+breakindent')
+  set breakindent
+  set breakindentopt=shift:2
+endif
+
+" wrap lines by default
+set wrap
+
 " prevent two spaces after punctuation on a line join
 set nojoinspaces
 
@@ -117,9 +126,6 @@ set foldopen=insert,mark,percent,tag,undo
 
 " when foldmethod is indent or syntax, don't fold more than N levels deep
 set foldnestmax=3
-
-" wrap lines by default
-set wrap
 
 " show the line number in front of each line
 set number
