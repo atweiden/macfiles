@@ -154,6 +154,11 @@ nnoremap <silent> <leader>D a<C-R>=substitute(strtrans(system("date --iso-8601=s
 " end timestamps }}}
 " toggles {{{
 
+" toggle conceallevel
+nnoremap <silent> <S-F1> :call ToggleConceal()<CR>
+inoremap <silent> <S-F1> <C-O>:call ToggleConceal()<CR>
+vnoremap <silent> <S-F1> <ESC>:call ToggleConceal()<CR>gv
+
 " toggle paste mode
 set pastetoggle=<F2>
 
