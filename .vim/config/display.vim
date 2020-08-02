@@ -225,7 +225,7 @@ call SetListCharsRemaining()
 set synmaxcol=200
 
 " start parsing syntax 230 lines prior to current line
-augroup syntaxsyncminmax
+augroup syntaxsyncminlines
   autocmd!
   autocmd Syntax * syntax sync minlines=230
 augroup END
