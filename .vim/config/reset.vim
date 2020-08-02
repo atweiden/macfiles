@@ -114,13 +114,17 @@ noremap zf <nop>
 nnoremap zi <nop>
 vnoremap zi <nop>
 
+" move to the start of the current open fold
+noremap [z <nop>
+
+" move to the end of the current open fold
+noremap ]z <nop>
+
 " move to the start of the next fold
-nnoremap zj <nop>
-vnoremap zj <nop>
+noremap zj <nop>
 
 " move to the end of the previous fold
-nnoremap zk <nop>
-vnoremap zk <nop>
+noremap zk <nop>
 
 " subtract one from 'foldlevel'
 nnoremap zm <nop>
