@@ -104,6 +104,9 @@ nnoremap . .`[
 " qq to record, Q to replay
 nnoremap Q @q
 
+" limit macro execution to visual selection
+xnoremap Q :'<,'>:normal @q<CR>
+
 " end redoing }}}
 " digraphs {{{
 
