@@ -279,6 +279,7 @@ _has_colordiff="$(command -v colordiff)"
 _has_curl="$(command -v curl)"
 _has_diffr="$(command -v diffr)"
 _has_gdb="$(command -v gdb)"
+_has_git="$(command -v git)"
 _has_glibtool="$(command -v glibtool)"
 _has_gtime="$(command -v gtime)"
 _has_gunits="$(command -v gunits)"
@@ -372,7 +373,8 @@ alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
 alias cdd='cd $HOME/Downloads'
 alias cdf="cd \"$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')\""
-alias cdg='cd $(git rev-parse --show-cdup)'
+[[ -n "$_has_git" ]] \
+  && alias cdg='cd $(git rev-parse --show-cdup)'
 alias cdp='cd $HOME/Projects'
 alias cds='cd $HOME/.src'
 alias :o='open "${1:-.}"'
@@ -414,6 +416,12 @@ alias bzip2='bzip2 -9'
   && alias gdb='gdb -q -nh -x $HOME/.config/gdb/init'
 
 # --- end gdb }}}
+# --- git {{{
+
+[[ -n "$_has_git" ]] \
+  && alias gs='git status --short --branch'
+
+# --- end git }}}
 # --- gnu {{{
 
 [[ -n "$_has_glibtool" ]] \
