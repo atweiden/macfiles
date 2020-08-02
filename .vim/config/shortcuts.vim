@@ -248,27 +248,32 @@ nnoremap <leader>sF :setfiletype<space>
 " end filetypes }}}
 " folds {{{
 
-" toggle folds with g+spacebar
+" toggle folds
 nnoremap <silent> g<space> za
 
-" focus just the current line with minimal number of folds open
+" toggle folds recursively
+nnoremap <silent> <localleader>g<space> zA
+
+" focus current line with minimal number of folds open
 nnoremap <silent> <leader><space> zMzvzz
 
 " navigate folds
-nnoremap <silent> <leader>fk zk
-nnoremap <silent> <leader>fj zj
+noremap <silent> <localleader>k zk
+noremap <silent> <localleader>j zj
+noremap <silent> <localleader>H [z
+noremap <silent> <localleader>L ]z
 
 " set fold level
-nnoremap <silent> <leader>f0 :set foldlevel=0<CR>
-nnoremap <silent> <leader>f1 :set foldlevel=1<CR>
-nnoremap <silent> <leader>f2 :set foldlevel=2<CR>
-nnoremap <silent> <leader>f3 :set foldlevel=3<CR>
-nnoremap <silent> <leader>f4 :set foldlevel=4<CR>
-nnoremap <silent> <leader>f5 :set foldlevel=5<CR>
-nnoremap <silent> <leader>f6 :set foldlevel=6<CR>
-nnoremap <silent> <leader>f7 :set foldlevel=7<CR>
-nnoremap <silent> <leader>f8 :set foldlevel=8<CR>
-nnoremap <silent> <leader>f9 :set foldlevel=9<CR>
+nnoremap <silent> <localleader>0 :set foldlevel=0<CR>
+nnoremap <silent> <localleader>1 :set foldlevel=1<CR>
+nnoremap <silent> <localleader>2 :set foldlevel=2<CR>
+nnoremap <silent> <localleader>3 :set foldlevel=3<CR>
+nnoremap <silent> <localleader>4 :set foldlevel=4<CR>
+nnoremap <silent> <localleader>5 :set foldlevel=5<CR>
+nnoremap <silent> <localleader>6 :set foldlevel=6<CR>
+nnoremap <silent> <localleader>7 :set foldlevel=7<CR>
+nnoremap <silent> <localleader>8 :set foldlevel=8<CR>
+nnoremap <silent> <localleader>9 :set foldlevel=9<CR>
 
 " end folds }}}
 " buffers {{{
