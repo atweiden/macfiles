@@ -418,8 +418,12 @@ alias bzip2='bzip2 -9'
 # --- end gdb }}}
 # --- git {{{
 
-[[ -n "$_has_git" ]] \
-  && alias gs='git status --short --branch'
+if [[ -n "$_has_git" ]]; then
+  alias gd='git diff'
+  alias gdr='git diffrev "$@"'
+  alias gdrh='git diffrev HEAD'
+  alias gs='git status --short --branch'
+fi
 
 # --- end git }}}
 # --- gnu {{{
