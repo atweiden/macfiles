@@ -172,6 +172,9 @@ set smartcase
 " adjust case of match depending on typed text
 set infercase
 
+" maintain concealed chars on cursor line in normal, insert, visual mode
+set concealcursor=niv
+
 " set timeout value for mappings to 1s, keycodes to 1/20th of a second
 set timeout
 set nottimeout
