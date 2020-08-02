@@ -4,6 +4,9 @@ let g:netrw_banner = 0
 " don't generate .netrwhist files
 let g:netrw_dirhistmax = 0
 
+" don't allow netrw to map gx for opener handling
+let g:netrw_nogx = 1
+
 " do network file transfers silently
 let g:netrw_silent = 1
 
