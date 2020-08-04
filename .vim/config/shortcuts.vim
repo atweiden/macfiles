@@ -271,8 +271,8 @@ nnoremap <silent> <localleader>m zm
 " close all folds
 nnoremap <silent> <localleader>M zM
 
-" recursively close current fold, even if partially closed
-nnoremap <silent> <localleader>C zozC
+" recursively close current fold
+nnoremap <silent> <localleader>C zC
 
 " fold less
 nnoremap <silent> <localleader>r zr
@@ -280,8 +280,8 @@ nnoremap <silent> <localleader>r zr
 " open all folds
 nnoremap <silent> <localleader>R zR
 
-" recursively open current fold, even if partially open
-nnoremap <silent> <localleader>O zczO
+" recursively open current fold
+nnoremap <silent> <localleader>O zO
 
 " focus current line with minimal number of folds open
 nnoremap <silent> <leader><space> zMzvzz
