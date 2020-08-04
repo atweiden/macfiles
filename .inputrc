@@ -75,6 +75,9 @@ $endif
 # Don't bind control chars w/ special kernel treatment to readline equiv
 set bind-tty-special-chars off
 
+# Don't search history with <Ctrl-s>
+Control-s: nop
+
 # Make <Ctrl-n> and <Ctrl-p> cycle through completions
 Control-n: menu-complete
 Control-p: menu-complete-backward
