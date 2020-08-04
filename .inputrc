@@ -4,6 +4,8 @@ set keymap vi
 
 $if mode=vi
     set keymap vi-command
+    # Don't search history with <Ctrl-s>
+    Control-s: nop
     # Don't search history with j/k
     "j": nop
     "k": nop
@@ -70,13 +72,12 @@ $if mode=vi
     set keymap vi-insert
     # Press 'jk' to ESC insert mode
     "jk": vi-movement-mode
+    # Don't search history with <Ctrl-s>
+    Control-s: nop
 $endif
 
 # Don't bind control chars w/ special kernel treatment to readline equiv
 set bind-tty-special-chars off
-
-# Don't search history with <Ctrl-s>
-Control-s: nop
 
 # Make <Ctrl-n> and <Ctrl-p> cycle through completions
 Control-n: menu-complete
