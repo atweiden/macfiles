@@ -128,7 +128,7 @@ set foldmethod=marker
 set foldlevel=1
 
 " automatically open folds on these commands
-set foldopen=insert,mark,percent,tag,undo
+set foldopen=insert,mark,percent,search,tag,undo
 
 " when foldmethod is indent or syntax, don't fold more than N levels deep
 set foldnestmax=3
