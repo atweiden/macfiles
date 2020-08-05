@@ -419,6 +419,7 @@ alias bzip2='bzip2 -9'
 # --- git {{{
 
 if [[ -n "$_has_git" ]]; then
+  alias g='git'
   alias gd='git diff'
   alias gdr='git diffrev "$@"'
   alias gdrh='git diffrev HEAD'
