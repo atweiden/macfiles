@@ -151,12 +151,14 @@ set linespace=1
 " <Tab> in front of a line inserts blanks according to shiftwidth
 set smarttab
 
-" don't wrap searches around the end of the file
+" don't wrap searches around end of file
 set nowrapscan
 
-" search options: incremental search, highlight search
-set incsearch
+" highlight search pattern matches
 set hlsearch
+
+" show search pattern matches during pattern entry
+set incsearch
 
 " enable substitution live preview in neovim
 if has('nvim')
