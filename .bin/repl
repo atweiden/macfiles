@@ -40,13 +40,16 @@ Options:
 
 Language
   List of acceptable languages:
-  | chicken
   | elixir
   | erlang
   | fennel
   | janet
+  | lisp | clozure | sbcl
+  | lua | lua5.1 | lua5.2 | lua5.3 | lua5.4 | luajit
   | ocaml
+  | racket
   | raku
+  | scheme | chicken
 
 Examples
 
@@ -117,7 +120,7 @@ sanitize_input() {
   # encountered
   local _apology
   case "$_repl_lang" in
-    chicken|elixir|erlang|fennel|janet|ocaml|raku)
+    chicken|clozure|elixir|erlang|fennel|janet|lisp|lua|lua5.1|lua5.2|lua5.3|lua5.4|luajit|ocaml|racket|raku|sbcl|scheme)
       # proper repl language chosen, no action necessary
       ;;
     *)
@@ -169,20 +172,12 @@ local _repl_launch_command
 local _rlwrap_opts=()
 
 case "$_repl_lang" in
-  chicken)
-    _file_extension='.scm'
-    _is_kebab_case=true
-    _is_lisp=true
-    _repl_completions_file="$REPL_HOME/chicken/completions"
-    _repl_history_file="$REPL_HOME/chicken/history"
-    _repl_launch_command='csi -quiet'
-    ;;
   clozure)
     _file_extension='.lisp'
     _is_kebab_case=true
     _is_lisp=true
-    _repl_completions_file="$REPL_HOME/clozure/completions"
-    _repl_history_file="$REPL_HOME/clozure/history"
+    _repl_completions_file="$REPL_HOME/lisp/clozure/completions"
+    _repl_history_file="$REPL_HOME/lisp/clozure/history"
     _repl_launch_command='ccl64'
     ;;
   elixir)
@@ -216,6 +211,14 @@ case "$_repl_lang" in
     _repl_completions_file="$REPL_HOME/janet/completions"
     _repl_history_file="$REPL_HOME/janet/history"
     _repl_launch_command='janet -s'
+    ;;
+  lisp|sbcl)
+    _file_extension='.lisp'
+    _is_kebab_case=true
+    _is_lisp=true
+    _repl_completions_file="$REPL_HOME/lisp/sbcl/completions"
+    _repl_history_file="$REPL_HOME/lisp/sbcl/history"
+    _repl_launch_command='sbcl'
     ;;
   lua)
     _file_extension='.lua'
@@ -274,13 +277,13 @@ case "$_repl_lang" in
     _repl_history_file="$REPL_HOME/raku/history"
     _repl_launch_command='raku'
     ;;
-  sbcl)
-    _file_extension='.lisp'
+  scheme|chicken)
+    _file_extension='.scm'
     _is_kebab_case=true
     _is_lisp=true
-    _repl_completions_file="$REPL_HOME/sbcl/completions"
-    _repl_history_file="$REPL_HOME/sbcl/history"
-    _repl_launch_command='sbcl'
+    _repl_completions_file="$REPL_HOME/scheme/chicken/completions"
+    _repl_history_file="$REPL_HOME/scheme/chicken/history"
+    _repl_launch_command='csi -quiet'
     ;;
 esac
 
