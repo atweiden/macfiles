@@ -29,13 +29,7 @@ set noshowmatch
 
 " turn on wildmenu completion
 set wildmenu
-if !has('nvim')
-  set wildmode=list:longest,full
-else
-  " display wildmenu completion options in popup menu on neovim
-  set wildmode=full
-  set wildoptions+=pum
-endif
+set wildmode=list:longest,full
 
 " don't wildmatch the following for completion efficiency
 set wildignore=
