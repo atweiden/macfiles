@@ -4,11 +4,15 @@ set keymap vi
 
 $if mode=vi
     set keymap vi-command
-    # Don't search history with <Ctrl-s>
-    Control-s: nop
     # Don't search history with j/k
     "j": nop
     "k": nop
+    # Don't search history with <Ctrl-s>
+    Control-s: nop
+    # Don't open $EDITOR on rlwrap command line with <Ctrl-^>
+    Control-^: nop
+    # Open $EDITOR on rlwrap command line with <Ctrl-x><Ctrl-e>
+    "\C-x\C-e": rlwrap-call-editor
     "daw": "lbdW"
     "yaw": "lbyW"
     "caw": "lbcW"
@@ -74,6 +78,10 @@ $if mode=vi
     "jk": vi-movement-mode
     # Don't search history with <Ctrl-s>
     Control-s: nop
+    # Don't open $EDITOR on rlwrap command line with <Ctrl-^>
+    Control-^: nop
+    # Open $EDITOR on rlwrap command line with <Ctrl-x><Ctrl-e>
+    "\C-x\C-e": rlwrap-call-editor
 $endif
 
 # Don't bind control chars w/ special kernel treatment to readline equiv
