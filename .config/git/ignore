@@ -1,53 +1,294 @@
 # Numerous always-ignore extensions
-*.orig
 *.bak
+*.diff
+*.gho
+*.log
+*.log.*
+*.ori
+*.orig
+*.patch
+*.rej
+*.sig
+*.tmp
+
+# Archives
+*.7z
+*.bz2
+*.bzip
+*.bzip2
+*.cab
+*.deb
+*.dmg
+*.gz
+*.gzip
+*.iso
+*.lzma
+*.msi
+*.msix
+*.msm
+*.msp
+*.rar
+*.rpm
+*.tar
+*.tgz
+*.txz
+*.xar
+*.xpi
+*.xz
+*.zip
+
+# Media
+*.3dm
+*.apng
+*.bmp
+*.dib
+*.gif
+*.hdp
+*.ico
+*.j2k
+*.jfi
+*.jfif
+*.jif
+*.jp2
+*.jpe
+*.jpeg
+*.jpf
+*.jpg
+*.jpm
+*.jpx
+*.jxr
+*.max
+*.mj2
+*.mng
+*.pdf
+*.png
+*.raw
+*.svg
+*.svgz
+*.tif
+*.tiff
+*.wdp
+*.webp
+*.xbm
+
+# Compilation
+*.dSYM/
+*.a
+*.app
+*.def
+*.dll
+*.dylib
+*.elf
+*.exe
+*.exp
+*.gch
+*.hex
+*.i*86
+*.idb
+*.ilk
+*.ko
+*.la
+*.lai
+*.lib
+*.lo
+*.map
+*.o
+*.obj
+*.os
+*.out
+*.pch
+*.pdb
+*.slo
+*.so
+*.so.*
+*.su
+*.x86_64
 
 # Linux
-!.gitignore
 *~
 
-# Windows
-Thumbs.db
-Desktop.ini
-
-# Mac
+# macOS
+.AppleDouble
 .DS_Store
-._*
+.LSOverride
+.DocumentRevisions-V100
+.PKInstallSandboxManager
+.PKInstallSandboxManager-SystemSoftware
 .Spotlight-V100
+.TemporaryItems
 .Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.com.apple.timemachine.supported
+.fseventsd
+.hotfiles.btree
+.quota.group
+.quota.user
+.quota.ops.group
+.quota.ops.user
+._*
+
+# Windows
+$RECYCLE.BIN/
+Thumbs.db
+Thumbs.db:encryptable
+[Dd]esktop.ini
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+*.lnk
+
+# LibreOffice
+.~lock.*#
 
 # Vim
-.*.sw[a-z]
-*.un~
 Session.vim
+Sessionx.vim
+.netrwhist
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+[._]*.un~
+
+# Git
+!.gitignore
 
 # Mercurial
-/.hg/*
-*/.hg/*
-!.hgignore
+.hg/
+.hgignore
+.hgsigs
+.hgsub
+.hgsubstate
+.hgtags
 
 # SVN
 .svn/
 
+# Bazaar
+.bzr/
+.bzrignore
+
 # CVS
 /CVS/*
-*/CVS/*
+**/CVS/*
 .cvsignore
 */.cvsignore
 
 # SubGit / SubHg
-.subgit
-.subhg
+.subgit/
+.subhg/
 
 # Peru
 # https://github.com/buildinspace/peru
-.peru
+.peru/
+
+# Ada
+*.ali
+
+# Clojure
+checkouts/
+classes/
+target/
+.cpcache/
+.lein-plugins/
+.mvn/
+buildNumber.properties
+dependency-reduced-pom.xml
+hs_err_pid*
+pom.xml
+pom.xml.asc
+pom.xml.next
+pom.xml.releaseBackup
+pom.xml.tag
+pom.xml.versionsBackup
+release.properties
+.lein-deps-sum
+.lein-repl-history
+.lein-failures
+.nrepl-port
+*.class
+*.ear
+*.jar
+*.nar
+*.war
+
+# Elixir
+ebin/
+_build/
+_checkouts/
+.rebar3/
+erl_crash.dump
+*.ez
+*.beam
+*.plt
+
+# Go
+*.test
+
+# Lua
+lua_modules/
+
+# Nim
+htmldocs/
+nimcache/
+nimblecache/
+
+# Node
+bower_components/
+build/
+coverage/
+jspm_packages/
+lib-cov/
+node_modules/
+pids/
+web_modules/
+.cache/
+.grunt/
+.npm/
+.parcel-cache/
+.pnp/
+.yarn/
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+.env
+.env.development
+.env.development.local
+.env.local
+.env.production
+.env.production.local
+.env.test
+.env.test.local
+.eslintcache
+.node_repl_history
+.pnp.*
+.yarn-integrity
+*.lcov
+*.pid
+*.pid.lock
+*.seed
+*.tsbuildinfo
+
+# Python
+*.egg
 
 # Raku
-.precomp
-
-# NodeJS
-node_modules
+.precomp/
 
 # Reason
+_esy/
+_opam/
+.bsb.lock
 .merlin
+*.annot
+*.byte
+*.cma
+*.cmi
+*.cmo
+*.cmx
+*.cmxa
+*.cmxs
+*.native
+
+# Ruby
+*.gem
