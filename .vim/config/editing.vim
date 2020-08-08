@@ -542,9 +542,6 @@ set nospell
 " don't download spell files from the internet
 let g:spellfile_URL = '/usr/share/vim/vimfiles/spell'
 
-" words for <C-X><C-K> completion
-"set dictionary=/usr/share/dict/words
-
 " lower maximum height of popup menu
 set pumheight=20
 
