@@ -22,9 +22,7 @@ nnoremap <expr> < Repeatable('Dedent')
 
 " quick substitute
 nnoremap gs :s/
-
-" global substitute current visual selection
-xnoremap gs y:%s/<C-R>"//gc<Left><Left><Left>
+xnoremap gs :s/
 
 " highlight word under cursor without moving cursor position
 nnoremap <silent> g/ :let @/ = '\<' . expand('<cword>') . '\>'<CR>:set hlsearch<CR>
