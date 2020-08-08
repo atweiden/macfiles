@@ -1,8 +1,5 @@
 " Credit: https://github.com/dahu/vim-help
 
-setlocal nohlsearch
-setlocal noincsearch
-
 " jump to links with enter
 nnoremap <silent> <buffer> <CR> <C-]>
 
