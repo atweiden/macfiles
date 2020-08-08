@@ -94,7 +94,7 @@ set wildignore+=*.wdp
 set wildignore+=*.webp
 set wildignore+=*.xbm
 
-" don't wildmatch compilation fragments
+" don't wildmatch compilation artefacts
 set wildignore+=*.dSYM/
 set wildignore+=*.a
 set wildignore+=*.app
@@ -179,7 +179,7 @@ set wildignore+=.circleci/
 set wildignore+=.devcontainer/
 set wildignore+=.github/
 
-" don't wildmatch programming language specific fragments
+" don't wildmatch programming language specific files
 set wildignore+=*.ali
 set wildignore+=.cpcache/
 set wildignore+=.lein-plugins/

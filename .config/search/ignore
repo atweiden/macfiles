@@ -58,7 +58,7 @@
 *.webp
 *.xbm
 
-# don't search compilation fragments
+# don't search compilation artefacts
 *.dSYM/
 *.a
 *.app
@@ -143,7 +143,7 @@ CVS/
 .devcontainer/
 .github/
 
-# don't search programming language specific fragments
+# don't search programming language specific files
 .cpcache/
 .lein-plugins/
 .mvn/
