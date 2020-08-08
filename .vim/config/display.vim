@@ -226,10 +226,10 @@ call SetListCharsRemaining()
 " turn off syntax coloring of long lines
 set synmaxcol=200
 
-" start parsing syntax 230 lines prior to current line
+" start parsing syntax 75 lines prior to current line
 augroup syntaxsyncminlines
   autocmd!
-  autocmd Syntax * syntax sync minlines=230
+  autocmd Syntax * syntax sync minlines=75
 augroup END
 
 " readjust window sizing
