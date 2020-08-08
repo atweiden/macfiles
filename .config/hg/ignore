@@ -2,15 +2,10 @@ syntax: glob
 
 # Numerous always-ignore extensions
 *.bak
-*.diff
 *.gho
-*.log
-*.log.*
 *.ori
 *.orig
-*.patch
 *.rej
-*.sig
 *.tmp
 
 # Archives
@@ -144,8 +139,6 @@ ehthumbs_vista.db
 .~lock.*#
 
 # Vim
-Session.vim
-Sessionx.vim
 .netrwhist
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
@@ -188,9 +181,6 @@ Sessionx.vim
 *.ali
 
 # Clojure
-checkouts/
-classes/
-target/
 .cpcache/
 .lein-plugins/
 .mvn/
@@ -231,18 +221,14 @@ erl_crash.dump
 lua_modules/
 
 # Nim
-htmldocs/
 nimcache/
 nimblecache/
 
 # Node
 bower_components/
-build/
-coverage/
 jspm_packages/
 lib-cov/
 node_modules/
-pids/
 web_modules/
 .cache/
 .grunt/
@@ -266,7 +252,6 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 *.lcov
 *.pid
 *.pid.lock
-*.seed
 *.tsbuildinfo
 
 # Python
