@@ -54,9 +54,12 @@ augroup fzfstatusline
   autocmd User FzfStatusLine call <SID>fzf_statusline()
 augroup END
 
-" word completion using `cat /usr/share/dict/words`
+" word completion using cat
 inoremap <expr> <C-X><C-K> fzf#vim#complete(fzf#wrap({
-    \ 'source': 'cat /usr/share/dict/words',
+    \ 'source': printf('cat %s',
+    \                  empty(&dictionary)
+    \                    ? '/usr/share/dict/words'
+    \                    : join(split(&dictionary, ","), " ")),
     \ 'window': {
     \   'width': 0.2,
     \   'height': 0.9,
