@@ -65,9 +65,9 @@ inoremap <expr> <C-X><C-K> fzf#vim#complete(fzf#wrap({
     \   'border': 'sharp'
     \ }}))
 
-" path completion using rg
+" path completion using fd
 inoremap <expr> <C-X><C-F> fzf#vim#complete(fzf#wrap({
-    \ 'source': 'rg --hidden --files',
+    \ 'source': 'fd --hidden',
     \ 'window': {
     \   'width': 0.9,
     \   'height': 0.35,
