@@ -450,19 +450,27 @@ alias ps\?='ps -a -x -f | grep -v grep | grep "$@"'
 alias pkg\?='brew list -1 | grep -v grep | grep "$@"'
 alias sysctl\?='sysctl -a 2>/dev/null | grep -v grep | grep "$@"'
 [[ -n "$_has_ack" ]] \
-  && alias ack='ack --ackrc=$HOME/.config/ack/ackrc'
+  && alias ack='ack \
+      --ackrc=$HOME/.config/ack/ackrc'
 [[ -n "$_has_ag" ]] \
   && alias ag='ag \
       --hidden \
       --smart-case \
       --path-to-ignore $HOME/.config/search/ignore \
       --skip-vcs-ignores'
-[[ -n "$_has_rg" ]] \
-  && alias rg='rg \
-      --hidden \
-      --ignore-file $HOME/.config/search/ignore \
-      --smart-case \
-      --ignore-vcs'
+if [[ -n "$_has_rg" ]]; then
+  alias rg='rg \
+    --hidden \
+    --ignore-file $HOME/.config/search/ignore \
+    --smart-case \
+    --ignore-vcs'
+  alias rgu='rg \
+    --no-ignore \
+    --no-ignore-files \
+    --unrestricted \
+    --unrestricted \
+    --unrestricted'
+fi
 [[ -n "$_has_locate" ]] \
   && alias locate='glocate --ignore-case'
 
