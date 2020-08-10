@@ -1,417 +1,864 @@
---ignore-ack-defaults
-# This is the default ackrc for ack version 2.14.
+# global options {{{
 
-# There are four different ways to match
-#
-# is:  Match the filename exactly
-#
-# ext: Match the extension of the filename exactly
-#
-# match: Match the filename against a Perl regular expression
-#
-# firstlinematch: Match the first 250 characters of the first line
-#   of text against a Perl regular expression.  This is only for
-#   the --type-add option.
-
-# Ignore case in the search strings if PATTERN contains no uppercase
-# characters
+# ignore case if search pattern contains no uppercase characters
 --smart-case
 
-# Sorts the found files lexicographically
+# sort found files lexicographically
 --sort-files
 
+# end global options }}}
 
-### Directories to ignore
+# filetype definitions {{{
 
-# Bazaar
-# http://bazaar.canonical.com/
---ignore-directory=is:.bzr
+# actionscript
+--type-add=actionscript:ext:as
+--type-add=actionscript:ext:mxml
 
-# Codeville
-# http://freecode.com/projects/codeville
---ignore-directory=is:.cdv
+# ada
+# https://www.adaic.org/
+--type-add=ada:ext:ada
+--type-add=ada:ext:adb
+--type-add=ada:ext:ads
 
-# Interface Builder (Xcode)
-# http://en.wikipedia.org/wiki/Interface_Builder
---ignore-directory=is:~.dep
---ignore-directory=is:~.dot
---ignore-directory=is:~.nib
---ignore-directory=is:~.plst
+# asp
+# https://docs.microsoft.com/en-us/previous-versions/office/developer/server-technologies/aa286483(v=msdn.10)
+--type-add=asp:ext:asp
 
-# Git
-# http://git-scm.com/
---ignore-directory=is:.git
---ignore-directory=is:.subgit
+# asp.net
+# https://dotnet.microsoft.com/apps/aspnet
+--type-add=aspx:ext:ascx
+--type-add=aspx:ext:asmx
+--type-add=aspx:ext:aspx
+--type-add=aspx:ext:master
+--type-add=aspx:ext:svc
 
-# Mercurial
-# http://mercurial.selenic.com/
---ignore-directory=is:.hg
---ignore-directory=is:.subhg
+# assembly
+--type-add=asm:ext:asm
+--type-add=asm:ext:s
 
-# quilt
-# http://directory.fsf.org/wiki/Quilt
---ignore-directory=is:.pc
+# dos/windows batch
+--type-add=batch:ext:bat
+--type-add=batch:ext:cmd
 
-# Subversion
-# http://subversion.tigris.org/
---ignore-directory=is:.svn
+# c
+--type-add=c:ext:c
+--type-add=c:ext:h
 
-# Monotone
-# http://www.monotone.ca/
---ignore-directory=is:_MTN
+# c interface code for perl
+# https://perldoc.perl.org/perlxs.html
+--type-add=c:ext:xs
 
-# CVS
-# http://savannah.nongnu.org/projects/cvs
---ignore-directory=is:CVS
+# c header files
+--type-add=hh:ext:h
 
-# RCS
-# http://www.gnu.org/software/rcs/
---ignore-directory=is:RCS
+# c++
+--type-add=cpp:ext:cc
+--type-add=cpp:ext:cpp
+--type-add=cpp:ext:cxx
+--type-add=cpp:ext:h
+--type-add=cpp:ext:hh
+--type-add=cpp:ext:hpp
+--type-add=cpp:ext:hxx
+--type-add=cpp:ext:m
 
-# SCCS
-# http://en.wikipedia.org/wiki/Source_Code_Control_System
---ignore-directory=is:SCCS
+# c++ header files
+--type-add=hpp:ext:h
+--type-add=hpp:ext:hh
+--type-add=hpp:ext:hpp
+--type-add=hpp:ext:hxx
 
-# darcs
-# http://darcs.net/
---ignore-directory=is:_darcs
+# c#
+--type-add=csharp:ext:cs
 
-# Vault/Fortress
---ignore-directory=is:_sgbak
+# cmake
+# https://cmake.org/
+--type-add=cmake:is:CMakeLists.txt
+--type-add=cmake:ext:cmake
 
-# autoconf
-# http://www.gnu.org/software/autoconf/
---ignore-directory=is:autom4te.cache
+# coldfusion
+# https://en.wikipedia.org/wiki/ColdFusion
+--type-add=cfmx:ext:cfc
+--type-add=cfmx:ext:cfm
+--type-add=cfmx:ext:cfml
 
-# Perl module building
---ignore-directory=is:blib
---ignore-directory=is:_build
+# clojure
+# https://clojure.org/
+--type-add=clojure:ext:clj
+--type-add=clojure:ext:cljs
+--type-add=clojure:ext:edn
+--type-add=clojure:ext:cljx
+--type-add=clojure:ext:cljc
+--type-add=clojure:is:build.boot
+--type-add=clojure:is:profile.boot
 
-# Perl Devel::Cover module's output directory
-# https://metacpan.org/release/Devel-Cover
---ignore-directory=is:cover_db
+# coffeescript
+# https://coffeescript.org/
+--type-add=coffeescript:ext:coffee
 
-# Peru
-# https://github.com/buildinspace/peru
---ignore-directory=is:.peru
+# css
+# https://www.w3.org/Style/CSS/
+--type-add=css:ext:css
 
-# Raku precompilation
---ignore-directory=is:.precomp
+# dart
+# https://dart.dev/
+--type-add=dart:ext:dart
 
-# Node modules created by npm
---ignore-directory=is:node_modules
+# delphi
+# https://en.wikipedia.org/wiki/Embarcadero_Delphi
+--type-add=delphi:ext:bdsgroup
+--type-add=delphi:ext:bdsproj
+--type-add=delphi:ext:dfm
+--type-add=delphi:ext:dof
+--type-add=delphi:ext:dpk
+--type-add=delphi:ext:dproj
+--type-add=delphi:ext:groupproj
+--type-add=delphi:ext:int
+--type-add=delphi:ext:nfm
+--type-add=delphi:ext:pas
 
-# CMake cache
-# http://www.cmake.org/
---ignore-directory=is:CMakeFiles
+# elixir
+# https://elixir-lang.org/
+--type-add=elixir:ext:ex
+--type-add=elixir:ext:exs
 
-# Eclipse workspace folder
-# http://eclipse.org/
---ignore-directory=is:.metadata
+# emacs lisp
+# https://www.gnu.org/software/emacs
+--type-add=elisp:ext:el
 
-# Cabal (Haskell) sandboxes
-# http://www.haskell.org/cabal/users-guide/installing-packages.html
---ignore-directory=is:.cabal-sandbox
+# erlang
+# https://www.erlang.org/
+--type-add=erlang:ext:erl
+--type-add=erlang:ext:hrl
 
-### Files to ignore
+# fennel
+# https://fennel-lang.org/
+--type-add=fennel:ext:fnl
+--type-add=fennel:firstlinematch:/^#!.*\bfennel/
 
-# Backup files
---ignore-file=ext:bak
---ignore-file=match:/~$/
+# finn
+# https://github.com/atweiden/vim-finn
+--type-add=finn:ext:finn
 
-# .DS_Store
---ignore-file=is:.DS_Store
+# fortran
+# https://en.wikipedia.org/wiki/Fortran
+--type-add=fortran:ext:f
+--type-add=fortran:ext:f03
+--type-add=fortran:ext:f77
+--type-add=fortran:ext:f90
+--type-add=fortran:ext:f95
+--type-add=fortran:ext:for
+--type-add=fortran:ext:fpp
+--type-add=fortran:ext:ftn
 
-# Emacs swap files
---ignore-file=match:/^#.+#$/
+# go
+# https://golang.org/
+--type-add=go:ext:go
 
-# vi/vim swap files http://vim.org/
---ignore-file=match:/[._].*\.swp$/
+# groovy
+# https://www.groovy-lang.org/
+--type-add=groovy:ext:gpp
+--type-add=groovy:ext:gradle
+--type-add=groovy:ext:groovy
+--type-add=groovy:ext:grunit
+--type-add=groovy:ext:gtmpl
 
-# core dumps
---ignore-file=match:/core\.\d+$/
+# gsp
+# https://gsp.grails.org/
+--type-add=gsp:ext:gsp
 
-# minified Javascript
---ignore-file=match:/[.-]min[.]js$/
---ignore-file=match:/[.]js[.]min$/
+# haskell
+# https://www.haskell.org/
+--type-add=haskell:ext:hs
+--type-add=haskell:ext:lhs
 
-# minified CSS
---ignore-file=match:/[.]min[.]css$/
---ignore-file=match:/[.]css[.]min$/
+# html
+--type-add=html:ext:htm
+--type-add=html:ext:html
+--type-add=html:ext:xhtml
 
-# JS and CSS source maps
---ignore-file=match:/[.]js[.]map$/
---ignore-file=match:/[.]css[.]map$/
+# jade
+# http://jade-lang.com/
+--type-add=jade:ext:jade
 
-# PDFs, because they pass Perl's -T detection
---ignore-file=ext:pdf
+# janet
+# https://janet-lang.org/
+--type-add=janet:ext:janet
+--type-add=janet:firstlinematch:/^#!.*\bjanet/
 
-# Common graphics, just as an optimization
---ignore-file=ext:gif,jpg,jpeg,png
+# java
+# https://www.oracle.com/technetwork/java/index.html
+--type-add=java:ext:properties
+--type-add=java:ext:java
 
+# javascript
+--type-add=js:ext:js
+--type-add=js:firstlinematch:/^#!.*\bnode/
 
-### Filetypes defined
+# jsp
+# https://www.oracle.com/technetwork/java/javaee/jsp/index.html
+--type-add=jsp:ext:jhtm
+--type-add=jsp:ext:jhtml
+--type-add=jsp:ext:jsp
+--type-add=jsp:ext:jspf
+--type-add=jsp:ext:jspx
 
-# Perl
-# http://perl.org/
---type-add=perl:ext:pl,pm,pod,t,psgi
---type-add=perl:firstlinematch:/^#!.*\bperl/
+# json
+# https://json.org/
+--type-add=json:ext:json
 
-# Perl tests
---type-add=perltest:ext:t
+# kotlin
+# https://kotlinlang.org/
+--type-add=kotlin:ext:kt
+--type-add=kotlin:ext:kts
 
-# Makefiles
-# http://www.gnu.org/s/make/
+# less
+# http://www.lesscss.org/
+--type-add=less:ext:less
+
+# lisp
+# https://common-lisp.net/
+--type-add=lisp:ext:lisp
+--type-add=lisp:ext:lsp
+
+# lua
+# https://www.lua.org/
+--type-add=lua:ext:lua
+--type-add=lua:firstlinematch:/^#!.*\blua(jit)?/
+
+# makefile
+# https://www.gnu.org/s/make/
 --type-add=make:ext:mk
 --type-add=make:ext:mak
 --type-add=make:is:makefile
 --type-add=make:is:Makefile
 --type-add=make:is:Makefile.Debug
 --type-add=make:is:Makefile.Release
+--type-add=make:is:GNUmakefile
 
-# Rakefiles
-# http://rake.rubyforge.org/
---type-add=rake:is:Rakefile
+# markdown
+# https://en.wikipedia.org/wiki/Markdown
+--type-add=markdown:ext:markdown
+--type-add=markdown:ext:md
 
-# CMake
-# http://www.cmake.org/
---type-add=cmake:is:CMakeLists.txt
---type-add=cmake:ext:cmake
-
-# Actionscript
---type-add=actionscript:ext:as,mxml
-
-# Ada
-# http://www.adaic.org/
---type-add=ada:ext:ada,adb,ads
-
-# ASP
-# http://msdn.microsoft.com/en-us/library/aa286483.aspx
---type-add=asp:ext:asp
-
-# ASP.Net
-# http://www.asp.net/
---type-add=aspx:ext:master,ascx,asmx,aspx,svc
-
-# Assembly
---type-add=asm:ext:asm,s
-
-# Batch
---type-add=batch:ext:bat,cmd
-
-# ColdFusion
-# http://en.wikipedia.org/wiki/ColdFusion
---type-add=cfmx:ext:cfc,cfm,cfml
-
-# Clojure
-# http://clojure.org/
---type-add=clojure:ext:clj
-
-# C
-# .xs are Perl C files
---type-add=cc:ext:c,h,xs
-
-# C header files
---type-add=hh:ext:h
-
-# CoffeeScript
-# http://coffeescript.org/
---type-add=coffeescript:ext:coffee
-
-# C++
---type-add=cpp:ext:cpp,cc,cxx,m,hpp,hh,h,hxx
-
-# C#
---type-add=csharp:ext:cs
-
-# CSS
-# http://www.w3.org/Style/CSS/
---type-add=css:ext:css
-
-# Dart
-# http://www.dartlang.org/
---type-add=dart:ext:dart
-
-# Delphi
-# http://en.wikipedia.org/wiki/Embarcadero_Delphi
---type-add=delphi:ext:pas,int,dfm,nfm,dof,dpk,dproj,groupproj,bdsgroup,bdsproj
-
-# Elixir
-# http://elixir-lang.org/
---type-add=elixir:ext:ex,exs
-
-# Emacs Lisp
-# http://www.gnu.org/software/emacs
---type-add=elisp:ext:el
-
-# Erlang
-# http://www.erlang.org/
---type-add=erlang:ext:erl,hrl
-
-# Fortran
-# http://en.wikipedia.org/wiki/Fortran
---type-add=fortran:ext:f,f77,f90,f95,f03,for,ftn,fpp
-
-# Go
-# http://golang.org/
---type-add=go:ext:go
-
-# Groovy
-# http://groovy.codehaus.org/
---type-add=groovy:ext:groovy,gtmpl,gpp,grunit,gradle
-
-# Haskell
-# http://www.haskell.org/
---type-add=haskell:ext:hs,lhs
-
-# HTML
---type-add=html:ext:htm,html
-
-# Jade
-# http://jade-lang.com/
---type-add=jade:ext:jade
-
-# Java
-# http://www.oracle.com/technetwork/java/index.html
---type-add=java:ext:java,properties
-
-# JavaScript
---type-add=js:ext:js
-
-# JSP
-# http://www.oracle.com/technetwork/java/javaee/jsp/index.html
---type-add=jsp:ext:jsp,jspx,jhtm,jhtml
-
-# JSON
-# http://www.json.org/
---type-add=json:ext:json
-
-# Less
-# http://www.lesscss.org/
---type-add=less:ext:less
-
-# Common Lisp
-# http://common-lisp.net/
---type-add=lisp:ext:lisp,lsp
-
-# Lua
-# http://www.lua.org/
---type-add=lua:ext:lua
---type-add=lua:firstlinematch:/^#!.*\blua(jit)?/
-
-# Objective-C
---type-add=objc:ext:m,h
-
-# Objective-C++
---type-add=objcpp:ext:mm,h
-
-# OCaml
-# http://caml.inria.fr/
---type-add=ocaml:ext:ml,mli
-
-# Matlab
-# http://en.wikipedia.org/wiki/MATLAB
+# matlab
+# https://en.wikipedia.org/wiki/MATLAB
 --type-add=matlab:ext:m
 
-# Parrot
-# http://www.parrot.org/
---type-add=parrot:ext:pir,pasm,pmc,ops,pod,pg,tg
+# nim
+# https://nim-lang.org/
+--type-add=nim:ext:nim
+--type-add=nim:ext:nimble
+--type-add=nim:ext:nims
 
-# PHP
-# http://www.php.net/
---type-add=php:ext:php,phpt,php3,php4,php5,phtml
+# objective-c
+--type-add=objc:ext:h
+--type-add=objc:ext:m
+
+# objective-c++
+--type-add=objcpp:ext:h
+--type-add=objcpp:ext:mm
+
+# ocaml
+# https://ocaml.org/
+--type-add=ocaml:ext:ml
+--type-add=ocaml:ext:mli
+--type-add=ocaml:ext:mll
+--type-add=ocaml:ext:mly
+
+# perl
+# https://perl.org/
+--type-add=perl:ext:pl
+--type-add=perl:ext:pm
+--type-add=perl:ext:pod
+--type-add=perl:ext:psgi
+--type-add=perl:ext:t
+--type-add=perl:firstlinematch:/^#!.*\bperl/
+
+# perl docs
+--type-add=pod:ext:pod
+
+# perl tests
+--type-add=perltest:ext:t
+
+# perl template toolkit
+# http//template-toolkit.org/
+--type-add=ttml:ext:tt
+--type-add=ttml:ext:tt2
+--type-add=ttml:ext:ttml
+
+# php
+# https://www.php.net/
+--type-add=php:ext:php
+--type-add=php:ext:php3
+--type-add=php:ext:php4
+--type-add=php:ext:php5
+--type-add=php:ext:phpt
+--type-add=php:ext:phtml
 --type-add=php:firstlinematch:/^#!.*\bphp/
 
-# Plone
-# http://plone.org/
---type-add=plone:ext:pt,cpt,metadata,cpy,py
-
-# Python
-# http://www.python.org/
+# python
+# https://www.python.org/
 --type-add=python:ext:py
 --type-add=python:firstlinematch:/^#!.*\bpython/
 
-# R
-# http://www.r-project.org/
+# python plone
+# https://plone.org/
+--type-add=plone:ext:cpt
+--type-add=plone:ext:cpy
+--type-add=plone:ext:metadata
+--type-add=plone:ext:pt
+--type-add=plone:ext:py
+
+# r
+# https://www.r-project.org/
 --type-add=rr:ext:R
 
-# reStructured Text
-# http://docutils.sourceforge.net/rst.html
+# racket
+# https://racket-lang.org/
+--type-add=racket:ext:rkt
+--type-add=racket:ext:rktl
+
+# raku
+# https://raku.org/
+--type-add=raku:ext:p6
+--type-add=raku:ext:pl6
+--type-add=raku:ext:pm6
+--type-add=raku:ext:raku
+--type-add=raku:ext:rakudoc
+--type-add=raku:ext:rakumod
+--type-add=raku:ext:rakutest
+--type-add=raku:ext:t
+--type-add=raku:ext:t6
+--type-add=raku:firstlinematch:/^#!.*\bperl6/
+--type-add=raku:firstlinematch:/^#!.*\braku/
+
+# reason
+# https://reasonml.org/
+--type-add=reason:ext:re
+--type-add=reason:ext:rei
+
+# restructured text
+# https://docutils.sourceforge.io/rst.html
 --type-add=rst:ext:rst
 
-# Ruby
-# http://www.ruby-lang.org/
---type-add=ruby:ext:rb,rhtml,rjs,rxml,erb,rake,spec
+# ruby
+# https://www.ruby-lang.org/
+--type-add=ruby:ext:erb
+--type-add=ruby:ext:rake
+--type-add=ruby:ext:rb
+--type-add=ruby:ext:rhtml
+--type-add=ruby:ext:rjs
+--type-add=ruby:ext:rxml
+--type-add=ruby:ext:spec
 --type-add=ruby:is:Rakefile
 --type-add=ruby:firstlinematch:/^#!.*\bruby/
 
-# Rust
-# http://www.rust-lang.org/
+# ruby rakefiles
+# https://rake.rubyforge.org/
+--type-add=rake:is:Rakefile
+
+# rust
+# https://www.rust-lang.org/
 --type-add=rust:ext:rs
 
-# Sass
-# http://sass-lang.com
---type-add=sass:ext:sass,scss
+# sass
+# https://sass-lang.com
+--type-add=sass:ext:sass
+--type-add=sass:ext:scss
 
-# Scala
-# http://www.scala-lang.org/
+# scala
+# https://www.scala-lang.org/
 --type-add=scala:ext:scala
 
-# Scheme
-# http://groups.csail.mit.edu/mac/projects/scheme/
---type-add=scheme:ext:scm,ss
+# scheme
+# https://groups.csail.mit.edu/mac/projects/scheme/
+--type-add=scheme:ext:scm
+--type-add=scheme:ext:ss
 
-# Shell
---type-add=shell:ext:sh,bash,csh,tcsh,ksh,zsh,fish
+# shell
+--type-add=shell:ext:bash
+--type-add=shell:ext:csh
+--type-add=shell:ext:fish
+--type-add=shell:ext:ksh
+--type-add=shell:ext:sh
+--type-add=shell:ext:tcsh
+--type-add=shell:ext:zsh
 --type-add=shell:firstlinematch:/^#!.*\b(?:ba|t?c|k|z|fi)?sh\b/
 
-# Smalltalk
+# smalltalk
 # http://www.smalltalk.org/
 --type-add=smalltalk:ext:st
 
-# Smarty
-# http://www.smarty.net/
+# smarty
+# https://www.smarty.net/
 --type-add=smarty:ext:tpl
 
-# SQL
-# http://www.iso.org/iso/catalogue_detail.htm?csnumber=45498
---type-add=sql:ext:sql,ctl
+# sql
+# https://www.iso.org/standard/45498.html
+--type-add=sql:ext:ctl
+--type-add=sql:ext:sql
 
-# Stylus
-# http://learnboost.github.io/stylus/
+# stylus
+# http://stylus-lang.com/
 --type-add=stylus:ext:styl
 
-# Tcl
-# http://www.tcl.tk/
---type-add=tcl:ext:tcl,itcl,itk
+# svg
+# https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
+--type-add=svg:ext:svg
 
-# LaTeX
-# http://www.latex-project.org/
---type-add=tex:ext:tex,cls,sty
+# swift
+# https://developer.apple.com/swift/
+--type-add=swift:ext:swift
+--type-add=swift:firstlinematch:/^#!.*\bswift/
 
-# Template Toolkit (Perl)
-# http://template-toolkit.org/
---type-add=tt:ext:tt,tt2,ttml
+# tcl
+# https://www.tcl.tk/
+--type-add=tcl:ext:itcl
+--type-add=tcl:ext:itk
+--type-add=tcl:ext:tcl
 
-# Visual Basic
---type-add=vb:ext:bas,cls,frm,ctl,vb,resx
+# tex & latex
+# https://www.latex-project.org/
+--type-add=tex:ext:cls
+--type-add=tex:ext:sty
+--type-add=tex:ext:tex
 
-# Verilog
---type-add=verilog:ext:v,vh,sv
+# toml
+# https://toml.io/
+--type-add=toml:ext:toml
 
-# VHDL
+# typescript
+# https://www.typescriptlang.org/
+--type-add=ts:ext:ts
+--type-add=ts:ext:tsx
+
+# visual basic
+--type-add=vb:ext:bas
+--type-add=vb:ext:cls
+--type-add=vb:ext:ctl
+--type-add=vb:ext:frm
+--type-add=vb:ext:resx
+--type-add=vb:ext:vb
+
+# verilog
+--type-add=verilog:ext:sv
+--type-add=verilog:ext:v
+--type-add=verilog:ext:vh
+
+# vhdl
 # http://www.eda.org/twiki/bin/view.cgi/P1076/WebHome
---type-add=vhdl:ext:vhd,vhdl
+--type-add=vhdl:ext:vhd
+--type-add=vhdl:ext:vhdl
 
-# Vim
-# http://www.vim.org/
+# vim
+# https://www.vim.org/
 --type-add=vim:ext:vim
 
-# XML
-# http://www.w3.org/TR/REC-xml/
---type-add=xml:ext:xml,dtd,xsl,xslt,ent
+# xml
+# https://www.w3.org/TR/REC-xml/
+--type-add=xml:ext:dtd
+--type-add=xml:ext:ent
+--type-add=xml:ext:wsdl
+--type-add=xml:ext:xml
+--type-add=xml:ext:xsd
+--type-add=xml:ext:xsl
+--type-add=xml:ext:xslt
 --type-add=xml:firstlinematch:/<[?]xml/
 
-# YAML
-# http://yaml.org/
---type-add=yaml:ext:yaml,yml
+# yaml
+# https://yaml.org/
+--type-add=yaml:ext:yaml
+--type-add=yaml:ext:yml
+
+# zig
+# https://ziglang.org/
+--type-add=zig:ext:zig
+--type-add=zig:ext:zir
+
+# end filetype definitions }}}
+
+# ignore {{{
+
+# --- backup / ephemeral {{{
+
+--ignore-file=ext:bak
+--ignore-file=ext:gho
+--ignore-file=ext:ori
+--ignore-file=ext:orig
+--ignore-file=ext:rej
+--ignore-file=ext:tmp
+--ignore-file=match:/~$/
+
+# --- end backup / ephemeral }}}
+# --- version control system {{{
+
+# bazaar
+# https://bazaar.canonical.com/
+--ignore-directory=is:.bzr
+
+# codeville
+# http://freshmeat.sourceforge.net/projects/codeville
+--ignore-directory=is:.cdv
+
+# cvs
+# https://savannah.nongnu.org/projects/cvs
+--ignore-directory=is:CVS
+
+# darcs
+# http://darcs.net/
+--ignore-directory=is:_darcs
+
+# git
+# https://git-scm.com/
+--ignore-directory=is:.git
+
+# git submodule files
+# when submodules are used, .git is a file
+--ignore-file=is:.git
+
+# mercurial
+# https://www.mercurial-scm.org/
+--ignore-directory=is:.hg
+
+# monotone
+# https://www.monotone.ca/
+--ignore-directory=is:_MTN
+
+# peru
+# https://github.com/buildinspace/peru
+--ignore-directory=is:.peru
+
+# quilt
+# https://directory.fsf.org/wiki/Quilt
+--ignore-directory=is:.pc
+
+# rcs
+# https://www.gnu.org/software/rcs/
+--ignore-directory=is:RCS
+
+# sccs
+# https://en.wikipedia.org/wiki/Source_Code_Control_System
+--ignore-directory=is:SCCS
+
+# subgit / subhg
+# https://blog.rusty.io/2010/01/24/submodules-and-subrepos-done-right/
+--ignore-directory=is:.subgit
+--ignore-directory=is:.subhg
+
+# subversion
+# https://subversion.apache.org/
+--ignore-directory=is:.svn
+
+# vault/fortress
+--ignore-directory=is:_sgbak
+
+# --- end version control system }}}
+# --- ide {{{
+
+# interface builder (xcode)
+# https://en.wikipedia.org/wiki/Interface_Builder
+--ignore-directory=is:~.dep
+--ignore-directory=is:~.dot
+--ignore-directory=is:~.nib
+--ignore-directory=is:~.plst
+
+# eclipse workspace folder
+# https://eclipse.org/
+--ignore-directory=is:.metadata
+
+# --- end ide }}}
+# --- compiler {{{
+
+# autoconf
+# https://www.gnu.org/software/autoconf/
+--ignore-directory=is:autom4te.cache
+
+# cmake cache
+# https://www.cmake.org/
+--ignore-directory=is:CMakeFiles
+
+# compilation artefacts
+--ignore-directory=ext:dSYM
+--ignore-file=ext:a
+--ignore-file=ext:app
+--ignore-file=ext:def
+--ignore-file=ext:dll
+--ignore-file=ext:dylib
+--ignore-file=ext:elf
+--ignore-file=ext:exe
+--ignore-file=ext:exp
+--ignore-file=ext:gch
+--ignore-file=ext:hex
+--ignore-file=match:/[.]i\S86$/
+--ignore-file=ext:idb
+--ignore-file=ext:ilk
+--ignore-file=ext:ko
+--ignore-file=ext:la
+--ignore-file=ext:lai
+--ignore-file=ext:lib
+--ignore-file=ext:lo
+--ignore-file=ext:map
+--ignore-file=ext:o
+--ignore-file=ext:obj
+--ignore-file=ext:os
+--ignore-file=ext:out
+--ignore-file=ext:pch
+--ignore-file=ext:pdb
+--ignore-file=ext:slo
+--ignore-file=ext:so
+--ignore-file=match:/[.]so[.].*$/
+--ignore-file=ext:su
+--ignore-file=ext:x86_64
+
+# --- end compiler }}}
+# --- operating system {{{
+
+# macOS
+--ignore-directory=is:__MACOSX
+--ignore-file=is:.DS_Store
+--ignore-file=is:.AppleDouble
+--ignore-file=is:.LSOverride
+--ignore-file=is:.DocumentRevisions-V100
+--ignore-file=is:.PKInstallSandboxManager
+--ignore-file=is:.PKInstallSandboxManager-SystemSoftware
+--ignore-file=is:.Spotlight-V100
+--ignore-file=is:.TemporaryItems
+--ignore-file=is:.Trashes
+--ignore-file=is:.VolumeIcon.icns
+--ignore-file=is:.com.apple.timemachine.donotpresent
+--ignore-file=is:.com.apple.timemachine.supported
+--ignore-file=is:.fseventsd
+--ignore-file=is:.hotfiles.btree
+--ignore-file=is:.quota.group
+--ignore-file=is:.quota.user
+--ignore-file=is:.quota.ops.group
+--ignore-file=is:.quota.ops.user
+--ignore-file=match:/[.]_*/
+
+# windows
+--ignore-directory=is:\$RECYCLE.BIN
+--ignore-file=is:Thumbs.db
+--ignore-file=is:Thumbs.db:encryptable
+--ignore-file=match:/[Dd]esktop.ini$/
+--ignore-file=is:ehthumbs.db
+--ignore-file=is:ehthumbs_vista.db
+--ignore-file=ext:stackdump
+--ignore-file=ext:lnk
+
+# core dumps
+--ignore-file=match:/core[.]\d+$/
+
+# --- end operating system }}}
+# --- media files {{{
+
+--ignore-file=ext:3dm
+--ignore-file=ext:apng
+--ignore-file=ext:bmp
+--ignore-file=ext:dib
+--ignore-file=ext:gif
+--ignore-file=ext:hdp
+--ignore-file=ext:ico
+--ignore-file=ext:j2k
+--ignore-file=ext:jfi
+--ignore-file=ext:jfif
+--ignore-file=ext:jif
+--ignore-file=ext:jp2
+--ignore-file=ext:jpe
+--ignore-file=ext:jpeg
+--ignore-file=ext:jpf
+--ignore-file=ext:jpg
+--ignore-file=ext:jpm
+--ignore-file=ext:jpx
+--ignore-file=ext:jxr
+--ignore-file=ext:max
+--ignore-file=ext:mj2
+--ignore-file=ext:mng
+--ignore-file=ext:pdf
+--ignore-file=ext:png
+--ignore-file=ext:raw
+--ignore-file=ext:svgz
+--ignore-file=ext:tif
+--ignore-file=ext:tiff
+--ignore-file=ext:wdp
+--ignore-file=ext:webp
+--ignore-file=ext:xbm
+
+# --- end media files }}}
+# --- archives {{{
+
+--ignore-file=ext:7z
+--ignore-file=ext:bz2
+--ignore-file=ext:bzip
+--ignore-file=ext:bzip2
+--ignore-file=ext:cab
+--ignore-file=ext:deb
+--ignore-file=ext:dmg
+--ignore-file=ext:gz
+--ignore-file=ext:gzip
+--ignore-file=ext:iso
+--ignore-file=ext:lzma
+--ignore-file=ext:msi
+--ignore-file=ext:msix
+--ignore-file=ext:msm
+--ignore-file=ext:msp
+--ignore-file=ext:rar
+--ignore-file=ext:rpm
+--ignore-file=ext:tar
+--ignore-file=ext:tgz
+--ignore-file=ext:txz
+--ignore-file=ext:xar
+--ignore-file=ext:xpi
+--ignore-file=ext:xz
+--ignore-file=ext:zip
+
+# --- end archives }}}
+# --- software {{{
+
+# emacs swap files
+--ignore-file=match:/^#.+#$/
+
+# gettext compiled files
+--ignore-file=ext:mo
+
+# hosted service files
+--ignore-directory=is:.ci
+--ignore-directory=is:.circleci
+--ignore-directory=is:.devcontainer
+--ignore-directory=is:.github
+
+# libreoffice lock files
+--ignore-file=match:/[.]~lock.*#$/
+
+# vim swap files
+--ignore-file=match:/[._].*[.]swp$/
+--ignore-file=match:/[._].*[.]s[a-v][a-z]$/
+--ignore-file=match:/[._].*[.]s[a-p]$/
+--ignore-file=match:/[._]s[a-rt-v][a-z]$/
+--ignore-file=match:/[._]ss[a-gi-z]$/
+--ignore-file=match:/[._]sw[a-p]$/
+
+# vim undo files
+--ignore-file=match:/[._].*[.]un~$/
+
+# vim netrw history files
+--ignore-file=is:.netrwhist
+
+# end software }}}
+# --- programming language {{{
+
+# ada library information files
+--ignore-file=ext:ali
+
+# c extensions
+--ignore-file=ext:so
+
+# minified css
+--ignore-file=match:/[.]min[.]css$/
+--ignore-file=match:/[.]css[.]min$/
+
+# css source maps
+--ignore-file=match:/[.]css[.]map$/
+
+# erlang yield created by compiler or rebar
+--ignore-directory=is:ebin
+--ignore-directory=is:_build
+--ignore-directory=is:_checkouts
+--ignore-directory=is:.rebar3
+--ignore-file=ext:ez
+--ignore-file=ext:beam
+--ignore-file=ext:plt
+--ignore-file=is:erl_crash.dump
+
+# go test binaries created by `go test -c`
+--ignore-file=ext:test
+
+# haskell cabal sandboxes
+# https://www.haskell.org/cabal/users-guide/installing-packages.html
+--ignore-directory=is:.cabal-sandbox
+
+# java ecosystem compiled/cached files
+--ignore-directory=is:.cpcache
+--ignore-directory=is:.lein-plugins
+--ignore-directory=is:.mvn
+--ignore-file=ext:class
+--ignore-file=ext:ear
+--ignore-file=ext:jar
+--ignore-file=ext:nar
+--ignore-file=ext:war
+
+# javascript ecosystem compiled/cached files
+--ignore-directory=is:bower_components
+--ignore-directory=is:jspm_packages
+--ignore-directory=is:web_modules
+--ignore-directory=is:.cache
+--ignore-directory=is:.grunt
+--ignore-directory=is:.npm
+--ignore-directory=is:.parcel-cache
+--ignore-directory=is:.pnp
+--ignore-directory=is:.yarn
+--ignore-file=ext:lcov
+--ignore-file=ext:pid
+--ignore-file=is:pid.lock
+--ignore-file=is:.eslintcache
+
+# minified javascript
+--ignore-file=match:/[.-]min[.]js$/
+--ignore-file=match:/[.]js[.]min$/
+
+# javascript source maps
+--ignore-file=match:/[.]js[.]map$/
+
+# lua modules created by luarocks
+--ignore-directory=is:lua_modules
+
+# nim cache directories
+--ignore-directory=is:nimcache
+--ignore-directory=is:nimblecache
+
+# node modules created by npm
+--ignore-directory=is:node_modules
+
+# ocaml byproducts created by compiler toolchain or opam
+--ignore-directory=is:_opam
+--ignore-file=ext:annot
+--ignore-file=ext:byte
+--ignore-file=ext:cma
+--ignore-file=ext:cmi
+--ignore-file=ext:cmo
+--ignore-file=ext:cmx
+--ignore-file=ext:cmxa
+--ignore-file=ext:cmxs
+--ignore-file=ext:native
+
+# perl module building
+--ignore-directory=is:blib
+--ignore-directory=is:_build
+
+# perl Devel::Cover module's output directory
+# https://metacpan.org/release/Devel-Cover
+--ignore-directory=is:cover_db
+
+# python caches
+# https://docs.python.org/3/tutorial/modules.html
+--ignore-directory=is:__pycache__
+--ignore-directory=is:.pytest_cache
+
+# python compiled modules
+--ignore-file=ext:pyc
+--ignore-file=ext:pyd
+--ignore-file=ext:pyo
+
+# python egg packaging
+--ignore-file=ext:egg
+
+# raku precompiled modules
+--ignore-directory=is:.precomp
+
+# reason native build artefacts created by esy
+--ignore-directory=is:_esy
+
+# --- end programming language }}}
+
+# end ignore }}}
+
+# vim: set filetype=conf foldmethod=marker foldlevel=0 nowrap:
