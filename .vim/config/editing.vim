@@ -363,12 +363,6 @@ set whichwrap+=<,>,[,]
 " indicate wrapped characters
 set showbreak=⁍
 
-" visually indent wrapped lines
-if exists('+breakindent')
-  set breakindent
-  set breakindentopt=shift:2
-endif
-
 " wrap lines by default
 set wrap
 
