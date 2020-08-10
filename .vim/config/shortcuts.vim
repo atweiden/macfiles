@@ -260,47 +260,32 @@ nnoremap <leader>sF :setfiletype<space>
 " toggle folds
 nnoremap <silent> g<space> za
 
-" toggle folds recursively
-nnoremap <silent> <localleader>- zA
-
-" fold more
-nnoremap <silent> <localleader>m zm
-
-" close all folds
-nnoremap <silent> <localleader>M zM
-
-" recursively close current fold
-noremap <silent> <localleader>C zC
-
-" fold less
-nnoremap <silent> <localleader>r zr
-
-" open all folds
-nnoremap <silent> <localleader>R zR
-
-" recursively open current fold
-noremap <silent> <localleader>O zO
-
 " focus current line with minimal number of folds open
 nnoremap <silent> <leader><space> zMzvzz
 
 " navigate folds
-noremap <silent> <localleader>k zk
-noremap <silent> <localleader>j zj
-noremap <silent> <localleader>H [z
-noremap <silent> <localleader>L ]z
+noremap <silent> <leader>k zk
+noremap <silent> <leader>j zj
+noremap <silent> <leader>H [z
+noremap <silent> <leader>L ]z
 
-" set fold level
-nnoremap <silent> <localleader>0 :set foldlevel=0<CR>
-nnoremap <silent> <localleader>1 :set foldlevel=1<CR>
-nnoremap <silent> <localleader>2 :set foldlevel=2<CR>
-nnoremap <silent> <localleader>3 :set foldlevel=3<CR>
-nnoremap <silent> <localleader>4 :set foldlevel=4<CR>
-nnoremap <silent> <localleader>5 :set foldlevel=5<CR>
-nnoremap <silent> <localleader>6 :set foldlevel=6<CR>
-nnoremap <silent> <localleader>7 :set foldlevel=7<CR>
-nnoremap <silent> <localleader>8 :set foldlevel=8<CR>
-nnoremap <silent> <localleader>9 :set foldlevel=9<CR>
+" fold more
+nnoremap <silent> <leader>m zm
+
+" close all folds
+nnoremap <silent> <leader>M zM
+
+" recursively close current fold
+noremap <silent> <leader>C zC
+
+" fold less
+nnoremap <silent> <leader>r zr
+
+" open all folds
+nnoremap <silent> <leader>R zR
+
+" recursively open current fold
+noremap <silent> <leader>O zO
 
 " end folds }}}
 " buffers {{{
@@ -309,15 +294,6 @@ nnoremap <silent> <localleader>9 :set foldlevel=9<CR>
 nnoremap <silent> gd :bdelete<CR>
 nnoremap <silent> gb :bnext<CR>
 nnoremap <silent> gB :bprev<CR>
-nnoremap <silent> <leader>1 :<C-U>buffer 1<CR>
-nnoremap <silent> <leader>2 :<C-U>buffer 2<CR>
-nnoremap <silent> <leader>3 :<C-U>buffer 3<CR>
-nnoremap <silent> <leader>4 :<C-U>buffer 4<CR>
-nnoremap <silent> <leader>5 :<C-U>buffer 5<CR>
-nnoremap <silent> <leader>6 :<C-U>buffer 6<CR>
-nnoremap <silent> <leader>7 :<C-U>buffer 7<CR>
-nnoremap <silent> <leader>8 :<C-U>buffer 8<CR>
-nnoremap <silent> <leader>9 :<C-U>buffer 9<CR>
 
 " end buffers }}}
 " windows {{{
