@@ -139,12 +139,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 
-" source lazy loaded plugin settings when applicable
-augroup plugsetup
-  autocmd User conjure call PlugSetup('conjure')
-  autocmd User vim-sexp call PlugSetup('sexp')
-augroup END
-
 call plug#end()
 endif
 
