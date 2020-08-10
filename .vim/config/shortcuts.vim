@@ -258,34 +258,10 @@ nnoremap <leader>sF :setfiletype<space>
 " folds {{{
 
 " toggle folds
-nnoremap <silent> g<space> za
+nnoremap <silent> g<space> :execute ":silent! normal za"<CR>
 
 " focus current line with minimal number of folds open
-nnoremap <silent> <leader><space> zMzvzz
-
-" navigate folds
-noremap <silent> <leader>k zk
-noremap <silent> <leader>j zj
-noremap <silent> <leader>H [z
-noremap <silent> <leader>L ]z
-
-" fold more
-nnoremap <silent> <leader>m zm
-
-" close all folds
-nnoremap <silent> <leader>M zM
-
-" recursively close current fold
-noremap <silent> <leader>C zC
-
-" fold less
-nnoremap <silent> <leader>r zr
-
-" open all folds
-nnoremap <silent> <leader>R zR
-
-" recursively open current fold
-noremap <silent> <leader>O zO
+nnoremap <silent> <leader><space> :call FocusLine()<CR>
 
 " end folds }}}
 " buffers {{{
