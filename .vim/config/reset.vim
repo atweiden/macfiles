@@ -101,9 +101,6 @@ nnoremap gq <nop>
 " don't use gw to format text
 nnoremap gw <nop>
 
-" don't let netrw vmap gx
-vnoremap gx <nop>
-
 " don't use <C-A> for incrementing, interferes with tmux prefix
 nnoremap <C-A> <nop>
 vnoremap <C-A> <nop>
