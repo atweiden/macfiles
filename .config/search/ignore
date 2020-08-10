@@ -50,7 +50,6 @@
 *.pdf
 *.png
 *.raw
-*.svg
 *.svgz
 *.tif
 *.tiff
