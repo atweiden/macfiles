@@ -1,4 +1,4 @@
-function! ReturnToLastEditPosition()
+function! ReturnToLastEditPosition() abort
   " only return to last edit position if b:noreturntopos variable is unset
   if exists('b:noreturntopos')
     return

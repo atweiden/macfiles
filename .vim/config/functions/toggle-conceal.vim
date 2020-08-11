@@ -1,4 +1,4 @@
-function! ToggleConceal()
+function! ToggleConceal() abort
   if &l:conceallevel == 0
     setlocal conceallevel=2
   else

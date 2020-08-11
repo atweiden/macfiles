@@ -5,7 +5,7 @@ xmap <Right> <Plug>(textmanip-move-right)
 xmap D       <Plug>(textmanip-duplicate-down)
 
 let g:textmanip_hooks = {}
-function! g:textmanip_hooks.finish(tm)
+function! g:textmanip_hooks.finish(tm) abort
   let tm = a:tm
   let helper = textmanip#helper#get()
   " remove trailing white space for blockwise move/duplicate

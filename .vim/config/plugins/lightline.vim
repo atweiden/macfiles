@@ -52,7 +52,7 @@ let g:lightline.tab_component_function = {
     \ 'tabnum': 'lightline#tab#tabnum'
     \ }
 
-function! LightlineModified()
+function! LightlineModified() abort
   try
     if &modified == 1
       return '+'
@@ -64,7 +64,7 @@ function! LightlineModified()
   return ''
 endfunction
 
-function! LightlineReadOnly()
+function! LightlineReadOnly() abort
   try
     if &readonly
       return ''
@@ -74,7 +74,7 @@ function! LightlineReadOnly()
   return ''
 endfunction
 
-function! LightlineFileName()
+function! LightlineFileName() abort
   return
     \ ('' != LightlineReadOnly() ? LightlineReadOnly() . ' ' : '') .
     \ (&ft == 'undotree' ? '' :
@@ -97,7 +97,7 @@ augroup gitbranch
     \ silent! unlet b:git_branch
 augroup END
 
-function! LightlineGitBranch()
+function! LightlineGitBranch() abort
   try
     let _ = GitBranch()
     return strlen(_) ? ' ' . _ : ''
@@ -106,19 +106,19 @@ function! LightlineGitBranch()
   return ''
 endfunction
 
-function! LightlineFileFormat()
+function! LightlineFileFormat() abort
   return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
-function! LightlineFileType()
+function! LightlineFileType() abort
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
-function! LightlineFileEncoding()
+function! LightlineFileEncoding() abort
   return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
 endfunction
 
-function! LightlineMode()
+function! LightlineMode() abort
   let fname = expand('%:t')
   return
     \ fname =~ 'NERD_tree' ? 'NERDTree' :

@@ -44,7 +44,7 @@ let g:fzf_files_options = printf('--preview "%s {} | head -' . &lines . '"',
 
 " paint pleasant monotone statusline in fzf buffer
 " fixes disappearing statusline in main vim window
-function! s:fzf_statusline()
+function! s:fzf_statusline() abort
   highlight fzf1 ctermbg=95 guibg=#DFFFFF
   setlocal statusline=%#fzf1#%{'\ '}
 endfunction

@@ -1,4 +1,4 @@
-function! Indent(ignore)
+function! Indent(ignore) abort
   silent! execute "normal v" . v:count1 . ">\<ESC>"
 endfunction
 

@@ -1,4 +1,4 @@
-function! TmuxSendKeys(cmd)
+function! TmuxSendKeys(cmd) abort
   execute 'silent !tmux send-keys -t 2 "' . a:cmd . '" C-m'
   execute 'redraw!'
 endfunction

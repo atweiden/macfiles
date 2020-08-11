@@ -1,8 +1,8 @@
-function! IsNERDTreeOpen()
+function! IsNERDTreeOpen() abort
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
-function! ToggleFindNerd()
+function! ToggleFindNerd() abort
   if IsNERDTreeOpen()
     execute ':NERDTreeToggle'
   else

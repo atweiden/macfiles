@@ -1,4 +1,4 @@
-function! Repeatable(function)
+function! Repeatable(function) abort
   let &operatorfunc = a:function
   return 'g@l'
 endfunction

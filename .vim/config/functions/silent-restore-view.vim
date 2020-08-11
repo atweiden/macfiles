@@ -1,6 +1,6 @@
 " works in unison with feedkeys and b:winsaveview
 " see also: Dedent, DeleteCharRight, Indent
-function! SilentRestoreView()
+function! SilentRestoreView() abort
   call winrestview(b:winsaveview)
   echo ''
 endfunction

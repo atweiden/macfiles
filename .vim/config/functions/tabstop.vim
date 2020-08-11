@@ -1,6 +1,6 @@
 " Credit: http://vimcasts.org/episodes/tabs-and-spaces/
 
-function! TabstopSummarize()
+function! TabstopSummarize() abort
   try
     echohl ModeMsg
     echon 'tabstop=' . &l:ts
@@ -17,7 +17,7 @@ function! TabstopSummarize()
 endfunction
 
 " set tabstop, softtabstop and shiftwidth to the same value
-function! TabstopSet()
+function! TabstopSet() abort
   let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
   if l:tabstop > 0
     let &l:sts = l:tabstop

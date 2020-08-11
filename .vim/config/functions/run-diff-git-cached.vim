@@ -1,5 +1,5 @@
 " show diff of current commit in preview window (ft-gitcommit-plugin)
-function! RunDiffGitCached()
+function! RunDiffGitCached() abort
   " only run `DiffGitCached` once
   if exists('t:diffgitcached')
     return

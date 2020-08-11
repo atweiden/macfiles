@@ -1,4 +1,4 @@
-function! PutBlankLineAbove()
+function! PutBlankLineAbove() abort
   let l:count = v:count ? v:count : 1
   normal m`
   for i in range(1, l:count)
@@ -8,7 +8,7 @@ function! PutBlankLineAbove()
   execute ":normal \<Left>"
 endfunction
 
-function! PutBlankLineBelow()
+function! PutBlankLineBelow() abort
   let l:count = v:count ? v:count : 1
   normal m`
   for i in range(1, l:count)

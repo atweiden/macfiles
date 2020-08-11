@@ -4,7 +4,7 @@
 " <leader>t | vim-tbone
 " ----------------------------------------------------------------------------
 
-function! s:tmux_send(dest) range
+function! s:tmux_send(dest) range abort
   call inputsave()
   let dest = empty(a:dest) ? input('To which pane? ') : a:dest
   call inputrestore()

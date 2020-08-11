@@ -1,4 +1,4 @@
-function! DeleteCharRight(ignore)
+function! DeleteCharRight(ignore) abort
   " number of characters to delete
   let l:count = v:count ? v:count : 1
 
