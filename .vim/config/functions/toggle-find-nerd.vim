@@ -10,4 +10,6 @@ function! ToggleFindNerd()
   endif
 endfunction
 
+command! ToggleFindNerd call ToggleFindNerd()
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

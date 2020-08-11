@@ -48,6 +48,6 @@ inoremap <silent> <F12> <C-O>:NERDTreeToggle<CR>
 vnoremap <silent> <F12> <ESC>:NERDTreeToggle<CR>gv
 
 " if nerdtree is closed, find current file, if open, close it
-nnoremap <silent> <leader>nf <ESC>:call ToggleFindNerd()<CR>
+nnoremap <silent> <leader>nf :ToggleFindNerd<CR>
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
