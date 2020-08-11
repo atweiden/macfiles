@@ -177,18 +177,15 @@ highlight SpellLocal term=underline cterm=underline
 " conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" don't distinguish between delete, add and change using bright colors,
-" because:
-"
-" - add: appears opposite filler markers
-" - delete: appears opposite filler markers
-" - change: appears highlighted in changed portion of line
-highlight DiffAdd ctermbg=0
-highlight DiffDelete ctermbg=0
-highlight DiffChange ctermbg=0
-
-" use reverse foreground colors for +legibility (-consistency of color)
-highlight DiffText cterm=reverse ctermbg=none
+" diff text
+highlight clear DiffAdd
+highlight link DiffAdd GitGutterAdd
+highlight clear DiffChange
+highlight link DiffChange GitGutterText
+highlight clear DiffDelete
+highlight link DiffDelete GitGutterDelete
+highlight clear DiffText
+highlight link DiffText GitGutterChange
 
 " end highlighting }}}
 
