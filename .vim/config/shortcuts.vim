@@ -156,14 +156,14 @@ nnoremap <silent> <leader>D a<C-R>=substitute(strtrans(system("date --iso-8601=s
 set pastetoggle=<F2>
 
 " toggle line wrap
-nnoremap <silent> <F3> :set nowrap!<CR>
-inoremap <silent> <F3> <C-O>:set nowrap!<CR>
-vnoremap <silent> <F3> <ESC>:set nowrap!<CR>gv
+nnoremap <silent> <F3> :setlocal nowrap!<CR>
+inoremap <silent> <F3> <C-O>:setlocal nowrap!<CR>
+vnoremap <silent> <F3> <ESC>:setlocal nowrap!<CR>gv
 
 " toggle relative line numbers
-nnoremap <silent> <F4> :set norelativenumber!<CR>
-inoremap <silent> <F4> <C-O>:set norelativenumber!<CR>
-vnoremap <silent> <F4> <ESC>:set norelativenumber!<CR>gv
+nnoremap <silent> <F4> :setlocal norelativenumber!<CR>
+inoremap <silent> <F4> <C-O>:setlocal norelativenumber!<CR>
+vnoremap <silent> <F4> <ESC>:setlocal norelativenumber!<CR>gv
 
 " toggle line and column highlighting
 nnoremap <silent> <F5> :ToggleCursorcolumnCursorline<CR>
@@ -190,7 +190,7 @@ inoremap <silent> <F11> <C-O>:ToggleConceal<CR>
 vnoremap <silent> <F11> <ESC>:ToggleConceal<CR>gv
 
 " toggle showcmd
-nnoremap <silent> <leader>sc :set showcmd!<CR>
+nnoremap <silent> <leader>sc :setlocal showcmd!<CR>
 
 " toggle virtualedit=all
 nnoremap <silent> <leader>sv :ToggleVirtualedit<CR>
