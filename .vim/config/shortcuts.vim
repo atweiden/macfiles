@@ -152,11 +152,6 @@ nnoremap <silent> <leader>D a<C-R>=substitute(strtrans(system("date --iso-8601=s
 " end timestamps }}}
 " toggles {{{
 
-" toggle conceallevel
-nnoremap <silent> <S-F1> :call ToggleConceal()<CR>
-inoremap <silent> <S-F1> <C-O>:call ToggleConceal()<CR>
-vnoremap <silent> <S-F1> <ESC>:call ToggleConceal()<CR>gv
-
 " toggle paste mode
 set pastetoggle=<F2>
 
@@ -191,6 +186,11 @@ vnoremap <silent> <F7> <ESC>:ToggleIndentGuides<CR>gv
 " scroll all windows simultaneously
 nnoremap <silent> <F9> :windo set scrollbind!<CR>
 inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
+
+" toggle conceallevel
+nnoremap <silent> <F11> :ToggleConceal<CR>
+inoremap <silent> <F11> <C-O>:ToggleConceal<CR>
+vnoremap <silent> <F11> <ESC>:ToggleConceal<CR>gv
 
 " toggle showcmd
 nnoremap <silent> <leader>sc :set showcmd!<CR>
