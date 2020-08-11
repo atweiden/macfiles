@@ -68,9 +68,9 @@ done
 # settings
 # -----------------------------------------------------------------------------
 
-# e.g. Andy Weidenbaum (for github)
+# e.g. Andy Weidenbaum (for git/hg)
 name="${_name:-$USER}"
-# e.g. atweiden@tutanota.de (for github)
+# e.g. atweiden@ioiojo.com (for git/hg)
 email="${_email:-$USER@$HOSTNAME}"
 # e.g. atweiden (for github)
 github="${_github:-$USER}"
@@ -148,7 +148,7 @@ fi
 
 
 # -----------------------------------------------------------------------------
-# github
+# git/hg
 # -----------------------------------------------------------------------------
 
 gsed -i "s#yourname#$name#"         "$HOME/.config/git/config"
