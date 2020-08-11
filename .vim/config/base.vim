@@ -15,6 +15,9 @@ inoremap <C-Q> <C-O>:qall<CR>
 onoremap <C-Q> <ESC>:qall<CR>
 vnoremap <C-Q> <ESC>:qall<CR>
 
+" Ctrl-Z to suspend in insert mode
+inoremap <C-Z> <C-O>:stop<CR>
+
 " store backups in the same directory
 set backupdir=$VIMPATH/.backups
 
