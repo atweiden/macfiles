@@ -171,12 +171,9 @@ inoremap <silent> <F5> <C-O>:ToggleCursorcolumnCursorline<CR>
 vnoremap <silent> <F5> <ESC>:ToggleCursorcolumnCursorline<CR>gv
 
 " toggle line numbers
-nnoremap <silent> <F6> :set nonumber norelativenumber<CR>
-inoremap <silent> <F6> <C-O>:set nonumber norelativenumber<CR>
-vnoremap <silent> <F6> <ESC>:set nonumber norelativenumber<CR>gv
-nnoremap <silent> <S-F6> :set number relativenumber<CR>
-inoremap <silent> <S-F6> <C-O>:set number relativenumber<CR>
-vnoremap <silent> <S-F6> <ESC>:set number relativenumber<CR>gv
+nnoremap <silent> <F6> :ToggleLineNumbers<CR>
+inoremap <silent> <F6> <C-O>:ToggleLineNumbers<CR>
+vnoremap <silent> <F6> <ESC>:ToggleLineNumbers<CR>gv
 
 " toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
 nnoremap <silent> <F7> :ToggleIndentGuides<CR>
