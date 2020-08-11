@@ -175,6 +175,11 @@ nnoremap <silent> <F6> :ToggleLineNumbers<CR>
 inoremap <silent> <F6> <C-O>:ToggleLineNumbers<CR>
 vnoremap <silent> <F6> <ESC>:ToggleLineNumbers<CR>gv
 
+" toggle laststatus=2
+nnoremap <silent> <S-F6> :ToggleLaststatus<CR>
+inoremap <silent> <S-F6> <C-O>:ToggleLaststatus<CR>
+vnoremap <silent> <S-F6> <ESC>:ToggleLaststatus<CR>gv
+
 " toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
 nnoremap <silent> <F7> :ToggleIndentGuides<CR>
 inoremap <silent> <F7> <C-O>:ToggleIndentGuides<CR>
