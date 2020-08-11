@@ -152,7 +152,7 @@ fi
 # -----------------------------------------------------------------------------
 
 gsed -i "s#yourname#$name#"         "$HOME/.config/git/config"
-gsed -i "s#youremail#$email#"       "$HOME/.config/git/config"
+gsed -i "s#youremail#$email#g"      "$HOME/.config/git/config"
 gsed -i "s#githubusername#$github#" "$HOME/.config/git/config"
 gsed -i "s#yourname#$name#"         "$HOME/.config/hg/hgrc"
 gsed -i "s#youremail#$email#"       "$HOME/.config/hg/hgrc"

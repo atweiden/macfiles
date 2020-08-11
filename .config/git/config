@@ -134,9 +134,22 @@
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-stashshowPatch
   showPatch = true
 
+# https://git-scm.com/docs/git-send-email
 [sendemail]
   # review and edit each patch to be sent
-  annotate = yes
+  annotate = true
+  # always confirm before sending
+  confirm = always
+  # avoid carbon copying self as sender
+  supresscc = self
+  # use hosted configuration profile for sending
+  identity = hosted
+
+[sendemail "hosted"]
+  #smtpUser = youremail
+  #smtpServer = smtp.server.tld
+  #smtpServerPort = 587
+  #smtpEncryption = tls
 
 # for integrity, regularly check anything we're getting is complete/sane
 # https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
