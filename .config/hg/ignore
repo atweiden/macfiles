@@ -213,9 +213,6 @@ erl_crash.dump
 *.beam
 *.plt
 
-# Go
-*.test
-
 # Lua
 lua_modules/
 

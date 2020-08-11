@@ -772,9 +772,6 @@
 --ignore-file=ext:plt
 --ignore-file=is:erl_crash.dump
 
-# go test binaries created by `go test -c`
---ignore-file=ext:test
-
 # haskell cabal sandboxes
 # https://www.haskell.org/cabal/users-guide/installing-packages.html
 --ignore-directory=is:.cabal-sandbox

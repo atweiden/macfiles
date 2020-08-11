@@ -159,7 +159,6 @@ erl_crash.dump
 *.ez
 *.beam
 *.plt
-*.test
 lua_modules/
 nimcache/
 nimblecache/
