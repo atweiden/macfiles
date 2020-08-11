@@ -193,7 +193,7 @@ vnoremap <silent> <F11> <ESC>:ToggleConceal<CR>gv
 nnoremap <silent> <leader>sc :set showcmd!<CR>
 
 " toggle virtualedit=all
-nnoremap <silent> <leader>sv :let &virtualedit=&virtualedit=="block" ? "all" : "block" <Bar> set virtualedit?<CR>
+nnoremap <silent> <leader>sv :ToggleVirtualedit<CR>
 
 " end toggles }}}
 " lines {{{
