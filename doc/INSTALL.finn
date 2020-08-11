@@ -143,6 +143,9 @@ casks+=('keepingyouawake')
 # email
 casks+=('canary')
 
+# ftp clients
+casks+=('cyberduck')
+
 # keyboard
 casks+=('karabiner-elements')
 
