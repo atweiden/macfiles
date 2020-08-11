@@ -166,9 +166,9 @@ inoremap <silent> <F4> <C-O>:set norelativenumber!<CR>
 vnoremap <silent> <F4> <ESC>:set norelativenumber!<CR>gv
 
 " toggle line and column highlighting
-nnoremap <silent> <F5> :set nocursorline! nocursorcolumn!<CR>
-inoremap <silent> <F5> <C-O>:set nocursorline! nocursorcolumn!<CR>
-vnoremap <silent> <F5> <ESC>:set nocursorline! nocursorcolumn!<CR>gv
+nnoremap <silent> <F5> :ToggleCursorcolumnCursorline<CR>
+inoremap <silent> <F5> <C-O>:ToggleCursorcolumnCursorline<CR>
+vnoremap <silent> <F5> <ESC>:ToggleCursorcolumnCursorline<CR>gv
 
 " toggle line numbers
 nnoremap <silent> <F6> :set nonumber norelativenumber<CR>
