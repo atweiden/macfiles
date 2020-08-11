@@ -1,5 +1,8 @@
 # global options {{{
 
+# ignore default definitions included with ack
+--ignore-ack-defaults
+
 # ignore case if search pattern contains no uppercase characters
 --smart-case
 
