@@ -12,6 +12,11 @@ augroup gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
 augroup END
 
+augroup xbps
+  autocmd!
+  autocmd BufReadCmd *.xbps call tar#Browse(expand("<amatch>"))
+augroup END
+
 let g:lispft = [
     \ 'clojure',
     \ 'fennel',
