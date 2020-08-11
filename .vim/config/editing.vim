@@ -494,6 +494,7 @@ elseif executable('ack')
   set grepprg+=\ --nogroup
   set grepprg+=\ --nocolor
   set grepprg+=\ --nopager
+  set grepprg+=\ --ackrc=$HOME/.config/ack/ackrc
 endif
 
 " don't move back cursor one position upon esc

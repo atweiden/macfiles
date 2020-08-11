@@ -805,6 +805,7 @@ elif [[ -n "$_has_ack" ]]; then
   export FZF_DEFAULT_COMMAND='ack \
     --nocolor \
     --nopager \
+    --ackrc=$HOME/.config/ack/ackrc \
     -g ""'
 fi
 
@@ -836,6 +837,7 @@ _fzf_compgen_path() {
     ack \
       --nocolor \
       --nopager \
+      --ackrc="$HOME/.config/ack/ackrc" \
       -g "" \
       "$1"
   fi
