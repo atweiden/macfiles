@@ -86,7 +86,6 @@ set wildignore+=*.mng
 set wildignore+=*.pdf
 set wildignore+=*.png
 set wildignore+=*.raw
-set wildignore+=*.svg
 set wildignore+=*.svgz
 set wildignore+=*.tif
 set wildignore+=*.tiff
