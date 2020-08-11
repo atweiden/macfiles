@@ -471,7 +471,7 @@ augroup fmtopts
 "                                      +----------- Automatically insert current comment leader after <Enter> in insert mode
 augroup END
 
-" use rg/ag/pt/ack for grepping if available
+" use rg/ag/ack for grepping if available
 if executable('rg')
   set grepprg =rg
   set grepprg+=\ --vimgrep
@@ -489,13 +489,6 @@ elseif executable('ag')
   set grepprg+=\ --smart-case
   set grepprg+=\ --path-to-ignore\ $HOME/.config/search/ignore
   set grepprg+=\ --skip-vcs-ignores
-elseif executable('pt')
-  set grepprg =pt
-  set grepprg+=\ --nogroup
-  set grepprg+=\ --nocolor
-  set grepprg+=\ --hidden
-  set grepprg+=\ --nocolor
-  set grepprg+=\ -e
 elseif executable('ack')
   set grepprg =ack
   set grepprg+=\ --nogroup

@@ -293,7 +293,6 @@ _has_mosh="$(command -v mosh)"
 _has_mvim="$(command -v mvim)"
 _has_ncdu="$(command -v ncdu)"
 _has_nvim="$(command -v nvim)"
-_has_pt="$(command -v pt)"
 _has_rclone="$(command -v rclone)"
 _has_rg="$(command -v rg)"
 _has_sqlite3="$(command -v sqlite3)"
@@ -784,7 +783,7 @@ export MIX_HOME="$XDG_DATA_HOME/mix"
 # --- end elixir }}}
 # --- fzf {{{
 
-# use rg/ag/pt/ack as the default source for fzf
+# use rg/ag/ack as the default source for fzf
 if [[ -n "$_has_rg" ]]; then
   export FZF_DEFAULT_COMMAND='rg \
     --hidden \
@@ -802,12 +801,6 @@ elif [[ -n "$_has_ag" ]]; then
     --path-to-ignore $HOME/.config/search/ignore \
     --skip-vcs-ignores \
     -g ""'
-elif [[ -n "$_has_pt" ]]; then
-  export FZF_DEFAULT_COMMAND='pt \
-    --hidden \
-    --nocolor \
-    -e \
-    -g=""'
 elif [[ -n "$_has_ack" ]]; then
   export FZF_DEFAULT_COMMAND='ack \
     --nocolor \
@@ -815,10 +808,10 @@ elif [[ -n "$_has_ack" ]]; then
     -g ""'
 fi
 
-# use rg/ag/pt/ack for ctrl-t completion
+# use rg/ag/ack for ctrl-t completion
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# use rg/ag/pt/ack for ** completion
+# use rg/ag/ack for ** completion
 _fzf_compgen_path() {
   if [[ -n "$_has_rg" ]]; then
     rg \
@@ -838,13 +831,6 @@ _fzf_compgen_path() {
       --path-to-ignore "$HOME/.config/search/ignore" \
       --skip-vcs-ignores \
       -g "" \
-      "$1"
-  elif [[ -n "$_has_pt" ]]; then
-    pt \
-      --hidden \
-      --nocolor \
-      -e \
-      -g="" \
       "$1"
   elif [[ -n "$_has_ack" ]]; then
     ack \
