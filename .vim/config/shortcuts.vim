@@ -165,7 +165,7 @@ nnoremap <silent> <F3> :set nowrap!<CR>
 inoremap <silent> <F3> <C-O>:set nowrap!<CR>
 vnoremap <silent> <F3> <ESC>:set nowrap!<CR>gv
 
-" toggle line numbers
+" toggle relative line numbers
 nnoremap <silent> <F4> :set norelativenumber!<CR>
 inoremap <silent> <F4> <C-O>:set norelativenumber!<CR>
 vnoremap <silent> <F4> <ESC>:set norelativenumber!<CR>gv
@@ -174,6 +174,14 @@ vnoremap <silent> <F4> <ESC>:set norelativenumber!<CR>gv
 nnoremap <silent> <F5> :set nocursorline! nocursorcolumn!<CR>
 inoremap <silent> <F5> <C-O>:set nocursorline! nocursorcolumn!<CR>
 vnoremap <silent> <F5> <ESC>:set nocursorline! nocursorcolumn!<CR>gv
+
+" toggle line numbers
+nnoremap <silent> <F6> :set nonumber norelativenumber<CR>
+inoremap <silent> <F6> <C-O>:set nonumber norelativenumber<CR>
+vnoremap <silent> <F6> <ESC>:set nonumber norelativenumber<CR>gv
+nnoremap <silent> <S-F6> :set number relativenumber<CR>
+inoremap <silent> <S-F6> <C-O>:set number relativenumber<CR>
+vnoremap <silent> <S-F6> <ESC>:set number relativenumber<CR>gv
 
 " toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
 nnoremap <silent> <F7> :ToggleIndentGuides<CR>
