@@ -38,10 +38,10 @@ nnoremap <silent> <localleader><CR> :let @/ = '[\.\?]\(\\\)\@<!\zs\s\s\+\ze\S'<C
 nnoremap <silent> <localleader><localleader><CR> :let @/ = '\S\zs\s\s\+\ze\S'<CR>:call search(@/, "sz")<CR>
 
 " find merge conflict markers forward (repeatable with n/N)
-nnoremap <silent> <F6> :let @/ = '\v^[<=>]{7}([^=].+)?$'<CR>:call search(@/, "sz")<CR>
+nnoremap <silent> ]x :let @/ = '\v^[<=>]{7}([^=].+)?$'<CR>:call search(@/, "sz")<CR>
 
 " find merge conflict markers backward (repeatable with n/N)
-nnoremap <silent> <S-F6> :let @/ = '\v^[<=>]{7}([^=].+)?$'<CR>:call search(@/, "bsz")<CR>
+nnoremap <silent> [x :let @/ = '\v^[<=>]{7}([^=].+)?$'<CR>:call search(@/, "bsz")<CR>
 
 " end search and replace }}}
 " pasting {{{
