@@ -334,8 +334,11 @@ set suffixes+=.tmp
 " case sensitive file completion
 set nofileignorecase
 
-" vertical diffsplit by default
+" open vimdiff split vertically
 set diffopt+=vertical
+
+" don't fold unchanged lines in vimdiffs
+set diffopt+=context:1000000
 
 " split windows below and to the right of the current
 set splitright
