@@ -44,14 +44,14 @@ let g:fzf_files_options = printf('--preview "%s {} | head -' . &lines . '"',
 
 " paint pleasant monotone statusline in fzf buffer
 " fixes disappearing statusline in main vim window
-function! s:fzf_statusline() abort
+function! s:FzfStatusLine() abort
   highlight fzf1 ctermbg=95 guibg=#DFFFFF
   setlocal statusline=%#fzf1#%{'\ '}
 endfunction
 
 augroup fzfstatusline
   autocmd!
-  autocmd User FzfStatusLine call <SID>fzf_statusline()
+  autocmd User FzfStatusLine call <SID>FzfStatusLine()
 augroup END
 
 " word completion using cat
