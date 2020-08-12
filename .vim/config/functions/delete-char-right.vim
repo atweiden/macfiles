@@ -20,7 +20,7 @@ function! DeleteCharRight(ignore) abort
   endif
 
   " clear message line to workaround feedkeys silent incompatibility
-  call feedkeys(":call SilentRestoreView()\<CR>", 'n')
+  call feedkeys(":call winrestview(b:winsaveview)\<CR>:echo ''\<CR>", 'n')
 endfunction
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
