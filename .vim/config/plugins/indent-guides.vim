@@ -6,7 +6,7 @@ let g:indent_guides_default_mapping = 0
 
 " use custom colors
 let g:indent_guides_auto_colors = 0
-augroup indent-guides
+augroup indentguides
   autocmd!
   autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd ctermbg=234 guibg=#F7F7F7
   autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=235 guibg=#F0F0F0
