@@ -4,12 +4,17 @@
 " <leader>t | vim-tbone
 " ----------------------------------------------------------------------------
 
-function! s:TmuxSend(dest) range abort
+function! s:TmuxSend(...) range abort
   call inputsave()
-  let dest = empty(a:dest) ? input('To which pane? ') : a:dest
+  let l:dest = get(a:, 1, '')
+  if empty(l:dest)
+    let l:dest = input('To which pane? ')
+  endif
   call inputrestore()
-  silent call tbone#write_command(0, a:firstline, a:lastline, 1, dest)
+  silent call tbone#write_command(0, a:firstline, a:lastline, 1, l:dest)
 endfunction
+
+command! -nargs=? -range -complete=custom,tbone#complete_panes TmuxSend <line1>,<line2>call <SID>TmuxSend(<f-args>)
 
 for m in ['n', 'x']
   let gv = m == 'x' ? 'gv' : ''
