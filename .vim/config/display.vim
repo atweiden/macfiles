@@ -77,6 +77,8 @@ if has('gui_running')
   " paste selection with <S-Ins>
   inoremap <S-Insert> <MiddleMouse>
   cnoremap <S-Insert> <MiddleMouse>
+  " don't show statusline
+  set laststatus=0
   " show unmaximized macvim translucent
   set transparency=5
   " display ligatures in macvim
