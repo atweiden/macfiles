@@ -13,4 +13,6 @@ function! FocusLine() abort
   call setpos('.', l:save_pos)
 endfunction
 
+command! FocusLine call FocusLine()
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

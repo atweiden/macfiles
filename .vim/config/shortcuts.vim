@@ -266,7 +266,7 @@ nnoremap <leader>sF :setfiletype<space>
 nnoremap <silent> g<space> :execute ":silent! normal za"<CR>
 
 " focus current line with minimal number of folds open
-nnoremap <silent> <leader><space> :call FocusLine()<CR>
+nnoremap <silent> <leader><space> :FocusLine<CR>
 
 " end folds }}}
 " buffers {{{
