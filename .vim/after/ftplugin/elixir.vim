@@ -1,10 +1,40 @@
-" Credit: https://gist.github.com/ddresselhaus/98b022e295bc27e9264dece7823e74e8
+" test only selected lines with mix (see: mix help test)
+function! s:MixTestOnly(...) range abort
+  " check file is on disk
+  let l:path = expand('%:p')
+  if empty(l:path)
+    return
+  endif
 
-function! TestCmd(path, lineno) abort
-  let cmd = join(["mix test --only", " line:", a:lineno, " ", a:path], "")
-  return cmd
+  " get destination pane
+  let l:dest = get(a:, 1, '')
+  if empty(l:dest)
+    call inputsave()
+    let l:dest = input('To which pane? ')
+    call inputrestore()
+  endif
+
+  let l:mix_cmd = printf('mix test %s:%d:%d', l:path, a:firstline, a:lastline)
+  try
+    call tbone#send_keys(l:dest, l:mix_cmd . "\r")
+  catch /.*/
+    return 'echoerr ' . string(v:exception)
+  endtry
 endfunction
 
-nnoremap <leader>el :call TmuxSendKeys(TestCmd(expand("%:p"), line(".")))<CR>
+command! -nargs=? -range -complete=custom,tbone#complete_panes MixTestOnly <line1>,<line2>call <SID>MixTestOnly(<f-args>)
+
+for m in ['n', 'x']
+  let gv = m == 'x' ? 'gv' : ''
+  execute m . "noremap <silent> <localleader>tt :call <SID>MixTestOnly('')<CR>" . gv
+  execute m . "noremap <silent> <localleader>th :call <SID>MixTestOnly('.left')<CR>" . gv
+  execute m . "noremap <silent> <localleader>tj :call <SID>MixTestOnly('.bottom')<CR>" . gv
+  execute m . "noremap <silent> <localleader>tk :call <SID>MixTestOnly('.top')<CR>" . gv
+  execute m . "noremap <silent> <localleader>tl :call <SID>MixTestOnly('.right')<CR>" . gv
+  execute m . "noremap <silent> <localleader>ty :call <SID>MixTestOnly('.top-left')<CR>" . gv
+  execute m . "noremap <silent> <localleader>to :call <SID>MixTestOnly('.top-right')<CR>" . gv
+  execute m . "noremap <silent> <localleader>tn :call <SID>MixTestOnly('.bottom-left')<CR>" . gv
+  execute m . "noremap <silent> <localleader>t. :call <SID>MixTestOnly('.bottom-right')<CR>" . gv
+endfor
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
