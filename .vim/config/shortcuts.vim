@@ -180,11 +180,6 @@ nnoremap <silent> <S-F6> :ToggleLaststatus<CR>
 inoremap <silent> <S-F6> <C-O>:ToggleLaststatus<CR>
 vnoremap <silent> <S-F6> <ESC>:ToggleLaststatus<CR>gv
 
-" toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
-nnoremap <silent> <F7> :ToggleIndentGuides<CR>
-inoremap <silent> <F7> <C-O>:ToggleIndentGuides<CR>
-vnoremap <silent> <F7> <ESC>:ToggleIndentGuides<CR>gv
-
 " scroll all windows simultaneously
 nnoremap <silent> <F9> :windo set scrollbind!<CR>
 inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>

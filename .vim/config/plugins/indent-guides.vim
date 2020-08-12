@@ -22,4 +22,22 @@ let g:indent_guides_space_guides = 0
 " uncomment if g:indent_guides_space_guides = 1
 "let g:indent_guides_soft_pattern = ' '
 
+" toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
+function! s:ToggleIndentGuides() abort
+  call indent_guides#init_matches()
+  if empty(w:indent_guides_matches)
+    call SetListCharsTabInvisible()
+    call SetListCharsRemaining()
+    call indent_guides#enable()
+  else
+    call indent_guides#disable()
+    call SetListCharsTabVisible()
+    call SetListCharsRemaining()
+  endif
+endfunction
+command! ToggleIndentGuides call <SID>ToggleIndentGuides()
+nnoremap <silent> <F7> :ToggleIndentGuides<CR>
+inoremap <silent> <F7> <C-O>:ToggleIndentGuides<CR>
+vnoremap <silent> <F7> <ESC>:ToggleIndentGuides<CR>gv
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
