@@ -318,6 +318,10 @@ tnoremap <silent> <M-L> <C-W>L
 " redraw screen
 nnoremap <silent> <leader><leader><CR> :redraw!<CR>:syntax sync fromstart<CR>
 
+" adjust gui macvim transparency
+nnoremap <silent> <C-}> :let &transparency = &transparency - 1<CR>
+nnoremap <silent> <C-{> :let &transparency = &transparency + 1<CR>
+
 " end screen }}}
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
