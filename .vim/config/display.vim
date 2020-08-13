@@ -219,8 +219,10 @@ highlight WildMenu term=bold cterm=bold ctermfg=87 ctermbg=234 gui=bold guifg=#D
 
 " whitespace
 " vim uses hl-SpecialKey for nbsp, space, tab and trail
+highlight clear SpecialKey
 highlight SpecialKey ctermfg=234 guifg=#F4F4F4
 " neovim uses hl-WhiteSpace for nbsp, space, tab and trail
+highlight clear WhiteSpace
 highlight WhiteSpace ctermfg=234 guifg=#F4F4F4
 
 " spelling
