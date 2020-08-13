@@ -108,7 +108,8 @@ set viminfo='100,<50,s10,h,!
 "           |    +------------- Keep N lines for each register
 "           +------------------ Keep marks for N files
 if !has('nvim')
-  if filereadable($HOME . '/.viminfo')
+  set viminfofile=$VIMPATH/viminfo
+  if filereadable(&viminfofile)
     rviminfo
   endif
 else
