@@ -170,10 +170,10 @@ nnoremap <silent> <F5> :ToggleCursorcolumnCursorline<CR>
 inoremap <silent> <F5> <C-O>:ToggleCursorcolumnCursorline<CR>
 vnoremap <silent> <F5> <ESC>:ToggleCursorcolumnCursorline<CR>gv
 
-" toggle line numbers
-nnoremap <silent> <F6> :ToggleLineNumbers<CR>
-inoremap <silent> <F6> <C-O>:ToggleLineNumbers<CR>
-vnoremap <silent> <F6> <ESC>:ToggleLineNumbers<CR>gv
+" toggle line numbers, add left padding when line numbers disabled
+nnoremap <silent> <F6> :ToggleLineNumbersLeftPadded<CR>
+inoremap <silent> <F6> <C-O>:ToggleLineNumbersLeftPadded<CR>
+vnoremap <silent> <F6> <ESC>:ToggleLineNumbersLeftPadded<CR>gv
 
 " toggle laststatus=2
 nnoremap <silent> <S-F6> :ToggleLaststatus<CR>
