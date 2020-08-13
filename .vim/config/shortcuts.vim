@@ -190,6 +190,11 @@ nnoremap <silent> <F9> :ToggleVirtualedit<CR>
 inoremap <silent> <F9> <C-O>:ToggleVirtualedit<CR>
 vnoremap <silent> <F9> <ESC>:ToggleVirtualedit<CR>gv
 
+" toggle hex mode
+nnoremap <silent> <S-F9> :ToggleHexMode<CR>
+inoremap <silent> <S-F9> <C-O>:ToggleHexMode<CR>
+vnoremap <silent> <S-F9> <ESC>:ToggleHexMode<CR>gv
+
 " toggle showcmd
 nnoremap <silent> <F11> :set showcmd!<CR>
 inoremap <silent> <F11> <C-O>:set showcmd!<CR>
