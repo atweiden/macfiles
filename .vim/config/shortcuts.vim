@@ -188,6 +188,7 @@ vnoremap <silent> <S-F7> <ESC>:set showcmd!<CR>gv
 " scroll all windows simultaneously
 nnoremap <silent> <F9> :windo set scrollbind!<CR>
 inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
+vnoremap <silent> <F9> <ESC>:windo set scrollbind!<CR>gv
 
 " toggle virtualedit=all
 nnoremap <silent> <F11> :ToggleVirtualedit<CR>
