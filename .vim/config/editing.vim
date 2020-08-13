@@ -18,8 +18,9 @@ set noshowcmd
 " always report the number of lines changed
 set report=0
 
-" don't highlight the screen line or column
-set nocursorline nocursorcolumn
+" don't highlight screen line or column
+set nocursorcolumn
+set nocursorline
 
 " always show status line
 set laststatus=2
