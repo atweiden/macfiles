@@ -1,8 +1,8 @@
 function! ToggleLineNumbers() abort
-  if &l:number == &l:relativenumber
-    setlocal nonumber! norelativenumber!
+  if &number == &relativenumber
+    set nonumber! norelativenumber!
   else
-    setlocal nonumber norelativenumber
+    set nonumber norelativenumber
   endif
 endfunction
 

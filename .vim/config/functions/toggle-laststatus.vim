@@ -1,8 +1,8 @@
 function! ToggleLaststatus() abort
-  if &l:laststatus == 2
-    setlocal laststatus=0
+  if &laststatus == 2
+    set laststatus=0
   else
-    setlocal laststatus=2
+    set laststatus=2
   endif
 endfunction
 

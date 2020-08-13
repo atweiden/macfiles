@@ -1,8 +1,8 @@
 function! ToggleCursorcolumnCursorline() abort
-  if &l:cursorcolumn == &l:cursorline
-    setlocal nocursorcolumn! nocursorline!
+  if &cursorcolumn == &cursorline
+    set nocursorcolumn! nocursorline!
   else
-    setlocal nocursorcolumn nocursorline
+    set nocursorcolumn nocursorline
   endif
 endfunction
 

@@ -1,8 +1,8 @@
 function! ToggleConceal() abort
-  if &l:conceallevel == 0
-    setlocal conceallevel=2
+  if &conceallevel == 0
+    set conceallevel=2
   else
-    setlocal conceallevel=0
+    set conceallevel=0
   endif
 endfunction
 

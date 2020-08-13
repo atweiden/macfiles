@@ -1,11 +1,11 @@
 function! ToggleVirtualedit() abort
-  if &l:virtualedit ==# "block"
-    setlocal virtualedit=all
+  if &virtualedit ==# "block"
+    set virtualedit=all
   else
-    setlocal virtualedit=block
+    set virtualedit=block
   endif
   " echo virtualedit mode
-  setlocal virtualedit?
+  set virtualedit?
 endfunction
 
 command! ToggleVirtualedit call ToggleVirtualedit()
