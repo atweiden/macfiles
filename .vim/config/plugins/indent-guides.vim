@@ -24,15 +24,17 @@ let g:indent_guides_space_guides = 0
 
 " toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
 function! s:ToggleIndentGuides() abort
-  call indent_guides#init_matches()
-  if empty(w:indent_guides_matches)
-    call SetListCharsTabInvisible()
-    call SetListCharsRemaining()
-    call indent_guides#enable()
-  else
+  if get(b:, 'igmode', 0)
     call indent_guides#disable()
     call SetListCharsTabVisible()
     call SetListCharsRemaining()
+    let b:igmode = 0
+  else
+    call SetListCharsTabInvisible()
+    call SetListCharsRemaining()
+    call indent_guides#init_matches()
+    call indent_guides#enable()
+    let b:igmode = 1
   endif
 endfunction
 command! ToggleIndentGuides call <SID>ToggleIndentGuides()
