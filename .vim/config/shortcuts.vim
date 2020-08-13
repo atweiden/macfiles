@@ -180,22 +180,22 @@ nnoremap <silent> <S-F6> :ToggleLaststatus<CR>
 inoremap <silent> <S-F6> <C-O>:ToggleLaststatus<CR>
 vnoremap <silent> <S-F6> <ESC>:ToggleLaststatus<CR>gv
 
-" toggle showcmd
-nnoremap <silent> <S-F7> :set showcmd!<CR>
-inoremap <silent> <S-F7> <C-O>:set showcmd!<CR>
-vnoremap <silent> <S-F7> <ESC>:set showcmd!<CR>gv
-
-" scroll all windows simultaneously
-nnoremap <silent> <F9> :windo set scrollbind!<CR>
-inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
-vnoremap <silent> <F9> <ESC>:windo set scrollbind!<CR>gv
+" toggle simultaneous scrolling of windows
+nnoremap <silent> <S-F8> :windo set scrollbind!<CR>
+inoremap <silent> <S-F8> <C-O>:windo set scrollbind!<CR>
+vnoremap <silent> <S-F8> <ESC>:windo set scrollbind!<CR>gv
 
 " toggle virtualedit=all
-nnoremap <silent> <F11> :ToggleVirtualedit<CR>
-inoremap <silent> <F11> <C-O>:ToggleVirtualedit<CR>
-vnoremap <silent> <F11> <ESC>:ToggleVirtualedit<CR>gv
+nnoremap <silent> <F9> :ToggleVirtualedit<CR>
+inoremap <silent> <F9> <C-O>:ToggleVirtualedit<CR>
+vnoremap <silent> <F9> <ESC>:ToggleVirtualedit<CR>gv
 
-" toggle conceallevel
+" toggle showcmd
+nnoremap <silent> <F11> :set showcmd!<CR>
+inoremap <silent> <F11> <C-O>:set showcmd!<CR>
+vnoremap <silent> <F11> <ESC>:set showcmd!<CR>gv
+
+" toggle conceallevel=2
 nnoremap <silent> <S-F11> :ToggleConceal<CR>
 inoremap <silent> <S-F11> <C-O>:ToggleConceal<CR>
 vnoremap <silent> <S-F11> <ESC>:ToggleConceal<CR>gv
