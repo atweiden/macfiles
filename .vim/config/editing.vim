@@ -4,11 +4,6 @@ set nostartofline
 " enable virtual edit in visual block mode
 set virtualedit=block
 
-" no annoying error noises
-set belloff=all
-set noerrorbells
-set vb t_vb=
-
 " use a dialog when an operation has to be confirmed
 set confirm
 
@@ -17,16 +12,6 @@ set noshowcmd
 
 " always report the number of lines changed
 set report=0
-
-" don't highlight screen line or column
-set nocursorcolumn
-set nocursorline
-
-" always show status line
-set laststatus=2
-
-" don't highlight matching parens
-set noshowmatch
 
 " turn on wildmenu completion
 set wildmenu
@@ -345,26 +330,14 @@ set diffopt+=context:1000000
 set splitright
 set splitbelow
 
-" allow no height, no width windows
-set winminheight=0
-set winminwidth=0
-
 " generous backspacing
 set backspace=2
-
-" number of screen lines around cursor
-set scrolloff=8
-set sidescrolloff=16
-set sidescroll=1
 
 " break lines at sensible place
 set linebreak
 
 " wrap on these chars
 set whichwrap+=<,>,[,]
-
-" indicate wrapped characters
-set showbreak=⁍
 
 " wrap lines by default
 set wrap
@@ -398,6 +371,9 @@ set shiftwidth=2
 " round indent to multiple of shiftwidth
 set shiftround
 
+" <Tab> in front of a line inserts blanks according to shiftwidth
+set smarttab
+
 " triple matching curly braces form a fold
 set foldmethod=marker
 
@@ -410,37 +386,11 @@ set foldopen=insert,mark,percent,search,tag,undo
 " when foldmethod is indent or syntax, don't fold more than N levels deep
 set foldnestmax=3
 
-" show the line number in front of each line
-set number
-
-" show relative line numbers
-set relativenumber
-
-" minimum number of columns to use for the line number
-set numberwidth=1
-
 " don't autowrap text as it's being inserted
 set textwidth=0
 
-" insert N pixel lines between characters
-set linespace=1
-
-" <Tab> in front of a line inserts blanks according to shiftwidth
-set smarttab
-
 " don't wrap searches around end of file
 set nowrapscan
-
-" highlight search pattern matches
-set hlsearch
-
-" show search pattern matches during pattern entry
-set incsearch
-
-" enable substitution live preview in neovim
-if has('nvim')
-  set inccommand=nosplit
-endif
 
 " ignore case in search patterns
 set ignorecase
@@ -532,11 +482,5 @@ set nospell
 
 " don't download spell files from the internet
 let g:spellfile_URL = '/usr/share/vim/vimfiles/spell'
-
-" lower maximum height of popup menu
-set pumheight=20
-
-" make help window more likely to open at half existing window height
-set helpheight=12
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
