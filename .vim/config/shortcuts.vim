@@ -180,6 +180,11 @@ nnoremap <silent> <S-F6> :ToggleLaststatus<CR>
 inoremap <silent> <S-F6> <C-O>:ToggleLaststatus<CR>
 vnoremap <silent> <S-F6> <ESC>:ToggleLaststatus<CR>gv
 
+" toggle showcmd
+nnoremap <silent> <S-F7> :set showcmd!<CR>
+inoremap <silent> <S-F7> <C-O>:set showcmd!<CR>
+vnoremap <silent> <S-F7> <ESC>:set showcmd!<CR>gv
+
 " scroll all windows simultaneously
 nnoremap <silent> <F9> :windo set scrollbind!<CR>
 inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
@@ -188,9 +193,6 @@ inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
 nnoremap <silent> <F11> :ToggleConceal<CR>
 inoremap <silent> <F11> <C-O>:ToggleConceal<CR>
 vnoremap <silent> <F11> <ESC>:ToggleConceal<CR>gv
-
-" toggle showcmd
-nnoremap <silent> <leader>sc :set showcmd!<CR>
 
 " toggle virtualedit=all
 nnoremap <silent> <leader>sv :ToggleVirtualedit<CR>
