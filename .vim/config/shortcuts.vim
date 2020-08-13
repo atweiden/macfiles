@@ -190,9 +190,9 @@ nnoremap <silent> <F9> :windo set scrollbind!<CR>
 inoremap <silent> <F9> <C-O>:windo set scrollbind!<CR>
 
 " toggle conceallevel
-nnoremap <silent> <F11> :ToggleConceal<CR>
-inoremap <silent> <F11> <C-O>:ToggleConceal<CR>
-vnoremap <silent> <F11> <ESC>:ToggleConceal<CR>gv
+nnoremap <silent> <S-F11> :ToggleConceal<CR>
+inoremap <silent> <S-F11> <C-O>:ToggleConceal<CR>
+vnoremap <silent> <S-F11> <ESC>:ToggleConceal<CR>gv
 
 " toggle virtualedit=all
 nnoremap <silent> <leader>sv :ToggleVirtualedit<CR>
