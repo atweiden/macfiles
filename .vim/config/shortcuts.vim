@@ -324,8 +324,8 @@ tnoremap <silent> <M-L> <C-W>L
 nnoremap <silent> <leader><leader><CR> :redraw!<CR>:syntax sync fromstart<CR>
 
 " adjust gui macvim transparency
-nnoremap <silent> <C-}> :let &transparency = &transparency - 1<CR>
-nnoremap <silent> <C-{> :let &transparency = &transparency + 1<CR>
+nnoremap <silent> <M-}> :let &transparency = &transparency - 1<CR>
+nnoremap <silent> <M-{> :let &transparency = &transparency + 1<CR>
 
 " end screen }}}
 
