@@ -323,6 +323,13 @@ cnoremap <silent> <M-L> <C-C><C-W>L
 tnoremap <silent> <M-L> <C-W>L
 
 " end windows }}}
+" tabs {{{
+
+" make gt/gT more intuitive
+nnoremap <silent> <expr> gt ":tabnext +" . v:count1 . '<CR>'
+nnoremap <silent> <expr> gT ":tabnext -" . v:count1 . '<CR>'
+
+" end tabs }}}
 " screen {{{
 
 " redraw screen
