@@ -135,27 +135,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export TERMINFO='/usr/local/opt/ncurses/share/terminfo'
 
 # --- end terminfo }}}
-# --- display {{{
-
-if [[ "x$DISPLAY" != 'x' ]]; then
-  export HAS_256_COLORS='yes'
-  alias tmux='tmux -2'
-  if [[ "$TERM" == 'xterm' ]]; then
-    export TERM='xterm-256color'
-  fi
-else
-  if [[ "$TERM" == 'xterm' || "$TERM" =~ '256color' ]]; then
-    export HAS_256_COLORS='yes'
-    alias tmux='tmux -2'
-  fi
-fi
-if [[ "$TERM" == 'screen' && "$HAS_256_COLORS" == 'yes' ]]; then
-  export TERM='screen-256color'
-elif [[ "$TERM" == 'tmux' && "$HAS_256_COLORS" == 'yes' ]]; then
-  export TERM='tmux-256color'
-fi
-
-# --- end display }}}
 # --- remove ctrl-s ctrl-q {{{
 
 # remove the ^S ^Q mappings. See all mappings: stty -a
@@ -296,6 +275,7 @@ _has_nvim="$(command -v nvim)"
 _has_rclone="$(command -v rclone)"
 _has_rg="$(command -v rg)"
 _has_sqlite3="$(command -v sqlite3)"
+_has_tmux="$(command -v tmux)"
 _has_tree="$(command -v tree)"
 _has_vim="$(command -v vim)"
 _has_wget="$(command -v wget)"
@@ -648,6 +628,10 @@ alias dt-zurich='_t=$(TZ=Europe/Zurich dt)            ; echo "[$_t] Zürich"'
 
 # --- end timestamp }}}
 # --- tmux {{{
+
+# make tmux assume terminal supports 256 colors
+[[ -n "$_has_tmux" ]] \
+  && alias tmux='tmux -2'
 
 [[ -n "$TMUX" ]] \
   && alias clear='clear; tmux clear-history'
