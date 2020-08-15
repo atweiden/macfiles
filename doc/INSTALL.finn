@@ -24,75 +24,111 @@ install homebrew core packages
 ------------------------------
 
 ```bash
-packages=('ack'
-          'aria2'
-          'bash'
-          'bash-completion@2'
-          'bat'
-          'binutils'
-          'ccrypt'
-          'colordiff'
-          'coreutils'
-          'curl'
-          'darkhttpd'
-          'diffr'
-          'diffutils'
-          'dnscrypt-proxy'
-          'exiftool'
-          'ffmpeg'
-          'findutils'
-          'gawk'
-          'git'
-          'gnu-getopt'
-          'gnu-sed'
-          'gnu-tar'
-          'gnu-time'
-          'gnu-units'
-          'gnu-which'
-          'gnupg'
-          'gnutls'
-          'grep'
-          'gzip'
-          'icdiff'
-          'jq'
-          'macvim'
-          'make'
-          'mas'
-          'mercurial'
-          'moreutils'
-          'mosh'
-          'mr'
-          'ncdu'
-          'neovim'
-          'oath-toolkit'
-          'openssh'
-          'openssl'
-          'openvpn'
-          'p7zip'
-          'proxychains-ng'
-          'qrencode'
-          'rclone'
-          'readline'
-          'remarshal'
-          'ripgrep'
-          'rlwrap'
-          'rsync'
-          'shellcheck'
-          'signify-osx'
-          'so'
-          'socat'
-          'sshuttle'
-          'ssss'
-          'tealdeer'
-          'the_silver_searcher'
-          'tmux'
-          'tor'
-          'torsocks'
-          'tree'
-          'wget'
-          'wireguard-tools'
-          'xz'
-          'youtube-dl')
+# apple
+packages+=('mas')
+
+# build
+packages+=('make')
+
+# compress
+packages+=('gzip'
+           'p7zip'
+           'xz')
+
+# connect
+packages+=('dnscrypt-proxy'
+           'mosh'
+           'openssh'
+           'openvpn'
+           'proxychains-ng'
+           'socat'
+           'sshuttle'
+           'tor'
+           'torsocks'
+           'wireguard-tools')
+
+# diff
+packages+=('colordiff'
+           'diffr'
+           'diffutils'
+           'icdiff')
+
+# dvcs
+packages+=('git'
+           'mercurial'
+           'mr')
+
+# editor
+packages+=('macvim'
+           'neovim')
+
+# edu
+packages+=('so'
+           'tealdeer')
+
+# encrypt
+packages+=('ccrypt'
+           'gnupg'
+           'gnutls'
+           'oath-toolkit'
+           'openssl'
+           'signify-osx'
+           'ssss')
+
+# filesystem
+packages+=('ncdu'
+           'tree')
+
+# filter
+packages+=('jq'
+           'remarshal'
+           'qrencode')
+
+# gnu
+packages+=('binutils'
+           'coreutils'
+           'gawk'
+           'gnu-getopt'
+           'gnu-sed'
+           'gnu-tar'
+           'gnu-time'
+           'gnu-units'
+           'gnu-which')
+
+# grep
+packages+=('ack'
+           'findutils'
+           'grep'
+           'ripgrep'
+           'the_silver_searcher')
+
+# highlight
+packages+=('bat')
+
+# lint
+packages+=('shellcheck')
+
+# media
+packages+=('exiftool'
+           'ffmpeg')
+
+# server
+packages+=('darkhttpd')
+
+# sync
+packages+=('aria2'
+           'curl'
+           'rclone'
+           'rsync'
+           'wget'
+           'youtube-dl')
+
+# terminal
+packages+=('bash'
+           'bash-completion@2'
+           'moreutils'
+           'rlwrap'
+           'tmux')
 
 brew install "${packages[@]}"
 ```
