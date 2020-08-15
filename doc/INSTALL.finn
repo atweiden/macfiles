@@ -47,6 +47,9 @@ packages+=('dnscrypt-proxy'
            'torsocks'
            'wireguard-tools')
 
+# count
+packages+=('tokei')
+
 # diff
 packages+=('colordiff'
            'diffr'
