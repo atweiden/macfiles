@@ -36,6 +36,9 @@ set laststatus=2
 " don't show active mode on last line, status line has this covered
 set noshowmode
 
+" don't show line/column number absent status line
+set noruler
+
 " don't highlight matching parens
 set noshowmatch
 
