@@ -30,6 +30,16 @@ set showbreak=⁍
 set nocursorcolumn
 set nocursorline
 
+" limit command line messages
+set shortmess=acFIoO
+"             ||||||
+"             |||||+--- Overview previous message when reading file
+"             ||||+---- Omit redundant messages
+"             |||+----- Don't show intro message when starting vim
+"             ||+------ Don't show filename in command line bar
+"             |+------- Don't show |ins-completion-menu| messages
+"             +-------- Abbreviate messages without loss of information
+
 " always show status line
 set laststatus=2
 

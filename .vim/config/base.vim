@@ -38,13 +38,6 @@ if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
 endif
 
-" short messages
-set shortmess=aIoO
-"             |||
-"             ||+----- Omit redundant messages
-"             |+------ Don't give intro message when starting vim
-"             +------- Abbreviate messages without loss of information
-
 " turn on mouse in all modes
 if has('mouse')
   set mouse=a
