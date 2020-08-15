@@ -63,9 +63,6 @@ set nofsync
 " prefer blowfish2 encryption method
 silent! set cryptmethod=blowfish2
 
-" don't show active mode on last line, lightline has this covered
-set noshowmode
-
 " greatly restrict local .vimrc and .exrc files
 set secure
 
