@@ -245,6 +245,8 @@ if has('gui_running')
   set macligatures
   " render text a bit lighter in macvim
   set macthinstrokes
+  " don't setup bespoke meta-key bindings
+  let macvim_skip_cmd_opt_movement = 1
 endif
 
 " end macvim }}}
