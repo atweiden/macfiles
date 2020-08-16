@@ -336,6 +336,59 @@ cd vim-plugins-profile
 ./vim-plugins-profile.rb
 ```
 
+activate termguicolors
+
+- .config/tmux/tmux.conf [2]
+  - |     # (rm set -s default-terminal)
+    |     # ...
+    |
+    |     # Add True Color support.
+    |     set -sa terminal-overrides ",*256color*:Tc"
+- .vim/config/display.vim [3][4][5]
+  - |     " vim
+    |     let g:terminal_ansi_colors = [
+    |       \ "#121212",
+    |       \ "#d68787",
+    |       \ "#5f865f",
+    |       \ "#d8af5f",
+    |       \ "#85add4",
+    |       \ "#d7afaf",
+    |       \ "#87afaf",
+    |       \ "#d0d0d0",
+    |       \ "#626262",
+    |       \ "#d75f87",
+    |       \ "#87af87",
+    |       \ "#ffd787",
+    |       \ "#add4fb",
+    |       \ "#ffafaf",
+    |       \ "#87d7d7",
+    |       \ "#e4e4e4"
+    |       \ ]
+    |
+    |     " neovim
+    |     let g:terminal_color_0  = '#121212'
+    |     let g:terminal_color_1  = '#d68787'
+    |     let g:terminal_color_2  = '#5f865f'
+    |     let g:terminal_color_3  = '#d8af5f'
+    |     let g:terminal_color_4  = '#85add4'
+    |     let g:terminal_color_5  = '#d7afaf'
+    |     let g:terminal_color_6  = '#87afaf'
+    |     let g:terminal_color_7  = '#d0d0d0'
+    |     let g:terminal_color_8  = '#626262'
+    |     let g:terminal_color_9  = '#d75f87'
+    |     let g:terminal_color_10 = '#87af87'
+    |     let g:terminal_color_11 = '#ffd787'
+    |     let g:terminal_color_12 = '#add4fb'
+    |     let g:terminal_color_13 = '#ffafaf'
+    |     let g:terminal_color_14 = '#87d7d7'
+    |     let g:terminal_color_15 = '#e4e4e4'
+    |
+    |     " set vim-specific sequences for rgb colors
+    |     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    |     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    |
+    |     set termguicolors
+
 ### neovim
 
 ```sh
@@ -442,3 +495,7 @@ You want: tempC
 ******************************************************************************
 
 [1]: https://apple.stackexchange.com/a/230447
+[2]: https://github.com/tmux/tmux/issues/34
+[3]: https://machakann.hatenablog.com/entry/2018/05/19/223222
+[4]: https://www.reddit.com/r/vim/comments/5416d0/true_colors_in_vim_under_tmux/
+[5]: https://github.com/vim/vim/issues/993
