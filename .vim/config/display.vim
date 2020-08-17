@@ -239,6 +239,25 @@ if has('gui_running')
   cnoremap <S-Insert> <MiddleMouse>
   " don't show statusline
   set laststatus=0
+  " configure seoul256-light :terminal colors
+  let g:terminal_ansi_colors = [
+      \ '#4e4e4e',
+      \ '#af5f5f',
+      \ '#5f885f',
+      \ '#af8760',
+      \ '#5f87ae',
+      \ '#875f87',
+      \ '#5f8787',
+      \ '#e4e4e4',
+      \ '#3a3a3a',
+      \ '#870100',
+      \ '#005f00',
+      \ '#d8865f',
+      \ '#0087af',
+      \ '#87025f',
+      \ '#008787',
+      \ '#eeeeee'
+      \ ]
   " show unmaximized macvim translucent
   set transparency=5
   " display ligatures in macvim
