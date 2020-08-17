@@ -42,7 +42,7 @@ URxvt*scrollTtyKeypress: True
 URxvt*secondaryScreen: False
 
 # font
-URxvt*font: xft:Monaco\ for\ Powerline-16
+URxvt*font: xft:MonoLisa-16
 #URxvt*letterSpace: -1
 #URxvt*lineSpace: -1
 URxvt*skipBuiltinGlyphs: true
@@ -128,7 +128,7 @@ XTerm*colorBD: #e4e4e4
 XTerm*colorUL: #00afd7
 
 # font
-XTerm*faceName: Monaco for Powerline
+XTerm*faceName: MonoLisa
 XTerm*faceSize: 16
 
 # clipboard

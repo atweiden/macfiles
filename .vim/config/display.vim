@@ -222,8 +222,8 @@ if has('gui_running')
   set guioptions-=e
   " use console dialogs instead of popups
   set guioptions+=c
-  " use monaco font
-  set guifont=Monaco:h24
+  " use monolisa font
+  set guifont=MonoLisa:h24
   " allow macvim window to occupy whole screen
   set guiheadroom=0
   " no visual bell
