@@ -26,15 +26,15 @@ command! -nargs=? -range -complete=custom,tbone#complete_panes MixTestOnly <line
 
 for m in ['n', 'x']
   let gv = m == 'x' ? 'gv' : ''
-  execute m . "noremap <silent> <localleader>tt :call <SID>MixTestOnly('')<CR>" . gv
-  execute m . "noremap <silent> <localleader>th :call <SID>MixTestOnly('.left')<CR>" . gv
-  execute m . "noremap <silent> <localleader>tj :call <SID>MixTestOnly('.bottom')<CR>" . gv
-  execute m . "noremap <silent> <localleader>tk :call <SID>MixTestOnly('.top')<CR>" . gv
-  execute m . "noremap <silent> <localleader>tl :call <SID>MixTestOnly('.right')<CR>" . gv
-  execute m . "noremap <silent> <localleader>ty :call <SID>MixTestOnly('.top-left')<CR>" . gv
-  execute m . "noremap <silent> <localleader>to :call <SID>MixTestOnly('.top-right')<CR>" . gv
-  execute m . "noremap <silent> <localleader>tn :call <SID>MixTestOnly('.bottom-left')<CR>" . gv
-  execute m . "noremap <silent> <localleader>t. :call <SID>MixTestOnly('.bottom-right')<CR>" . gv
+  execute m . "noremap <silent> <buffer> <localleader>tt :call <SID>MixTestOnly('')<CR>" . gv
+  execute m . "noremap <silent> <buffer> <localleader>th :call <SID>MixTestOnly('.left')<CR>" . gv
+  execute m . "noremap <silent> <buffer> <localleader>tj :call <SID>MixTestOnly('.bottom')<CR>" . gv
+  execute m . "noremap <silent> <buffer> <localleader>tk :call <SID>MixTestOnly('.top')<CR>" . gv
+  execute m . "noremap <silent> <buffer> <localleader>tl :call <SID>MixTestOnly('.right')<CR>" . gv
+  execute m . "noremap <silent> <buffer> <localleader>ty :call <SID>MixTestOnly('.top-left')<CR>" . gv
+  execute m . "noremap <silent> <buffer> <localleader>to :call <SID>MixTestOnly('.top-right')<CR>" . gv
+  execute m . "noremap <silent> <buffer> <localleader>tn :call <SID>MixTestOnly('.bottom-left')<CR>" . gv
+  execute m . "noremap <silent> <buffer> <localleader>t. :call <SID>MixTestOnly('.bottom-right')<CR>" . gv
 endfor
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
