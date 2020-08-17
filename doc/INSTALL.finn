@@ -302,25 +302,43 @@ configure desktop
 configure developer environment
 -------------------------------
 
-### monaco for powerline
+### monaco nerd font
 
-```bash
-brew install fondu
-brew install fontforge
-git clone https://github.com/Lokaltog/powerline
-git clone https://gist.github.com/atweiden/3666975d171cc862cc2beb35b94de921 mkmonaco
-cp mkmonaco/Makefile powerline/font
-make -C powerline/font
-```
+patch font [7]
+- |     # fetch dependencies
+  |     brew install fondu
+  |     brew install fontforge
+  |
+  |     # curl snapshot because repo is over 1GB when git cloned
+  |     curl -L -o '#1-#2.#3' https://github.com/ryanoasis/{nerd-fonts}/archive/{master}.{tar.gz}
+  |     tar xvzf nerd-fonts-master.tar.gz
+  |     cd nerd-fonts-master
+  |
+  |     # modify font-patcher to use brew installed python3
+  |     sed -i '1s/\(.*\)/\13/' font-patcher
+  |
+  |     # modify font-patcher to find brew installed python3 site-lib
+  |     sed -i '/^import sys.*/a import site; site.addsitedir("/usr/local/lib/python3.8/site-packages")' font-patcher
+  |
+  |     # patch font
+  |     cp /System/Library/Fonts/Monaco.dfont .
+  |     fondu Monaco.dfont
+  |     ./font-patcher \
+  |       --careful \
+  |       --use-single-width-glyphs \
+  |       --powerline \
+  |       --powerlineextra \
+  |       Monaco.ttf
 
+install font
 - open *Font Book*
   - File -> Add Fonts
-    - add `Monaco for Powerline.ttf`
+    - add `Monaco Nerd Font Mono.ttf`
 
 see also
-- programmingfonts.org [7]
-- MonoLisa [8]
-- GianCastle/FiraMonaco [9]
+- programmingfonts.org [8]
+- MonoLisa [9]
+- GianCastle/FiraMonaco [10]
 
 ### macfiles
 
@@ -478,6 +496,7 @@ brew install rust
 [4]: https://docs.hardentheworld.org/OS/MacOS_10.12_Sierra/
 [5]: https://github.com/atweiden/iterm2-seoul256-night
 [6]: https://iterm2.com/faq.html
-[7]: https://www.programmingfonts.org/
-[8]: https://monolisa.dev/
-[9]: https://github.com/GianCastle/FiraMonaco
+[7]: https://github.com/ryanoasis/nerd-fonts/issues/254
+[8]: https://www.programmingfonts.org/
+[9]: https://monolisa.dev/
+[10]: https://github.com/GianCastle/FiraMonaco
