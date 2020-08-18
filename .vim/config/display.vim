@@ -258,8 +258,6 @@ if has('gui_running')
       \ '#008787',
       \ '#eeeeee'
       \ ]
-  " show unmaximized macvim translucent
-  set transparency=5
   " display ligatures in macvim
   set macligatures
   " render text a bit lighter in macvim
