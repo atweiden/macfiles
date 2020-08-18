@@ -21,19 +21,16 @@ let g:lightline = {
     \   'filetype': 'LightlineFileType',
     \   'fileencoding': 'LightlineFileEncoding',
     \   'mode': 'LightlineMode'
+    \ },
+    \ 'separator': {
+    \   'left': '',
+    \   'right': ''
+    \ },
+    \ 'subseparator': {
+    \   'left': '',
+    \   'right': ''
     \ }
     \ }
-
-if !has('gui_running')
-  let g:lightline.separator = {
-      \ 'left': '',
-      \ 'right': ''
-      \ }
-  let g:lightline.subseparator = {
-      \ 'left': '',
-      \ 'right': ''
-      \ }
-endif
 
 let g:lightline.tab = {
     \ 'active': [
