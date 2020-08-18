@@ -112,6 +112,9 @@ xnoremap Q :'<,'>:normal @q<CR>
 inoremap <C-U> <C-K>
 cnoremap <C-U> <C-K>
 
+" insert digraph when pressing <C-U> after normal mode r
+nnoremap r<C-U> r<C-K>
+
 if has('digraphs')
   " (¡) inverted exclamation mark
   digraph !! 161

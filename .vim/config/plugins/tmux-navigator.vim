@@ -26,6 +26,9 @@ vnoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<CR>gv
 cnoremap <silent> <C-\> <C-C>:TmuxNavigatePrevious<CR>
 tnoremap <silent> <C-\> <C-W>:TmuxNavigatePrevious<CR>
 
+" navigate up when pressing <C-K> after normal mode r
+nnoremap <silent> r<C-K> :TmuxNavigateUp<CR>
+
 " don't disable tmux navigator when zooming vim pane
 let g:tmux_navigator_disable_when_zoomed = 0
 
