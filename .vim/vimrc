@@ -4,7 +4,7 @@ if &compatible | set nocompatible | endif
 let $VIMPATH = $HOME . '/.vim'
 let $CFGPATH = $VIMPATH . '/config'
 
-function! s:source_cfg(path)
+function! s:source_cfg(path) abort
   execute 'source' fnameescape($CFGPATH . '/' . a:path)
 endfunction
 
