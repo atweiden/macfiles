@@ -159,8 +159,6 @@ augroup END
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " colorscheme
-set t_Co=256
-set background=dark
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 silent! colorscheme seoul256
