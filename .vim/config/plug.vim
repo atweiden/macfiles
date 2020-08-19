@@ -27,7 +27,7 @@ Plug 'preservim/nerdtree', { 'on': [ 'NERDTree',
                                    \ 'NERDTreeVCS' ] }
 
 " keyboard
-Plug 'kana/vim-arpeggio'
+Plug 'atweiden/vim-arpeggio', { 'branch': 'fix-8.2.1297' }
 Plug 'drmikehenry/vim-fixkey'
 
 " search and replace
