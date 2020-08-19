@@ -269,6 +269,20 @@ import homebrew in irb environment
 brew irb
 ```
 
+install previous version of formula
+
+```bash
+brew install https://github.com/Homebrew/homebrew-core/raw/a16f8297ca254a984944578abe01e3d73e1f877e/Formula/macvim.rb
+```
+
+```bash
+cd "$(brew --repository)/Library/Taps/homebrew/homebrew-core"
+git checkout a16f829 -- Formula/macvim.rb
+HOMEBREW_NO_AUTO_UPDATE=1 brew install macvim
+git checkout -- Formula/macvim.rb
+brew pin macvim
+```
+
 ### iTerm2
 
 grant iTerm2 full disk access
