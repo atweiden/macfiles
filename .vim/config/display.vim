@@ -181,7 +181,6 @@ endif
 
 if has('gui_running')
   " light colorscheme
-  set background=light
   silent! colorscheme seoul256-light
   highlight clear Cursor
   highlight Cursor guifg=NONE guibg=#FFEADF
