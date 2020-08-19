@@ -6,9 +6,6 @@ set belloff=all
 set noerrorbells
 set vb t_vb=
 
-" insert N pixel lines between characters
-set linespace=1
-
 " number of screen lines around cursor
 set scrolloff=8
 set sidescrolloff=16
