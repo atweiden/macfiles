@@ -748,6 +748,7 @@ export CRYFS_NO_UPDATE_CHECK=true
 # --- diffr {{{
 
 if [[ -n "$_has_diffr" ]]; then
+  unset DIFFR
   # from junegunn/seoul256.vim rgb_map: 65 => #5f875f
   DIFFR+=' --colors refine-added:none:background:95,135,95'
   # from junegunn/seoul256.vim rgb_map: 131 => #af5f5f
