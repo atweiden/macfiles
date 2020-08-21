@@ -11,6 +11,9 @@ let g:ctrlsf_default_root = 'project+fw'
 " enter search regexes by default
 let g:ctrlsf_regex_pattern = 1
 
+" don't follow symlinks
+let g:ctrlsf_follow_symlinks = 0
+
 " point ctrlsf to xdg directory spec respecting search util config files
 let g:ctrlsf_extra_backend_args = {
     \ 'ack': '--ackrc=' . $HOME . '/.config/ack/ackrc',
