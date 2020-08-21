@@ -67,7 +67,7 @@ set helpheight=12
 
 " highlighting {{{
 
-function! Highlight() abort
+function! s:Highlight() abort
   " searches
   highlight clear Search
   highlight Search term=bold cterm=bold ctermfg=0 ctermbg=116 gui=bold guifg=black guibg=#97DDDF
@@ -143,7 +143,7 @@ endfunction
 
 augroup highlight
   autocmd!
-  autocmd ColorScheme * call Highlight()
+  autocmd ColorScheme * call <SID>Highlight()
 augroup END
 
 " turn off any existing search
