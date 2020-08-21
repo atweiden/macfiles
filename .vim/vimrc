@@ -4,19 +4,19 @@ if &compatible | set nocompatible | endif
 let $VIMPATH = $HOME . '/.vim'
 let $CFGPATH = $VIMPATH . '/config'
 
-function! s:source_cfg(path) abort
+function! s:SourceConfig(path) abort
   execute 'source' fnameescape($CFGPATH . '/' . a:path)
 endfunction
 
-call s:source_cfg('reset.vim')
-call s:source_cfg('base.vim')
-call s:source_cfg('filetypes.vim')
-call s:source_cfg('plug.vim')
-call s:source_cfg('functions.vim')
-call s:source_cfg('editing.vim')
-call s:source_cfg('display.vim')
-call s:source_cfg('shortcuts.vim')
-call s:source_cfg('plugins.vim')
-call s:source_cfg('terminal.vim')
+call s:SourceConfig('reset.vim')
+call s:SourceConfig('base.vim')
+call s:SourceConfig('filetypes.vim')
+call s:SourceConfig('plug.vim')
+call s:SourceConfig('functions.vim')
+call s:SourceConfig('editing.vim')
+call s:SourceConfig('display.vim')
+call s:SourceConfig('shortcuts.vim')
+call s:SourceConfig('plugins.vim')
+call s:SourceConfig('terminal.vim')
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
