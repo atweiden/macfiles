@@ -193,7 +193,7 @@ casks+=('iina'
         'vlc')
 
 # office
-casks+=('calibre')
+casks+=('libreoffice')
 
 # os image flasher
 casks+=('balenaetcher'
