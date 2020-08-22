@@ -875,6 +875,12 @@ fi
 export INTERFACE="$(interface)"
 
 # --- end ip }}}
+# --- mercurial {{{
+
+# workaround for upstream not respecting $XDG_CONFIG_HOME on macos
+export HGRCPATH="$HOME/.config/hg/hgrc"
+
+# --- end mercurial }}}
 # --- postgresql {{{
 
 export PSQLRC="$HOME/.config/pg/psqlrc"
