@@ -8,8 +8,8 @@ let g:indent_guides_default_mapping = 0
 let g:indent_guides_auto_colors = 0
 augroup indentguides
   autocmd!
-  autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd ctermbg=234 guibg=#F7F7F7
-  autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=235 guibg=#F0F0F0
+  autocmd VimEnter,ColorScheme * :highlight IndentGuidesOdd ctermbg=234 guibg=#F7F7F7
+  autocmd VimEnter,ColorScheme * :highlight IndentGuidesEven ctermbg=235 guibg=#F0F0F0
 augroup END
 
 " exclude filetypes
@@ -17,10 +17,6 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 
 " don't classify spaces as indention
 let g:indent_guides_space_guides = 0
-
-" only match spaces at beginning of line
-" uncomment if g:indent_guides_space_guides = 1
-"let g:indent_guides_soft_pattern = ' '
 
 " toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
 function! s:ToggleIndentGuides() abort
