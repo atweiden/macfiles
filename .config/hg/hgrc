@@ -19,22 +19,21 @@ track.current = True
 
 [extensions]
 automv =
+churn =
 color =
+extdiff =
 fetch =
+gpg =
 graphlog =
 histedit =
 largefiles =
+#mq =
 pager =
 progress =
 purge =
 rebase =
+remotenames =
 shelve =
-hgext.churn =
-hgext.extdiff =
-hgext.gpg =
-hgext.hbisect=
-#hgext.mq =
-hgext.remotebranches = $HOME/.config/hg/ext/remotebranches.py
 
 [alias]
 # shortcuts
