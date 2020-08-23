@@ -353,8 +353,6 @@ alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
 alias cdd='cd $HOME/Downloads'
 alias cdf="cd \"$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')\""
-[[ -n "$_has_git" ]] \
-  && alias cdg='cd $(git rev-parse --show-cdup)'
 alias cdp='cd $HOME/Projects'
 alias cds='cd $HOME/.src'
 alias :o='open "${1:-.}"'
