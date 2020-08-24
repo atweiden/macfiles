@@ -9,10 +9,15 @@ let g:better_whitespace_filetypes_blacklist = [
     \ 'qf'
     \ ]
 
+function s:HighlightBetterWhitespace() abort
+  highlight clear ExtraWhitespace
+  highlight ExtraWhitespace ctermbg=168 guibg=#DF5F87
+endfunction
+
 " seoul256 whitespace colors
 augroup betterwhitespace
   autocmd!
-  autocmd VimEnter,ColorScheme * highlight ExtraWhitespace ctermbg=168 guibg=#DF5F87
+  autocmd VimEnter,ColorScheme * call <SID>HighlightBetterWhitespace()
 augroup END
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
