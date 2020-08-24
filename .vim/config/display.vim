@@ -268,11 +268,11 @@ if has('gui_running')
       \ '#008787',
       \ '#eeeeee'
       \ ]
-  " display ligatures in macvim
-  set macligatures
   " render text a bit lighter in macvim
   set macthinstrokes
-  " don't setup bespoke meta-key bindings
+  " don't display ligatures in macvim
+  set nomacligatures
+  " don't setup bespoke meta-key bindings in macvim
   let macvim_skip_cmd_opt_movement = 1
 endif
 
