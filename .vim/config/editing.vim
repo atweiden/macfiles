@@ -401,6 +401,9 @@ set smartcase
 " adjust case of match depending on typed text
 set infercase
 
+# match angle bracket pairs
+set matchpairs+=<:>
+
 " maintain concealed chars on cursor line in normal, insert, visual mode
 set concealcursor=niv
 
