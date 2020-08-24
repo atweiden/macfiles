@@ -8,8 +8,8 @@ let g:indent_guides_default_mapping = 0
 let g:indent_guides_auto_colors = 0
 augroup indentguides
   autocmd!
-  autocmd VimEnter,ColorScheme * :highlight IndentGuidesOdd ctermbg=234 guibg=#F7F7F7
-  autocmd VimEnter,ColorScheme * :highlight IndentGuidesEven ctermbg=235 guibg=#F0F0F0
+  autocmd VimEnter,ColorScheme * highlight IndentGuidesOdd ctermbg=235 guibg=#F7F7F7
+  autocmd VimEnter,ColorScheme * highlight IndentGuidesEven ctermbg=234 guibg=#F0F0F0
 augroup END
 
 " exclude filetypes
