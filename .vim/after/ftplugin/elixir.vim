@@ -1,3 +1,5 @@
+packadd vim-elixir
+
 " test only selected lines with mix (see: mix help test)
 function! s:MixTestOnly(...) range abort
   " check file is on disk

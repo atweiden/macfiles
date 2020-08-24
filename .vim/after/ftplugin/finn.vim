@@ -1,3 +1,5 @@
+packadd vim-finn
+
 " reformat interstitial block quotes
 nnoremap <silent> <buffer> <Bar> :execute ".!fmt --prefix='\|'"<CR>
 

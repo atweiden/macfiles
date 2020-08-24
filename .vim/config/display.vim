@@ -141,9 +141,35 @@ function! s:Highlight() abort
   highlight link DiffText GitGutterChange
 endfunction
 
+function! s:HighlightGui() abort
+  highlight clear Cursor
+  highlight Cursor guifg=NONE guibg=#FFEADF
+  highlight clear iCursor
+  highlight iCursor guifg=#98C798 guibg=#98C798
+  highlight clear vCursor
+  highlight vCursor guifg=white guibg=#5FAFAF
+  highlight clear rCursor
+  highlight rCursor guifg=black guibg=#79C579
+  highlight clear oCursor
+  highlight oCursor guifg=black guibg=gray
+endfunction
+
+function! s:HighlightNvim() abort
+  " set :terminal cursor to URxvt-like underline
+  highlight clear TermCursor
+  highlight TermCursor ctermfg=red cterm=underline gui=underline
+  highlight clear TermCursorNC
+  highlight TermCursorNC ctermfg=red cterm=underline gui=underline
+endfunction
+
 augroup highlight
   autocmd!
   autocmd ColorScheme * call <SID>Highlight()
+  if has('gui_running')
+    autocmd ColorScheme * call <SID>HighlightGui()
+  elseif has('nvim')
+    autocmd ColorScheme * call <SID>HighlightNvim()
+  endif
 augroup END
 
 " turn off any existing search
@@ -182,16 +208,6 @@ endif
 if has('gui_running')
   " light colorscheme
   silent! colorscheme seoul256-light
-  highlight clear Cursor
-  highlight Cursor guifg=NONE guibg=#FFEADF
-  highlight clear iCursor
-  highlight iCursor guifg=#98C798 guibg=#98C798
-  highlight clear vCursor
-  highlight vCursor guifg=white guibg=#5FAFAF
-  highlight clear rCursor
-  highlight rCursor guifg=black guibg=#79C579
-  highlight clear oCursor
-  highlight oCursor guifg=black guibg=gray
   " set normal mode cursor to unblinking Cursor highlighted block
   set guicursor+=n:blinkon0-block-Cursor
   " set insert and command line mode cursor to 25% width unblinking iCursor highlighted block
@@ -268,11 +284,6 @@ if has('nvim')
   set guicursor+=a:blinkon0-hor20
   " set insert mode cursor to 25% width unblinking block
   set guicursor+=i:blinkon0-ver25
-  " set :terminal cursor to URxvt-like underline
-  highlight clear TermCursor
-  highlight TermCursor ctermfg=red cterm=underline gui=underline
-  highlight clear TermCursorNC
-  highlight TermCursorNC ctermfg=red cterm=underline gui=underline
   " enable substitution live preview
   set inccommand=nosplit
 endif

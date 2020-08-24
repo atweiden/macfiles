@@ -129,20 +129,20 @@ rsync "${_rsync_opts[@]}" "$DIR/" "$HOME"
 
 
 # -----------------------------------------------------------------------------
-# vim-plug
+# kristijanhusak/vim-packager
 # -----------------------------------------------------------------------------
 
-_plug_url='https://github.com/junegunn/vim-plug/raw/master/plug.vim'
-if ! [[ -e "$HOME/.vim/autoload/plug.vim" ]]; then
+_packager_src='https://github.com/kristijanhusak/vim-packager'
+_packager_dst="$HOME/.vim/pack/packager/opt/vim-packager"
+if ! [[ -d "$_packager_dst" ]]; then
   echo -n 'Installing vim plugins... '
-  curl \
-    --create-dirs \
-    --fail \
-    --location \
-    --output "$HOME/.vim/autoload/plug.vim" \
-    --silent \
-    "$_plug_url"
-  vim +PlugInstall +qall > /dev/null 2>&1
+  git clone \
+    "$_packager_src" \
+    "$_packager_dst"
+  vim \
+    -c 'call PackagerInit()' \
+    -c 'call packager#install({ "on_finish": "quitall" })' > \
+    /dev/null 2>&1
   echo 'done.'
 fi
 

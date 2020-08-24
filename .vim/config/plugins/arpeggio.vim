@@ -2,7 +2,7 @@
 let g:arpeggio_timeoutlen = 34
 
 " bind escape key
-silent! call arpeggio#load()
+silent! packadd vim-arpeggio
 silent! Arpeggio noremap jk <ESC>
 silent! Arpeggio inoremap jk <ESC>
 silent! Arpeggio cnoremap jk <C-C>
