@@ -413,6 +413,9 @@ set nottimeout
 set timeoutlen=1000
 set ttimeoutlen=50
 
+" don't allow langmap to potentially break mappings
+set langnoremap
+
 " automatic formatting options
 augroup fmtopts
   autocmd!
