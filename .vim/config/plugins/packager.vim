@@ -52,11 +52,11 @@ function! PackagerInit() abort
   call packager#add('junegunn/vim-peekaboo')
 
   " align
-  call packager#add('tommcdo/vim-lion')
-  call packager#add('t9md/vim-textmanip')
+  call packager#add('tommcdo/vim-lion', { 'type': 'opt' })
+  call packager#add('t9md/vim-textmanip', { 'type': 'opt' })
 
   " narrow region
-  call packager#add('atweiden/vim-viewport')
+  call packager#add('atweiden/vim-viewport', { 'type': 'opt' })
 
   " command runners
   call packager#add('tpope/vim-tbone')
