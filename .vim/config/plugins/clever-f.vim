@@ -6,6 +6,9 @@ let g:clever_f_fix_key_direction = 1
 let g:clever_f_mark_cursor = 0
 
 " fix clever-f highlighting appearing too red in seoul256-light
-highlight CleverFDefaultLabel cterm=bold,underline ctermfg=red ctermbg=NONE gui=bold,underline guifg=#FF5FAF guibg=NONE
+augroup cleverf
+  autocmd!
+  autocmd VimEnter,ColorScheme * highlight CleverFDefaultLabel cterm=bold,underline ctermfg=red ctermbg=NONE gui=bold,underline guifg=#FF5FAF guibg=NONE
+augroup END
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
