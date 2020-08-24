@@ -126,6 +126,11 @@ Plug 'cespare/vim-toml', { 'for': [ 'finn',
                                   \ 'toml' ] }
 
 " --- end toml }}}
+" --- vim {{{
+
+Plug 'vim-jp/syntax-vim-ex', { 'for': 'vim' }
+
+" --- end vim }}}
 
 " end languages }}}
 
