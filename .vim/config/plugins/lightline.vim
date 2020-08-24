@@ -77,8 +77,8 @@ endfunction
 function! LightlineFileName() abort
   return
     \ ('' != LightlineReadOnly() ? LightlineReadOnly() . ' ' : '') .
-    \ (&ft == 'undotree' ? '' :
-    \  &ft == 'vim-plug' ? '' :
+    \ (&ft == 'packager' ? '' :
+    \  &ft == 'undotree' ? '' :
     \  '' != expand('%:t') ? expand('%:t') : '[No Name]') .
     \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
@@ -122,8 +122,8 @@ function! LightlineMode() abort
   let fname = expand('%:t')
   return
     \ fname =~ 'NERD_tree' ? 'NERDTree' :
+    \ &ft == 'packager' ? 'Packager' :
     \ &ft == 'undotree' ? 'UndoTree' :
-    \ &ft == 'vim-plug' ? 'Plug' :
     \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
