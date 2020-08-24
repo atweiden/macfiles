@@ -127,10 +127,10 @@ function! PackagerInit() abort
   call packager#add('guns/xterm-color-table.vim', { 'type': 'opt' })
 endfunction
 
-command! PackagerInit call PackagerInit()
-command! PackagerInstall call PackagerInit() | call packager#install()
-command! -bang PackagerUpdate call PackagerInit() | call packager#update({ 'force_hooks': '<bang>' })
-command! PackagerClean call PackagerInit() | call packager#clean()
-command! PackagerStatus call PackagerInit() | call packager#status()
+command! PackInit call PackagerInit()
+command! PackInstall call PackagerInit() | call packager#install()
+command! -bang PackUpdate call PackagerInit() | call packager#update({ 'force_hooks': '<bang>' })
+command! PackClean call PackagerInit() | call packager#clean()
+command! PackStatus call PackagerInit() | call packager#status()
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
