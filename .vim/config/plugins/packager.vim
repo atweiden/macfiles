@@ -123,7 +123,7 @@ function! PackagerInit() abort
   call packager#add('ntpeters/vim-better-whitespace')
   call packager#add('mhinz/vim-hugefile')
   call packager#add('nathanaelkane/vim-indent-guides')
-  call packager#add('junegunn/rainbow_parentheses.vim')
+  call packager#add('junegunn/rainbow_parentheses.vim', { 'type': 'opt' })
   call packager#add('guns/xterm-color-table.vim', { 'type': 'opt' })
 endfunction
 
