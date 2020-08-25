@@ -89,7 +89,7 @@ function! PkgrSetup() abort
   call packager#add('Olical/conjure', { 'type': 'opt' })
 
   " structured editing
-  call packager#add('guns/vim-sexp', { 'type': 'opt' })
+  call packager#add('guns/vim-sexp')
 
   " --- end lisp }}}
   " --- raku {{{
