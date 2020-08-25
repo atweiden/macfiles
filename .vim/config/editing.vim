@@ -326,6 +326,9 @@ set diffopt+=vertical
 " don't fold unchanged lines in vimdiffs
 set diffopt+=context:1000000
 
+" disable diff mode for hidden buffers
+set diffopt+=hiddenoff
+
 " split windows below and to the right of the current
 set splitright
 set splitbelow
