@@ -65,7 +65,7 @@ function! PkgrSetup() abort
   call packager#add('tyru/capture.vim', { 'type': 'opt' })
 
   " dvcs
-  call packager#add('sjl/splice.vim')
+  call packager#add('sjl/splice.vim', { 'type': 'opt' })
 
   " languages {{{
 

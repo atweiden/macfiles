@@ -124,7 +124,7 @@
   trustExitCode = true
 
 [mergetool "splice"]
-  cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+  cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'packadd splice.vim' -c 'SpliceInit'"
 
 [mergetool "vimdiff"]
   cmd = "vim -f -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J'"
