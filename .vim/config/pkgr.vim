@@ -97,11 +97,6 @@ function! PkgrSetup() abort
   call packager#add('Raku/vim-raku')
 
   " --- end raku }}}
-  " --- reason {{{
-
-  call packager#add('jordwalke/vim-reasonml')
-
-  " --- end reason }}}
   " --- toml {{{
 
   call packager#add('cespare/vim-toml')
