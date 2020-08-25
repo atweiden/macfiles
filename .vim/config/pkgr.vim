@@ -71,20 +71,19 @@ function! PkgrSetup() abort
 
   " --- elixir {{{
 
-  call packager#add('elixir-editors/vim-elixir', { 'type': 'opt' })
+  call packager#add('elixir-editors/vim-elixir')
 
   " --- end elixir }}}
   " --- journal {{{
 
-  call packager#add('junegunn/vim-journal', { 'type': 'opt' })
-  call packager#add('atweiden/vim-finn', { 'branch': 'finn',
-                                         \   'type': 'opt' })
+  call packager#add('junegunn/vim-journal')
+  call packager#add('atweiden/vim-finn', { 'branch': 'finn' })
 
   " --- end journal }}}
   " --- lisp {{{
 
-  call packager#add('atweiden/vim-fennel', { 'type': 'opt' })
-  call packager#add('janet-lang/janet.vim', { 'type': 'opt' })
+  call packager#add('atweiden/vim-fennel')
+  call packager#add('janet-lang/janet.vim')
 
   " repl
   call packager#add('Olical/conjure', { 'type': 'opt' })
@@ -95,22 +94,22 @@ function! PkgrSetup() abort
   " --- end lisp }}}
   " --- raku {{{
 
-  call packager#add('Raku/vim-raku', { 'type': 'opt' })
+  call packager#add('Raku/vim-raku')
 
   " --- end raku }}}
   " --- reason {{{
 
-  call packager#add('jordwalke/vim-reasonml', { 'type': 'opt' })
+  call packager#add('jordwalke/vim-reasonml')
 
   " --- end reason }}}
   " --- toml {{{
 
-  call packager#add('cespare/vim-toml', { 'type': 'opt' })
+  call packager#add('cespare/vim-toml')
 
   " --- end toml }}}
   " --- vim {{{
 
-  call packager#add('vim-jp/syntax-vim-ex', { 'type': 'opt' })
+  call packager#add('vim-jp/syntax-vim-ex')
 
   " --- end vim }}}
 

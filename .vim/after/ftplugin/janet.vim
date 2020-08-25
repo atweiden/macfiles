@@ -1,4 +1,3 @@
-packadd janet.vim
 packadd rainbow_parentheses.vim
 packadd vim-sexp
 
