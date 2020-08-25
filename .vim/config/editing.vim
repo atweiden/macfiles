@@ -320,6 +320,10 @@ set suffixes+=.tmp
 " case sensitive file completion
 set nofileignorecase
 
+" use histogram diff algorithm, indent heuristic for internal diff library
+set diffopt+=algorithm:histogram
+set diffopt+=indent-heuristic
+
 " open vimdiff split vertically
 set diffopt+=vertical
 

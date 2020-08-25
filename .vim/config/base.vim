@@ -148,10 +148,6 @@ if !has('nvim')
   set macmeta
 endif
 
-" use histogram diff algorithm, indent heuristic for internal diff library
-set diffopt+=algorithm:histogram
-set diffopt+=indent-heuristic
-
 " format lines with fmt
 set formatprg=fmt
 
