@@ -129,7 +129,7 @@ rsync "${_rsync_opts[@]}" "$DIR/" "$HOME"
 
 
 # -----------------------------------------------------------------------------
-# kristijanhusak/vim-packager
+# vim
 # -----------------------------------------------------------------------------
 
 _packager_src='https://github.com/kristijanhusak/vim-packager'
@@ -140,7 +140,7 @@ if ! [[ -d "$_packager_dst" ]]; then
     "$_packager_src" \
     "$_packager_dst"
   vim \
-    -c 'call PackagerInit()' \
+    -c 'call PkgrSetup()' \
     -c 'call packager#install({ "on_finish": "quitall" })' > \
     /dev/null 2>&1
   echo 'done.'

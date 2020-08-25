@@ -15,6 +15,7 @@ call s:SourceConfig('functions.vim')
 call s:SourceConfig('editing.vim')
 call s:SourceConfig('display.vim')
 call s:SourceConfig('shortcuts.vim')
+call s:SourceConfig('pkgr.vim')
 call s:SourceConfig('plugins.vim')
 call s:SourceConfig('terminal.vim')
 
