@@ -16,7 +16,12 @@ install homebrew
 ----------------
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://github.com/Homebrew/install/raw/master/install.sh)"
+/bin/bash -c "$(curl \
+                  --fail \
+                  --silent \
+                  --show-error \
+                  --location \
+                  https://github.com/Homebrew/install/raw/master/install.sh)"
 brew analytics off
 ```
 
