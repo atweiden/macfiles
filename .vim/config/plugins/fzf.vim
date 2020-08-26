@@ -22,25 +22,26 @@ let g:fzf_layout = {
 " use light colors for fzf running in gui vim
 if has('gui_running')
   let g:fzf_colors = {
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'bg+':     ['bg', 'Normal'],
-    \ 'border':  ['fg', 'Ignore'],
-    \ 'fg':      ['bg', 'StatusLine'],
-    \ 'fg+':     ['bg', 'PmenuThumb'],
-    \ 'header':  ['fg', 'Comment'],
-    \ 'hl':      ['fg', 'Identifier'],
-    \ 'hl+':     ['bg', 'PmenuSel'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'marker':  ['fg', 'Keyword'],
-    \ 'pointer': ['fg', 'Exception'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'spinner': ['fg', 'Label']
-    \ }
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'bg+':     ['bg', 'Normal'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'fg':      ['bg', 'StatusLine'],
+      \ 'fg+':     ['bg', 'PmenuThumb'],
+      \ 'header':  ['fg', 'Comment'],
+      \ 'hl':      ['fg', 'Identifier'],
+      \ 'hl+':     ['bg', 'PmenuSel'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'spinner': ['fg', 'Label']
+      \ }
 endif
 
 " preview files using highlight
-let g:fzf_files_options = printf('--preview "%s {} | head -' . &lines . '"',
-  \ $VIMPATH . '/pack/packager/opt/fzf.vim/bin/preview.sh')
+let g:fzf_files_options = printf('--preview "%s {} | head -%d"',
+    \ $VIMPATH . '/pack/packager/opt/fzf.vim/bin/preview.sh',
+    \ &lines)
 
 " paint pleasant monotone statusline in fzf buffer
 " fixes disappearing statusline in main vim window
