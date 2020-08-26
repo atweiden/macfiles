@@ -36,6 +36,7 @@ augroup languages
       \   '*.eex',
       \   '*.leex'
       \ ], ','))
+  autocmd FileType elixir packadd vim-elixir
 
   " enc
   autocmd BufNewFile,BufRead *.enc setlocal filetype=enc
@@ -54,9 +55,11 @@ augroup languages
   " fennel
   execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-fennel',
       \ g:lispft['fennel'])
+  autocmd FileType fennel packadd vim-fennel
 
   " finn
   autocmd BufReadPre,FileReadPre *.finn packadd vim-finn
+  autocmd FileType finn packadd vim-finn
 
   " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
@@ -64,9 +67,11 @@ augroup languages
   " janet
   execute printf('autocmd BufReadPre,FileReadPre %s packadd janet.vim',
       \ g:lispft['janet'])
+  autocmd FileType janet packadd janet.vim
 
   " journal
   autocmd BufReadPre,FileReadPre *.txt packadd vim-journal
+  autocmd FileType journal packadd vim-journal
 
   " lisp
   execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-sexp',
@@ -93,6 +98,7 @@ augroup languages
       \   '*.t',
       \   '*.nqp'
       \ ], ','))
+  autocmd FileType raku packadd vim-raku
 
   " toml
   execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-toml',
@@ -101,6 +107,7 @@ augroup languages
       \   'Gopkg.lock',
       \   'Cargo.lock'
       \ ], ','))
+  autocmd FileType toml packadd vim-toml
 
   " txn
   autocmd BufNewFile,BufRead *.txn setlocal filetype=txn
