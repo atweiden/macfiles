@@ -1,4 +1,4 @@
-function! PkgrSetup() abort
+function! PackagerSetup() abort
   packadd vim-packager
   call packager#init()
   call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
@@ -118,10 +118,10 @@ function! PkgrSetup() abort
   call packager#add('guns/xterm-color-table.vim', { 'type': 'opt' })
 endfunction
 
-command! PkgrSetup call PkgrSetup()
-command! PkgrInstall call PkgrSetup() | call packager#install()
-command! -bang PkgrUpdate call PkgrSetup() | call packager#update({ 'force_hooks': '<bang>' })
-command! PkgrClean call PkgrSetup() | call packager#clean()
-command! PkgrStatus call PkgrSetup() | call packager#status()
+command! PackagerSetup call PackagerSetup()
+command! PackagerInstall call PackagerSetup() | call packager#install()
+command! -bang PackagerUpdate call PackagerSetup() | call packager#update({ 'force_hooks': '<bang>' })
+command! PackagerClean call PackagerSetup() | call packager#clean()
+command! PackagerStatus call PackagerSetup() | call packager#status()
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
