@@ -102,11 +102,6 @@ function! PkgrSetup() abort
   call packager#add('cespare/vim-toml')
 
   " --- end toml }}}
-  " --- vim {{{
-
-  call packager#add('vim-jp/syntax-vim-ex')
-
-  " --- end vim }}}
 
   " end languages }}}
 
