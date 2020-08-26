@@ -1,17 +1,41 @@
 let g:lispft = {
-    \ 'clojure': '*.clj,*.cljs,*.edn,*.cljx,*.cljc,{build,profile}.boot',
+    \ 'clojure': join([
+    \              '*.clj',
+    \              '*.cljs',
+    \              '*.edn',
+    \              '*.cljx',
+    \              '*.cljc',
+    \              '{build,profile}.boot'
+    \            ], ','),
     \ 'fennel': '*.fnl',
     \ 'janet': '*.janet',
-    \ 'lisp': '*.lisp,*.cl,*.fasl',
-    \ 'racket': '*.rkt,*.rktl',
-    \ 'scheme': '*.scm,*.ss'
+    \ 'lisp': join([
+    \           '*.lisp',
+    \           '*.cl',
+    \           '*.fasl'
+    \         ], ','),
+    \ 'racket': join([
+    \             '*.rkt',
+    \             '*.rktl'
+    \           ], ','),
+    \ 'scheme': join([
+    \             '*.scm',
+    \             '*.ss'
+    \           ], ',')
     \ }
 
 augroup languages
   autocmd!
 
   " elixir
-  autocmd BufReadPre,FileReadPre *.ex,*.exs,mix.lock,*.eex,*.leex packadd vim-elixir
+  execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-elixir',
+      \ join([
+      \   '*.ex',
+      \   '*.exs',
+      \   'mix.lock',
+      \   '*.eex',
+      \   '*.leex'
+      \ ], ','))
 
   " enc
   autocmd BufNewFile,BufRead *.enc setlocal filetype=enc
@@ -48,16 +72,35 @@ augroup languages
   execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-sexp',
       \ join(values(g:lispft), ','))
   if has('nvim')
-    execute printf('autocmd BufReadPre,FileReadPre %s,%s packadd conjure',
-        \ g:lispft['fennel'],
-        \ g:lispft['janet'])
+    execute printf('autocmd BufReadPre,FileReadPre %s packadd conjure',
+        \ join([
+        \   g:lispft['fennel'],
+        \   g:lispft['janet']
+        \ ], ','))
   endif
 
   " raku
-  autocmd BufReadPre,FileReadPre *.raku,*.rakumod,*.rakudoc,*.rakutest,*.pm6,*.p6,*.pl6,*.t6,*.t,*.nqp packadd vim-raku
+  execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-raku',
+      \ join([
+      \   '*.raku',
+      \   '*.rakumod',
+      \   '*.rakudoc',
+      \   '*.rakutest',
+      \   '*.pm6',
+      \   '*.p6',
+      \   '*.pl6',
+      \   '*.t6',
+      \   '*.t',
+      \   '*.nqp'
+      \ ], ','))
 
   " toml
-  autocmd BufReadPre,FileReadPre *.toml,Gopkg.lock,Cargo.lock packadd vim-toml
+  execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-toml',
+      \ join([
+      \   '*.toml',
+      \   'Gopkg.lock',
+      \   'Cargo.lock'
+      \ ], ','))
 
   " txn
   autocmd BufNewFile,BufRead *.txn setlocal filetype=txn
