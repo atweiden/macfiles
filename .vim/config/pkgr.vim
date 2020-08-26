@@ -25,8 +25,9 @@ function! PkgrSetup() abort
 
   " search and replace
   call packager#add('dyng/ctrlsf.vim', { 'type': 'opt' })
-  call packager#add('junegunn/fzf', { 'do': './install --bin' })
-  call packager#add('junegunn/fzf.vim')
+  call packager#add('junegunn/fzf', { 'type': 'opt',
+                                    \   'do': './install --bin' })
+  call packager#add('junegunn/fzf.vim', { 'type': 'opt' })
   call packager#add('t9md/vim-quickhl')
 
   " movement

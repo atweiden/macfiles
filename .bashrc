@@ -167,7 +167,7 @@ PATH="/usr/local/opt/curl/bin:$PATH"
 # --- end curl }}}
 # --- fzf {{{
 
-PATH="$HOME/.vim/pack/packager/start/fzf/bin:$PATH"
+PATH="$HOME/.vim/pack/packager/opt/fzf/bin:$PATH"
 
 # --- end fzf }}}
 # --- gambit {{{
@@ -844,16 +844,16 @@ export FZF_DEFAULT_OPTS='
 export FZF_CTRL_R_OPTS="--preview 'echo {}' \
   --preview-window down:3:hidden \
   --bind ?:toggle-preview"
-[[ -x "$HOME/.vim/pack/packager/start/fzf.vim/bin/preview.sh" ]] \
-  && export FZF_CTRL_T_OPTS="--preview '$HOME/.vim/pack/packager/start/fzf.vim/bin/preview.sh {} \
+[[ -x "$HOME/.vim/pack/packager/opt/fzf.vim/bin/preview.sh" ]] \
+  && export FZF_CTRL_T_OPTS="--preview '$HOME/.vim/pack/packager/opt/fzf.vim/bin/preview.sh {} \
     | head -200'"
 
 # source fzf completions
-[[ -r "$HOME/.vim/pack/packager/start/fzf/shell/completion.bash" ]] \
-  && source "$HOME/.vim/pack/packager/start/fzf/shell/completion.bash"
+[[ -r "$HOME/.vim/pack/packager/opt/fzf/shell/completion.bash" ]] \
+  && source "$HOME/.vim/pack/packager/opt/fzf/shell/completion.bash"
 # source fzf key bindings
-[[ -r "$HOME/.vim/pack/packager/start/fzf/shell/key-bindings.bash" ]] \
-  && source "$HOME/.vim/pack/packager/start/fzf/shell/key-bindings.bash"
+[[ -r "$HOME/.vim/pack/packager/opt/fzf/shell/key-bindings.bash" ]] \
+  && source "$HOME/.vim/pack/packager/opt/fzf/shell/key-bindings.bash"
 # source fzf functions
 [[ -r "$HOME/.fzf-extras/fzf-extras.sh" ]] \
   && source "$HOME/.fzf-extras/fzf-extras.sh"
