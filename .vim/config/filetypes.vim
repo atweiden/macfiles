@@ -24,11 +24,25 @@ let g:lispft = {
     \           ], ',')
     \ }
 
+" facilitate lazy loading
+augroup lazylanguages
+  autocmd!
+  autocmd User LoadElixir ++once packadd vim-elixir
+  autocmd User LoadFennel ++once packadd vim-fennel
+  autocmd User LoadFinn ++once packadd vim-finn
+  autocmd User LoadJanet ++once packadd janet.vim
+  autocmd User LoadJournal ++once packadd vim-journal
+  autocmd User LoadConjure ++once packadd conjure
+  autocmd User LoadSexp ++once packadd vim-sexp
+  autocmd User LoadRaku ++once packadd vim-raku
+  autocmd User LoadToml ++once packadd vim-toml
+augroup END
+
 augroup languages
   autocmd!
 
   " elixir
-  execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-elixir',
+  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadElixir',
       \ join([
       \   '*.ex',
       \   '*.exs',
@@ -36,7 +50,7 @@ augroup languages
       \   '*.eex',
       \   '*.leex'
       \ ], ','))
-  autocmd FileType elixir packadd vim-elixir
+  autocmd FileType elixir silent doautocmd User LoadElixir
 
   " enc
   autocmd BufNewFile,BufRead *.enc setlocal filetype=enc
@@ -53,31 +67,31 @@ augroup languages
       \ ], ' '))
 
   " fennel
-  execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-fennel',
+  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadFennel',
       \ g:lispft['fennel'])
-  autocmd FileType fennel packadd vim-fennel
+  autocmd FileType fennel silent doautocmd User LoadFennel
 
   " finn
-  autocmd BufReadPre,FileReadPre *.finn packadd vim-finn
-  autocmd FileType finn packadd vim-finn
+  autocmd BufReadPre,FileReadPre *.finn silent doautocmd User LoadFinn
+  autocmd FileType finn silent doautocmd User LoadFinn
 
   " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
 
   " janet
-  execute printf('autocmd BufReadPre,FileReadPre %s packadd janet.vim',
+  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadJanet',
       \ g:lispft['janet'])
-  autocmd FileType janet packadd janet.vim
+  autocmd FileType janet silent doautocmd User LoadJanet
 
   " journal
-  autocmd BufReadPre,FileReadPre *.txt packadd vim-journal
-  autocmd FileType journal packadd vim-journal
+  autocmd BufReadPre,FileReadPre *.txt silent doautocmd User LoadJournal
+  autocmd FileType journal silent doautocmd User LoadJournal
 
   " lisp
-  execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-sexp',
+  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadSexp',
       \ join(values(g:lispft), ','))
   if has('nvim')
-    execute printf('autocmd BufReadPre,FileReadPre %s packadd conjure',
+    execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadConjure',
         \ join([
         \   g:lispft['fennel'],
         \   g:lispft['janet']
@@ -85,7 +99,7 @@ augroup languages
   endif
 
   " raku
-  execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-raku',
+  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadRaku',
       \ join([
       \   '*.raku',
       \   '*.rakumod',
@@ -98,16 +112,16 @@ augroup languages
       \   '*.t',
       \   '*.nqp'
       \ ], ','))
-  autocmd FileType raku packadd vim-raku
+  autocmd FileType raku silent doautocmd User LoadRaku
 
   " toml
-  execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-toml',
+  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadToml',
       \ join([
       \   '*.toml',
       \   'Gopkg.lock',
       \   'Cargo.lock'
       \ ], ','))
-  autocmd FileType toml packadd vim-toml
+  autocmd FileType toml silent doautocmd User LoadToml
 
   " txn
   autocmd BufNewFile,BufRead *.txn setlocal filetype=txn
