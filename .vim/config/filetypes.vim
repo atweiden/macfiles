@@ -31,6 +31,9 @@ augroup languages
   execute printf('autocmd BufNewFile,BufRead %s packadd janet.vim',
       \ g:lispft['janet'])
 
+  " journal
+  autocmd BufNewFile,BufRead *.txt packadd vim-journal
+
   " lisp
   execute printf('autocmd BufNewFile,BufRead %s packadd vim-sexp',
       \ join(values(g:lispft), ','))
