@@ -20,6 +20,9 @@ vnoremap <space> <nop>
 nnoremap <BS> <nop>
 vnoremap <BS> <nop>
 
+" don't use ! to filter text lines through external program
+nnoremap ! <nop>
+
 " don't use # or * to search word under cursor
 nnoremap # <nop>
 vnoremap # <nop>
