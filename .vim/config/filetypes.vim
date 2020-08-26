@@ -15,7 +15,17 @@ augroup languages
 
   " enc
   autocmd BufNewFile,BufRead *.enc setlocal filetype=enc
-  autocmd BufReadPre,FileReadPre *.enc setlocal viminfo= nobackup noswapfile noundofile
+  execute printf('autocmd BufReadPre,FileReadPre *.enc setlocal %s',
+      \ join([
+      \   'viminfo=',
+      \   'nobackup',
+      \   'noswapfile',
+      \   'noundofile',
+      \   'nowritebackup',
+      \   'noshelltemp',
+      \   'history=0',
+      \   'cryptmethod=blowfish2'
+      \ ], ' '))
 
   " fennel
   execute printf('autocmd BufReadPre,FileReadPre %s packadd vim-fennel',
