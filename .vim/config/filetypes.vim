@@ -17,6 +17,10 @@ augroup languages
   autocmd BufNewFile,BufRead *.enc setlocal filetype=enc
   autocmd BufReadPre,FileReadPre *.enc setlocal viminfo= nobackup noswapfile noundofile
 
+  " fennel
+  execute printf('autocmd BufNewFile,BufRead %s packadd vim-fennel',
+      \ g:lispft['fennel'])
+
   " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
 
