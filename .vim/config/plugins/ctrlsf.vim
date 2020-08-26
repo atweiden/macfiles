@@ -4,8 +4,13 @@ augroup loadctrlsf
   autocmd User LoadCtrlSF ++once packadd ctrlsf.vim
 augroup END
 
+function! s:LoadCtrlSFCompletion(arglead, cmdline, cursorpos) abort
+  silent doautocmd User LoadCtrlSF
+  return ctrlsf#comp#Completion(a:arglead, a:cmdline, a:cursorpos)
+endfunction
+
 " quick launch ctrlsf with Ctrl-F
-command! -nargs=* CtrlSF :silent doautocmd User LoadCtrlSF | CtrlSF <args>
+command! -nargs=* -complete=customlist,<SID>LoadCtrlSFCompletion CtrlSF :silent doautocmd User LoadCtrlSF | CtrlSF <args>
 nnoremap <C-F> :CtrlSF<space>
 
 " toggle ctrlsf with F1
