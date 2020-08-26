@@ -1,8 +1,15 @@
+" facilitate lazy loading
+augroup loadctrlsf
+  autocmd!
+  autocmd User LoadCtrlSF ++once packadd ctrlsf.vim
+augroup END
+
 " quick launch ctrlsf with Ctrl-F
+command! -nargs=* CtrlSF :silent doautocmd User LoadCtrlSF | CtrlSF <f-args>
 nnoremap <C-F> :CtrlSF<space>
 
 " toggle ctrlsf with F1
-nnoremap <silent> <F1> :CtrlSFToggle<CR>
+nnoremap <silent> <F1> :silent doautocmd User LoadCtrlSF<CR>:CtrlSFToggle<CR>
 
 " start searches without explicit search path from project VCS root
 " gleaned from current file, or from cwd if project VCS root not found
