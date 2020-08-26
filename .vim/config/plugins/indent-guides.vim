@@ -25,8 +25,15 @@ augroup indentguides
   autocmd VimEnter,ColorScheme * call <SID>HighlightIndentGuides()
 augroup END
 
+" facilitate lazy loading
+augroup loadindentguides
+  autocmd!
+  autocmd User LoadIndentGuides ++once packadd vim-indent-guides
+augroup END
+
 " toggle minimalist vs nathanaelkane/vim-indent-guides tab highlighting
 function! s:ToggleIndentGuides() abort
+  silent doautocmd User LoadIndentGuides
   if get(w:, 'igmode', 0)
     call indent_guides#disable()
     call SetListCharsTabVisible()
