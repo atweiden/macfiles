@@ -1,5 +1,7 @@
-autocmd BufNewFile,BufRead *.enc set filetype=enc
-autocmd BufNewFile,BufRead *.txn set filetype=txn
+augroup languages
+  autocmd BufNewFile,BufRead *.enc set filetype=enc
+  autocmd BufNewFile,BufRead *.txn set filetype=txn
+augroup END
 
 augroup enc
   autocmd!
