@@ -118,35 +118,10 @@ function! PkgrSetup() abort
   call packager#add('guns/xterm-color-table.vim', { 'type': 'opt' })
 endfunction
 
-function! PkgrStow(plugin_name) abort
-  call PkgrSetup()
-  let l:dir_pkgr = $VIMPATH . '/pack/packager'
-  let l:dir_stow = l:dir_pkgr . '/stow'
-  let l:dir_src = packager#plugin(a:plugin_name).dir
-  let l:dir_dst = l:dir_stow . '/' . a:plugin_name
-  if !isdirectory(l:dir_stow)
-    call mkdir(l:dir_stow, "p")
-  endif
-  execute printf('call system("mv %s %s")', l:dir_src, l:dir_dst)
-endfunction
-
-function! PkgrUnstow(plugin_name) abort
-  call PkgrSetup()
-  let l:dir_pkgr = $VIMPATH . '/pack/packager'
-  let l:dir_stow = l:dir_pkgr . '/stow'
-  let l:dir_src = l:dir_stow . '/' . a:plugin_name
-  let l:dir_dst = packager#plugin(a:plugin_name).dir
-  execute printf('call system("mv %s %s")', l:dir_src, l:dir_dst)
-endfunction
-
 command! PkgrSetup call PkgrSetup()
 command! PkgrInstall call PkgrSetup() | call packager#install()
 command! -bang PkgrUpdate call PkgrSetup() | call packager#update({ 'force_hooks': '<bang>' })
 command! PkgrClean call PkgrSetup() | call packager#clean()
 command! PkgrStatus call PkgrSetup() | call packager#status()
-
-" stow uncooperative plugins as an elaborate form of lazy loading
-command! -nargs=1 PkgrStow call PkgrStow(<f-args>)
-command! -nargs=1 PkgrUnstow call PkgrUnstow(<f-args>)
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
