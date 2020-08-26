@@ -1,8 +1,14 @@
-xmap <Up>    <Plug>(textmanip-move-up)
-xmap <Down>  <Plug>(textmanip-move-down)
-xmap <Left>  <Plug>(textmanip-move-left)
-xmap <Right> <Plug>(textmanip-move-right)
-xmap D       <Plug>(textmanip-duplicate-down)
+" facilitate lazy loading
+augroup loadtextmanip
+  autocmd!
+  autocmd User LoadTextmanip ++once packadd vim-textmanip
+augroup END
+
+xmap <silent> <Up>    <ESC>:silent doautocmd User LoadTextmanip<CR>gv<Plug>(textmanip-move-up)
+xmap <silent> <Down>  <ESC>:silent doautocmd User LoadTextmanip<CR>gv<Plug>(textmanip-move-down)
+xmap <silent> <Left>  <ESC>:silent doautocmd User LoadTextmanip<CR>gv<Plug>(textmanip-move-left)
+xmap <silent> <Right> <ESC>:silent doautocmd User LoadTextmanip<CR>gv<Plug>(textmanip-move-right)
+xmap <silent> D       <ESC>:silent doautocmd User LoadTextmanip<CR>gv<Plug>(textmanip-duplicate-down)
 
 let g:textmanip_hooks = {}
 function! g:textmanip_hooks.finish(tm) abort
