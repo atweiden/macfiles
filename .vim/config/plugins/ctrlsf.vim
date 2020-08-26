@@ -5,7 +5,7 @@ augroup loadctrlsf
 augroup END
 
 " quick launch ctrlsf with Ctrl-F
-command! -nargs=* CtrlSF :silent doautocmd User LoadCtrlSF | CtrlSF <f-args>
+command! -nargs=* CtrlSF :silent doautocmd User LoadCtrlSF | CtrlSF <args>
 nnoremap <C-F> :CtrlSF<space>
 
 " toggle ctrlsf with F1
