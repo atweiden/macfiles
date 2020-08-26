@@ -21,6 +21,9 @@ augroup languages
   execute printf('autocmd BufNewFile,BufRead %s packadd vim-fennel',
       \ g:lispft['fennel'])
 
+  " finn
+  autocmd BufNewFile,BufRead *.finn packadd vim-finn
+
   " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
 
