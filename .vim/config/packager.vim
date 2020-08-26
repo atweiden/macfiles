@@ -13,7 +13,6 @@ function! PackagerSetup() abort
   call packager#add('mihaifm/bufstop')
 
   " folds
-  call packager#add('Konfekt/FastFold')
   call packager#add('Harenome/vim-neatfoldtext')
 
   " filesystem
