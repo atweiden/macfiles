@@ -10,6 +10,9 @@ let g:lispft = {
 augroup languages
   autocmd!
 
+  " elixir
+  autocmd BufNewFile,BufRead *.ex,*.exs,mix.lock,*.eex,*.leex packadd vim-elixir
+
   " enc
   autocmd BufNewFile,BufRead *.enc setlocal filetype=enc
   autocmd BufReadPre,FileReadPre *.enc setlocal viminfo= nobackup noswapfile noundofile
