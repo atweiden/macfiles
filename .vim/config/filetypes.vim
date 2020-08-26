@@ -46,6 +46,9 @@ augroup languages
   " raku
   autocmd BufNewFile,BufRead *.raku,*.rakumod,*.rakudoc,*.rakutest,*.pm6,*.p6,*.pl6,*.t6,*.t,*.nqp packadd vim-raku
 
+  " toml
+  autocmd BufNewFile,BufRead *.toml,Gopkg.lock,Cargo.lock,*/.cargo/config,*/.cargo/credentials,Pipfile packadd vim-toml
+
   " txn
   autocmd BufNewFile,BufRead *.txn setlocal filetype=txn
 
