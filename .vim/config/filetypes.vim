@@ -1,17 +1,16 @@
-augroup languages
-  autocmd BufNewFile,BufRead *.enc set filetype=enc
-  autocmd BufNewFile,BufRead *.txn set filetype=txn
-augroup END
-
 augroup enc
   autocmd!
-  autocmd BufReadPre,FileReadPre *.enc set viminfo=
-  autocmd BufReadPre,FileReadPre *.enc set noswapfile noundofile nobackup
+  autocmd BufNewFile,BufRead *.enc setlocal filetype=enc
+  autocmd BufReadPre,FileReadPre *.enc setlocal viminfo= nobackup noswapfile noundofile
 augroup END
 
 augroup gpg
   autocmd!
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
+augroup END
+
+augroup txn
+  autocmd BufNewFile,BufRead *.txn setlocal filetype=txn
 augroup END
 
 augroup xbps
