@@ -47,7 +47,7 @@ augroup languages
   autocmd BufReadPre,FileReadPre *.raku,*.rakumod,*.rakudoc,*.rakutest,*.pm6,*.p6,*.pl6,*.t6,*.t,*.nqp packadd vim-raku
 
   " toml
-  autocmd BufReadPre,FileReadPre *.toml,Gopkg.lock,Cargo.lock,*/.cargo/config,*/.cargo/credentials,Pipfile packadd vim-toml
+  autocmd BufReadPre,FileReadPre *.toml,Gopkg.lock,Cargo.lock packadd vim-toml
 
   " txn
   autocmd BufNewFile,BufRead *.txn setlocal filetype=txn
