@@ -88,10 +88,10 @@ function! PkgrSetup() abort
   call packager#add('janet-lang/janet.vim', { 'type': 'opt' })
 
   " repl
-  call packager#add('Olical/conjure')
+  call packager#add('Olical/conjure', { 'type': 'opt' })
 
   " structured editing
-  call packager#add('guns/vim-sexp')
+  call packager#add('guns/vim-sexp', { 'type': 'opt' })
 
   " --- end lisp }}}
   " --- raku {{{

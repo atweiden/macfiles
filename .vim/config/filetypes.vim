@@ -1,30 +1,36 @@
-augroup enc
+let g:lispft = {
+    \ 'clojure': '*.clj,*.cljs,*.edn,*.cljx,*.cljc,{build,profile}.boot',
+    \ 'fennel': '*.fnl',
+    \ 'janet': '*.janet',
+    \ 'lisp': '*.lisp,*.cl,*.fasl',
+    \ 'racket': '*.rkt,*.rktl',
+    \ 'scheme': '*.scm,*.ss'
+    \ }
+
+augroup languages
   autocmd!
+
+  " enc
   autocmd BufNewFile,BufRead *.enc setlocal filetype=enc
   autocmd BufReadPre,FileReadPre *.enc setlocal viminfo= nobackup noswapfile noundofile
-augroup END
 
-augroup gpg
-  autocmd!
+  " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
-augroup END
 
-augroup txn
+  " lisp
+  execute printf('autocmd BufNewFile,BufRead %s packadd vim-sexp',
+      \ join(values(g:lispft), ','))
+  if has('nvim')
+    execute printf('autocmd BufNewFile,BufRead %s,%s packadd conjure',
+        \ g:lispft['fennel'],
+        \ g:lispft['janet'])
+  endif
+
+  " txn
   autocmd BufNewFile,BufRead *.txn setlocal filetype=txn
-augroup END
 
-augroup xbps
-  autocmd!
+  " xbps
   autocmd BufReadCmd *.xbps call tar#Browse(expand("<amatch>"))
 augroup END
-
-let g:lispft = [
-    \ 'clojure',
-    \ 'fennel',
-    \ 'janet',
-    \ 'lisp',
-    \ 'racket',
-    \ 'scheme'
-    \ ]
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
