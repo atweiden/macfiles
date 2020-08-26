@@ -42,6 +42,14 @@ let g:NERDTreeGlyphReadOnly = ''
 " use M to toggle nerdtree menu, not m
 let g:NERDTreeMapMenu = 'M'
 
+" facilitate lazy loading
+augroup loadnerdtree
+  autocmd!
+  autocmd User LoadNERDTree ++once packadd nerdtree
+augroup END
+
+command! NERDTreeToggle :silent doautocmd User LoadNERDTree | NERDTreeToggle
+
 " toggle nerdtree with F12
 nnoremap <silent> <F12> :NERDTreeToggle<CR>
 inoremap <silent> <F12> <C-O>:NERDTreeToggle<CR>
@@ -50,9 +58,10 @@ vnoremap <silent> <F12> <ESC>:NERDTreeToggle<CR>gv
 " if nerdtree is closed, find current file in nerdtree
 " if nerdtree is open, close it
 function! s:ToggleNERDTreeFind() abort
-  if exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+  if exists('t:NERDTreeBufName') && (bufwinnr(t:NERDTreeBufName) != -1)
     execute ':NERDTreeToggle'
   else
+    silent doautocmd User LoadNERDTree
     execute ':NERDTreeFind'
   endif
 endfunction
