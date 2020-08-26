@@ -426,15 +426,15 @@ set langnoremap
 " automatic formatting options
 augroup fmtopts
   autocmd!
-  autocmd FileType * set formatoptions=rqn2l1j
-"                                      |||||||
-"                                      ||||||+----- Remove comment leader when joining two comments
-"                                      |||||+------ Don't break line after one-letter word
-"                                      ||||+------- Don't break long lines in insert mode
-"                                      |||+-------- Use indent of second line of paragraph for rest of paragraph, not first
-"                                      ||+--------- Recognize numbered lists when formatting text
-"                                      |+---------- Allow formatting of comments with gq
-"                                      +----------- Automatically insert current comment leader after <Enter> in insert mode
+  autocmd FileType,Syntax * set formatoptions=rqn2l1j
+"                                             |||||||
+"                                             ||||||+----- Remove comment leader when joining two comments
+"                                             |||||+------ Don't break line after one-letter word
+"                                             ||||+------- Don't break long lines in insert mode
+"                                             |||+-------- Use indent of second line of paragraph for rest of paragraph, not first
+"                                             ||+--------- Recognize numbered lists when formatting text
+"                                             |+---------- Allow formatting of comments with gq
+"                                             +----------- Automatically insert current comment leader after <Enter> in insert mode
 augroup END
 
 " use rg/ag/ack for grepping if available
