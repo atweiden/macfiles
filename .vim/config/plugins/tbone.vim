@@ -6,13 +6,11 @@
 
 function! s:TmuxSend(...) range abort
   let l:dest = get(a:, 1, '')
-
   if empty(l:dest)
     call inputsave()
     let l:dest = input('To which pane? ')
     call inputrestore()
   endif
-
   silent call tbone#write_command(0, a:firstline, a:lastline, 1, l:dest)
 endfunction
 

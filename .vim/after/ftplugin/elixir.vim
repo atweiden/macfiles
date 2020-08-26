@@ -1,4 +1,4 @@
-" test only selected lines with mix (see: mix help test)
+" test only selected lines with mix (see: `mix help test`)
 function! s:MixTestOnly(...) range abort
   " check file is on disk
   let l:path = expand('%:p')
@@ -14,6 +14,7 @@ function! s:MixTestOnly(...) range abort
     call inputrestore()
   endif
 
+  " send to destination pane
   let l:mix_cmd = printf('mix test %s:%d:%d', l:path, a:firstline, a:lastline)
   try
     call tbone#send_keys(l:dest, l:mix_cmd . "\r")
