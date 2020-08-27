@@ -2,9 +2,6 @@ setlocal tabstop=2
 setlocal softtabstop=2
 setlocal shiftwidth=2
 
-" don't return to last edit position
-let b:noreturntopos = 1
-
 function! s:RunDiffGitCached() abort
   " only run `DiffGitCached` once
   if exists('t:diffgitcached')

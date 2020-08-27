@@ -75,6 +75,9 @@ augroup languages
   autocmd BufReadPre,FileReadPre *.finn silent doautocmd User LoadFinn
   autocmd FileType finn silent doautocmd User LoadFinn
 
+  " git
+  autocmd BufReadPre,FileReadPre COMMIT_EDITMSG let b:noreturntopos = 1
+
   " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
 
