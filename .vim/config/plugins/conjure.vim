@@ -1,4 +1,4 @@
-let g:conjure#mapping#prefix = '-'
+let g:conjure#mapping#prefix = "'"
 
 " don't nmap K, gd respectively
 let g:conjure#mapping#def_word = v:false
