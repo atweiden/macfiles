@@ -135,6 +135,9 @@ command! -bar -bang FZFMaps                               :silent doautocmd User
 command! -bar -bang FZFFiletypes                          :silent doautocmd User LoadFzf | Filetypes<bang>
 command!      -bang -nargs=* FZFHistory                   :silent doautocmd User LoadFzf | History<bang> <args>
 
+" search with ag from cwd
+nnoremap <silent> <C-F> :FZFAg<CR>
+
 " open files from cwd
 nnoremap <silent> <leader>o :FZFFiles<CR>
 
