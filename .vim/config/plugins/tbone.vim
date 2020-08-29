@@ -1,10 +1,18 @@
-" Credit: https://github.com/junegunn/dotfiles/blob/master/vimrc
+" Credit: https://github.com/junegunn/dotfiles
 
-" ----------------------------------------------------------------------------
-" <leader>t | vim-tbone
-" ----------------------------------------------------------------------------
+" facilitate lazy loading
+augroup loadtbone
+  autocmd!
+  autocmd User LoadTbone ++once packadd vim-tbone
+augroup END
+
+function! s:LoadTboneCompletePanes(...) abort
+  silent doautocmd User LoadTbone
+  return tbone#complete_panes(a:000)
+endfunction
 
 function! s:TmuxSend(...) range abort
+  silent doautocmd User LoadTbone
   let l:dest = get(a:, 1, '')
   if empty(l:dest)
     call inputsave()
@@ -14,7 +22,7 @@ function! s:TmuxSend(...) range abort
   silent call tbone#write_command(0, a:firstline, a:lastline, 1, l:dest)
 endfunction
 
-command! -nargs=? -range -complete=custom,tbone#complete_panes TmuxSend <line1>,<line2>call <SID>TmuxSend(<f-args>)
+command! -nargs=? -range -complete=custom,<SID>LoadTboneCompletePanes TmuxSend <line1>,<line2>call <SID>TmuxSend(<f-args>)
 
 for m in ['n', 'x']
   let gv = m == 'x' ? 'gv' : ''

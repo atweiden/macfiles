@@ -1,3 +1,8 @@
+function! s:LoadTboneCompletePanes(...) abort
+  silent doautocmd User LoadTbone
+  return tbone#complete_panes(a:000)
+endfunction
+
 " test only selected lines with mix (see: `mix help test`)
 function! s:MixTestOnly(...) range abort
   " check file is on disk
@@ -5,6 +10,9 @@ function! s:MixTestOnly(...) range abort
   if empty(l:path)
     return
   endif
+
+  " lazy load tpope/vim-tbone
+  silent doautocmd User LoadTbone
 
   " get destination pane
   let l:dest = get(a:, 1, '')
@@ -23,7 +31,7 @@ function! s:MixTestOnly(...) range abort
   endtry
 endfunction
 
-command! -nargs=? -range -complete=custom,tbone#complete_panes MixTestOnly <line1>,<line2>call <SID>MixTestOnly(<f-args>)
+command! -nargs=? -range -complete=custom,<SID>LoadTboneCompletePanes MixTestOnly <line1>,<line2>call <SID>MixTestOnly(<f-args>)
 
 for m in ['n', 'x']
   let gv = m == 'x' ? 'gv' : ''
