@@ -157,8 +157,12 @@ command!      -bang -nargs=* FZFHistory                   :silent doautocmd User
 nnoremap <silent> <C-F> :FZFRg<CR>
 
 " search word under cursor with rg from cwd
-nnoremap <silent> <leader>/ :let @z = expand('<cword>')<CR>:FZFRg<CR><C-W>:call term_sendkeys('', printf('%s', @z))<CR>
-xnoremap <silent> <leader>/ "zy:FZFRg<CR><C-W>:call term_sendkeys('', printf('%s', @z))<CR>
+nnoremap <silent> <leader>f :let @z = expand('<cword>')<CR>:FZFRg<CR><C-W>:call term_sendkeys('', printf('%s', @z))<CR>
+xnoremap <silent> <leader>f "zy:FZFRg<CR><C-W>:call term_sendkeys('', printf('%s', @z))<CR>
+
+" search prefixed by word under cursor with rg from cwd
+nnoremap <silent> <leader>/ :let @z = expand('<cword>')<CR>:FZFRg <C-R>z<CR>
+xnoremap <silent> <leader>/ "zy:FZFRg <C-R>z<CR>
 
 " open files from cwd
 nnoremap <silent> <leader>o :FZFFiles<CR>
