@@ -9,9 +9,6 @@ function! PackagerSetup() abort
   " windows
   call packager#add('talek/obvious-resize')
 
-  " buffers
-  call packager#add('mihaifm/bufstop')
-
   " folds
   call packager#add('Harenome/vim-neatfoldtext')
 
