@@ -76,7 +76,6 @@ augroup languages
   autocmd FileType janet silent doautocmd User LoadJanet
 
   " journal
-  autocmd BufReadPre,FileReadPre *.txt silent doautocmd User LoadJournal
   autocmd FileType journal silent doautocmd User LoadJournal
 
   " lisp
