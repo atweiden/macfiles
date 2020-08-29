@@ -121,7 +121,22 @@ command!      -bang -nargs=* FZFBLines                    :silent doautocmd User
 command! -bar -bang FZFColors                             :silent doautocmd User LoadFzf | Colors<bang>
 command!      -bang -nargs=+ -complete=dir FZFLocate      :silent doautocmd User LoadFzf | Locate<bang> <args>
 command!      -bang -nargs=* FZFAg                        :silent doautocmd User LoadFzf | Ag<bang> <args>
-command!      -bang -nargs=* FZFRg                        :silent doautocmd User LoadFzf | Rg<bang> <args>
+command!      -bang -nargs=* FZFRg                        :silent doautocmd User LoadFzf | call fzf#vim#grep(join([
+                                                                                               \ 'rg',
+                                                                                               \ '--column',
+                                                                                               \ '--line-number',
+                                                                                               \ '--no-heading',
+                                                                                               \ '--color=always',
+                                                                                               \ '--smart-case',
+                                                                                               \ '--hidden',
+                                                                                               \ '--ignore-file $HOME/.config/search/ignore',
+                                                                                               \ '--ignore-vcs',
+                                                                                               \ '--',
+                                                                                               \ shellescape(<q-args>)
+                                                                                               \ ], ' '),
+                                                                                               \ 1,
+                                                                                               \ fzf#vim#with_preview(),
+                                                                                               \ <bang>0)
 command!      -bang -nargs=* FZFTags                      :silent doautocmd User LoadFzf | Tags<bang> <args>
 command!      -bang -nargs=* FZFBTags                     :silent doautocmd User LoadFzf | BTags<bang> <args>
 command! -bar -bang FZFSnippets                           :silent doautocmd User LoadFzf | Snippets<bang>
