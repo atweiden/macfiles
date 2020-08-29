@@ -111,7 +111,7 @@ endfunction
 " global line completion using rg (not just open buffers)
 inoremap <expr> <C-X><C-L> <SID>FzfLineCompletion()
 
-" |:Rg| properly with hidden files and global ignore config
+" |:Rg| hidden files with global ignore config and preview window
 command! -bang -nargs=* Rg call fzf#vim#grep(join([
     \ 'rg',
     \ '--column',
