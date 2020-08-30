@@ -235,6 +235,11 @@ PATH="/usr/local/opt/rakudo/share/perl6/site/bin:$PATH"
 PATH="/usr/local/opt/rakudo/share/perl6/vendor/bin:$PATH"
 
 # --- end raku }}}
+# --- ruby {{{
+
+PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# --- end ruby }}}
 # --- sqlite {{{
 
 PATH="/usr/local/opt/sqlite3/bin:$PATH"
