@@ -410,6 +410,10 @@ alias bzip2='bzip2 -9'
 
 if [[ -n "$_has_git" ]]; then
   alias g='git'
+  alias gc='git commit'
+  alias gca='git commit --all'
+  alias gcaf='git commit --all --file=$HOME/s.ci'
+  alias gcp='git commit --patch'
   alias gd='git diff'
   alias gdr='git diffrev "$@"'
   alias gdrh='git diffrev HEAD'
