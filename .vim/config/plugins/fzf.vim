@@ -167,6 +167,9 @@ xnoremap <silent> <leader>/ "zy:FZFRg <C-R>z<CR>
 " open files from cwd
 nnoremap <silent> <leader>o :FZFFiles<CR>
 
+" select window
+nnoremap <silent> <leader>O :FZFWindows<CR>
+
 " select buffer
 nnoremap <silent> <leader>lz :FZFBuffers<CR>
 
