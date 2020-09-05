@@ -3,6 +3,9 @@
 " visually select text last edited/pasted
 nnoremap <expr> gV '`[' . strpart(getregtype(), 0, 1) . '`]'
 
+" end selecting }}}
+" indenting {{{
+
 " DWIM indenting:
 " preserve visual selection
 vnoremap > >gv
@@ -11,7 +14,10 @@ vnoremap < <gv
 nnoremap <expr> > Repeatable('Indent')
 nnoremap <expr> < Repeatable('Dedent')
 
-" end selecting }}}
+" dedent in insert mode
+inoremap <S-Tab> <C-d>
+
+" end indenting }}}
 " search and replace {{{
 
 " quick substitute
