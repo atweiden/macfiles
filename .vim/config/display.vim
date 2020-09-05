@@ -139,6 +139,12 @@ function! s:Highlight() abort
   highlight link DiffDelete GitGutterDelete
   highlight clear DiffText
   highlight link DiffText GitGutterChange
+
+  " terminal cursor
+  highlight clear TermCursor
+  highlight TermCursor ctermfg=red cterm=underline gui=underline
+  highlight clear TermCursorNC
+  highlight TermCursorNC ctermfg=red cterm=underline gui=underline
 endfunction
 
 function! s:HighlightGui() abort
@@ -154,21 +160,11 @@ function! s:HighlightGui() abort
   highlight oCursor guifg=black guibg=gray
 endfunction
 
-function! s:HighlightNvim() abort
-  " set :terminal cursor to URxvt-like underline
-  highlight clear TermCursor
-  highlight TermCursor ctermfg=red cterm=underline gui=underline
-  highlight clear TermCursorNC
-  highlight TermCursorNC ctermfg=red cterm=underline gui=underline
-endfunction
-
 augroup highlight
   autocmd!
   autocmd ColorScheme * call <SID>Highlight()
   if has('gui_running')
     autocmd ColorScheme * call <SID>HighlightGui()
-  elseif has('nvim')
-    autocmd ColorScheme * call <SID>HighlightNvim()
   endif
 augroup END
 
