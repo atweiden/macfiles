@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------
 # bininfo: display data about a binary and its dependencies
 #
-# Inspired by https://github.com/intoli/exodus#how-it-works
+# Credit: https://github.com/intoli/exodus
 # ----------------------------------------------------------------------------
 
 _usage() {
