@@ -37,11 +37,13 @@ nnoremap <silent> <leader><space> :let @/ = '[\.\?]\(\\\)\@<!\zs\s\s\+\ze\S'<CR>
 " find >=2 spaces after any non-space character (repeatable with n/N)
 nnoremap <silent> <leader><leader><space> :let @/ = '\S\zs\s\s\+\ze\S'<CR>:call search(@/, "sz")<CR>
 
-" find merge conflict markers forward (repeatable with n/N)
-nnoremap <silent> ]x :let @/ = '\v^[<=>]{7}([^=].+)?$'<CR>:call search(@/, "sz")<CR>
+" find merge conflict markers forward
+nnoremap <silent> ]x :call search('\v^[<=>]{7}([^=].+)?$', "sz")<CR>
+vnoremap <silent> ]x <ESC>:call search('\v^[<=>]{7}([^=].+)?$', "sz")<CR>mz``gv`z
 
-" find merge conflict markers backward (repeatable with n/N)
-nnoremap <silent> [x :let @/ = '\v^[<=>]{7}([^=].+)?$'<CR>:call search(@/, "bsz")<CR>
+" find merge conflict markers backward
+nnoremap <silent> [x :call search('\v^[<=>]{7}([^=].+)?$', "bsz")<CR>
+vnoremap <silent> [x <ESC>:call search('\v^[<=>]{7}([^=].+)?$', "bsz")<CR>mz``gv`z
 
 " end search and replace }}}
 " pasting {{{
