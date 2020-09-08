@@ -77,7 +77,8 @@ endfunction
 function! LightlineFileName() abort
   return
     \ ('' != LightlineReadOnly() ? LightlineReadOnly() . ' ' : '') .
-    \ (&ft == 'packager' ? '' :
+    \ (&ft == 'ctrlsf' ? '' :
+    \  &ft == 'packager' ? '' :
     \  &ft == 'undotree' ? '' :
     \  '' != expand('%:t') ? expand('%:t') : '[No Name]') .
     \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
@@ -122,6 +123,7 @@ function! LightlineMode() abort
   let fname = expand('%:t')
   return
     \ fname =~ 'NERD_tree' ? 'NERDTree' :
+    \ &ft == 'ctrlsf' ? 'CtrlSF' :
     \ &ft == 'packager' ? 'Packager' :
     \ &ft == 'undotree' ? 'UndoTree' :
     \ winwidth(0) > 60 ? lightline#mode() : ''

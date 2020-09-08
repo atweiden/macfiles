@@ -8,7 +8,11 @@ let g:indent_guides_default_mapping = 0
 let g:indent_guides_space_guides = 0
 
 " exclude filetypes
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_exclude_filetypes = [
+    \ 'ctrlsf',
+    \ 'help',
+    \ 'nerdtree'
+    \ ]
 
 " use custom colors
 let g:indent_guides_auto_colors = 0
