@@ -217,7 +217,7 @@ vnoremap <silent> <S-F11> <ESC>:ToggleConceal<CR>gv
 nnoremap J mzJ`z
 
 " split line without clobbering search history
-nnoremap <silent> S i<CR><ESC>^mzgk:silent! keeppatterns s/\v +$//<CR>:noh<CR>`z
+nnoremap <silent> S i<CR><ESC>^mzgk:silent! keeppatterns s/\v +$//<CR>:nohlsearch<CR>`z
 
 " put blank line above current line
 nmap [<space> <Plug>PutBlankLineAbove
