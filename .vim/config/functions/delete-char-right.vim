@@ -1,7 +1,4 @@
 function! DeleteCharRight(ignore) abort
-  " number of characters to delete
-  let l:count = v:count ? v:count : 1
-
   " current cursor position
   let b:winsaveview = winsaveview()
 
@@ -9,17 +6,15 @@ function! DeleteCharRight(ignore) abort
   let l:curpos = col(".")
   let l:eolpos = col("$") - 1
 
-  " if requested number of characters to delete is greater than remaining
-  " number of characters on current line
-  if l:count > l:eolpos - l:curpos
-    " delete characters beginning from one character to the right of
-    " current cursor position until end of line
-    normal ld$
-  else
-    execute 'normal! l' . l:count . 'x'
-  endif
+  " beginning one character to the right of current cursor position,
+  " delete lesser of v:count1 or remaining number of characters on
+  " current line
+  execute printf('keeppatterns .s/\%%%sc%s//e',
+            \ l:curpos + 1,
+            \ repeat('.', min([v:count1, l:eolpos - l:curpos])))
 
-  " clear message line to workaround feedkeys silent incompatibility
+  " restore cursor position dot-repeatably, clearing message line to
+  " workaround feedkeys silent incompatibility
   call feedkeys(":call winrestview(b:winsaveview)\<CR>:echo ''\<CR>", 'n')
 endfunction
 
