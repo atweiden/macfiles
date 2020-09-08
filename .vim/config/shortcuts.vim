@@ -220,10 +220,10 @@ nnoremap J mzJ`z
 nnoremap <silent> S i<CR><ESC>^mzgk:silent! keeppatterns s/\v +$//<CR>:nohlsearch<CR>`z
 
 " put blank line above current line
-nmap [<space> <Plug>PutBlankLineAbove
+nnoremap <expr> [<space> Repeatable('PutBlankLineAbove')
 
 " put blank line below current line
-nmap ]<space> <Plug>PutBlankLineBelow
+nnoremap <expr> ]<space> Repeatable('PutBlankLineBelow')
 
 " end lines }}}
 " deletes {{{
