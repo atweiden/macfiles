@@ -78,10 +78,10 @@ vnoremap <silent> K mzgq`z
 nnoremap <silent> <leader>ss :FixWhitespace<CR>:echo "Trailing whitespace has been trimmed"<CR>
 
 " convert all tabs into spaces and continue session with spaces
-nnoremap <silent> <leader>st :set expandtab<CR>:%retab!<CR>:echo "Tabs have been converted to spaces"<CR>
+nnoremap <silent> <leader>st :setlocal expandtab<CR>:%retab!<CR>:echo "Tabs have been converted to spaces"<CR>
 
 " convert all spaces into tabs and continue session with tabs
-nnoremap <silent> <leader>sT :set noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>
+nnoremap <silent> <leader>sT :setlocal noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>
 
 " end formatting and whitespace }}}
 " writing {{{
