@@ -153,6 +153,9 @@ command! -bar -bang FZFMaps                               :silent doautocmd User
 command! -bar -bang FZFFiletypes                          :silent doautocmd User LoadFzf | Filetypes<bang>
 command!      -bang -nargs=* FZFHistory                   :silent doautocmd User LoadFzf | History<bang> <args>
 
+" search with rg from cwd
+nnoremap <silent> <leader>/ :FZFRg<CR>
+
 " search word under cursor with rg from cwd
 if !has('nvim')
   nnoremap <silent> <leader>f :let @z = expand('<cword>')<CR>:FZFRg<CR><C-W>:call term_sendkeys('', @z)<CR>
@@ -163,8 +166,8 @@ else
 endif
 
 " search prefixed by word under cursor with rg from cwd
-nnoremap <silent> <leader>/ :let @z = expand('<cword>')<CR>:FZFRg <C-R>z<CR>
-xnoremap <silent> <leader>/ "zy:FZFRg <C-R>z<CR>
+nnoremap <silent> <leader>F :let @z = expand('<cword>')<CR>:FZFRg <C-R>z<CR>
+xnoremap <silent> <leader>F "zy:FZFRg <C-R>z<CR>
 
 " open files from cwd
 nnoremap <silent> <leader>o :FZFFiles<CR>
