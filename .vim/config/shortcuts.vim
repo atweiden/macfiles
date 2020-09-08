@@ -38,12 +38,12 @@ nnoremap <silent> <leader><space> :let @/ = '[\.\?]\(\\\)\@<!\zs\s\s\+\ze\S'<CR>
 nnoremap <silent> <leader><leader><space> :let @/ = '\S\zs\s\s\+\ze\S'<CR>:call search(@/, "sz")<CR>
 
 " find merge conflict markers forward
-nnoremap <silent> ]x :call search('\v^[<=>]{7}([^=].+)?$', "sz")<CR>
-vnoremap <silent> ]x <ESC>:call search('\v^[<=>]{7}([^=].+)?$', "sz")<CR>mz``gv`z
+nnoremap <silent> <expr> ]x Repeatable('SearchMergeConflictMarkersForward')
+vnoremap <silent> <expr> ]x '<ESC>:<C-U>execute "normal ' . v:count . ']xmz``gv`z"<CR>'
 
 " find merge conflict markers backward
-nnoremap <silent> [x :call search('\v^[<=>]{7}([^=].+)?$', "bsz")<CR>
-vnoremap <silent> [x <ESC>:call search('\v^[<=>]{7}([^=].+)?$', "bsz")<CR>mz``gv`z
+nnoremap <silent> <expr> [x Repeatable('SearchMergeConflictMarkersBackward')
+vnoremap <silent> <expr> [x '<ESC>:<C-U>execute "normal ' . v:count . '[xmz``gv`z"<CR>'
 
 " end search and replace }}}
 " pasting {{{
