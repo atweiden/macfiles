@@ -9,9 +9,7 @@ function! DeleteCharRight(ignore) abort
   " beginning one character to the right of current cursor position,
   " delete lesser of v:count1 or remaining number of characters on
   " current line
-  execute printf('keeppatterns .s/\%%%sc%s//e',
-            \ l:curpos + 1,
-            \ repeat('.', min([v:count1, l:eolpos - l:curpos])))
+  execute printf('keeppatterns .s/\%%%sc.\{0,%s\}//e', l:curpos + 1, v:count1)
 
   " restore cursor position dot-repeatably, clearing message line to
   " workaround feedkeys silent incompatibility
