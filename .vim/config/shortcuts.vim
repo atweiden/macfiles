@@ -39,11 +39,11 @@ nnoremap <silent> <leader><leader><space> :let @/ = '\S\zs\s\s\+\ze\S'<CR>:call 
 
 " find merge conflict markers forward
 nnoremap <silent> <expr> ]x Repeatable('SearchMergeConflictMarkersForward')
-vnoremap <silent> <expr> ]x '<ESC>:<C-U>execute "normal ' . v:count . ']xmz``gv`z"<CR>'
+vnoremap <silent> <expr> ]x '<ESC>:<C-U>execute "normal ' . v:count . ']xmzgv`z"<CR>'
 
 " find merge conflict markers backward
 nnoremap <silent> <expr> [x Repeatable('SearchMergeConflictMarkersBackward')
-vnoremap <silent> <expr> [x '<ESC>:<C-U>execute "normal ' . v:count . '[xmz``gv`z"<CR>'
+vnoremap <silent> <expr> [x '<ESC>:<C-U>execute "normal ' . v:count . '[xmzgv`z"<CR>'
 
 " end search and replace }}}
 " pasting {{{
