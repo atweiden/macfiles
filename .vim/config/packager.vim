@@ -20,6 +20,7 @@ function! PackagerSetup() abort
   call packager#add('drmikehenry/vim-fixkey')
 
   " search and replace
+  call packager#add('dyng/ctrlsf.vim', { 'type': 'opt' })
   call packager#add('junegunn/fzf', { 'type': 'opt',
                                     \   'do': './install --bin' })
   call packager#add('junegunn/fzf.vim', { 'type': 'opt' })

@@ -153,9 +153,6 @@ command! -bar -bang FZFMaps                               :silent doautocmd User
 command! -bar -bang FZFFiletypes                          :silent doautocmd User LoadFzf | Filetypes<bang>
 command!      -bang -nargs=* FZFHistory                   :silent doautocmd User LoadFzf | History<bang> <args>
 
-" search with rg from cwd
-nnoremap <silent> <C-F> :FZFRg<CR>
-
 " search word under cursor with rg from cwd
 if !has('nvim')
   nnoremap <silent> <leader>f :let @z = expand('<cword>')<CR>:FZFRg<CR><C-W>:call term_sendkeys('', @z)<CR>
