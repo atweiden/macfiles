@@ -55,6 +55,7 @@ function! s:CtrlSFAfterMainWindowInit() abort
 endfunction
 
 function! g:CtrlSFAfterMainWindowInit() abort
+  setlocal nowrap
   nnoremap <silent> <buffer> <CR> :call <SID>CtrlSFAfterMainWindowInit()<CR>
   nnoremap <silent> <buffer> o :call <SID>CtrlSFAfterMainWindowInit()<CR>
 endfunction
