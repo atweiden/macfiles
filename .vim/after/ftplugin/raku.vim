@@ -3,6 +3,7 @@ setlocal softtabstop=4
 setlocal shiftwidth=4
 setlocal matchpairs+=«:»
 setlocal matchpairs+=「:」
+setlocal iskeyword-=-
 
 if has('digraphs')
   " (᚛) ogham feather mark
