@@ -294,6 +294,9 @@ nnoremap <silent> gB :bprev<CR>
 " end buffers }}}
 " tabs {{{
 
+" open new tab
+nnoremap <silent> <C-T> :tabnew<CR>
+
 " open buffers as tabs, removing duplicate tab, focusing current buffer
 nnoremap <silent> <expr> <Tab> ':silent bufdo tab split<CR>:tabclose $<CR>:' . bufnr() . 'tabnext<CR>'
 
