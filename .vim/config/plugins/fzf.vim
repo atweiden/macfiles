@@ -126,7 +126,7 @@ command! -bang -nargs=* Rg call fzf#vim#grep(join([
     \ shellescape(<q-args>)
     \ ], ' '),
     \ 1,
-    \ fzf#vim#with_preview(),
+    \ fzf#vim#with_preview({ 'options': ['--info=inline'] }, 'down:60%'),
     \ <bang>0)
 
 " lazy loaded commands from junegunn/fzf.vim/plugin/fzf.vim
