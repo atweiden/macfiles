@@ -1,4 +1,4 @@
-setlocal dictionary=$CFGPATH/dict/lua.base.dict
+setlocal dictionary=$CFGPATH/dict/fennel.dict
 setlocal iskeyword-=-
 
 let g:fennel_highlight_aniseed = 0
