@@ -298,10 +298,10 @@ nnoremap <silent> gB :bprev<CR>
 nnoremap <silent> <C-T> :tabnew<CR>
 
 " open buffers as tabs, removing duplicate tab, focusing current buffer
-nnoremap <silent> <expr> <Tab> ':silent bufdo tab split<CR>:tabclose $<CR>:' . bufnr() . 'tabnext<CR>'
+nnoremap <silent> <expr> <M-Down> ':silent bufdo tab split<CR>:tabclose $<CR>:' . bufnr() . 'tabnext<CR>'
 
 " collapse tabs into buffers, focusing current buffer
-nnoremap <silent> <S-Tab> :silent! tabonly<CR>
+nnoremap <silent> <M-Up> :silent! tabonly<CR>
 
 " navigate tabs leftwards
 nnoremap <silent> <expr> <M-Left> ':<C-U>silent! tabnext -' . v:count1 . '<CR>'
@@ -314,12 +314,6 @@ nnoremap <silent> <expr> <M-S-Left> ':<C-U>silent! tabmove -' . v:count1 . '<CR>
 
 " move current tab rightwards
 nnoremap <silent> <expr> <M-S-Right> ':<C-U>silent! tabmove +' . v:count1 . '<CR>'
-
-" hide tabline
-nnoremap <silent> <M-Up> :set showtabline=0<CR>
-
-" show tabline if more than one tab exists
-nnoremap <silent> <M-Down> :set showtabline=1<CR>
 
 " end tabs }}}
 " windows {{{
