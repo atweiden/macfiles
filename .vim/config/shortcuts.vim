@@ -236,8 +236,10 @@ nnoremap <expr> gx Repeatable('DeleteCharRight')
 
 " move between beginning and end of line
 nnoremap H ^
+onoremap H ^
 vnoremap H ^
 nnoremap L g_
+onoremap L g_
 vnoremap L g_
 
 " end movement }}}
