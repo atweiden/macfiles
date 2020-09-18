@@ -68,7 +68,11 @@ noremap <leader><leader>p mz"+p`z
 noremap <leader><leader>P mz"+p`z
 
 " end pasting }}}
-" whitespace {{{
+" formatting and whitespace {{{
+
+" use K to fmt lines with cursor position maintained
+nnoremap <silent> K mzgqq`z
+vnoremap <silent> K mzgq`z
 
 " trim trailing whitespace
 nnoremap <silent> <leader>ss :FixWhitespace<CR>:echo "Trailing whitespace has been trimmed"<CR>
@@ -79,7 +83,7 @@ nnoremap <silent> <leader>st :setlocal expandtab<CR>:%retab!<CR>:echo "Tabs have
 " convert all spaces into tabs and continue session with tabs
 nnoremap <silent> <leader>sT :setlocal noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>
 
-" end whitespace }}}
+" end formatting and whitespace }}}
 " writing {{{
 
 " quick write
