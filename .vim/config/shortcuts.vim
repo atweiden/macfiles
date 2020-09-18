@@ -234,6 +234,10 @@ nnoremap <expr> gx Repeatable('DeleteCharRight')
 " end deletes }}}
 " movement {{{
 
+" move cursor vertically by display lines unless count is provided
+nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+
 " move between beginning and end of line
 nnoremap H ^
 onoremap H ^
