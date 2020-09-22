@@ -20,10 +20,6 @@ inoremap <S-Tab> <C-d>
 " end indenting }}}
 " search and replace {{{
 
-" quick substitute
-nnoremap gs :s/
-xnoremap gs :s/
-
 " highlight word under cursor without moving cursor position
 nnoremap <silent> g/ :let @/ = '\<' . expand('<cword>') . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> g/ "zy:let @/ = @z<CR>:set hlsearch<CR>
