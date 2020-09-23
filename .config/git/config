@@ -226,6 +226,8 @@
   squash = "!f() { git rebase -i HEAD~$1; }; f"
   # force push latest revision without modifications, useful for travis-ci
   touch = "!f() { git commit --amend --no-edit && git push -f; }; f"
+  # undo last commit, putting changes back into working copy
+  undo = "!f() { git reset --mixed HEAD~1; }; f"
 
   # list
   ls-aliases = config --get-regexp alias
