@@ -66,9 +66,9 @@ noremap <leader><leader>P mz"+p`z
 " end pasting }}}
 " formatting and whitespace {{{
 
-" fmt lines with cursor position maintained
-nnoremap <silent> <leader>k mzgqq`z
-vnoremap <silent> <leader>k mzgq`z
+" use K to fmt lines with cursor position maintained
+nnoremap <silent> K mzgqq`z
+vnoremap <silent> K mzgq`z
 
 " trim trailing whitespace
 nnoremap <silent> <leader>ss :FixWhitespace<CR>:echo "Trailing whitespace has been trimmed"<CR>
