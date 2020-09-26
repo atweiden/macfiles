@@ -47,11 +47,8 @@ vnoremap <silent> <expr> [x '<ESC>:<C-U>execute "normal ' . v:count . '[xmzgv`z"
 " yank to end of line
 noremap Y y$
 
-" maintain cursor position post visual mode yank
-vnoremap y ygv<ESC>
-
 " copy to clipboard
-vnoremap <leader>y "+ygv<ESC>
+vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 nnoremap <leader>Y "+y$
 
