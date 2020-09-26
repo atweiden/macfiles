@@ -58,7 +58,7 @@ noremap <leader>P "+P
 
 " paste from clipboard holding cursor position steady
 noremap <leader><leader>p mz"+p`z
-noremap <leader><leader>P mz"+p`z
+noremap <leader><leader>P mz"+P`z
 
 " end pasting }}}
 " formatting and whitespace {{{
