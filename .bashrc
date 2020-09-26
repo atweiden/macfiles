@@ -698,10 +698,16 @@ fi
 # --- ydl {{{
 
 if [[ -n "$_has_ydl" ]]; then
+  alias ydl-240p='youtube-dl \
+    --format "bestvideo[height<=240]+bestaudio/best[height<=240]"'
+  alias ydl-360p='youtube-dl \
+    --format "bestvideo[height<=360]+bestaudio/best[height<=360]"'
   alias ydl-480p='youtube-dl \
     --format "bestvideo[height<=480]+bestaudio/best[height<=480]"'
   alias ydl-720p='youtube-dl \
     --format "bestvideo[height<=720]+bestaudio/best[height<=720]"'
+  alias ydl-1080p='youtube-dl \
+    --format "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
 fi
 
 # --- end ydl }}}
