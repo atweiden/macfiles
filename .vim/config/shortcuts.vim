@@ -53,12 +53,16 @@ nnoremap <leader>y "+y
 nnoremap <leader>Y "+y$
 
 " paste from clipboard
-noremap <leader>p "+p
-noremap <leader>P "+P
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>P "+P
 
 " paste from clipboard holding cursor position steady
-noremap <leader><leader>p mz"+p`z
-noremap <leader><leader>P mz"+P`z
+nnoremap <leader><leader>p mz"+p`z
+vnoremap <leader><leader>p mz"+p`z
+nnoremap <leader><leader>P mz"+P`z
+vnoremap <leader><leader>P mz"+P`z
 
 " end pasting }}}
 " formatting and whitespace {{{
