@@ -6,16 +6,13 @@ nnoremap <expr> gV '`[' . strpart(getregtype(), 0, 1) . '`]'
 " end selecting }}}
 " indenting {{{
 
-" DWIM indenting:
-" preserve visual selection
+" preserve visual selection when indenting for dwim
 vnoremap > >gv
 vnoremap < <gv
-" normal mode tab `count` number of times, repeatably
+
+" normal mode tab `count` number of times repeatably for dwim
 nnoremap <expr> > Repeatable('Indent')
 nnoremap <expr> < Repeatable('Dedent')
-
-" dedent in insert mode
-inoremap <S-Tab> <C-d>
 
 " end indenting }}}
 " search and replace {{{
