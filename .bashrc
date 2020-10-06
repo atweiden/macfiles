@@ -262,6 +262,7 @@ _has_ag="$(command -v ag)"
 _has_colordiff="$(command -v colordiff)"
 _has_curl="$(command -v curl)"
 _has_diffr="$(command -v diffr)"
+_has_fd="$(command -v fd)"
 _has_gdb="$(command -v gdb)"
 _has_git="$(command -v git)"
 _has_glibtool="$(command -v glibtool)"
@@ -796,65 +797,13 @@ export MIX_HOME="$XDG_DATA_HOME/mix"
 # --- end elixir }}}
 # --- fzf {{{
 
-# use rg/ag/ack as the default source for fzf
-if [[ -n "$_has_rg" ]]; then
-  export FZF_DEFAULT_COMMAND='rg \
-    --hidden \
-    --smart-case \
-    --color never \
-    --ignore-file $HOME/.config/search/ignore \
-    --ignore-vcs \
-    --files \
-    -g ""'
-elif [[ -n "$_has_ag" ]]; then
-  export FZF_DEFAULT_COMMAND='ag \
-    --hidden \
-    --smart-case \
-    --nocolor \
-    --path-to-ignore $HOME/.config/search/ignore \
-    --skip-vcs-ignores \
-    -g ""'
-elif [[ -n "$_has_ack" ]]; then
-  export FZF_DEFAULT_COMMAND='ack \
-    --nocolor \
-    --nopager \
-    --ackrc=$HOME/.config/ack/ackrc \
-    -g ""'
+# use fd as default source for fzf, including ctrl+t and ** completion
+if [[ -n "$_has_fd" ]]; then
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden'
+  export FZF_ALT_C_COMMAND='fd --type d hidden'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  _fzf_compgen_path() { $FZF_DEFAULT_COMMAND "$1"; }
 fi
-
-# use rg/ag/ack for ctrl-t completion
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# use rg/ag/ack for ** completion
-_fzf_compgen_path() {
-  if [[ -n "$_has_rg" ]]; then
-    rg \
-      --hidden \
-      --smart-case \
-      --color never \
-      --ignore-file "$HOME/.config/search/ignore" \
-      --ignore-vcs \
-      --files \
-      -g "" \
-      "$1"
-  elif [[ -n "$_has_ag" ]]; then
-    ag \
-      --hidden \
-      --smart-case \
-      --nocolor \
-      --path-to-ignore "$HOME/.config/search/ignore" \
-      --skip-vcs-ignores \
-      -g "" \
-      "$1"
-  elif [[ -n "$_has_ack" ]]; then
-    ack \
-      --nocolor \
-      --nopager \
-      --ackrc="$HOME/.config/ack/ackrc" \
-      -g "" \
-      "$1"
-  fi
-}
 
 # use multi-select and seoul256 colors
 export FZF_DEFAULT_OPTS='
