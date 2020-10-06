@@ -797,12 +797,12 @@ export MIX_HOME="$XDG_DATA_HOME/mix"
 # --- end elixir }}}
 # --- fzf {{{
 
-# use fd as default source for fzf, including ctrl+t and ** completion
+# use fd as default source for fzf, incl alt+c ctrl+t and ** completion
 if [[ -n "$_has_fd" ]]; then
   export FZF_DEFAULT_COMMAND='fd --type f --hidden'
-  export FZF_ALT_C_COMMAND='fd --type d hidden'
+  export FZF_ALT_C_COMMAND='fd --type d --hidden'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  _fzf_compgen_path() { $FZF_DEFAULT_COMMAND "$1"; }
+  _fzf_compgen_path() { $FZF_DEFAULT_COMMAND; }
 fi
 
 # use multi-select and seoul256 colors
