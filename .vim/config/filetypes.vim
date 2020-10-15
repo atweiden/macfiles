@@ -30,6 +30,7 @@ augroup lazylanguages
   autocmd User LoadElixir ++once packadd vim-elixir
   autocmd User LoadFennel ++once packadd vim-fennel
   autocmd User LoadFinn ++once packadd vim-finn
+  autocmd User LoadGo ++once packadd vim-go
   autocmd User LoadJanet ++once packadd janet.vim
   autocmd User LoadJournal ++once packadd vim-journal
   autocmd User LoadConjure ++once packadd conjure
@@ -66,6 +67,21 @@ augroup languages
 
   " git
   autocmd BufReadPre,FileReadPre COMMIT_EDITMSG let b:noreturntopos = 1
+
+  " go
+  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadGo',
+      \ join([
+      \   '*.go',
+      \   '*.s',
+      \   '*.tmpl',
+      \   '*.mod',
+      \   '*.html'
+      \ ], ','))
+  autocmd FileType asm silent doautocmd User LoadGo
+  autocmd FileType go silent doautocmd User LoadGo
+  autocmd FileType gohtmltmpl silent doautocmd User LoadGo
+  autocmd FileType gomod silent doautocmd User LoadGo
+  autocmd FileType html silent doautocmd User LoadGo
 
   " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
