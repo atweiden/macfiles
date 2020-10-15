@@ -10,14 +10,14 @@ let g:go_asmfmt_autosave = 0
 " disable default mapping (`gd`) for GoDef
 let g:go_def_mapping_enabled = 0
 
-" disable highlight trailing white space
+" disable highlight trailing whitespace
 let g:go_highlight_trailing_whitespace_error = 0
 
-" disable highlighting white space after `[]`
+" disable highlighting whitespace after `[]`
 let g:go_highlight_array_whitespace_error = 0
 
-" disable highlighting white space around the communications operator
-" (`<-`) that doesn't follow the standard style
+" disable highlighting whitespace around communications operator (`<-`)
+" if not in standard style
 let g:go_highlight_chan_whitespace_error = 0
 
 " disable highlighting instances of tabs following spaces
