@@ -5,7 +5,8 @@ let g:lispft = {
     \              '*.edn',
     \              '*.cljx',
     \              '*.cljc',
-    \              '{build,profile}.boot'
+    \              'build.boot',
+    \              'profile.boot'
     \            ], ','),
     \ 'fennel': '*.fnl',
     \ 'janet': '*.janet',
