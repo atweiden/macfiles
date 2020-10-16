@@ -75,17 +75,18 @@ augroup languages
       \   '*.go',
       \   '*.s',
       \   '*.tmpl',
-      \   '*.mod',
-      \   '*.html'
+      \   '*.mod'
       \ ], ','))
   autocmd FileType asm silent doautocmd User LoadGo
   autocmd FileType go silent doautocmd User LoadGo
   autocmd FileType gohtmltmpl silent doautocmd User LoadGo
   autocmd FileType gomod silent doautocmd User LoadGo
-  autocmd FileType html silent doautocmd User LoadGo
 
   " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
+
+  " hugo
+  autocmd BufNewFile,BufRead **/layouts/{,**/}*.html setlocal filetype=gohtmltmpl
 
   " janet
   execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadJanet',
