@@ -17,6 +17,12 @@ nnoremap <expr> < Repeatable('Dedent')
 " end indenting }}}
 " search and replace {{{
 
+" always search forward with n and backward with N for dwim
+nnoremap <expr> n 'Nn'[v:searchforward]
+vnoremap <expr> n 'Nn'[v:searchforward]
+nnoremap <expr> N 'nN'[v:searchforward]
+vnoremap <expr> N 'nN'[v:searchforward]
+
 " highlight word under cursor without moving cursor position
 nnoremap <silent> g/ :let @/ = '\<' . expand('<cword>') . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> g/ "zy:let @/ = @z<CR>:set hlsearch<CR>
