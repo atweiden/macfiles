@@ -257,7 +257,6 @@ nnoremap <leader>sfF mz:setfiletype fennel<CR>`z
 nnoremap <leader>sfg mz:setfiletype gitcommit<CR>`z
 nnoremap <leader>sfG mz:setfiletype go<CR>`z
 nnoremap <leader>sfh mz:setfiletype help<CR>`z
-nnoremap <leader>sfH mz:setfiletype gohtmltmpl<CR>`z
 nnoremap <leader>sfj mz:setfiletype journal<CR>`z
 nnoremap <leader>sfJ mz:setfiletype janet<CR>`z
 nnoremap <leader>sfl mz:setfiletype lisp<CR>`z
