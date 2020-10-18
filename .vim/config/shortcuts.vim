@@ -270,7 +270,8 @@ nnoremap <leader>sfs mz:setfiletype sh<CR>`z
 nnoremap <leader>sfS mz:setfiletype scheme<CR>`z
 nnoremap <leader>sft mz:setfiletype toml<CR>`z
 nnoremap <leader>sfT mz:setfiletype tex<CR>`z
-nnoremap <leader>sfu mz:setfiletype rust<CR>`z
+nnoremap <leader>sfu mz:setfiletype ruby<CR>`z
+nnoremap <leader>sfU mz:setfiletype rust<CR>`z
 nnoremap <leader>sfv mz:setfiletype vim<CR>`z
 nnoremap <leader>sfx mz:setfiletype text<CR>`z
 nnoremap <leader>sfy mz:setfiletype yaml<CR>`z
