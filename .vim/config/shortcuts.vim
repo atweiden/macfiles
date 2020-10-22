@@ -265,7 +265,7 @@ nnoremap <leader>sfm mz:setfiletype markdown<CR>`z
 nnoremap <leader>sfo mz:setfiletype ocaml<CR>`z
 nnoremap <leader>sfp mz:setfiletype php<CR>`z
 nnoremap <leader>sfr mz:setfiletype raku<CR>`z
-nnoremap <leader>sfR mz:setfiletype reason<CR>`z
+nnoremap <leader>sfR mz:setfiletype rescript<CR>`z
 nnoremap <leader>sfs mz:setfiletype sh<CR>`z
 nnoremap <leader>sfS mz:setfiletype scheme<CR>`z
 nnoremap <leader>sft mz:setfiletype toml<CR>`z

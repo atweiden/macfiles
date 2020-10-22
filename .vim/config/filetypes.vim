@@ -36,6 +36,7 @@ augroup lazylanguages
   autocmd User LoadConjure ++once packadd conjure
   autocmd User LoadSexp ++once packadd vim-sexp
   autocmd User LoadRaku ++once packadd vim-raku
+  autocmd User LoadRescript ++once packadd vim-rescript
   autocmd User LoadToml ++once packadd vim-toml
 augroup END
 
@@ -105,6 +106,10 @@ augroup languages
       \   '*.nqp'
       \ ], ','))
   autocmd FileType raku silent doautocmd User LoadRaku
+
+  " rescript
+  autocmd BufReadPre,FileReadPre *.res,*.resi silent doautocmd User LoadRescript
+  autocmd FileType rescript silent doautocmd User LoadRescript
 
   " toml
   execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadToml',
