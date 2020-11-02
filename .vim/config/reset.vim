@@ -11,6 +11,10 @@ let g:loaded_man = 1
 let g:loaded_matchparen = 1
 let g:loaded_spellfile_plugin = 1
 let g:loaded_rrhelper = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_netrwFileHandlers = 1
 
 " don't use ' for jumping to marks
 noremap ' <nop>
