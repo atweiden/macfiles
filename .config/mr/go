@@ -58,6 +58,9 @@ checkout = git clone 'https://github.com/docker/distribution'
 [docker]
 checkout = git clone 'https://github.com/docker/docker'
 
+[dtls]
+checkout = git clone 'https://github.com/pion/dtls'
+
 [exp]
 checkout = git clone 'https://github.com/golang/exp'
 
@@ -265,6 +268,9 @@ checkout = git clone 'https://github.com/golang/tools'
 [traefik]
 checkout = git clone 'https://github.com/containous/traefik'
 
+[turn]
+checkout = git clone 'https://github.com/pion/turn'
+
 [vault]
 checkout = git clone 'https://github.com/hashicorp/vault'
 
@@ -273,6 +279,9 @@ checkout = git clone 'https://github.com/spf13/viper'
 
 [vuvuzela]
 checkout = git clone 'https://github.com/davidlazar/vuvuzela'
+
+[webrtc]
+checkout = git clone 'https://github.com/pion/webrtc'
 
 [websocket]
 checkout = git clone 'https://github.com/gorilla/websocket'
