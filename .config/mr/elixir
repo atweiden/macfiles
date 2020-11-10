@@ -58,9 +58,6 @@ checkout = git clone 'https://github.com/scrogson/cryptex'
 [db_connection]
 checkout = git clone 'https://github.com/elixir-ecto/db_connection'
 
-[db_connection]
-checkout = git clone 'https://github.com/elixir-ecto/db_connection'
-
 [dbg]
 checkout = git clone 'https://github.com/fishcakez/dbg'
 
