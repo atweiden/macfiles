@@ -102,6 +102,11 @@ function! PackagerSetup() abort
   call packager#add('cespare/vim-toml', { 'type': 'opt' })
 
   " --- end toml }}}
+  " --- zig {{{
+
+  call packager#add('ziglang/zig.vim', { 'type': 'opt' })
+
+  " --- end zig }}}
 
   " end languages }}}
 
