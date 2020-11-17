@@ -16,7 +16,14 @@ IEx.configure(
       :reset
     ]
     |> IO.ANSI.format()
-    |> IO.chardata_to_string()
+    |> IO.chardata_to_string(),
+  history_size: 50,
+  inspect: [
+    pretty: true,
+    limit: :infinity,
+    width: 80
+  ],
+  width: 80
 )
 
 defmodule R do
