@@ -94,7 +94,7 @@ function! PackagerSetup() abort
   " --- end raku }}}
   " --- rescript {{{
 
-  call packager#add('ryyppy/vim-rescript', { 'type': 'opt' })
+  call packager#add('rescript-lang/vim-rescript', { 'type': 'opt' })
 
   " --- end rescript }}}
   " --- toml {{{
