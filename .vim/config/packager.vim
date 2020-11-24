@@ -92,11 +92,6 @@ function! PackagerSetup() abort
   call packager#add('Raku/vim-raku', { 'type': 'opt' })
 
   " --- end raku }}}
-  " --- rescript {{{
-
-  call packager#add('rescript-lang/vim-rescript', { 'type': 'opt' })
-
-  " --- end rescript }}}
   " --- toml {{{
 
   call packager#add('cespare/vim-toml', { 'type': 'opt' })
