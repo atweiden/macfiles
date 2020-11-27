@@ -50,7 +50,8 @@ augroup languages
       \   '*.exs',
       \   'mix.lock',
       \   '*.eex',
-      \   '*.leex'
+      \   '*.leex',
+      \   '*.sface'
       \ ], ','))
   autocmd FileType elixir silent doautocmd User LoadElixir
 
