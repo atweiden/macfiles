@@ -54,6 +54,7 @@ augroup languages
       \   '*.sface'
       \ ], ','))
   autocmd FileType elixir silent doautocmd User LoadElixir
+  autocmd FileType eelixir silent doautocmd User LoadElixir
 
   " enc
   autocmd BufNewFile,BufRead *.enc setlocal filetype=enc
