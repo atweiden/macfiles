@@ -176,15 +176,15 @@ nnoremap <silent> <F5> :ToggleCursorcolumnCursorline<CR>
 inoremap <silent> <F5> <C-O>:ToggleCursorcolumnCursorline<CR>
 vnoremap <silent> <F5> <ESC>:ToggleCursorcolumnCursorline<CR>gv
 
-" toggle line numbers, add left padding when line numbers disabled
-nnoremap <silent> <F6> :ToggleLineNumbersLeftPadded<CR>
-inoremap <silent> <F6> <C-O>:ToggleLineNumbersLeftPadded<CR>
-vnoremap <silent> <F6> <ESC>:ToggleLineNumbersLeftPadded<CR>gv
-
 " toggle laststatus=2
-nnoremap <silent> <S-F6> :ToggleLaststatus<CR>
-inoremap <silent> <S-F6> <C-O>:ToggleLaststatus<CR>
-vnoremap <silent> <S-F6> <ESC>:ToggleLaststatus<CR>gv
+nnoremap <silent> <F6> :ToggleLaststatus<CR>
+inoremap <silent> <F6> <C-O>:ToggleLaststatus<CR>
+vnoremap <silent> <F6> <ESC>:ToggleLaststatus<CR>gv
+
+" toggle line numbers, add left padding when line numbers disabled
+nnoremap <silent> <S-F6> :ToggleLineNumbersLeftPadded<CR>
+inoremap <silent> <S-F6> <C-O>:ToggleLineNumbersLeftPadded<CR>
+vnoremap <silent> <S-F6> <ESC>:ToggleLineNumbersLeftPadded<CR>gv
 
 " toggle simultaneous scrolling of windows
 nnoremap <silent> <S-F8> :windo set scrollbind!<CR>
