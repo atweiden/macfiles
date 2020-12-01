@@ -37,7 +37,7 @@ augroup lazylanguages
   autocmd User LoadSexp ++once packadd vim-sexp
   autocmd User LoadRaku ++once packadd vim-raku
   autocmd User LoadToml ++once packadd vim-toml
-  autocmd User LoadZig ++once packadd zig.vim
+  autocmd User LoadZig ++once packadd vim-zig
 augroup END
 
 augroup languages
