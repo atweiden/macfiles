@@ -1,0 +1,13 @@
+[fun-with-zig]
+checkout = git clone 'https://github.com/Hejsil/fun-with-zig'
+
+[gotta-go-fast]
+checkout = git clone 'https://github.com/ziglang/gotta-go-fast'
+
+[wazm]
+checkout = git clone 'https://github.com/fengb/wazm'
+
+[zig]
+checkout = git clone 'https://github.com/ziglang/zig'
+
+# vim: ft=cfg
