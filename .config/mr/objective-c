@@ -1,4 +1,7 @@
 [iTerm2]
 checkout = git clone 'https://github.com/gnachman/iTerm2'
 
+[ObjFW]
+checkout = git clone 'https://github.com/ObjFW/ObjFW'
+
 # vim: ft=cfg
