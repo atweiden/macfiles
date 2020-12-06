@@ -99,7 +99,7 @@ function! PackagerSetup() abort
   " --- end toml }}}
   " --- zig {{{
 
-  call packager#add('atweiden/vim-zig', { 'branch': 'flip',
+  call packager#add('atweiden/vim-zig', { 'branch': 'tttc',
                                           \ 'type': 'opt' })
 
   " --- end zig }}}
