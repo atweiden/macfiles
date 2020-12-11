@@ -46,9 +46,6 @@ let g:ctrlsf_mapping = {
     \ "prev": "<C-P>"
     \ }
 
-" keep cursor in results pane after opening file
-let g:ctrlsf_auto_close = 0
-
 function! s:CtrlSFAfterMainWindowInit() abort
   call ctrlsf#JumpTo('open')
   call ctrlsf#win#FocusMainWindow()
