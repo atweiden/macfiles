@@ -580,6 +580,10 @@
 # https://www.cmake.org/
 --ignore-directory=is:CMakeFiles
 
+# xmake cache
+# https://xmake.io/
+--ignore-directory=is:.xmake
+
 # compilation artefacts
 --ignore-directory=ext:dSYM
 --ignore-file=ext:a
@@ -856,6 +860,9 @@
 
 # reason native build artefacts created by esy
 --ignore-directory=is:_esy
+
+# zig build artefacts
+--ignore-directory=is:zig-cache
 
 # --- end programming language }}}
 

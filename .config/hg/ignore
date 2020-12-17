@@ -176,6 +176,10 @@ ehthumbs_vista.db
 # https://github.com/buildinspace/peru
 .peru/
 
+# xmake
+# https://xmake.io
+.xmake/
+
 # Ada
 *.ali
 
@@ -273,3 +277,6 @@ _opam/
 
 # Ruby
 *.gem
+
+# Zig
+zig-cache/

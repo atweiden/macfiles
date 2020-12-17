@@ -159,6 +159,7 @@ set wildignore+=.svn/
 set wildignore+=.bzr/
 set wildignore+=CVS/
 set wildignore+=.peru/
+set wildignore+=.xmake/
 set wildignore+=.ci/
 set wildignore+=.circleci/
 set wildignore+=.devcontainer/
@@ -244,6 +245,7 @@ set wildignore+=*.cmxa
 set wildignore+=*.cmxs
 set wildignore+=*.native
 set wildignore+=*.gem
+set wildignore+=zig-cache/
 
 " wildmatch the following with decreased priority
 set suffixes=

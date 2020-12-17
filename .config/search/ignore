@@ -137,6 +137,7 @@ ehthumbs_vista.db
 .bzr/
 CVS/
 .peru/
+.xmake/
 .ci/
 .circleci/
 .devcontainer/
@@ -189,3 +190,4 @@ _opam/
 *.cmxa
 *.cmxs
 *.native
+zig-cache/

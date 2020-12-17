@@ -8,6 +8,7 @@
 .bzr/
 CVS/
 .peru/
+.xmake/
 .cpcache/
 .lein-plugins/
 .mvn/
@@ -31,3 +32,4 @@ web_modules/
 .precomp/
 _esy/
 _opam/
+zig-cache/
