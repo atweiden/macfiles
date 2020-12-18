@@ -7,8 +7,8 @@ let g:NERDTreeShowHidden = 0
 " don't close nerdtree upon selecting file to open
 let g:NERDTreeQuitOnOpen = 0
 
-" set window size to 30%
-let g:NERDTreeWinSize = 30
+" set window size to 45%
+let g:NERDTreeWinSize = 45
 
 " highlight the selected entry in the tree
 let g:NERDTreeHighlightCursorline = 1
@@ -59,10 +59,10 @@ vnoremap <silent> <F12> <ESC>:NERDTreeToggle<CR>gv
 " if nerdtree is open, close it
 function! s:ToggleNERDTreeFind() abort
   if exists('t:NERDTreeBufName') && (bufwinnr(t:NERDTreeBufName) != -1)
-    execute ':NERDTreeToggle'
+    execute 'NERDTreeToggle'
   else
     silent doautocmd User LoadNERDTree
-    execute ':NERDTreeFind'
+    execute 'NERDTreeFind'
   endif
 endfunction
 command! ToggleNERDTreeFind call <SID>ToggleNERDTreeFind()
