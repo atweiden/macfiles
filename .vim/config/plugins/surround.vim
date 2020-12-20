@@ -5,6 +5,14 @@ let g:surround_no_insert_mappings = 1
 let g:surround_indent = 0
 
 " before | key in | after
+" 'word' |  yssq  | “'word'”
+let g:surround_113 = "“\r”"
+
+" before | key in | after
+" 'word' |  yssQ  | ‘'word'’
+let g:surround_81 = "‘\r’"
+
+" before | key in | after
 " 'word' |  yssa  | «'word'»
 let g:surround_97 = "«\r»"
 
