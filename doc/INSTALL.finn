@@ -488,8 +488,18 @@ popd
 
 ### rust
 
+rustup nightly [11]
+
 ```bash
-brew install rust
+brew install rustup
+rustup-init --default-toolchain none -y
+rustup toolchain install nightly \
+  --allow-downgrade \
+  --profile minimal \
+  --component clippy \
+  --component rustfmt
+rustup completions bash >
+  $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
 ```
 
 
@@ -505,3 +515,4 @@ brew install rust
 [8]: https://www.programmingfonts.org/
 [9]: https://monolisa.dev/
 [10]: https://github.com/GianCastle/FiraMonaco
+[11]: https://rust-lang.github.io/rustup/installation/

@@ -240,6 +240,11 @@ PATH="/usr/local/opt/rakudo/share/perl6/vendor/bin:$PATH"
 PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # --- end ruby }}}
+# --- rust {{{
+
+PATH="$HOME/.cargo/bin:$PATH"
+
+# --- end rust }}}
 # --- sqlite {{{
 
 PATH="/usr/local/opt/sqlite3/bin:$PATH"

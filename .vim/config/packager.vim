@@ -92,6 +92,11 @@ function! PackagerSetup() abort
   call packager#add('Raku/vim-raku', { 'type': 'opt' })
 
   " --- end raku }}}
+  " --- rust {{{
+
+  call packager#add('rust-lang/rust.vim', { 'type': 'opt' })
+
+  " --- end rust }}}
   " --- toml {{{
 
   call packager#add('cespare/vim-toml', { 'type': 'opt' })
