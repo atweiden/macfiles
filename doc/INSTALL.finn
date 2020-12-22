@@ -498,7 +498,7 @@ rustup toolchain install nightly \
   --profile minimal \
   --component clippy \
   --component rustfmt
-rustup completions bash >
+rustup completions bash > \
   $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
 ```
 
