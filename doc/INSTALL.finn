@@ -502,6 +502,19 @@ rustup completions bash > \
   $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
 ```
 
+rust repl [12]
+
+```bash
+rustup component add rust-src
+cargo install evcxr_repl
+```
+
+enable `cargo add` subcommand
+
+```bash
+cargo install cargo-edit
+```
+
 
 ******************************************************************************
 
@@ -516,3 +529,4 @@ rustup completions bash > \
 [9]: https://monolisa.dev/
 [10]: https://github.com/GianCastle/FiraMonaco
 [11]: https://rust-lang.github.io/rustup/installation/
+[12]: https://github.com/google/evcxr
