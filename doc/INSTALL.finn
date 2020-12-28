@@ -502,6 +502,15 @@ rustup completions bash > \
   $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
 ```
 
+rustup stable
+
+```bash
+rustup toolchain install stable \
+  --component clippy \
+  --component rustfmt
+rustup default stable
+```
+
 rust repl [12]
 
 ```bash
@@ -513,6 +522,12 @@ enable `cargo add` subcommand
 
 ```bash
 cargo install cargo-edit
+```
+
+enable `cargo crev` subcommand
+
+```bash
+cargo install cargo-crev
 ```
 
 
