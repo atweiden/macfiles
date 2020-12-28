@@ -1,0 +1,106 @@
+[bastion]
+checkout = git clone 'https://github.com/bastion-rs/bastion'
+
+[bat]
+checkout = git clone 'https://github.com/sharkdp/bat'
+
+[bupstash]
+checkout = git clone 'https://github.com/andrewchambers/bupstash'
+
+[cargo-edit]
+checkout = git clone 'https://github.com/killercup/cargo-edit'
+
+[critcmp]
+checkout = git clone 'https://github.com/BurntSushi/critcmp'
+
+[delta]
+checkout = git clone 'https://github.com/dandavison/delta'
+
+[duct.rs]
+checkout = git clone 'https://github.com/oconnor663/duct.rs'
+
+[fd]
+checkout = git clone 'https://github.com/sharkdp/fd'
+
+[git2-rs]
+checkout = git clone 'https://github.com/rust-lang/git2-rs'
+
+[haku]
+checkout = git clone 'https://github.com/VladimirMarkelov/haku'
+
+[heph]
+checkout = git clone 'https://github.com/Thomasdezeeuw/heph'
+
+[imdb-rename]
+checkout = git clone 'https://github.com/BurntSushi/imdb-rename'
+
+[lumen]
+checkout = git clone 'https://github.com/lumen/lumen'
+
+[num_cpus]
+checkout = git clone 'https://github.com/seanmonstar/num_cpus'
+
+[openssl-src-rs]
+checkout = git clone 'https://github.com/alexcrichton/openssl-src-rs'
+
+[pretty-env-logger]
+checkout = git clone 'https://github.com/seanmonstar/pretty-env-logger'
+
+[propane]
+checkout = git clone 'https://github.com/withoutboats/propane'
+
+[pwatch]
+checkout = git clone 'https://github.com/VladimirMarkelov/pwatch'
+
+[quad-image]
+checkout = git clone 'https://github.com/FauxFaux/quad-image'
+
+[rebuilderd]
+checkout = git clone 'https://github.com/kpcyrd/rebuilderd'
+
+[rlua]
+checkout = git clone 'https://github.com/amethyst/rlua'
+
+[rust-clippy]
+checkout = git clone 'https://github.com/rust-lang/rust-clippy'
+
+[rust-gc]
+checkout = git clone 'https://github.com/Manishearth/rust-gc'
+
+[rustup]
+checkout = git clone 'https://github.com/rust-lang/rustup'
+
+[shifgrethor]
+checkout = git clone 'https://github.com/withoutboats/shifgrethor'
+
+[smoltcp]
+checkout = git clone 'https://github.com/smoltcp-rs/smoltcp'
+
+[sn0int]
+checkout = git clone 'https://github.com/kpcyrd/sn0int'
+
+[solkit]
+checkout = git clone 'https://github.com/VladimirMarkelov/solkit'
+
+[toml-rs]
+checkout = git clone 'https://github.com/alexcrichton/toml-rs'
+
+[ttdl]
+checkout = git clone 'https://github.com/VladimirMarkelov/ttdl'
+
+[ureq]
+checkout = git clone 'https://github.com/algesten/ureq'
+
+[vcr]
+checkout = git clone 'https://github.com/BurntSushi/vcr'
+
+[warp]
+checkout = git clone 'https://github.com/seanmonstar/warp'
+
+[zerogc]
+checkout = git clone 'https://github.com/DuckLogic/zerogc'
+
+[zip]
+checkout = git clone 'https://github.com/zip-rs/zip'
+
+# vim: ft=cfg
