@@ -1,0 +1,13 @@
+[molde]
+checkout = git clone 'https://github.com/gilzoide/molde'
+
+[nested]
+checkout = git clone 'https://github.com/gilzoide/nested'
+
+[stringstream-lua]
+checkout = git clone 'https://github.com/gilzoide/stringstream-lua'
+
+[wildcard_pattern-lua]
+checkout = git clone 'https://github.com/gilzoide/wildcard_pattern-lua'
+
+# vim: ft=cfg
