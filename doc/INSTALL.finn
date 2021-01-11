@@ -518,6 +518,12 @@ rustup component add rust-src
 cargo install evcxr_repl
 ```
 
+rust runner [13]
+
+```bash
+cargo install runner
+```
+
 enable `cargo add` subcommand
 
 ```bash
@@ -545,3 +551,4 @@ cargo install cargo-crev
 [10]: https://github.com/GianCastle/FiraMonaco
 [11]: https://rust-lang.github.io/rustup/installation/
 [12]: https://github.com/google/evcxr
+[13]: https://stevedonovan.github.io/rustifications/2018/09/23/runner.html
