@@ -536,6 +536,12 @@ enable `cargo crev` subcommand
 cargo install cargo-crev
 ```
 
+enable `cargo deny` subcommand
+
+```bash
+cargo install cargo-deny
+```
+
 
 ******************************************************************************
 
