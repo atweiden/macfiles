@@ -1,11 +1,20 @@
+[aoc2020]
+checkout = git clone 'https://github.com/johannst/aoc2020'
+
 [bastion]
 checkout = git clone 'https://github.com/bastion-rs/bastion'
 
 [bat]
 checkout = git clone 'https://github.com/sharkdp/bat'
 
+[Blightmud]
+checkout = git clone 'https://github.com/Blightmud/Blightmud'
+
 [bupstash]
 checkout = git clone 'https://github.com/andrewchambers/bupstash'
+
+[card_game]
+checkout = git clone 'https://github.com/lenscas/card_game'
 
 [cargo-edit]
 checkout = git clone 'https://github.com/killercup/cargo-edit'
@@ -81,6 +90,9 @@ checkout = git clone 'https://github.com/kpcyrd/sn0int'
 
 [solkit]
 checkout = git clone 'https://github.com/VladimirMarkelov/solkit'
+
+[taplo]
+checkout = git clone 'https://github.com/tamasfe/taplo'
 
 [toml-rs]
 checkout = git clone 'https://github.com/alexcrichton/toml-rs'
