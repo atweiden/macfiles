@@ -559,6 +559,13 @@ enable `cargo deny` subcommand
 cargo install cargo-deny
 ```
 
+enable `cargo audit` subcommand
+
+```bash
+# find dependencies with reported security vulnerabilities
+cargo install cargo-audit
+```
+
 enable `cargo expand` subcommand
 
 ```bash
