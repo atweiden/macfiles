@@ -527,18 +527,21 @@ cargo install runner
 enable `cargo add` subcommand
 
 ```bash
+# add, remove and upgrade dependencies
 cargo install cargo-edit
 ```
 
 enable `cargo crev` subcommand
 
 ```bash
+# audit dependencies
 cargo install cargo-crev
 ```
 
 enable `cargo deny` subcommand
 
 ```bash
+# audit dependencies and lint Cargo.toml
 cargo install cargo-deny
 ```
 
