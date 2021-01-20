@@ -542,6 +542,13 @@ enable `cargo deny` subcommand
 cargo install cargo-deny
 ```
 
+enable `cargo expand` subcommand
+
+```bash
+# show results of macro expansion
+cargo install cargo-expand
+```
+
 
 ******************************************************************************
 
