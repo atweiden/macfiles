@@ -31,6 +31,9 @@ checkout = git clone 'https://github.com/oconnor663/duct.rs'
 [fd]
 checkout = git clone 'https://github.com/sharkdp/fd'
 
+[flurry]
+checkout = git clone 'https://github.com/jonhoo/flurry'
+
 [git2-rs]
 checkout = git clone 'https://github.com/rust-lang/git2-rs'
 
@@ -43,11 +46,17 @@ checkout = git clone 'https://github.com/Thomasdezeeuw/heph'
 [imdb-rename]
 checkout = git clone 'https://github.com/BurntSushi/imdb-rename'
 
+[inferno]
+checkout = git clone 'https://github.com/jonhoo/inferno'
+
 [lumen]
 checkout = git clone 'https://github.com/lumen/lumen'
 
 [num_cpus]
 checkout = git clone 'https://github.com/seanmonstar/num_cpus'
+
+[openssh-rs]
+checkout = git clone 'https://github.com/jonhoo/openssh-rs'
 
 [openssl-src-rs]
 checkout = git clone 'https://github.com/alexcrichton/openssl-src-rs'
@@ -66,6 +75,9 @@ checkout = git clone 'https://github.com/FauxFaux/quad-image'
 
 [rebuilderd]
 checkout = git clone 'https://github.com/kpcyrd/rebuilderd'
+
+[ripgrep]
+checkout = git clone 'https://github.com/BurntSushi/ripgrep'
 
 [rlua]
 checkout = git clone 'https://github.com/amethyst/rlua'
@@ -93,6 +105,9 @@ checkout = git clone 'https://github.com/VladimirMarkelov/solkit'
 
 [taplo]
 checkout = git clone 'https://github.com/tamasfe/taplo'
+
+[tokio-zookeeper]
+checkout = git clone 'https://github.com/jonhoo/tokio-zookeeper'
 
 [toml-rs]
 checkout = git clone 'https://github.com/alexcrichton/toml-rs'
