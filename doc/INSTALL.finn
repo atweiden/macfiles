@@ -538,6 +538,13 @@ enable `cargo udeps` subcommand
 cargo install cargo-udeps
 ```
 
+enable `cargo outdated` subcommand
+
+```bash
+# find outdated dependencies
+cargo install cargo-outdated
+```
+
 enable `cargo crev` subcommand
 
 ```bash
