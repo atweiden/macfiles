@@ -531,6 +531,13 @@ enable `cargo add` subcommand
 cargo install cargo-edit
 ```
 
+enable `cargo udeps` subcommand
+
+```bash
+# find unused dependencies
+cargo install cargo-udeps
+```
+
 enable `cargo crev` subcommand
 
 ```bash
