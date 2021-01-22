@@ -16,6 +16,9 @@ checkout = git clone 'https://github.com/andrewchambers/bupstash'
 [card_game]
 checkout = git clone 'https://github.com/lenscas/card_game'
 
+[cargo]
+checkout = git clone 'https://github.com/rust-lang/cargo'
+
 [cargo-edit]
 checkout = git clone 'https://github.com/killercup/cargo-edit'
 
@@ -90,6 +93,9 @@ checkout = git clone 'https://github.com/Manishearth/rust-gc'
 
 [rustup]
 checkout = git clone 'https://github.com/rust-lang/rustup'
+
+[scanmut]
+checkout = git clone 'https://github.com/mpdn/scanmut'
 
 [shifgrethor]
 checkout = git clone 'https://github.com/withoutboats/shifgrethor'
