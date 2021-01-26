@@ -13,6 +13,9 @@ checkout = git clone 'https://github.com/Blightmud/Blightmud'
 [bupstash]
 checkout = git clone 'https://github.com/andrewchambers/bupstash'
 
+[bwt]
+checkout = git clone 'https://github.com/bwt-dev/bwt'
+
 [card_game]
 checkout = git clone 'https://github.com/lenscas/card_game'
 
@@ -55,6 +58,12 @@ checkout = git clone 'https://github.com/jonhoo/inferno'
 [lumen]
 checkout = git clone 'https://github.com/lumen/lumen'
 
+[nakamoto]
+checkout = git clone 'https://github.com/cloudhead/nakamoto'
+
+[nonempty]
+checkout = git clone 'https://github.com/cloudhead/nonempty'
+
 [num_cpus]
 checkout = git clone 'https://github.com/seanmonstar/num_cpus'
 
@@ -63,6 +72,9 @@ checkout = git clone 'https://github.com/jonhoo/openssh-rs'
 
 [openssl-src-rs]
 checkout = git clone 'https://github.com/alexcrichton/openssl-src-rs'
+
+[popol]
+checkout = git clone 'https://github.com/cloudhead/popol'
 
 [pretty-env-logger]
 checkout = git clone 'https://github.com/seanmonstar/pretty-env-logger'
@@ -93,6 +105,9 @@ checkout = git clone 'https://github.com/Manishearth/rust-gc'
 
 [rustup]
 checkout = git clone 'https://github.com/rust-lang/rustup'
+
+[rx]
+checkout = git clone 'https://github.com/cloudhead/rx'
 
 [scanmut]
 checkout = git clone 'https://github.com/mpdn/scanmut'
@@ -132,6 +147,9 @@ checkout = git clone 'https://github.com/seanmonstar/warp'
 
 [zerogc]
 checkout = git clone 'https://github.com/DuckLogic/zerogc'
+
+[zeromq-src-rs]
+checkout = git clone 'https://github.com/jean-airoldie/zeromq-src-rs'
 
 [zip]
 checkout = git clone 'https://github.com/zip-rs/zip'
