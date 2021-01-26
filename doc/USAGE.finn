@@ -319,6 +319,17 @@ pip2 install ipython ptpython
 pip3 install ipython ptpython
 ```
 
+### rust
+
+count a crate's crates, including transitive dependencies
+
+```sh
+cargo tree -p smol -e no-dev --prefix none --no-dedupe \
+  | sort \
+  | uniq \
+  | wc -l
+```
+
 ### vim
 
 insert unicode by codepoint
