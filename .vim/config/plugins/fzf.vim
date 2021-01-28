@@ -121,7 +121,6 @@ command! -bang -nargs=* Rg call fzf#vim#grep(join([
     \ '--smart-case',
     \ '--hidden',
     \ '--ignore-file $HOME/.config/search/ignore',
-    \ '--ignore-vcs',
     \ '--',
     \ shellescape(<q-args>)
     \ ], ' '),

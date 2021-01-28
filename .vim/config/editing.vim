@@ -448,7 +448,6 @@ if executable('rg')
   set grepprg+=\ --hidden
   set grepprg+=\ --smart-case
   set grepprg+=\ --ignore-file\ $HOME/.config/search/ignore
-  set grepprg+=\ --ignore-vcs
 elseif executable('ag')
   set grepprg =ag
   set grepprg+=\ --nogroup
@@ -456,7 +455,6 @@ elseif executable('ag')
   set grepprg+=\ --hidden
   set grepprg+=\ --smart-case
   set grepprg+=\ --path-to-ignore\ $HOME/.config/search/ignore
-  set grepprg+=\ --skip-vcs-ignores
 elseif executable('ack')
   set grepprg =ack
   set grepprg+=\ --nogroup
