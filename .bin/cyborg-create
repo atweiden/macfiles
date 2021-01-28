@@ -14,7 +14,7 @@ readonly DATETIME="$(date --utc '+%FT%T')"
 readonly PROGNAME='cyborg-create'
 
 # $VERSION contains $PROGNAME version number
-readonly VERSION=0.0.2
+readonly VERSION=0.1.0
 
 # end constants }}}
 # ==============================================================================
@@ -24,11 +24,14 @@ _usage() {
 read -r -d '' _usage_string <<EOF
 Usage:
   $PROGNAME [-h|--help]
-  $PROGNAME [--exclude-from <file>] <archive> <path> [<path> <path>..]
+  $PROGNAME [--exclude-from <file>]
+            [--exclude-caches]
+            <archive> <path> [<path> <path>..]
 
 Options:
   -h, --help               Show this help text
   -v, --version            Show program version
+  --exclude-caches         Exclude directories with a CACHEDIR.TAG file
   --exclude-from <file>    Dispatch exclude patterns file to borg
 
 Positionals:
@@ -51,6 +54,9 @@ Examples
 
     # path to exclude patterns file for borg
     export CYBORG_EXCLUDE_FROM="\$HOME/.config/borg/exclude"
+
+    # exclude directories that contain a CACHEDIR.TAG file
+    export CYBORG_EXCLUDE_CACHES=1
 
     # create archive named tiberium-$DATETIME of resources dir
     $PROGNAME tiberium-{utcnow} resources
@@ -77,6 +83,11 @@ while [[ $# -gt 0 ]]; do
       _cyborg_exclude_from="$2"
       # shift past argument and value
       shift
+      shift
+      ;;
+    --exclude-caches)
+      _cyborg_exclude_caches=1
+      # shift past argument
       shift
       ;;
     -*)
@@ -115,6 +126,9 @@ fi
 # --exclude-from cmdline flag takes precedence over environment variable
 _borg_exclude_from="${_cyborg_exclude_from:-$CYBORG_EXCLUDE_FROM}"
 
+# --exclude-caches cmdline flag takes precedence over environment variable
+_borg_exclude_caches="${_cyborg_exclude_caches:-$CYBORG_EXCLUDE_CACHES}"
+
 # $_borg_create_exit_code contains exit code for executed `borg create`
 _borg_create_exit_code=""
 
@@ -152,6 +166,11 @@ borg_create() {
   # pass exclude patterns file if one was provided to cyborg
   if [[ -n "$_borg_exclude_from" ]]; then
     _opts+=("--exclude-from=$_borg_exclude_from")
+  fi
+
+  # pass exclude-caches flag to borg if one was provided to cyborg
+  if [[ -n "$_borg_exclude_caches" ]]; then
+    _opts+=("--exclude-caches")
   fi
 
   borg \

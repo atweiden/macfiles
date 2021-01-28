@@ -266,6 +266,7 @@ _has_ack="$(command -v ack)"
 _has_ag="$(command -v ag)"
 _has_colordiff="$(command -v colordiff)"
 _has_curl="$(command -v curl)"
+_has_cyborg="$(command -v cyborg-create)"
 _has_diffr="$(command -v diffr)"
 _has_fd="$(command -v fd)"
 _has_gdb="$(command -v gdb)"
@@ -323,6 +324,14 @@ alias incognito=' unset HISTFILE'
 alias ,='clear'
 
 # --- end bash }}}
+# --- borg {{{
+
+[[ -n "$_has_cyborg" ]] \
+  && alias cyborg-create='cyborg-create \
+    --exclude-from=$HOME/.config/borg/exclude \
+    --exclude-caches'
+
+# --- end borg }}}
 # --- clipboard {{{
 
 alias n='nullclip'
