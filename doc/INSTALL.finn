@@ -516,6 +516,9 @@ rust repl [12]
 ```bash
 rustup component add rust-src
 cargo install evcxr_repl
+
+# cache compiled crates
+cargo install sccache
 ```
 
 rust runner [13]

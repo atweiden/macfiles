@@ -330,6 +330,12 @@ cargo tree -p smol -e no-dev --prefix none --no-dedupe \
   | wc -l
 ```
 
+cache compiled crates in `evcxr` repl
+
+```
+> :sccache 1
+```
+
 ### vim
 
 insert unicode by codepoint
