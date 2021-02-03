@@ -55,8 +55,14 @@ checkout = git clone 'https://github.com/BurntSushi/imdb-rename'
 [inferno]
 checkout = git clone 'https://github.com/jonhoo/inferno'
 
+[lingo]
+checkout = git clone 'https://github.com/oberblastmeister/lingo'
+
 [lumen]
 checkout = git clone 'https://github.com/lumen/lumen'
+
+[more-fs]
+checkout = git clone 'https://github.com/oberblastmeister/more-fs'
 
 [nakamoto]
 checkout = git clone 'https://github.com/cloudhead/nakamoto'
