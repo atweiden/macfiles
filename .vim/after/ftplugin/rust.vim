@@ -2,8 +2,8 @@ setlocal tabstop=4
 setlocal softtabstop=4
 setlocal shiftwidth=4
 
-nnoremap <silent> <buffer> <localleader>r :RustFmt<CR>
-vnoremap <silent> <buffer> <localleader>r :'<,'>RustFmtRange<CR>
+nnoremap <silent> <buffer> <localleader>> :RustFmt<CR>
+vnoremap <silent> <buffer> <localleader>> :'<,'>RustFmtRange<CR>
 
 " don't highlight doc comments as SpecialComment
 highlight clear rustCommentLineDoc
