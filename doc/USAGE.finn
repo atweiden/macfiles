@@ -330,6 +330,25 @@ cargo tree -p smol -e no-dev --prefix none --no-dedupe \
   | wc -l
 ```
 
+run tests, printing `stderr`
+
+```sh
+cargo test -- --nocapture
+```
+
+run tests with optional features enabled
+
+```sh
+cargo test --feature feat
+cargo test --feature comma,separated
+```
+
+run tests with optional features disabled
+
+```sh
+cargo test --no-default-features
+```
+
 cache compiled crates in `evcxr` repl
 
 ```
