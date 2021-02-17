@@ -1,6 +1,7 @@
 setlocal tabstop=4
 setlocal softtabstop=4
 setlocal shiftwidth=4
+setlocal formatprg=fmt\ --width=90
 
 nnoremap <silent> <buffer> <localleader>> :RustFmt<CR>
 vnoremap <silent> <buffer> <localleader>> :'<,'>RustFmtRange<CR>
