@@ -61,6 +61,9 @@ checkout = git clone 'https://github.com/oberblastmeister/lingo'
 [lumen]
 checkout = git clone 'https://github.com/lumen/lumen'
 
+[microkv]
+checkout = git clone 'https://github.com/ex0dus-0x/microkv'
+
 [more-fs]
 checkout = git clone 'https://github.com/oberblastmeister/more-fs'
 
