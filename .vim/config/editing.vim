@@ -245,6 +245,7 @@ set wildignore+=*.cmxa
 set wildignore+=*.cmxs
 set wildignore+=*.native
 set wildignore+=*.gem
+set wildignore+=Cargo.lock
 set wildignore+=zig-cache/
 
 " wildmatch the following with decreased priority
