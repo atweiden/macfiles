@@ -541,6 +541,13 @@ enable `cargo udeps` subcommand
 cargo install cargo-udeps
 ```
 
+enable `cargo sweep` subcommand
+
+```bash
+# clean up old build artefacts
+cargo install cargo-sweep
+```
+
 enable `cargo outdated` subcommand
 
 ```bash
