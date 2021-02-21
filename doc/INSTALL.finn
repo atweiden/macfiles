@@ -213,7 +213,8 @@ casks+=('ishowu-instant'
         'keycastr')
 
 # security
-casks+=('little-snitch'
+casks+=('blockblock'
+        'little-snitch'
         'micro-snitch'
         'veracrypt')
 
