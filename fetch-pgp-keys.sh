@@ -102,6 +102,9 @@ _keyids+=('2A2918243FDE46648D0686F9D9B0577BD93E98FC')
 # curl, c-ares, libssh2 (https://curl.haxx.se/download.html)
 _keyids+=('27EDEAF22F3ABCEB50DB9A125CC908FDB71E12C2')
 
+# decred (https://github.com/decred/decred-release)
+_keyids+=('F516ADB7A069852C7C28A02D6D897EDF518A031D')
+
 # electrum (https://electrum.org/download.html)
 _keyids+=('6694D8DE7BE8EE5631BED9502BD5824B7F9470E6')
 
