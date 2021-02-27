@@ -103,6 +103,9 @@ checkout = git clone 'https://github.com/FauxFaux/quad-image'
 [rebuilderd]
 checkout = git clone 'https://github.com/kpcyrd/rebuilderd'
 
+[resource]
+checkout = git clone 'https://github.com/mistodon/resource'
+
 [ripgrep]
 checkout = git clone 'https://github.com/BurntSushi/ripgrep'
 
