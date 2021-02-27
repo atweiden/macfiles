@@ -577,6 +577,13 @@ enable `cargo audit` subcommand
 cargo install cargo-audit
 ```
 
+enable `cargo diet` subcommand
+
+```bash
+# suggest cargo manifest include directive to minimize size of crate
+cargo install cargo-diet
+```
+
 enable `cargo expand` subcommand
 
 ```bash
