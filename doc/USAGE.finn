@@ -349,6 +349,12 @@ run tests with optional features disabled
 cargo test --no-default-features
 ```
 
+compile with only select features
+
+```sh
+cargo build --release --no-default-features --features feat
+```
+
 cache compiled crates in `evcxr` repl
 
 ```
