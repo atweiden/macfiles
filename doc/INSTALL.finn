@@ -584,6 +584,13 @@ enable `cargo diet` subcommand
 cargo install cargo-diet
 ```
 
+enable `cargo bloat` subcommand
+
+```bash
+# identify opportunities for binary size reduction
+cargo install cargo-bloat
+```
+
 enable `cargo expand` subcommand
 
 ```bash
