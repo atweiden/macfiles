@@ -37,11 +37,17 @@ checkout = git clone 'https://github.com/oconnor663/duct.rs'
 [fd]
 checkout = git clone 'https://github.com/sharkdp/fd'
 
+[feather]
+checkout = git clone 'https://github.com/feather-rs/feather'
+
 [flurry]
 checkout = git clone 'https://github.com/jonhoo/flurry'
 
 [git2-rs]
 checkout = git clone 'https://github.com/rust-lang/git2-rs'
+
+[gitoxide]
+checkout = git clone 'https://github.com/Byron/gitoxide'
 
 [haku]
 checkout = git clone 'https://github.com/VladimirMarkelov/haku'
@@ -141,6 +147,9 @@ checkout = git clone 'https://github.com/kpcyrd/sn0int'
 
 [solkit]
 checkout = git clone 'https://github.com/VladimirMarkelov/solkit'
+
+[srcinfo.rs]
+checkout = git clone 'https://github.com/Morganamilo/srcinfo.rs'
 
 [taplo]
 checkout = git clone 'https://github.com/tamasfe/taplo'
