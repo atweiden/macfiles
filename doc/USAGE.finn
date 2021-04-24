@@ -520,11 +520,26 @@ docker stop cd893186e3d0
 verify void linux iso
 
 ```sh
+# obtain void linux images and verification data
+VOIDBASE=https://alpha.de.repo.voidlinux.org/live/current
+wget "$VOIDBASE/void-live-x86_64-20210218.iso"
+wget "$VOIDBASE/void-live-x86_64-musl-20210218.iso"
+wget "$VOIDBASE/void-live-i686-20210218.iso"
+wget "$VOIDBASE/sha256sum.sig"
+wget "$VOIDBASE/sha256sum.txt"
+
+# install signify for macos
+brew install signify-osx
+
+# get signing key for void iso (/etc/signify/void-release-20210218.pub)
+wget https://github.com/void-linux/void-packages/raw/master/srcpkgs/void-release-keys/files/void-release-20210218.pub
+
+# verify signatures
 signify \
   -C \
-  -p /path/to/voidpkgs/srcpkgs/void-release-keys/files/void-release-20191109.pub \
-  -x /path/to/sha256.sig \
-  /path/to/void-live-x86_64-musl-20191109.iso
+  -p void-release-20210218.pub \
+  -x sha256sum.sig \
+  void-live*.iso
 ```
 
 ### tor browser
