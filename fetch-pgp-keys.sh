@@ -108,6 +108,9 @@ _keyids+=('F516ADB7A069852C7C28A02D6D897EDF518A031D')
 # electrum (https://electrum.org/download.html)
 _keyids+=('6694D8DE7BE8EE5631BED9502BD5824B7F9470E6')
 
+# electrum personal server (https://github.com/chris-belcher/electrum-personal-server/releases)
+_keyids+=('0A8B038F5E10CC2789BFCFFFEF734EA677F31129')
+
 # enchive (https://nullprogram.com/about/)
 _keyids+=('5EEB8C8D5069C4E9B94AA852AFD1503A8C8FF42A')
 
@@ -209,6 +212,12 @@ _keyids+=('915EAFE27C6AFA8B3373744369D74038B48ACB71')
 _keyids+=('C0D3848C17B9AC11B079C8CAA10C112B67D26866')
 _keyids+=('9B58233794FF912E2658C8916D2A6420028F7EC5')
 _keyids+=('8F399F2B373854D93E404604CFD5EA3FB833FD50')
+
+# specter
+# (https://stepansnigirev.com)
+_keyids+=('6F16E354F83393D6E52EC25F36ED357AB24B915F')
+# (https://github.com/cryptoadvance/specter-desktop/releases)
+_keyids+=('5DF6A7601DB8B78EBDEC18DB5D27DE564153F2BD')
 
 # sylpheed (https://sylpheed.sraoss.jp/en/download.html)
 _keyids+=('8CF3A5AC417ADE72B0AA4A835024337CC00C2E26')
