@@ -28,6 +28,11 @@
   # https://git-scm.com/docs/git-update-index#_untracked_cache
   untrackedCache = true
 
+[init]
+  # explicitly set the default branch name to master
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-initdefaultBranch
+  defaultBranch = master
+
 [status]
   # show individual files in untracked directories
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-statusshowUntrackedFiles
