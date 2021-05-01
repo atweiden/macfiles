@@ -310,6 +310,15 @@ remap right option key to left option
 - Preferences -> Keys -> Remap Modifiers
   - Remap right option key to: Left Option
 
+### ncurses
+
+add `tmux-256color` terminfo entry
+
+```sh
+infocmp -x tmux-256color | sed -e 's/pairs#0x10000/pairs#0x1000/' -e 's/pairs#65536/pairs#32768/' > tmux-256color.src
+/usr/bin/tic -x tmux-256color.src
+```
+
 ### python
 
 ```sh
