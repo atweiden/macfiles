@@ -129,8 +129,8 @@ if has('digraphs')
   digraph ?? 191
   " (ʹ) modifier letter prime
   digraph '' 697
-  " (฿) thai baht
-  digraph B\| 3647
+  " (₿) bitcoin
+  digraph B\| 8383
   " (–) en dash
   digraph -- 8211
   " (—) em dash
