@@ -423,6 +423,8 @@ if [[ -n "$_has_git" ]]; then
   alias gd='git diff'
   alias gdr='git diffrev "$@"'
   alias gdrh='git diffrev HEAD'
+  alias gpl='git pull'
+  alias gps='git push'
   alias gs='git status --short --branch'
 fi
 
@@ -739,6 +741,8 @@ if declare -F __git_complete > /dev/null; then
   __git_complete g git
   __git_complete gc git_commit
   __git_complete gd git_diff
+  __git_complete gpl git_pull
+  __git_complete gps git_push
   __git_complete gs git_status
 fi
 
