@@ -10,6 +10,7 @@ let g:lispft = {
     \            ], ','),
     \ 'fennel': '*.fnl',
     \ 'janet': '*.janet',
+    \ 'kiwi': '*.kiwi',
     \ 'lisp': join([
     \           '*.lisp',
     \           '*.cl',
@@ -33,6 +34,7 @@ augroup lazylanguages
   autocmd User LoadFinn ++once packadd vim-finn
   autocmd User LoadJanet ++once packadd janet.vim
   autocmd User LoadJournal ++once packadd vim-journal
+  autocmd User LoadKiwi ++once packadd vim-kiwi
   autocmd User LoadConjure ++once packadd conjure
   autocmd User LoadSexp ++once packadd vim-sexp
   autocmd User LoadRaku ++once packadd vim-raku
@@ -62,7 +64,7 @@ augroup languages
 
   " fennel
   execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadFennel',
-      \ g:lispft['fennel'])
+      \ join([g:lispft['fennel'], g:lispft['kiwi']], ','))
   autocmd FileType fennel silent doautocmd User LoadFennel
 
   " finn
@@ -82,6 +84,11 @@ augroup languages
 
   " journal
   autocmd FileType journal silent doautocmd User LoadJournal
+
+  " kiwi
+  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadKiwi',
+      \ g:lispft['kiwi'])
+  autocmd FileType kiwi silent doautocmd User LoadKiwi
 
   " lisp
   execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadSexp',
