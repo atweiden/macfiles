@@ -428,6 +428,13 @@ cp fennel "$HOME/.bin"
 popd
 ```
 
+### git
+
+```bash
+# git undo
+cargo install git-branchless
+```
+
 ### go
 
 ```bash
