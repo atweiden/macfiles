@@ -1,5 +1,5 @@
 let g:lightline = {
-    \ 'colorscheme': 'seoul256',
+    \ 'colorscheme': g:lightline_colorscheme,
     \ 'mode_map': {
     \   'c': 'NORMAL'
     \ },
