@@ -4,7 +4,7 @@ function! PackagerSetup() abort
   call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
 
   " status
-  call packager#add('itchyny/lightline.vim')
+  call packager#add('atweiden/lightline.vim', { 'branch': 'seoul256-light' })
 
   " windows
   call packager#add('talek/obvious-resize')
