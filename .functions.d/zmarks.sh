@@ -6,7 +6,7 @@
 # Credit: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 # -----------------------------------------------------------------------------
 
-readonly MARKPATH="$HOME/.config/zmarks"
+export MARKPATH="$HOME/.config/zmarks"
 
 z() {
   cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
