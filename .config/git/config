@@ -217,6 +217,8 @@
   di = !"f() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; f"
   # diff revision against antecedent revision, like github
   diffrev = "!f() { TARGET=$1; git diff -r $1~ -r $1; }; f"
+  # echo full commit message
+  echo-commit = "!f() { git log --format=%B -n 1 $1; }; f"
   # find branches containing commit
   find-branch-by-commit = "!f() { git branch -a --contains $1; }; f"
   # find commits containing source code
