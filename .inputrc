@@ -135,4 +135,4 @@ set convert-meta off
 set output-meta on
 
 # https://cirw.in/blog/bracketed-paste
-set enable-bracketed-paste on
+set enable-bracketed-paste off
