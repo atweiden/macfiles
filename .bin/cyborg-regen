@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# cyborg-regen: read borgbackup/borg excludes from .gitignore files
+# ----------------------------------------------------------------------------
+
+# ==============================================================================
+# constants {{{
+
+# $BORG_EXCLUDE_FROM contains a path to a file containing exclude patterns
+readonly BORG_EXCLUDE_FROM="$HOME/.config/borg/exclude"
+
+# $PROGNAME contains name of this program
+readonly PROGNAME='cyborg-regen'
+
+# $VERSION contains $PROGNAME version number
+readonly VERSION=0.1.0
+
+# end constants }}}
+# ==============================================================================
+# usage {{{
+
+_usage() {
+read -r -d '' _usage_string <<EOF
+Usage:
+  $PROGNAME [-h|--help]
+  $PROGNAME
+
+Options:
+  -h, --help               Show this help text
+  -v, --version            Show program version
+EOF
+echo "$_usage_string"
+}
+
+# end usage }}}
+# ==============================================================================
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      _usage
+      exit 0
+      ;;
+    -v|--version)
+      echo "$VERSION"
+      exit 0
+      ;;
+    -*)
+      # unknown option
+      _usage
+      exit 1
+      ;;
+  esac
+done
+
+# function cyborg_regen scans the current working directory recursively
+# for .gitignore files
+cyborg_regen() {
+  # these more exacting patterns must be placed before other patterns in
+  # the exclude file (see: https://github.com/borgbackup/borg/issues/5175)
+  find "$PWD" \
+    -type f \
+    -name ".gitignore" \
+    -printf "%h\n" \
+    | xargs \
+        -I '{}' \
+        bash -c "grep \
+                  --extended-regexp \
+                  --invert-match '^(\s*|#.*)$' \
+                  \"{}/.gitignore\" \
+                  | awk '{print \"{}/\" \$0}'"
+  cat "$BORG_EXCLUDE_FROM"
+}
+
+cyborg_regen
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
