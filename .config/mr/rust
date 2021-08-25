@@ -151,6 +151,9 @@ checkout = git clone 'https://github.com/VladimirMarkelov/solkit'
 [srcinfo.rs]
 checkout = git clone 'https://github.com/Morganamilo/srcinfo.rs'
 
+[synth]
+checkout = git clone 'https://github.com/getsynth/synth'
+
 [taplo]
 checkout = git clone 'https://github.com/tamasfe/taplo'
 
