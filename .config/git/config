@@ -12,9 +12,9 @@
   attributesFile = ~/.config/git/attributes
   # path to global ignore config file
   excludesFile = ~/.config/git/ignore
-  # convert crlf to lf on commit but not the other way around
+  # prevent git from silently damaging files
   # https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_formatting_and_whitespace
-  autocrlf = input
+  autocrlf = false
   # prevent showing filenames containing non-ascii symbols as unversioned
   # https://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
   precomposeUnicode = false
