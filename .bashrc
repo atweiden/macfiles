@@ -264,6 +264,7 @@ export PATH MANPATH
 
 _has_ack="$(command -v ack)"
 _has_ag="$(command -v ag)"
+_has_cargo="$(command -v cargo)"
 _has_colordiff="$(command -v colordiff)"
 _has_curl="$(command -v curl)"
 _has_diffr="$(command -v diffr)"
@@ -539,6 +540,16 @@ alias rnl='repl --language fennel'
     --readline'
 
 # --- end ruby }}}
+# --- rust {{{
+
+# narrow output of cargo crev to dependencies in main crate root
+[[ -n "$_has_cargo" ]] \
+  && alias crev-verify="cargo crev verify \
+    | rg --color never --fixed-strings --file \
+    <(cargo tree --no-dev-dependencies --no-indent \
+      | cut --delimiter=' ' --fields=1)"
+
+# --- end rust }}}
 # --- safety {{{
 
 alias cp='cp -i'
