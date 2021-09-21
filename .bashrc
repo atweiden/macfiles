@@ -891,6 +891,12 @@ export PGPASSFILE="$HOME/.config/pg/pgpass"
 export PGSERVICEFILE="$HOME/.config/pg/pg_service.conf"
 
 # --- end postgresql }}}
+# --- python {{{
+
+# don’t write .pyc files
+export PYTHONDONTWRITEBYTECODE=1
+
+# --- end python }}}
 # --- rlwrap {{{
 
 export RLWRAP_HOME="$HOME/.config/rlwrap"
