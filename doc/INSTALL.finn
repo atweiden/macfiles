@@ -605,6 +605,13 @@ enable `cargo expand` subcommand
 cargo install cargo-expand
 ```
 
+enable `cargo update` subcommand
+
+```bash
+# check and apply updates to installed executables
+cargo install cargo-update
+```
+
 
 ******************************************************************************
 
