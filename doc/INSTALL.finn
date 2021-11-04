@@ -612,6 +612,13 @@ enable `cargo update` subcommand
 cargo install cargo-update
 ```
 
+enable `cargo listdoc` subcommand
+
+```bash
+# locate relevant rustdoc
+cargo install rustdoc-index
+```
+
 
 ******************************************************************************
 
