@@ -212,6 +212,11 @@ PATH="/usr/local/opt/icu4c/sbin:$PATH"
 PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # --- end llvm }}}
+# --- luajit {{{
+
+PATH="/usr/local/opt/luajit-openresty/bin:$PATH"
+
+# --- end luajit }}}
 # --- ncurses {{{
 
 PATH="/usr/local/opt/ncurses/bin:$PATH"

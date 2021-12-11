@@ -426,9 +426,13 @@ brew install erlang
 ### fennel
 
 ```bash
-brew install LuaJIT
-git clone https://github.com/bakpakin/Fennel
-pushd Fennel
+brew install fennel
+```
+
+```bash
+brew install luajit-openresty
+git clone https://git.sr.ht/~technomancy/fennel
+pushd fennel
 make fennel
 cp fennel "$HOME/.bin"
 popd
