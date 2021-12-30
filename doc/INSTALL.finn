@@ -449,6 +449,9 @@ cargo install git-branchless
 
 ```bash
 brew install go
+brew install delve
+brew install golangci-lint
+brew install gopls
 brew install goreleaser
 brew install gotags
 ```
