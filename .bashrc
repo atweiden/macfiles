@@ -201,6 +201,11 @@ MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 
 # --- end gnu }}}
+# --- go {{{
+
+PATH="$HOME/.go/bin:$PATH"
+
+# --- end go }}}
 # --- icu4c {{{
 
 PATH="/usr/local/opt/icu4c/bin:$PATH"
@@ -870,6 +875,11 @@ export GERBIL_GSC='/usr/local/opt/gambit-scheme/current/bin/gsc'
 export GERBIL_HOME='/usr/local/opt/gerbil-scheme/libexec'
 
 # --- end gerbil }}}
+# --- go {{{
+
+export GOPATH="$HOME/.go"
+
+# --- end go }}}
 # --- gpg {{{
 
 # refresh gpg-agent tty
