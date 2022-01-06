@@ -270,6 +270,11 @@ PATH="/usr/local/opt/sqlite3/bin:$PATH"
 PATH="/usr/local/opt/unzip/bin:$PATH"
 
 # --- end unzip }}}
+# --- whois {{{
+
+PATH="/usr/local/opt/whois/bin:$PATH"
+
+# --- end whois }}}
 
 export PATH MANPATH
 
