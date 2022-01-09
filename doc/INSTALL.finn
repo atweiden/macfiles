@@ -519,7 +519,7 @@ rustup nightly [11]
 
 ```bash
 brew install rustup
-rustup-init --default-toolchain none -y
+rustup-init --no-modify-path --default-toolchain none -y
 rustup toolchain install nightly \
   --allow-downgrade \
   --profile minimal \
