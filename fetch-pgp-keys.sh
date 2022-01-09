@@ -119,7 +119,8 @@ _keyids+=('5EEB8C8D5069C4E9B94AA852AFD1503A8C8FF42A')
 _keyids+=('4F9F89F5505AC1D1A260631CDB1187B9DD5F693B'
           '10B2E4A0E718BB1B2791DAC4F040E41B9369CDF3')
 
-# fennel (https://fennel-lang.org/downloads/)
+# fennel (https://git.sr.ht/~technomancy/fennel/blob/main/security.md)
+_keyids+=('8F2C85FFC1EBC016A3B683DE8BD38C28CCFD2DA6')
 _keyids+=('20242BACBBE95ADA22D0AFD7808A33D379C806C3')
 
 # gnupg (https://www.gnupg.org/signature_key.html)
