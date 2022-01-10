@@ -145,8 +145,8 @@ if has('digraphs')
   digraph qr 8221
   " (…) ellipsis
   digraph ., 8230
-  " (✓) checkmark
-  digraph ./ 10003
+  " (✔) checkmark
+  digraph ./ 10004
 endif
 
 " end digraphs }}}
