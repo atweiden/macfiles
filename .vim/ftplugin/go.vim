@@ -1,8 +1,20 @@
 " don't install go binaries on startup
 let g:go_disable_autoinstall = 1
 
+" use gopls for code formatting
+let g:go_fmt_command = 'gopls'
+
 " disable auto :GoFmt on save
 let g:go_fmt_autosave = 0
+
+" disable auto :GoModFmt on save
+let g:go_mod_fmt_autosave = 0
+
+" disable auto :GoImports on save
+let g:go_imports_autosave = 0
+
+" disable auto :GoMetaLinter on save
+let g:go_metalinter_autosave = 0
 
 " disable auto :AsmFmt on save
 let g:go_asmfmt_autosave = 0
