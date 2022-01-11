@@ -53,7 +53,7 @@ let g:go_doc_keywordprg_enabled = 0
 let g:go_doc_popup_window = 1
 
 " reduce time statusline message is shown to 15 seconds
-let g:go_statusline_duration = 15
+let g:go_statusline_duration = 15000
 
 " disable highlight trailing whitespace
 let g:go_highlight_trailing_whitespace_error = 0
@@ -107,10 +107,10 @@ let g:go_fold_enable = ['block', 'import', 'varconst']
 " disable pre-filling new go buffers
 let g:go_template_autocreate = 0
 
-" don't open browser after posting snippet with :GoPlay
-let g:go_play_open_browser = 0
-
 " open new terminal in horizontal split
 let g:go_term_mode = 'split'
+
+" don't open browser after posting snippet with :GoPlay
+let g:go_play_open_browser = 0
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
