@@ -352,6 +352,9 @@ vnoremap <silent> <M-L> <ESC><C-W>Lgv
 cnoremap <silent> <M-L> <C-C><C-W>L
 tnoremap <silent> <M-L> <C-W>L
 
+" close quickfix and location list windows
+nnoremap <silent> <leader>q :cclose<CR>:lclose<CR>
+
 " end windows }}}
 " screen {{{
 
