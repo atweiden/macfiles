@@ -145,6 +145,14 @@ function! s:Highlight() abort
   highlight TermCursor ctermfg=red cterm=underline gui=underline
   highlight clear TermCursorNC
   highlight TermCursorNC ctermfg=red cterm=underline gui=underline
+
+  " quickfix
+  highlight clear QuickFixLine
+  highlight QuickFixLine ctermfg=gray guifg=gray cterm=underline gui=underline
+  highlight clear qfFileName
+  highlight qfFileName ctermfg=NONE guifg=NONE
+  highlight clear qfLineNr
+  highlight qfLineNr ctermfg=NONE guifg=NONE
 endfunction
 
 function! s:HighlightGui() abort
