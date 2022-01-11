@@ -1,8 +1,32 @@
 " don't install go binaries on startup
 let g:go_disable_autoinstall = 1
 
-" use gopls for code formatting
+" use gopls for :GoFmt
 let g:go_fmt_command = 'gopls'
+
+" use gopls for :GoInfo
+let g:go_info_mode = 'gopls'
+
+" use gopls for :GoImports
+let g:go_imports_mode = 'gopls'
+
+" use gopls for :GoDef
+let g:go_def_mode = 'gopls'
+
+" use gopls for :GoFillStruct
+let g:go_fillstruct_mode = 'gopls'
+
+" use gopls for :GoReferrers
+let g:go_referrers_mode = 'gopls'
+
+" use gopls for :GoImplements
+let g:go_implements_mode = 'gopls'
+
+" use gopls for :GoRename
+let g:go_rename_command = 'gopls'
+
+" use fzf for :GoDecls
+let g:go_decls_mode = 'fzf'
 
 " disable auto :GoFmt on save
 let g:go_fmt_autosave = 0
@@ -19,8 +43,17 @@ let g:go_metalinter_autosave = 0
 " disable auto :AsmFmt on save
 let g:go_asmfmt_autosave = 0
 
-" disable default mapping (`gd`) for GoDef
+" disable default mapping (`gd`) for :GoDef
 let g:go_def_mapping_enabled = 0
+
+" disable default mapping (`K`) for :GoDoc
+let g:go_doc_keywordprg_enabled = 0
+
+" display popup instead of quickfix window on :GoDoc
+let g:go_doc_popup_window = 1
+
+" reduce time statusline message is shown to 15 seconds
+let g:go_statusline_duration = 15
 
 " disable highlight trailing whitespace
 let g:go_highlight_trailing_whitespace_error = 0
@@ -76,5 +109,8 @@ let g:go_template_autocreate = 0
 
 " don't open browser after posting snippet with :GoPlay
 let g:go_play_open_browser = 0
+
+" open new terminal in horizontal split
+let g:go_term_mode = 'split'
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
