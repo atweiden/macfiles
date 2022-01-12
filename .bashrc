@@ -232,6 +232,11 @@ PATH="/usr/local/opt/ncurses/bin:$PATH"
 PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # --- end openssl }}}
+# --- perl {{{
+
+PATH="/usr/local/opt/perl/bin:$PATH"
+
+# --- end perl }}}
 # --- pod2man {{{
 
 PATH="/usr/local/opt/pod2man/bin:$PATH"
