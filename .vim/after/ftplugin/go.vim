@@ -1,5 +1,5 @@
 setlocal noexpandtab
-setlocal formatprg=fmt\ --width=90
+setlocal formatprg=fmt\ --width=99
 
 nnoremap <silent> <buffer> <localleader>> :GoFmt<CR>
 
