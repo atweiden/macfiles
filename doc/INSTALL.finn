@@ -290,6 +290,34 @@ configure desktop
     |    left, and then open the Keyboard tab. At the bottom is a set
     |    of buttons that lets you select the behavior of the Option
     |    key. For most users, Esc+ will be the best choice.
+- grant iTerm2 full disk access
+  - System Preferences -> Security & Privacy -> Privacy
+    - add *iTerm.app* to list of applications with Full Disk Access
+- disable semantic history
+  - Preferences -> Profiles -> Advanced -> Semantic History
+    - select *Run command*
+      - leave blank
+        - note
+          - re-enable pointer integration if needed
+            - in Pointer -> General
+            - due to option being greyed out
+  - Preferences -> Advanced -> Underline Semantic History-selectable
+    items under the cursor while holding ⌘?
+    - set to *no*
+  - Preferences -> Advanced
+    - search for `semantic`
+- remap right option key to left option
+  - Preferences -> Keys -> Remap Modifiers
+    - Remap right option key to: Left Option
+
+### ncurses
+
+add `tmux-256color` terminfo entry
+
+```sh
+infocmp -x tmux-256color | sed -e 's/pairs#0x10000/pairs#0x1000/' -e 's/pairs#65536/pairs#32768/' > tmux-256color.src
+/usr/bin/tic -x tmux-256color.src
+```
 
 ### keyboard
 
@@ -371,273 +399,6 @@ brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 ```
 
-install homebrew custom packages
---------------------------------
-
-```bash
-git clone https://github.com/atweiden/homebrew-formulae
-pushd homebrew-formulae
-brew install enchive/enchive.rb
-```
-
-install programming languages
------------------------------
-
-### c
-
-```bash
-brew install gcc
-brew install llvm
-```
-
-### clojure
-
-```bash
-brew tap adoptopenjdk/openjdk
-brew cask install adoptopenjdk/openjdk
-brew cask install graalvm/tap/graalvm-ce-java11
-brew install clojure
-brew install leiningen
-brew install boot-clj
-brew install lumo
-# pending resolution of https://clojure.atlassian.net/browse/TDEPS-99
-cat > $HOME/.config/maven/settings.xml <<'EOF'
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <localRepository>${env.XDG_CACHE_HOME}/maven/repository</localRepository>
-</settings>
-EOF
-alias mvn='mvn --global-settings $HOME/.config/maven/settings.xml'
-unset _JAVA_OPTIONS
-_JAVA_OPTIONS+=" -Djava.util.prefs.userRoot=$HOME/.config/java"
-_JAVA_OPTIONS+=" -Dorg.apache.maven.user-settings=$HOME/.config/maven/settings.xml"
-export _JAVA_OPTIONS
-```
-
-### elixir
-
-```bash
-brew install elixir
-brew install erlang
-```
-
-### fennel
-
-```bash
-brew install fennel
-```
-
-```bash
-brew install luajit-openresty
-git clone https://git.sr.ht/~technomancy/fennel
-pushd fennel
-make fennel
-cp fennel "$HOME/.bin"
-popd
-```
-
-### git
-
-```bash
-# git undo
-cargo install git-branchless
-```
-
-### go
-
-```bash
-brew install go
-brew install delve
-brew install golangci-lint
-brew install gopls
-brew install goreleaser
-brew install gotags
-```
-
-### javascript
-
-```bash
-brew install node
-brew install yarn
-```
-
-### lisp
-
-```bash
-brew install sbcl
-curl -O https://beta.quicklisp.org/quicklisp.lisp{,.asc}
-sbcl --load quicklisp.lisp
-* (quicklisp-quickstart:install)
-* (ql:add-to-init-file)
-```
-
-### python
-
-```bash
-brew install python
-brew install python@2
-pip install --upgrade pip setuptools
-pip3 install --upgrade pip setuptools
-
-git clone https://github.com/pyenv/pyenv "$HOME/.pyenv"
-cd "$HOME/.pyenv"
-src/configure
-make -C src
-eval "$(pyenv init -)"
-```
-
-### raku
-
-```bash
-brew install perl
-brew install rakudo
-pushd "$HOME/.src"
-git clone https://github.com/ugexe/zef
-pushd zef
-raku -I. bin/zef install .
-popd
-popd
-```
-
-### reason
-
-```bash
-npm install --global esy
-pushd "$HOME/.src"
-git clone https://github.com/esy-ocaml/hello-reason
-pushd hello-reason
-esy
-popd
-popd
-```
-
-### rust
-
-rustup nightly [11]
-
-```bash
-brew install rustup
-rustup-init --no-modify-path --default-toolchain none -y
-rustup toolchain install nightly \
-  --allow-downgrade \
-  --profile minimal \
-  --component clippy \
-  --component rustfmt
-rustup completions bash > \
-  $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
-```
-
-rustup stable
-
-```bash
-rustup toolchain install stable \
-  --component clippy \
-  --component rustfmt
-rustup default stable
-```
-
-rust repl [12]
-
-```bash
-rustup component add rust-src
-cargo install evcxr_repl
-
-# cache compiled crates
-cargo install sccache
-```
-
-rust runner [13]
-
-```bash
-cargo install runner
-```
-
-enable `cargo add` subcommand
-
-```bash
-# add, remove and upgrade dependencies
-cargo install cargo-edit
-```
-
-enable `cargo udeps` subcommand
-
-```bash
-# find unused dependencies
-cargo install cargo-udeps
-```
-
-enable `cargo sweep` subcommand
-
-```bash
-# clean up old build artefacts
-cargo install cargo-sweep
-```
-
-enable `cargo outdated` subcommand
-
-```bash
-# find outdated dependencies
-cargo install cargo-outdated
-```
-
-enable `cargo crev` subcommand
-
-```bash
-# audit dependencies
-cargo install cargo-crev
-```
-
-enable `cargo deny` subcommand
-
-```bash
-# audit dependencies and lint Cargo.toml
-cargo install cargo-deny
-```
-
-enable `cargo audit` subcommand
-
-```bash
-# find dependencies with reported security vulnerabilities
-cargo install cargo-audit
-```
-
-enable `cargo diet` subcommand
-
-```bash
-# suggest cargo manifest include directive to minimize size of crate
-cargo install cargo-diet
-```
-
-enable `cargo bloat` subcommand
-
-```bash
-# identify opportunities for binary size reduction
-cargo install cargo-bloat
-```
-
-enable `cargo expand` subcommand
-
-```bash
-# show results of macro expansion
-cargo install cargo-expand
-```
-
-enable `cargo update` subcommand
-
-```bash
-# check and apply updates to installed executables
-cargo install cargo-update
-```
-
-enable `cargo listdoc` subcommand
-
-```bash
-# locate relevant rustdoc
-cargo install rustdoc-index
-```
-
 
 ******************************************************************************
 
@@ -651,6 +412,3 @@ cargo install rustdoc-index
 [8]: https://www.programmingfonts.org/
 [9]: https://monolisa.dev/
 [10]: https://github.com/GianCastle/FiraMonaco
-[11]: https://rust-lang.github.io/rustup/installation/
-[12]: https://github.com/google/evcxr
-[13]: https://stevedonovan.github.io/rustifications/2018/09/23/runner.html
