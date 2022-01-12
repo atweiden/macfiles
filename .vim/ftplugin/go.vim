@@ -49,6 +49,9 @@ let g:go_def_mapping_enabled = 0
 " disable default mapping (`K`) for :GoDoc
 let g:go_doc_keywordprg_enabled = 0
 
+" use gofumpt for code formatting
+let g:go_gopls_gofumpt = 1
+
 " display popup instead of quickfix window on :GoDoc
 let g:go_doc_popup_window = 1
 
