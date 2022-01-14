@@ -894,6 +894,8 @@ export GERBIL_HOME='/usr/local/opt/gerbil-scheme/libexec'
 # --- go {{{
 
 export GOPATH="$HOME/.go"
+export GOCACHE="$GOPATH/cache"
+export GOENV="$GOPATH/env"
 
 # --- end go }}}
 # --- gpg {{{
