@@ -1,29 +1,35 @@
 " don't install go binaries on startup
 let g:go_disable_autoinstall = 1
 
-" use gopls for :GoFmt
-let g:go_fmt_command = 'gopls'
+" disable gopls
+let go_gopls_enabled = 0
 
-" use gopls for :GoInfo
-let g:go_info_mode = 'gopls'
+" use gofumpt for :GoFmt
+let g:go_fmt_command = 'gofumpt'
 
-" use gopls for :GoImports
-let g:go_imports_mode = 'gopls'
+" use guru for :GoInfo
+let g:go_info_mode = 'guru'
 
-" use gopls for :GoDef
-let g:go_def_mode = 'gopls'
+" use goimports for :GoImports
+let g:go_imports_mode = 'goimports'
 
-" use gopls for :GoFillStruct
-let g:go_fillstruct_mode = 'gopls'
+" use guru for :GoDef
+let g:go_def_mode = 'guru'
 
-" use gopls for :GoReferrers
-let g:go_referrers_mode = 'gopls'
+" use fillstruct for :GoFillStruct
+let g:go_fillstruct_mode = 'fillstruct'
 
-" use gopls for :GoImplements
-let g:go_implements_mode = 'gopls'
+" use guru for :GoReferrers
+let g:go_referrers_mode = 'guru'
 
-" use gopls for :GoRename
-let g:go_rename_command = 'gopls'
+" use guru for :GoImplements
+let g:go_implements_mode = 'guru'
+
+" use golangci-lint for :GoMetaLinter
+let g:go_metalinter_command = 'golangci-lint'
+
+" use gorename for :GoRename
+let g:go_rename_command = 'gorename'
 
 " use fzf for :GoDecls
 let g:go_decls_mode = 'fzf'
@@ -43,14 +49,14 @@ let g:go_metalinter_autosave = 0
 " disable auto :AsmFmt on save
 let g:go_asmfmt_autosave = 0
 
+" don’t show location list when :GoFmt fails
+"let go_fmt_fail_silently = 1
+
 " disable default mapping (`gd`) for :GoDef
 let g:go_def_mapping_enabled = 0
 
 " disable default mapping (`K`) for :GoDoc
 let g:go_doc_keywordprg_enabled = 0
-
-" use gofumpt for code formatting
-let g:go_gopls_gofumpt = 1
 
 " display popup instead of quickfix window on :GoDoc
 let g:go_doc_popup_window = 1
