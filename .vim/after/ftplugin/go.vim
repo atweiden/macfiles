@@ -5,7 +5,7 @@ setlocal formatprg=fmt\ --width=99
 if '' != expand('%:t')
   nnoremap <silent> <buffer> <localleader>> :GoFmt<CR>
 else
-  nnoremap <silent> <buffer> <localleader>> mz:%!gofumpt<CR>`z
+  nnoremap <silent> <buffer> <localleader>> mz:%!gofmt<CR>`z
 endif
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

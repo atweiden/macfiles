@@ -4,8 +4,8 @@ let g:go_disable_autoinstall = 1
 " disable gopls
 let go_gopls_enabled = 0
 
-" use gofumpt for :GoFmt
-let g:go_fmt_command = 'gofumpt'
+" use gofmt for :GoFmt
+let g:go_fmt_command = 'gofmt'
 
 " use guru for :GoInfo
 let g:go_info_mode = 'guru'
