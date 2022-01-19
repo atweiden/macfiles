@@ -68,4 +68,15 @@ endfunction
 command! ToggleNERDTreeFind call <SID>ToggleNERDTreeFind()
 nnoremap <silent> <S-F12> :ToggleNERDTreeFind<CR>
 
+function! s:NERDTreeOpen(dirname) abort
+  if isdirectory(a:dirname)
+    silent doautocmd User LoadNERDTree
+  endif
+endfunction
+
+augroup nerdtree
+  autocmd!
+  autocmd BufEnter * silent call <SID>NERDTreeOpen(expand("<amatch>"))
+augroup END
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
