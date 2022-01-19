@@ -173,7 +173,7 @@ gsed -i "s#yourname#$irssi#"        "$HOME/.config/irssi/config"
 # iTerm2
 # -----------------------------------------------------------------------------
 
-# use $USER instead of $name because we’re configuring $HOME
+# use $USER instead of $name because we're configuring $HOME
 gsed -i "s#yourname#$USER#"         "$HOME/.config/iterm2/seoul256.json"
 
 

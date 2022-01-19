@@ -928,7 +928,7 @@ export PGSERVICEFILE="$HOME/.config/pg/pg_service.conf"
 
 export PYENV_ROOT="$HOME/.pyenv"
 
-# don’t write .pyc files
+# don't write .pyc files
 export PYTHONDONTWRITEBYTECODE=1
 
 # --- end python }}}

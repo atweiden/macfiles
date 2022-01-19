@@ -49,7 +49,7 @@ let g:go_metalinter_autosave = 0
 " disable auto :AsmFmt on save
 let g:go_asmfmt_autosave = 0
 
-" don’t show location list when :GoFmt fails
+" don't show location list when :GoFmt fails
 "let go_fmt_fail_silently = 1
 
 " disable default mapping (`gd`) for :GoDef
