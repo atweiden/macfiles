@@ -207,6 +207,7 @@
   ci = commit
   co = checkout
   pf = push --force-with-lease
+  rev = rev-parse HEAD
   sq = squash
   st = status --short --branch
 
