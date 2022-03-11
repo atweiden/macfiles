@@ -230,6 +230,8 @@
   find-tag-by-commit = "!f() { git describe --always --contains $1; }; f"
   # remove old tag of this name, tag latest commit with it
   retag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; f"
+  # show full text of commit message by commit
+  show-commit-message = "!f() { git --no-pager show --pretty=format:'%B' --no-patch $1; }; f"
   # perform interactive rebase with given number of most recent commits
   squash = "!f() { git rebase -i HEAD~$1; }; f"
   # force push latest revision without modifications, useful for travis-ci
