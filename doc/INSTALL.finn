@@ -126,6 +126,7 @@ packages+=('darkhttpd')
 # sync
 packages+=('aria2'
            'curl'
+           'qrcp'
            'rclone'
            'rsync'
            'wget'
