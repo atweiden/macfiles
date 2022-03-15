@@ -222,7 +222,7 @@ casks+=('blockblock'
 casks+=('dropbox')
 
 # system
-casks+=('osxfuse')
+casks+=('macfuse')
 
 # terminal emulators
 casks+=('iterm2')
