@@ -89,7 +89,8 @@ packages+=('ncdu'
            'tree')
 
 # filter
-packages+=('jq'
+packages+=('jo'
+           'jq'
            'remarshal'
            'qrencode')
 
