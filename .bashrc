@@ -72,11 +72,6 @@ export GROFF_NO_SGR=1
 export MANPAGER="less $LESS"
 
 # --- end man pages }}}
-# --- opener {{{
-
-export OPENER='open'
-
-# --- end opener }}}
 # --- safety {{{
 
 # do not overwrite existing file by redirect `>`
@@ -757,44 +752,6 @@ fi
 
 # end aliases }}}
 # ==============================================================================
-# functions {{{
-
-for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do
-  source "$_fn"
-done
-
-# end functions }}}
-# ==============================================================================
-# completions {{{
-
-# ensure existing homebrew v1 completions continue to work
-export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] \
-  && source /usr/local/etc/profile.d/bash_completion.sh
-
-# improve git completion for git aliases
-if declare -F __git_complete > /dev/null; then
-  __git_complete g git
-  __git_complete gc git_commit
-  __git_complete gd git_diff
-  __git_complete gpl git_pull
-  __git_complete gps git_push
-  __git_complete gs git_status
-fi
-
-# end completions }}}
-# ==============================================================================
-# system {{{
-
-# copy or tar files without ._ (dot underscore) files
-export COPYFILE_DISABLE=true
-
-# don't check mail when opening terminal
-unset MAILCHECK
-
-# end system }}}
-# ==============================================================================
 # software {{{
 
 # --- beam {{{
@@ -917,6 +874,11 @@ export INTERFACE="$(interface)"
 export HGRCPATH="$HOME/.config/hg/hgrc"
 
 # --- end mercurial }}}
+# --- opener {{{
+
+export OPENER='open'
+
+# --- end opener }}}
 # --- postgresql {{{
 
 export PSQLRC="$HOME/.config/pg/psqlrc"
@@ -958,6 +920,44 @@ export SCREENRC="$HOME/.config/screen/screenrc"
 # --- end screen }}}
 
 # end software }}}
+# ==============================================================================
+# functions {{{
+
+for _fn in $(find "$HOME/.functions.d" -type f -name "*.sh"); do
+  source "$_fn"
+done
+
+# end functions }}}
+# ==============================================================================
+# completions {{{
+
+# ensure existing homebrew v1 completions continue to work
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] \
+  && source /usr/local/etc/profile.d/bash_completion.sh
+
+# improve git completion for git aliases
+if declare -F __git_complete > /dev/null; then
+  __git_complete g git
+  __git_complete gc git_commit
+  __git_complete gd git_diff
+  __git_complete gpl git_pull
+  __git_complete gps git_push
+  __git_complete gs git_status
+fi
+
+# end completions }}}
+# ==============================================================================
+# system {{{
+
+# copy or tar files without ._ (dot underscore) files
+export COPYFILE_DISABLE=true
+
+# don't check mail when opening terminal
+unset MAILCHECK
+
+# end system }}}
 # ==============================================================================
 
 # vim: set filetype=sh foldmethod=marker foldlevel=0 nowrap:
