@@ -309,6 +309,15 @@ configure desktop
     - set to *no*
   - Preferences -> Advanced
     - search for `semantic`
+- configure other advanced settings
+  - set "Set LC_TERMINAL=iTerm2" to No
+  - set "Disable App Nap" to Yes
+  - set "Include paste history in the advanced paste menu" to No
+  - set "Number of entries to save in Paste History" to 0
+  - set "URLs must contain a scheme?" to Yes
+  - set "Convert italics to reverse video in tmux integration?" to No
+  - set "Number of screen lines to match against trigger regular expressions" to 0
+  - set "Disable the Tip of the Day" to Yes
 - remap right option key to left option
   - Preferences -> Keys -> Remap Modifiers
     - Remap right option key to: Left Option
