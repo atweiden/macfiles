@@ -112,7 +112,7 @@ done
 # restore positional params
 set -- "${_POSITIONAL[@]}"
 
-# sanitize compression algorithm input
+# sanitize repl language input
 _repl_lang="${_repl_lang:-$REPL_LANG}"
 
 sanitize_input() {
@@ -321,8 +321,8 @@ _break_characters+='`'
 _break_characters+='.'
 _break_characters+=','
 _break_characters+='+'
+# hyphen isn't a word break character in kebab-cased languages
 if [[ -z "$_is_kebab_case" ]]; then
-  # hyphen isn't a word break character in kebab-cased languages
   _break_characters+="-"
 fi
 _break_characters+='='
@@ -338,8 +338,8 @@ _break_characters+='|'
 _break_characters+='\'
 
 _quote_characters+='"'
+# single quote isn't a quote character in lisp
 if [[ -z "$_is_lisp" ]]; then
-  # single quote is not a quote character in lisp
   _quote_characters+="'"
 fi
 
@@ -349,7 +349,7 @@ _rlwrap_opts+=('--history-filename'
                "$_repl_history_file")
 # complete filenames (case-sensitive)
 _rlwrap_opts+=('--complete-filenames')
-# put all words seen on input and output on completion list
+# put all words seen on input and output in completion list
 _rlwrap_opts+=('--remember')
 _rlwrap_opts+=('--break-chars'
                "$_break_characters")
