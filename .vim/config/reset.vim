@@ -16,9 +16,6 @@ let g:loaded_netrwPlugin = 1
 let g:loaded_netrwSettings = 1
 let g:loaded_netrwFileHandlers = 1
 
-" don't use ' for jumping to marks
-noremap ' <nop>
-
 " don't use spacebar to push cursor right
 nnoremap <space> <nop>
 vnoremap <space> <nop>

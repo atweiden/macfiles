@@ -4,10 +4,6 @@ let mapleader=","
 " set localleader to space
 let maplocalleader=" "
 
-" map - to '
-noremap - '
-noremap -- ''
-
 " map ; to :
 nnoremap ; :
 vnoremap ; :
