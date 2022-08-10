@@ -206,6 +206,7 @@
   br = branch
   ci = commit
   co = checkout
+  ls = ls-files
   pf = push --force-with-lease
   rev = rev-parse HEAD
   sq = squash
