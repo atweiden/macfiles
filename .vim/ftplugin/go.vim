@@ -50,7 +50,7 @@ let g:go_metalinter_autosave = 0
 let g:go_asmfmt_autosave = 0
 
 " don't show location list when :GoFmt fails
-"let go_fmt_fail_silently = 1
+"let g:go_fmt_fail_silently = 1
 
 " disable default mapping (`gd`) for :GoDef
 let g:go_def_mapping_enabled = 0
@@ -64,7 +64,7 @@ let g:go_doc_popup_window = 1
 " reduce time statusline message is shown to 15 seconds
 let g:go_statusline_duration = 15000
 
-" disable highlight trailing whitespace
+" disable highlighting trailing whitespace
 let g:go_highlight_trailing_whitespace_error = 0
 
 " disable highlighting whitespace after `[]`
@@ -83,17 +83,17 @@ let g:go_highlight_string_spellcheck = 0
 " highlight operators such as `:=` , `==`, `-=`, etc
 let g:go_highlight_operators = 1
 
-" highlight variable declarations (`:=`)
-let g:go_highlight_variable_declarations = 1
+" disable highlighting variable declarations (`:=`)
+let g:go_highlight_variable_declarations = 0
 
-" highlight variable assignments (`=`)
-let g:go_highlight_variable_assignments = 1
+" disable highlighting variable assignments (`=`)
+let g:go_highlight_variable_assignments = 0
 
 " highlight function and method declarations
 let g:go_highlight_functions = 1
 
-" highlight function and method calls
-let g:go_highlight_function_calls = 1
+" disable highlighting function and method calls
+let g:go_highlight_function_calls = 0
 
 " highlight struct and interface names
 let g:go_highlight_types = 1
