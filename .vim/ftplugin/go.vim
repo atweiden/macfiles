@@ -58,8 +58,8 @@ let g:go_def_mapping_enabled = 0
 " disable default mapping (`K`) for :GoDoc
 let g:go_doc_keywordprg_enabled = 0
 
-" display popup instead of quickfix window on :GoDoc
-let g:go_doc_popup_window = 1
+" display quickfix window instead of popup on :GoDoc
+let g:go_doc_popup_window = 0
 
 " reduce time statusline message is shown to 15 seconds
 let g:go_statusline_duration = 15000
