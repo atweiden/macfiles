@@ -1,4 +1,6 @@
 setlocal noexpandtab
+setlocal foldmethod=syntax
+setlocal foldlevel=3
 setlocal formatprg=fmt\ --width=99
 
 " allow formatting unsaved buffers
