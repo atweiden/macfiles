@@ -281,6 +281,13 @@ nnoremap <leader>sF :setfiletype<space>
 " end filetypes }}}
 " folds {{{
 
+nnoremap <leader>smd :setlocal foldmethod=diff<CR>
+nnoremap <leader>sme :setlocal foldmethod=expr<CR>
+nnoremap <leader>smi :setlocal foldmethod=indent<CR>
+nnoremap <leader>smM :setlocal foldmethod=manual<CR>
+nnoremap <leader>smm :setlocal foldmethod=marker<CR>
+nnoremap <leader>sms :setlocal foldmethod=syntax<CR>
+
 " toggle folds
 nnoremap <silent> g<space> :execute ":silent! normal za"<CR>
 
