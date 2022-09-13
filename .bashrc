@@ -704,7 +704,7 @@ fi
 alias :e='"$EDITOR"'
 if [[ -n "$_has_vim" ]]; then
   alias view='vim -R'
-  alias vime='vim -u $HOME/.vim/vimrc.encrypt -x'
+  alias vime='vim -u $HOME/.vim/vimrc.encrypt'
   alias viml='vim -u $HOME/.vim/vimrc.lite'
   alias vimmin='vim \
     -u NONE \
@@ -715,7 +715,7 @@ if [[ -n "$_has_vim" ]]; then
 fi
 if [[ -n "$_has_mvim" ]]; then
   alias mview='mvim -R'
-  alias mvime='mvim -u $HOME/.vim/vimrc.encrypt -x'
+  alias mvime='mvim -u $HOME/.vim/vimrc.encrypt'
   alias mviml='mvim -u $HOME/.vim/vimrc.lite'
   alias mvimmin='mvim \
     -u NONE \
