@@ -911,12 +911,6 @@ export RLWRAP_EDITOR="vim '+call cursor(%L,%C)'"
 export IRBRC="$HOME/.config/irb/irbrc"
 
 # --- end ruby }}}
-# --- rust {{{
-
-# only shell-complete Cargo.toml
-export FIGNORE="argo.lock"
-
-# --- end rust }}}
 # --- screen {{{
 
 export SCREENRC="$HOME/.config/screen/screenrc"
@@ -935,11 +929,27 @@ done
 # ==============================================================================
 # completions {{{
 
+unset FIGNORE
+
 # ensure existing homebrew v1 completions continue to work
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] \
   && source /usr/local/etc/profile.d/bash_completion.sh
+
+# --- defaults {{{
+
+# don't shell-complete filenames suffixed with ~
+FIGNORE='~'
+
+# --- end defaults }}}
+# --- c {{{
+
+# don't shell-complete object files
+FIGNORE="$FIGNORE:.o"
+
+# --- end c }}}
+# --- git {{{
 
 # improve git completion for git aliases
 if declare -F __git_complete > /dev/null; then
@@ -950,6 +960,61 @@ if declare -F __git_complete > /dev/null; then
   __git_complete gps git_push
   __git_complete gs git_status
 fi
+
+# --- end git }}}
+# --- go {{{
+
+# only shell-complete go.mod
+FIGNORE="$FIGNORE:o.sum"
+
+# --- end go }}}
+# --- js {{{
+
+# don't shell-complete bower_components
+FIGNORE="$FIGNORE:ower_components"
+
+# don't shell-complete jspm_packages
+FIGNORE="$FIGNORE:spm_packages"
+
+# don't shell-complete lib-cov
+FIGNORE="$FIGNORE:ib-cov"
+
+# don't shell-complete node_modules
+FIGNORE="$FIGNORE:ode_modules"
+
+# don't shell-complete web_modules
+FIGNORE="$FIGNORE:eb_modules"
+
+# --- end js }}}
+# --- lua {{{
+
+# don't shell-complete lua_modules
+FIGNORE="$FIGNORE:ua_modules"
+
+# --- end lua }}}
+# --- nim {{{
+
+# don't shell-complete nimcache
+FIGNORE="$FIGNORE:imcache"
+
+# don't shell-complete nimblecache
+FIGNORE="$FIGNORE:imblecache"
+
+# --- end nim }}}
+# --- rust {{{
+
+# only shell-complete Cargo.toml
+FIGNORE="$FIGNORE:argo.lock"
+
+# --- end rust }}}
+# --- zig {{{
+
+# don't shell-complete zig-cache
+FIGNORE="$FIGNORE:ig-cache"
+
+# --- end zig }}}
+
+export FIGNORE
 
 # end completions }}}
 # ==============================================================================
