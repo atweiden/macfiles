@@ -73,6 +73,8 @@ function! s:Highlight() abort
   highlight Search term=bold cterm=bold ctermfg=0 ctermbg=116 gui=bold guifg=black guibg=#97DDDF
   highlight clear IncSearch
   highlight IncSearch term=bold cterm=bold ctermfg=0 ctermbg=217 gui=bold guifg=black guibg=#FFBFBD
+  highlight clear CurSearch
+  highlight link CurSearch IncSearch
 
   " matching parens
   highlight clear MatchParen
