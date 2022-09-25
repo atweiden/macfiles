@@ -144,6 +144,7 @@ augroup languages
   execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadToml',
       \ join([
       \   '*.toml',
+      \   'pdm.lock',
       \   'Gopkg.lock',
       \   'Cargo.lock'
       \ ], ','))
