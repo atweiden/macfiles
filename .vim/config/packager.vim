@@ -27,7 +27,7 @@ function! PackagerSetup() abort
   call packager#add('t9md/vim-quickhl', { 'type': 'opt' })
 
   " movement
-  call packager#add('rhysd/clever-f.vim')
+  call packager#add('atweiden/clever-f.vim', { 'branch': 'rm-hl-clear' })
   call packager#add('christoomey/vim-tmux-navigator')
 
   " repeat
