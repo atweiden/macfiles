@@ -66,6 +66,8 @@
   # abort rebase and print warning if commits were removed during rebase
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-rebasemissingCommitsCheck
   missingCommitsCheck = error
+  # reset dependent branches after rebasing
+  updateRefs = true
 
 [rerere]
   # remember how to resolve hunk conflicts
