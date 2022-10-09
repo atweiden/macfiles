@@ -280,3 +280,4 @@ _opam/
 
 # Zig
 zig-cache/
+zig-out/

@@ -6,3 +6,4 @@ sh:**/.peru
 sh:**/.precomp
 sh:**/.xmake
 sh:**/zig-cache
+sh:**/zig-out

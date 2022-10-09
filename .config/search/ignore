@@ -191,3 +191,4 @@ _opam/
 *.cmxs
 *.native
 zig-cache/
+zig-out/

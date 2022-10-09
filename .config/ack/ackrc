@@ -863,6 +863,7 @@
 
 # zig build artefacts
 --ignore-directory=is:zig-cache
+--ignore-directory=is:zig-out
 
 # --- end programming language }}}
 

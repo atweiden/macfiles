@@ -247,6 +247,7 @@ set wildignore+=*.native
 set wildignore+=*.gem
 set wildignore+=Cargo.lock
 set wildignore+=zig-cache/
+set wildignore+=zig-out/
 
 " wildmatch the following with decreased priority
 set suffixes=

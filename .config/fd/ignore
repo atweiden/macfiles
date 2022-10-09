@@ -33,3 +33,4 @@ web_modules/
 _esy/
 _opam/
 zig-cache/
+zig-out/
