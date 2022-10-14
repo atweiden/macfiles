@@ -177,4 +177,7 @@ nnoremap <silent> <M-F> :FZFLines<CR>
 " search marks
 nnoremap <silent> <M-m> :FZFMarks<CR>
 
+" select color scheme
+nnoremap <silent> <leader>lc :FZFColors<CR>
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

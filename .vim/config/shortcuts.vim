@@ -201,6 +201,11 @@ nnoremap <silent> <S-F9> :ToggleHexMode<CR>
 inoremap <silent> <S-F9> <C-O>:ToggleHexMode<CR>
 vnoremap <silent> <S-F9> <ESC>:ToggleHexMode<CR>gv
 
+" toggle monotone colors
+nnoremap <silent> <S-F10> :ToggleColors<CR>
+inoremap <silent> <S-F10> <C-O>:ToggleColors<CR>
+vnoremap <silent> <S-F10> <ESC>:ToggleColors<CR>gv
+
 " toggle showcmd
 nnoremap <silent> <F11> :set showcmd!<CR>
 inoremap <silent> <F11> <C-O>:set showcmd!<CR>
@@ -244,8 +249,16 @@ onoremap L g_
 vnoremap L g_
 
 " end movement }}}
+" colors {{{
+
+nnoremap <leader>sC :colorscheme<space>
+nnoremap <leader>scp :colorscheme preto<CR>
+nnoremap <leader>scs :colorscheme seoul256<CR>
+
+" end colors }}}
 " filetypes {{{
 
+nnoremap <leader>sF :setfiletype<space>
 nnoremap <leader>sfa mz:setfiletype ada<CR>`z
 nnoremap <leader>sfc mz:setfiletype clojure<CR>`z
 nnoremap <leader>sfC mz:setfiletype chicken<CR>`z
@@ -276,7 +289,6 @@ nnoremap <leader>sfv mz:setfiletype vim<CR>`z
 nnoremap <leader>sfx mz:setfiletype text<CR>`z
 nnoremap <leader>sfy mz:setfiletype yaml<CR>`z
 nnoremap <leader>sfz mz:setfiletype zig<CR>`z
-nnoremap <leader>sF :setfiletype<space>
 
 " end filetypes }}}
 " folds {{{

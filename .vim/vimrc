@@ -3,6 +3,7 @@ if &compatible | set nocompatible | endif
 
 let $VIMPATH = $HOME . '/.vim'
 let $CFGPATH = $VIMPATH . '/config'
+let $COLORSCHEME = 'seoul256'
 
 function! s:SourceConfig(path) abort
   execute 'source' fnameescape($CFGPATH . '/' . a:path)
