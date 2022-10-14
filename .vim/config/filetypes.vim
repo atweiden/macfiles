@@ -32,6 +32,7 @@ augroup lazylanguages
   autocmd User LoadElixir ++once packadd vim-elixir
   autocmd User LoadFennel ++once packadd vim-fennel
   autocmd User LoadFinn ++once packadd vim-finn
+  autocmd User LoadFsharp ++once packadd vim-fsharp
   autocmd User LoadGo ++once packadd vim-go
   autocmd User LoadJanet ++once packadd janet.vim
   autocmd User LoadJournal ++once packadd vim-journal
@@ -73,6 +74,15 @@ augroup languages
   " finn
   autocmd BufReadPre,FileReadPre *.finn silent doautocmd User LoadFinn
   autocmd FileType finn silent doautocmd User LoadFinn
+
+  " fsharp
+  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadFsharp',
+      \ join([
+      \   '*.fs',
+      \   '*.fsx',
+      \   '*.fsi'
+      \ ], ','))
+  autocmd FileType fsharp silent doautocmd User LoadFsharp
 
   " git
   autocmd BufReadPre,FileReadPre COMMIT_EDITMSG let b:noreturntopos = 1

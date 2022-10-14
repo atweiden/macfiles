@@ -68,6 +68,11 @@ function! PackagerSetup() abort
   call packager#add('elixir-editors/vim-elixir', { 'type': 'opt' })
 
   " --- end elixir }}}
+  " --- fsharp {{{
+
+  call packager#add('PhilT/vim-fsharp', { 'type': 'opt' })
+
+  " --- end fsharp }}}
   " --- go {{{
 
   call packager#add('fatih/vim-go', { 'type': 'opt' })
