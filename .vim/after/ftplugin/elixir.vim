@@ -46,4 +46,7 @@ for m in ['n', 'x']
   execute m . "noremap <silent> <buffer> <localleader>t. :call <SID>MixTestOnly('.bottom-right')<CR>" . gv
 endfor
 
+highlight clear elixirDocTest
+highlight link elixirDocTest Comment
+
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
