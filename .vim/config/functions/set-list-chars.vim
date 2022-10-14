@@ -1,5 +1,5 @@
 function! SetListCharsTabVisible() abort
-  let s:tabchar = has('gui_running') ? '⎸' : '┊'
+  let s:tabchar = $GUI_RUNNING ? '⎸' : '┊'
   execute printf('set listchars=tab:%s\ ', s:tabchar)
 endfunction
 

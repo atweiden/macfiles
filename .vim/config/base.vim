@@ -97,7 +97,7 @@ set viminfo='100,<50,s10,h,!
 "           |    |   +--------- Exclude registers greater than N Kb
 "           |    +------------- Keep N lines for each register
 "           +------------------ Keep marks for N files
-if !has('nvim')
+if !$NVIM
   set viminfofile=$VIMPATH/viminfo
   if filereadable(&viminfofile)
     rviminfo

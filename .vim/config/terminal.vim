@@ -15,7 +15,7 @@ command! -bang Terminal call term_start('bash --login', {
     \ })
 
 " open neovim :terminal in insert mode per vim
-if has('nvim')
+if $NVIM
   augroup nvimterminal
     autocmd!
     autocmd TermOpen term://* startinsert

@@ -122,7 +122,7 @@ augroup languages
   " lisp
   execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadSexp',
       \ join(values(g:lispft), ','))
-  if has('nvim')
+  if $NVIM
     execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadConjure',
         \ join([
         \   g:lispft['fennel'],

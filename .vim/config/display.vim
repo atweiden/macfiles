@@ -173,7 +173,7 @@ endfunction
 augroup highlight
   autocmd!
   autocmd ColorScheme * call <SID>Highlight()
-  if has('gui_running')
+  if $GUI_RUNNING
     autocmd ColorScheme * call <SID>HighlightGui()
   endif
 augroup END
@@ -197,7 +197,7 @@ silent! colorscheme $COLORSCHEME
 " window title {{{
 
 set title
-if has('title') && (&title || has('gui_running'))
+if has('title') && (&title || $GUI_RUNNING)
   set titlestring=
   " file name
   set titlestring+=%f
@@ -212,7 +212,7 @@ endif
 " end window title }}}
 " macvim {{{
 
-if has('gui_running')
+if $GUI_RUNNING
   " light colorscheme
   let g:lightline_colorscheme = 'seoul256_light'
   silent! colorscheme seoul256-light
@@ -287,7 +287,7 @@ endif
 " end macvim }}}
 " neovim {{{
 
-if has('nvim')
+if $NVIM
   " set all cursors to 20% height unblinking block by default
   set guicursor+=a:blinkon0-hor20
   " set insert mode cursor to 25% width unblinking block

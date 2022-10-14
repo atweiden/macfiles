@@ -2,7 +2,7 @@ setlocal dictionary=$CFGPATH/dict/fennel.dict
 setlocal iskeyword-=-
 
 " seoul256
-if has('gui_running')
+if $GUI_RUNNING
   highlight clear fennelKiwiKeyword
   highlight default link fennelKiwiKeyword Special
   highlight clear fennelKiwiDefKeyword

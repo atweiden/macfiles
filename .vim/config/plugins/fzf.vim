@@ -17,7 +17,7 @@ let g:fzf_layout = {
     \ }
 
 " use light colors for fzf running in gui vim
-if has('gui_running')
+if $GUI_RUNNING
   let g:fzf_colors = {
       \ 'bg':      ['bg', 'Normal'],
       \ 'bg+':     ['bg', 'Normal'],
