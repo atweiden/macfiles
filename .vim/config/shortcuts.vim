@@ -259,23 +259,26 @@ nnoremap <leader>scs :colorscheme seoul256<CR>
 " filetypes {{{
 
 nnoremap <leader>sF :setfiletype<space>
-nnoremap <leader>sfa mz:setfiletype ada<CR>`z
-nnoremap <leader>sfc mz:setfiletype clojure<CR>`z
+nnoremap <leader>sfa mz:setfiletype cs<CR>`z
+nnoremap <leader>sfA mz:setfiletype fsharp<CR>`z
+nnoremap <leader>sfc mz:setfiletype c<CR>`z
 nnoremap <leader>sfC mz:setfiletype chicken<CR>`z
 nnoremap <leader>sfd mz:setfiletype diff<CR>`z
-nnoremap <leader>sfe mz:setfiletype elixir<CR>`z
-nnoremap <leader>sfE mz:setfiletype erlang<CR>`z
+nnoremap <leader>sfD mz:setfiletype ada<CR>`z
+nnoremap <leader>sfe mz:setfiletype enc<CR>`z
+nnoremap <leader>sfE mz:setfiletype elixir<CR>`z
 nnoremap <leader>sff mz:setfiletype finn<CR>`z
 nnoremap <leader>sfF mz:setfiletype fennel<CR>`z
 nnoremap <leader>sfg mz:setfiletype gitcommit<CR>`z
 nnoremap <leader>sfG mz:setfiletype go<CR>`z
 nnoremap <leader>sfh mz:setfiletype help<CR>`z
 nnoremap <leader>sfH mz:setfiletype gohtmltmpl<CR>`z
-nnoremap <leader>sfj mz:setfiletype journal<CR>`z
-nnoremap <leader>sfJ mz:setfiletype janet<CR>`z
-nnoremap <leader>sfl mz:setfiletype lisp<CR>`z
-nnoremap <leader>sfL mz:setfiletype lua<CR>`z
+nnoremap <leader>sfj mz:setfiletype java<CR>`z
+nnoremap <leader>sfJ mz:setfiletype clojure<CR>`z
+nnoremap <leader>sfl mz:setfiletype lua<CR>`z
+nnoremap <leader>sfL mz:setfiletype lisp<CR>`z
 nnoremap <leader>sfm mz:setfiletype markdown<CR>`z
+nnoremap <leader>sfn mz:setfiletype janet<CR>`z
 nnoremap <leader>sfo mz:setfiletype ocaml<CR>`z
 nnoremap <leader>sfp mz:setfiletype php<CR>`z
 nnoremap <leader>sfr mz:setfiletype raku<CR>`z
