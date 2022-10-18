@@ -468,8 +468,8 @@ fi
 # --- grepping {{{
 
 alias grep='grep --ignore-case --color=auto'
-alias fgrep='fgrep --ignore-case --color=auto'
-alias egrep='egrep --ignore-case --color=auto'
+alias egrep='grep --extended-regexp'
+alias fgrep='grep --fixed-strings'
 alias history\?='history | grep -v -E "grep|history\?" | grep "$@"'
 alias ls\?='ls -1F | grep "$@"'
 alias ps\?='ps -a -x -f | grep -v grep | grep "$@"'
