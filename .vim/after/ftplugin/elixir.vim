@@ -46,7 +46,16 @@ for m in ['n', 'x']
   execute m . "noremap <silent> <buffer> <localleader>t. :call <SID>MixTestOnly('.bottom-right')<CR>" . gv
 endfor
 
-highlight clear elixirDocTest
-highlight link elixirDocTest Comment
+function! s:HighlightElixir() abort
+  highlight clear elixirDocTest
+  highlight link elixirDocTest Comment
+endfunction
+
+augroup highlightelixir
+  autocmd!
+  autocmd ColorScheme * call <SID>HighlightElixir()
+augroup END
+
+call <SID>HighlightElixir()
 
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
