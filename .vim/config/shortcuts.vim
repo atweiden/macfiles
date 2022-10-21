@@ -202,9 +202,9 @@ inoremap <silent> <S-F9> <C-O>:ToggleHexMode<CR>
 vnoremap <silent> <S-F9> <ESC>:ToggleHexMode<CR>gv
 
 " toggle monotone colors
-nnoremap <silent> <S-F10> :ToggleColors<CR>
-inoremap <silent> <S-F10> <C-O>:ToggleColors<CR>
-vnoremap <silent> <S-F10> <ESC>:ToggleColors<CR>gv
+nnoremap <silent> <F10> :ToggleColors<CR>
+inoremap <silent> <F10> <C-O>:ToggleColors<CR>
+vnoremap <silent> <F10> <ESC>:ToggleColors<CR>gv
 
 " toggle showcmd
 nnoremap <silent> <F11> :set showcmd!<CR>
