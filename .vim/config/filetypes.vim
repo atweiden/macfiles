@@ -9,7 +9,10 @@ let g:lispft = {
     \              'profile.boot'
     \            ], ','),
     \ 'fennel': '*.fnl',
-    \ 'janet': '*.janet',
+    \ 'janet': join([
+    \              '*.janet',
+    \              '*.jdn',
+    \            ], ','),
     \ 'kiwi': '*.kiwi',
     \ 'lisp': join([
     \           '*.lisp',
