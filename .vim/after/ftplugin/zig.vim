@@ -8,6 +8,8 @@ nnoremap <silent> <buffer> <localleader>> :call zig#fmt#Format()<CR>
 function! s:HighlightZig() abort
   highlight clear zigComparatorWord
   highlight link zigComparatorWord Operator
+  highlight clear zigDummyVariable
+  highlight link zigDummyVariable Identifier
   highlight clear zigStringDelimiter
   highlight link zigStringDelimiter Delimiter
 endfunction
