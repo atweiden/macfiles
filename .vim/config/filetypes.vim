@@ -11,7 +11,7 @@ let g:lispft = {
     \ 'fennel': '*.fnl',
     \ 'janet': join([
     \              '*.janet',
-    \              '*.jdn',
+    \              '*.jdn'
     \            ], ','),
     \ 'kiwi': '*.kiwi',
     \ 'lisp': join([
