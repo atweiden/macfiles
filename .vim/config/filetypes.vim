@@ -96,12 +96,17 @@ augroup languages
       \   '*.go',
       \   '*.s',
       \   '*.tmpl',
-      \   '*.mod'
+      \   'go.mod',
+      \   'go.sum',
+      \   'go.work.sum',
+      \   'go.work'
       \ ], ','))
   autocmd FileType asm silent doautocmd User LoadGo
   autocmd FileType go silent doautocmd User LoadGo
   autocmd FileType gohtmltmpl silent doautocmd User LoadGo
   autocmd FileType gomod silent doautocmd User LoadGo
+  autocmd FileType gosum silent doautocmd User LoadGo
+  autocmd FileType gowork silent doautocmd User LoadGo
 
   " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
