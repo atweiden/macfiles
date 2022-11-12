@@ -288,6 +288,7 @@ _has_cargo="$(command -v cargo)"
 _has_colordiff="$(command -v colordiff)"
 _has_curl="$(command -v curl)"
 _has_diffr="$(command -v diffr)"
+_has_exa="$(command -v exa)"
 _has_fd="$(command -v fd)"
 _has_gdb="$(command -v gdb)"
 _has_git="$(command -v git)"
@@ -377,17 +378,35 @@ fi
 # --- end diff }}}
 # --- directory navigation {{{
 
-alias ls='LC_COLLATE=C gls \
-  --classify \
-  --color=auto \
-  --group-directories-first \
-  --time-style=long-iso'
-alias l='ls -1'
-alias l1='ls -1A'
-alias la='ls -a'
-alias ll='ls -laih'
-[[ -n "$_has_tree" ]] \
-  && alias tree='tree -C --charset utf-8 --dirsfirst'
+if [[ -n "$_has_exa" ]]; then
+  alias ls='exa \
+    --classify \
+    --color=auto \
+    --group-directories-first \
+    --sort=Name \
+    --time-style=long-iso'
+  alias l='ls --oneline'
+  alias l1='ls --all --oneline'
+  alias la='ls --all --all'
+  alias ll='ls --all --all --binary --git --group --inode --links --long'
+  alias tree='exa \
+    --color=always \
+    --group-directories-first \
+    --sort=Name \
+    --tree'
+else
+  alias ls='LC_COLLATE=C gls \
+    --classify \
+    --color=auto \
+    --group-directories-first \
+    --time-style=long-iso'
+  alias l='ls -1'
+  alias l1='ls -1 --almost-all'
+  alias la='ls --all'
+  alias ll='ls --all --human-readable --inode -l'
+  [[ -n "$_has_tree" ]] \
+    && alias tree='tree -C --charset utf-8 --dirsfirst'
+fi
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
