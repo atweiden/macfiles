@@ -388,7 +388,7 @@ if [[ -n "$_has_exa" ]]; then
   alias l='ls --oneline'
   alias l1='ls --all --oneline'
   alias la='ls --all --all'
-  alias ll='ls --all --all --binary --git --group --inode --links --long'
+  alias ll='ls --all --all --binary --group --inode --links --long'
   alias tree='exa \
     --color=always \
     --group-directories-first \
