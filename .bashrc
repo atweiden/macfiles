@@ -293,6 +293,7 @@ _has_fd="$(command -v fd)"
 _has_gdb="$(command -v gdb)"
 _has_git="$(command -v git)"
 _has_glibtool="$(command -v glibtool)"
+_has_glow="$(command -v glow)"
 _has_gtime="$(command -v gtime)"
 _has_gunits="$(command -v gunits)"
 _has_gwhich="$(command -v gwhich)"
@@ -472,6 +473,13 @@ if [[ -n "$_has_git" ]]; then
 fi
 
 # --- end git }}}
+# --- glow {{{
+
+# workaround for upstream not respecting $XDG_CONFIG_HOME on macos
+[[ -n "$_has_glow" ]] \
+  && alias glow='glow --config $HOME/.config/glow/glow.yml'
+
+# --- end glow }}}
 # --- gnu {{{
 
 [[ -n "$_has_glibtool" ]] \
