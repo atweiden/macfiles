@@ -213,6 +213,7 @@
   rev = rev-parse HEAD
   sq = squash
   st = status --short --branch
+  url = config remote.origin.url
 
   # function
   # show diff between latest commit and current state
@@ -243,6 +244,7 @@
   # list
   ls-aliases = config --get-regexp alias
   ls-branches = branch -a
+  ls-config = config --list --local
   ls-contributors = shortlog --summary --numbered
   ls-remotes = remote -v
   ls-tags = tag -l
