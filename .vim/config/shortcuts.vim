@@ -267,7 +267,7 @@ nnoremap <leader>sfF mz:setfiletype fennel<CR>`z
 nnoremap <leader>sfg mz:setfiletype gitcommit<CR>`z
 nnoremap <leader>sfG mz:setfiletype go<CR>`z
 nnoremap <leader>sfh mz:setfiletype help<CR>`z
-nnoremap <leader>sfH mz:setfiletype gohtmltmpl<CR>`z
+nnoremap <leader>sfH mz:setfiletype hare<CR>`z
 nnoremap <leader>sfj mz:setfiletype java<CR>`z
 nnoremap <leader>sfJ mz:setfiletype clojure<CR>`z
 nnoremap <leader>sfl mz:setfiletype lua<CR>`z
