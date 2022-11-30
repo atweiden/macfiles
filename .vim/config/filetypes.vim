@@ -37,6 +37,7 @@ augroup lazylanguages
   autocmd User LoadFinn ++once packadd vim-finn
   autocmd User LoadFsharp ++once packadd vim-fsharp
   autocmd User LoadGo ++once packadd vim-go
+  autocmd User LoadHare ++once packadd hare.vim
   autocmd User LoadJanet ++once packadd janet.vim
   autocmd User LoadJournal ++once packadd vim-journal
   autocmd User LoadKiwi ++once packadd vim-kiwi
@@ -110,6 +111,10 @@ augroup languages
 
   " gpg
   autocmd QuitPre *.gpg silent! call system('pkill gpg-agent')
+
+  " hare
+  autocmd BufReadPre,FileReadPre *.ha silent doautocmd User LoadHare
+  autocmd FileType hare silent doautocmd User LoadHare
 
   " hugo
   autocmd BufNewFile,BufRead **/layouts/**.html setlocal filetype=gohtmltmpl

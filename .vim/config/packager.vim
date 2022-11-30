@@ -78,6 +78,11 @@ function! PackagerSetup() abort
   call packager#add('fatih/vim-go', { 'type': 'opt' })
 
   " --- end go }}}
+  " --- hare {{{
+
+  call packager#add('https://git.sr.ht/~sircmpwn/hare.vim', { 'type': 'opt' })
+
+  " --- end hare }}}
   " --- journal {{{
 
   call packager#add('junegunn/vim-journal', { 'type': 'opt' })
