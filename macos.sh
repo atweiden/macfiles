@@ -86,6 +86,9 @@ defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 # Disable Resume system-wide
 defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
+# Disable saving opened application on shutdown
+defaults write com.apple.loginwindow TALLogoutSavesState -bool false
+
 # Disable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
@@ -735,6 +738,16 @@ defaults write com.apple.appstore ShowDebugMenu -bool true
 
 # Allow the App Store to reboot machine on macOS updates
 #defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
+
+# Completely disable automatic updates
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool false
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
+sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool false
+sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdateRestartRequired -bool false
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall -int 0
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall -int 0
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ScheduleFrequency -int 0
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -int 0
 
 # Turn off video autoplay
 defaults write com.apple.AppStore UserSetAutoPlayVideoSetting -int 1
