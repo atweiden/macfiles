@@ -14,12 +14,4 @@ command! -bang Terminal call term_start('bash --login', {
     \ 'curwin': <bang>0
     \ })
 
-" open neovim :terminal in insert mode per vim
-if $NVIM
-  augroup nvimterminal
-    autocmd!
-    autocmd TermOpen term://* startinsert
-  augroup END
-endif
-
 " vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

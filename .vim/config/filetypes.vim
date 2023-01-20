@@ -41,7 +41,6 @@ augroup lazylanguages
   autocmd User LoadJanet ++once packadd janet.vim
   autocmd User LoadJournal ++once packadd vim-journal
   autocmd User LoadKiwi ++once packadd vim-kiwi
-  autocmd User LoadConjure ++once packadd conjure
   autocmd User LoadSexp ++once packadd vim-sexp
   autocmd User LoadRaku ++once packadd vim-raku
   autocmd User LoadRust ++once packadd rust.vim
@@ -135,13 +134,6 @@ augroup languages
   " lisp
   execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadSexp',
       \ join(values(g:lispft), ','))
-  if $NVIM
-    execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadConjure',
-        \ join([
-        \   g:lispft['fennel'],
-        \   g:lispft['janet']
-        \ ], ','))
-  endif
 
   " raku
   execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadRaku',

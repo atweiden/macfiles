@@ -5,7 +5,6 @@ let $VIMPATH = $HOME . '/.vim'
 let $CFGPATH = $VIMPATH . '/config'
 let $COLORSCHEME = 'seoul256'
 let $GUI_RUNNING = has('gui_running')
-let $NVIM = has('nvim')
 
 function! s:SourceConfig(path) abort
   execute 'source' fnameescape($CFGPATH . '/' . a:path)

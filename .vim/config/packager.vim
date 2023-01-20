@@ -96,9 +96,6 @@ function! PackagerSetup() abort
   call packager#add('janet-lang/janet.vim', { 'type': 'opt' })
   call packager#add('atweiden/vim-kiwi', { 'type': 'opt' })
 
-  " repl
-  call packager#add('Olical/conjure', { 'type': 'opt' })
-
   " structured editing
   call packager#add('guns/vim-sexp', { 'type': 'opt' })
 

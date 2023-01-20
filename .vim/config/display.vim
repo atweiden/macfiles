@@ -118,9 +118,6 @@ function! s:Highlight() abort
   " vim uses hl-SpecialKey for nbsp, space, tab and trail
   highlight clear SpecialKey
   highlight SpecialKey ctermfg=234 guifg=#F4F4F4
-  " neovim uses hl-WhiteSpace for nbsp, space, tab and trail
-  highlight clear WhiteSpace
-  highlight WhiteSpace ctermfg=234 guifg=#F4F4F4
 
   " spelling
   highlight clear SpellBad
@@ -285,18 +282,6 @@ if $GUI_RUNNING
 endif
 
 " end macvim }}}
-" neovim {{{
-
-if $NVIM
-  " set all cursors to 20% height unblinking block by default
-  set guicursor+=a:blinkon0-hor20
-  " set insert mode cursor to 25% width unblinking block
-  set guicursor+=i:blinkon0-ver25
-  " enable substitution live preview
-  set inccommand=nosplit
-endif
-
-" end neovim }}}
 " listchars {{{
 
 " align cursor position flush with line beginnings having leading tabs
@@ -308,7 +293,7 @@ endif
 " but default to minimalist approach for rendering indentation:
 " - use ┊ for tui
 " - use ⎸for gui
-" - highlight SpecialKey/WhiteSpace ctermfg=234 guifg=#F4F4F4 for vim/nvim
+" - highlight SpecialKey/WhiteSpace ctermfg=234 guifg=#F4F4F4 for vim
 "
 " because:
 " - dotted variant looks great and is significantly easier to read on tui

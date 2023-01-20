@@ -97,15 +97,9 @@ set viminfo='100,<50,s10,h,!
 "           |    |   +--------- Exclude registers greater than N Kb
 "           |    +------------- Keep N lines for each register
 "           +------------------ Keep marks for N files
-if !$NVIM
-  set viminfofile=$VIMPATH/viminfo
-  if filereadable(&viminfofile)
-    rviminfo
-  endif
-else
-  if filereadable($XDG_DATA_HOME . '/nvim/shada/main.shada')
-    rshada
-  endif
+set viminfofile=$VIMPATH/viminfo
+if filereadable(&viminfofile)
+  rviminfo
 endif
 
 " never write or update the contents of any buffer unless we say so
