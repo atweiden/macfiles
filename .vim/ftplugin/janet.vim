@@ -1,3 +1,5 @@
-let g:rainbow#pairs += [['{', '}']]
+vim9script
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+g:rainbow#pairs += [['{', '}']]
+
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

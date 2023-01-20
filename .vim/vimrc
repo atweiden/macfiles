@@ -1,27 +1,29 @@
-" avoid side effects when reloading vimrc
+vim9script
+
+# avoid side effects when reloading vimrc
 if &compatible | set nocompatible | endif
 
-let $VIMPATH = $HOME . '/.vim'
-let $CFGPATH = $VIMPATH . '/config'
-let $COLORSCHEME = 'seoul256'
-let $GUI_RUNNING = has('gui_running')
+$VIMPATH = $HOME .. '/.vim'
+$CFGPATH = $VIMPATH .. '/config'
+$ALDPATH = $VIMPATH .. '/autoload/home'
+$COLORSCHEME = 'seoul256'
 
-function! s:SourceConfig(path) abort
-  execute 'source' fnameescape($CFGPATH . '/' . a:path)
-endfunction
+def SourceConfig(path: string): void
+  execute 'source' fnameescape($CFGPATH .. '/' .. path)
+enddef
 
-call s:SourceConfig('reset.vim')
-call s:SourceConfig('base.vim')
-call s:SourceConfig('filetypes.vim')
-call s:SourceConfig('functions.vim')
-call s:SourceConfig('editing.vim')
-call s:SourceConfig('display.vim')
-call s:SourceConfig('shortcuts.vim')
-call s:SourceConfig('packager.vim')
-call s:SourceConfig('plugins.vim')
-call s:SourceConfig('terminal.vim')
+SourceConfig('reset.vim')
+SourceConfig('base.vim')
+SourceConfig('commands.vim')
+SourceConfig('filetypes.vim')
+SourceConfig('editing.vim')
+SourceConfig('display.vim')
+SourceConfig('shortcuts.vim')
+SourceConfig('packager.vim')
+SourceConfig('plugins.vim')
+SourceConfig('terminal.vim')
 
 filetype plugin indent on
 if !exists('g:syntax_on') | syntax enable | endif
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

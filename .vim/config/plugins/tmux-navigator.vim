@@ -1,5 +1,7 @@
-" maintain tmux navigation bindings in insert/visual/command mode
-let g:tmux_navigator_no_mappings = 1
+vim9script
+
+# maintain tmux navigation bindings in insert/visual/command mode
+g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-H> :TmuxNavigateLeft<CR>
 inoremap <silent> <C-H> <C-O>:TmuxNavigateLeft<CR>
 vnoremap <silent> <C-H> <ESC>:TmuxNavigateLeft<CR>gv
@@ -26,11 +28,11 @@ vnoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<CR>gv
 cnoremap <silent> <C-\> <C-C>:TmuxNavigatePrevious<CR>
 tnoremap <silent> <C-\> <C-W>:TmuxNavigatePrevious<CR>
 
-" navigate up when pressing <C-K> in replace mode
+# navigate up when pressing <C-K> in replace mode
 nnoremap <silent> r<C-K> :TmuxNavigateUp<CR>
 vnoremap <silent> r<C-K> <ESC>:TmuxNavigateUp<CR>gv
 
-" don't disable tmux navigator when zooming vim pane
-let g:tmux_navigator_disable_when_zoomed = 0
+# don't disable tmux navigator when zooming vim pane
+g:tmux_navigator_disable_when_zoomed = 0
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

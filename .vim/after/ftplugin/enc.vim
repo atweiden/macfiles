@@ -1,3 +1,5 @@
+vim9script
+
 setlocal viminfo=
 setlocal nobackup
 setlocal noswapfile
@@ -11,4 +13,4 @@ nnoremap <silent> <buffer> <localleader>d :%!base64 -d \| enchive --agent --pine
 vnoremap <silent> <buffer> <localleader>e :!enchive archive \| base64<CR>
 vnoremap <silent> <buffer> <localleader>d :!base64 -d \| enchive --agent --pinentry extract<CR>
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

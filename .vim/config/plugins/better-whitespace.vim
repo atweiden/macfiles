@@ -1,23 +1,25 @@
-let g:better_whitespace_operator = '<leader>sw'
+vim9script
 
-" disable whitespace highlights for specified filetypes
-let g:better_whitespace_filetypes_blacklist = [
-    \ 'ctrlsf',
-    \ 'diff',
-    \ 'help',
-    \ 'packager',
-    \ 'qf'
-    \ ]
+g:better_whitespace_operator = '<leader>sw'
 
-function s:HighlightBetterWhitespace() abort
+# disable whitespace highlights for specified filetypes
+g:better_whitespace_filetypes_blacklist = [
+  'ctrlsf',
+  'diff',
+  'help',
+  'packager',
+  'qf'
+]
+
+def HighlightBetterWhitespace(): void
   highlight clear ExtraWhitespace
   highlight ExtraWhitespace ctermbg=168 guibg=#DF5F87
-endfunction
+enddef
 
-" seoul256 whitespace colors
+# seoul256 whitespace colors
 augroup betterwhitespace
   autocmd!
-  autocmd VimEnter,ColorScheme * call <SID>HighlightBetterWhitespace()
+  autocmd VimEnter,ColorScheme * HighlightBetterWhitespace()
 augroup END
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

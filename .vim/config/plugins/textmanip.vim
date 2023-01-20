@@ -1,4 +1,6 @@
-" facilitate lazy loading
+vim9script
+
+# facilitate lazy loading
 augroup loadtextmanip
   autocmd!
   autocmd User LoadTextmanip ++once packadd vim-textmanip
@@ -10,13 +12,13 @@ xmap <silent> <Left>  <ESC>:silent doautocmd User LoadTextmanip<CR>gv<Plug>(text
 xmap <silent> <Right> <ESC>:silent doautocmd User LoadTextmanip<CR>gv<Plug>(textmanip-move-right)
 xmap <silent> D       <ESC>:silent doautocmd User LoadTextmanip<CR>gv<Plug>(textmanip-duplicate-down)
 
-let g:textmanip_hooks = {}
-function! g:textmanip_hooks.finish(tm) abort
-  let tm = a:tm
-  let helper = textmanip#helper#get()
-  " remove trailing white space for blockwise move/duplicate
-  " :set virtualedit=block for increased dwim
-  call helper.remove_trailing_WS(tm)
-endfunction
+def Finish(tm: dict<any>): void
+  var helper = textmanip#helper#get()
+  # remove trailing white space for blockwise move/duplicate
+  # :set virtualedit=block for increased dwim
+  helper.remove_trailing_WS(tm)
+enddef
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+g:textmanip_hooks = { finish: Finish }
+
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

@@ -1,26 +1,28 @@
-" always keep cursor in the same column if possible
+vim9script
+
+# always keep cursor in the same column if possible
 set nostartofline
 
-" enable virtual edit in visual block mode
+# enable virtual edit in visual block mode
 set virtualedit=block
 
-" use a dialog when an operation has to be confirmed
+# use a dialog when an operation has to be confirmed
 set confirm
 
-" don't show us the command we're typing
+# don't show us the command we're typing
 set noshowcmd
 
-" always report the number of lines changed
+# always report the number of lines changed
 set report=0
 
-" turn on wildmenu completion
+# turn on wildmenu completion
 set wildmenu
 set wildmode=list:longest,full
 
-" don't wildmatch the following for completion efficiency
+# don't wildmatch the following for completion efficiency
 set wildignore=
 
-" don't wildmatch archives
+# don't wildmatch archives
 set wildignore+=*.7z
 set wildignore+=*.bz2
 set wildignore+=*.bzip
@@ -46,7 +48,7 @@ set wildignore+=*.xpi
 set wildignore+=*.xz
 set wildignore+=*.zip
 
-" don't wildmatch media files
+# don't wildmatch media files
 set wildignore+=*.3dm
 set wildignore+=*.apng
 set wildignore+=*.bmp
@@ -79,7 +81,7 @@ set wildignore+=*.wdp
 set wildignore+=*.webp
 set wildignore+=*.xbm
 
-" don't wildmatch compilation artefacts
+# don't wildmatch compilation artefacts
 set wildignore+=*.dSYM/
 set wildignore+=*.a
 set wildignore+=*.app
@@ -112,7 +114,7 @@ set wildignore+=*.so.*
 set wildignore+=*.su
 set wildignore+=*.x86_64
 
-" don't wildmatch operating system specific files
+# don't wildmatch operating system specific files
 set wildignore+=*~
 set wildignore+=.AppleDouble
 set wildignore+=.DS_Store
@@ -142,7 +144,7 @@ set wildignore+=ehthumbs_vista.db
 set wildignore+=*.stackdump
 set wildignore+=*.lnk
 
-" don't wildmatch software specific files
+# don't wildmatch software specific files
 set wildignore+=.~lock.*#
 set wildignore+=.netrwhist
 set wildignore+=[._]*.s[a-v][a-z]
@@ -165,7 +167,7 @@ set wildignore+=.circleci/
 set wildignore+=.devcontainer/
 set wildignore+=.github/
 
-" don't wildmatch programming language specific files
+# don't wildmatch programming language specific files
 set wildignore+=*.ali
 set wildignore+=.cpcache/
 set wildignore+=.lein-plugins/
@@ -249,7 +251,7 @@ set wildignore+=Cargo.lock
 set wildignore+=zig-cache/
 set wildignore+=zig-out/
 
-" wildmatch the following with decreased priority
+# wildmatch the following with decreased priority
 set suffixes=
 set suffixes+=.h
 set suffixes+=appveyor\.yml
@@ -321,129 +323,129 @@ set suffixes+=.orig
 set suffixes+=.rej
 set suffixes+=.tmp
 
-" case sensitive file completion
+# case sensitive file completion
 set nofileignorecase
 
-" use histogram diff algorithm, indent heuristic for internal diff library
+# use histogram diff algorithm, indent heuristic for internal diff library
 set diffopt+=algorithm:histogram
 set diffopt+=indent-heuristic
 
-" open vimdiff split vertically
+# open vimdiff split vertically
 set diffopt+=vertical
 
-" don't fold unchanged lines in vimdiffs
+# don't fold unchanged lines in vimdiffs
 set diffopt+=context:1000000
 
-" disable diff mode for hidden buffers
+# disable diff mode for hidden buffers
 set diffopt+=hiddenoff
 
-" split windows below and to the right of the current
+# split windows below and to the right of the current
 set splitright
 set splitbelow
 
-" generous backspacing
+# generous backspacing
 set backspace=2
 
-" break lines at sensible place
+# break lines at sensible place
 set linebreak
 
-" wrap on these chars
+# wrap on these chars
 set whichwrap+=<,>,[,]
 
-" wrap lines by default
+# wrap lines by default
 set wrap
 
-" prevent two spaces after punctuation on a line join
+# prevent two spaces after punctuation on a line join
 set nojoinspaces
 
-" copy indent from current line when starting a new line
+# copy indent from current line when starting a new line
 set autoindent
 
-" sets the width of a <Tab> character
+# sets the width of a <Tab> character
 set tabstop=2
 
-" when enabled, causes spaces to be used instead of <Tab> characters
+# when enabled, causes spaces to be used instead of <Tab> characters
 set expandtab
 
-" when enabled, sets the amount of whitespace to be inserted/removed on
-" <Tab> / <BS>
-"
-" if softtabstop < tabstop, and expandtab is disabled (with noexpandtab),
-" vim will start <Tab>s with whitespace
-"
-" this initial whitespace will be dynamically converted to / from <Tab>
-" characters as the indent level of 'tabstop' is reached / unreached
+# when enabled, sets the amount of whitespace to be inserted/removed on
+# <Tab> / <BS>
+#
+# if softtabstop < tabstop, and expandtab is disabled (with noexpandtab),
+# vim will start <Tab>s with whitespace
+#
+# this initial whitespace will be dynamically converted to / from <Tab>
+# characters as the indent level of 'tabstop' is reached / unreached
 set softtabstop=2
 
-" sets the amount of space to insert / remove while using indentation
-" commands in normal mode (>, <)
+# sets the amount of space to insert / remove while using indentation
+# commands in normal mode (>, <)
 set shiftwidth=2
 
-" round indent to multiple of shiftwidth
+# round indent to multiple of shiftwidth
 set shiftround
 
-" <Tab> in front of a line inserts blanks according to shiftwidth
+# <Tab> in front of a line inserts blanks according to shiftwidth
 set smarttab
 
-" triple matching curly braces form a fold
+# triple matching curly braces form a fold
 set foldmethod=marker
 
-" higher numbers close fewer folds, 0 closes all folds
+# higher numbers close fewer folds, 0 closes all folds
 set foldlevel=1
 
-" automatically open folds on these commands
+# automatically open folds on these commands
 set foldopen=insert,mark,percent,search,tag,undo
 
-" when foldmethod is indent or syntax, don't fold more than N levels deep
+# when foldmethod is indent or syntax, don't fold more than N levels deep
 set foldnestmax=3
 
-" don't autowrap text as it's being inserted
+# don't autowrap text as it's being inserted
 set textwidth=0
 
-" don't wrap searches around end of file
+# don't wrap searches around end of file
 set nowrapscan
 
-" ignore case in search patterns
+# ignore case in search patterns
 set ignorecase
 
-" override ignorecase option if search pattern contains upper case chars
+# override ignorecase option if search pattern contains upper case chars
 set smartcase
 
-" adjust case of match depending on typed text
+# adjust case of match depending on typed text
 set infercase
 
-" match angle bracket pairs
+# match angle bracket pairs
 set matchpairs+=<:>
 
-" maintain concealed chars on cursor line in normal, insert, visual mode
+# maintain concealed chars on cursor line in normal, insert, visual mode
 set concealcursor=niv
 
-" set timeout value for mappings to 1s, keycodes to 1/20th of a second
+# set timeout value for mappings to 1s, keycodes to 1/20th of a second
 set timeout
 set nottimeout
 set timeoutlen=1000
 set ttimeoutlen=50
 
-" don't allow langmap to potentially break mappings
+# don't allow langmap to potentially break mappings
 set langnoremap
 
-" automatic formatting options
+# automatic formatting options
 augroup fmtopts
   autocmd!
   autocmd FileType,Syntax * set formatoptions=rqn2l1j
-"                                             |||||||
-"                                             ||||||+----- Remove comment leader when joining two comments
-"                                             |||||+------ Don't break line after one-letter word
-"                                             ||||+------- Don't break long lines in insert mode
-"                                             |||+-------- Use indent of second line of paragraph for rest of paragraph, not first
-"                                             ||+--------- Recognize numbered lists when formatting text
-"                                             |+---------- Allow formatting of comments with gq
-"                                             +----------- Automatically insert current comment leader after <Enter> in insert mode
+  #                                           |||||||
+  #                                           ||||||+----- Remove comment leader when joining two comments
+  #                                           |||||+------ Don't break line after one-letter word
+  #                                           ||||+------- Don't break long lines in insert mode
+  #                                           |||+-------- Use indent of second line of paragraph for rest of paragraph, not first
+  #                                           ||+--------- Recognize numbered lists when formatting text
+  #                                           |+---------- Allow formatting of comments with gq
+  #                                           +----------- Automatically insert current comment leader after <Enter> in insert mode
 augroup END
 
-" use rg/ag/ack for grepping if available
+# use rg/ag/ack for grepping if available
 if executable('rg')
-  set grepprg =rg
+  set grepprg=rg
   set grepprg+=\ --vimgrep
   set grepprg+=\ --no-heading
   set grepprg+=\ --color\ never
@@ -451,51 +453,52 @@ if executable('rg')
   set grepprg+=\ --smart-case
   set grepprg+=\ --ignore-file\ $HOME/.config/search/ignore
 elseif executable('ag')
-  set grepprg =ag
+  set grepprg=ag
   set grepprg+=\ --nogroup
   set grepprg+=\ --nocolor
   set grepprg+=\ --hidden
   set grepprg+=\ --smart-case
   set grepprg+=\ --path-to-ignore\ $HOME/.config/search/ignore
 elseif executable('ack')
-  set grepprg =ack
+  set grepprg=ack
   set grepprg+=\ --nogroup
   set grepprg+=\ --nocolor
   set grepprg+=\ --nopager
   set grepprg+=\ --ackrc=$HOME/.config/ack/ackrc
 endif
 
-" don't move back cursor one position upon esc
+# don't move back cursor one position upon esc
 augroup cursorpos
   autocmd!
-  autocmd InsertEnter * let b:curcol = col('.')
-  autocmd CursorMovedI * let b:curcol = col('.')
-  autocmd InsertLeave * if col('.') != b:curcol | call cursor(0, col('.') + 1) | endif
+  autocmd InsertEnter * b:curcol = col('.')
+  autocmd CursorMovedI * b:curcol = col('.')
+  autocmd InsertLeave * if col('.') != b:curcol | cursor(0, col('.') + 1) | endif
 augroup END
 
-" return to last edit position
+# return to last edit position
 augroup cursormem
   autocmd!
-  autocmd BufReadPost * call ReturnToLastEditPosition()
+  autocmd BufReadPost * ReturnToLastEditPosition
 augroup END
 
-" periodically check for/warn about external changes to buffer
+# periodically check for/warn about external changes to buffer
 augroup checktimestamp
   autocmd!
   autocmd BufEnter,BufWritePost,CursorHold,CursorHoldI,FocusGained <buffer>
     \ silent! checktime
 augroup END
 
-" write file and create its parent directories simultaneously
+# write file and create its parent directories simultaneously
+import autoload $ALDPATH .. '/mkdirp.vim'
 augroup easydir
   autocmd!
-  autocmd BufWritePre,FileWritePre * call MkdirP(expand('<afile>:p:h'), v:cmdbang)
+  autocmd BufWritePre,FileWritePre * mkdirp.MkdirP(expand('<afile>:p:h'), v:cmdbang)
 augroup END
 
-" disable spell check
+# disable spell check
 set nospell
 
-" don't download spell files from the internet
-let g:spellfile_URL = '/usr/share/vim/vimfiles/spell'
+# don't download spell files from the internet
+g:spellfile_URL = '/usr/share/vim/vimfiles/spell'
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

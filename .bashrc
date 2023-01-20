@@ -735,23 +735,41 @@ fi
 alias :e='"$EDITOR"'
 if [[ -n "$_has_vim" ]]; then
   alias view='vim -R'
-  alias vime='vim -u $HOME/.vim/vimrc.encrypt'
-  alias viml='vim -u $HOME/.vim/vimrc.lite'
+  alias vime='vim \
+    --cmd "set viminfo=" \
+    --cmd "set nobackup" \
+    --cmd "set noswapfile" \
+    --cmd "set noundofile" \
+    --cmd "set nowritebackup" \
+    --cmd "set noshelltemp" \
+    --cmd "set history=0" \
+    --cmd "set cryptmethod=blowfish2"'
   alias vimmin='vim \
     -u NONE \
     -U NONE \
-    --cmd "set nocompatible | syntax on | filetype plugin indent on"'
+    --cmd "set nocompatible" \
+    --cmd "syntax on" \
+    --cmd "filetype plugin indent on"'
   alias rvim='vim -Z'
   alias rview='view -Z'
 fi
 if [[ -n "$_has_mvim" ]]; then
   alias mview='mvim -R'
-  alias mvime='mvim -u $HOME/.vim/vimrc.encrypt'
-  alias mviml='mvim -u $HOME/.vim/vimrc.lite'
+  alias mvime='mvim \
+    --cmd "set viminfo=" \
+    --cmd "set nobackup" \
+    --cmd "set noswapfile" \
+    --cmd "set noundofile" \
+    --cmd "set nowritebackup" \
+    --cmd "set noshelltemp" \
+    --cmd "set history=0" \
+    --cmd "set cryptmethod=blowfish2"'
   alias mvimmin='mvim \
     -u NONE \
     -U NONE \
-    --cmd "set nocompatible | syntax on | filetype plugin indent on"'
+    --cmd "set nocompatible" \
+    --cmd "syntax on" \
+    --cmd "filetype plugin indent on"'
 fi
 if [[ -n "$_has_nvim" ]]; then
   alias nv='nvim'

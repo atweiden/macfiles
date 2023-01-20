@@ -1,145 +1,148 @@
-function! PackagerSetup() abort
+vim9script
+
+def PackagerSetup(): void
   packadd vim-packager
-  call packager#init()
-  call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
+  packager#init()
+  packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
 
-  " status
-  call packager#add('atweiden/lightline.vim', { 'branch': 'seoul256-light' })
+  # status
+  packager#add('atweiden/lightline.vim', { 'branch': 'seoul256-light' })
+  packager#add('itchyny/vim-gitbranch')
 
-  " windows
-  call packager#add('talek/obvious-resize')
+  # windows
+  packager#add('talek/obvious-resize')
 
-  " folds
-  call packager#add('Harenome/vim-neatfoldtext')
+  # folds
+  packager#add('Harenome/vim-neatfoldtext')
 
-  " filesystem
-  call packager#add('preservim/nerdtree', { 'type': 'opt' })
+  # filesystem
+  packager#add('preservim/nerdtree', { 'type': 'opt' })
 
-  " keyboard
-  call packager#add('kana/vim-arpeggio', { 'type': 'opt' })
-  call packager#add('drmikehenry/vim-fixkey')
+  # keyboard
+  packager#add('kana/vim-arpeggio', { 'type': 'opt' })
+  packager#add('drmikehenry/vim-fixkey')
 
-  " search and replace
-  call packager#add('dyng/ctrlsf.vim', { 'type': 'opt' })
-  call packager#add('junegunn/fzf', { 'type': 'opt',
-                                    \   'do': './install --bin' })
-  call packager#add('junegunn/fzf.vim', { 'type': 'opt' })
-  call packager#add('t9md/vim-quickhl', { 'type': 'opt' })
+  # search and replace
+  packager#add('dyng/ctrlsf.vim', { 'type': 'opt' })
+  packager#add('junegunn/fzf', { 'type': 'opt',
+                                   'do': './install --bin' })
+  packager#add('junegunn/fzf.vim', { 'type': 'opt' })
+  packager#add('t9md/vim-quickhl', { 'type': 'opt' })
 
-  " movement
-  call packager#add('atweiden/clever-f.vim', { 'branch': 'rm-hl-clear' })
-  call packager#add('christoomey/vim-tmux-navigator')
+  # movement
+  packager#add('atweiden/clever-f.vim', { 'branch': 'rm-hl-clear' })
+  packager#add('christoomey/vim-tmux-navigator')
 
-  " repeat
-  call packager#add('tpope/vim-repeat')
+  # repeat
+  packager#add('tpope/vim-repeat')
 
-  " undo
-  call packager#add('mbbill/undotree', { 'type': 'opt' })
+  # undo
+  packager#add('mbbill/undotree', { 'type': 'opt' })
 
-  " surround
-  call packager#add('tpope/vim-surround')
+  # surround
+  packager#add('tpope/vim-surround')
 
-  " comments
-  call packager#add('tpope/vim-commentary')
+  # comments
+  packager#add('tpope/vim-commentary')
 
-  " modelines
-  call packager#add('ciaranm/securemodelines')
+  # modelines
+  packager#add('ciaranm/securemodelines')
 
-  " align
-  call packager#add('tommcdo/vim-lion', { 'type': 'opt' })
-  call packager#add('t9md/vim-textmanip', { 'type': 'opt' })
+  # align
+  packager#add('tommcdo/vim-lion', { 'type': 'opt' })
+  packager#add('t9md/vim-textmanip', { 'type': 'opt' })
 
-  " narrow region
-  call packager#add('atweiden/vim-viewport', { 'type': 'opt' })
+  # narrow region
+  packager#add('atweiden/vim-viewport', { 'type': 'opt' })
 
-  " command runners
-  call packager#add('tpope/vim-tbone', { 'type': 'opt' })
+  # command runners
+  packager#add('tpope/vim-tbone', { 'type': 'opt' })
 
-  " ex mode
-  call packager#add('tyru/capture.vim', { 'type': 'opt' })
+  # ex mode
+  packager#add('tyru/capture.vim', { 'type': 'opt' })
 
-  " dvcs
-  call packager#add('sjl/splice.vim', { 'type': 'opt' })
+  # dvcs
+  packager#add('sjl/splice.vim', { 'type': 'opt' })
 
-  " languages {{{
+  # languages {{{
 
-  " --- elixir {{{
+  # --- elixir {{{
 
-  call packager#add('elixir-editors/vim-elixir', { 'type': 'opt' })
+  packager#add('elixir-editors/vim-elixir', { 'type': 'opt' })
 
-  " --- end elixir }}}
-  " --- fsharp {{{
+  # --- end elixir }}}
+  # --- fsharp {{{
 
-  call packager#add('PhilT/vim-fsharp', { 'type': 'opt' })
+  packager#add('PhilT/vim-fsharp', { 'type': 'opt' })
 
-  " --- end fsharp }}}
-  " --- go {{{
+  # --- end fsharp }}}
+  # --- go {{{
 
-  call packager#add('fatih/vim-go', { 'type': 'opt' })
+  packager#add('fatih/vim-go', { 'type': 'opt' })
 
-  " --- end go }}}
-  " --- hare {{{
+  # --- end go }}}
+  # --- hare {{{
 
-  call packager#add('https://git.sr.ht/~sircmpwn/hare.vim', { 'type': 'opt' })
+  packager#add('https://git.sr.ht/~sircmpwn/hare.vim', { 'type': 'opt' })
 
-  " --- end hare }}}
-  " --- journal {{{
+  # --- end hare }}}
+  # --- journal {{{
 
-  call packager#add('junegunn/vim-journal', { 'type': 'opt' })
-  call packager#add('atweiden/vim-finn', { 'branch': 'finn',
-                                         \   'type': 'opt' })
+  packager#add('junegunn/vim-journal', { 'type': 'opt' })
+  packager#add('atweiden/vim-finn', { 'branch': 'finn',
+                                        'type': 'opt' })
 
-  " --- end journal }}}
-  " --- lisp {{{
+  # --- end journal }}}
+  # --- lisp {{{
 
-  call packager#add('atweiden/vim-fennel', { 'type': 'opt' })
-  call packager#add('janet-lang/janet.vim', { 'type': 'opt' })
-  call packager#add('atweiden/vim-kiwi', { 'type': 'opt' })
+  packager#add('atweiden/vim-fennel', { 'type': 'opt' })
+  packager#add('janet-lang/janet.vim', { 'type': 'opt' })
+  packager#add('atweiden/vim-kiwi', { 'type': 'opt' })
 
-  " structured editing
-  call packager#add('guns/vim-sexp', { 'type': 'opt' })
+  # structured editing
+  packager#add('guns/vim-sexp', { 'type': 'opt' })
 
-  " --- end lisp }}}
-  " --- raku {{{
+  # --- end lisp }}}
+  # --- raku {{{
 
-  call packager#add('Raku/vim-raku', { 'type': 'opt' })
+  packager#add('Raku/vim-raku', { 'type': 'opt' })
 
-  " --- end raku }}}
-  " --- rust {{{
+  # --- end raku }}}
+  # --- rust {{{
 
-  call packager#add('rust-lang/rust.vim', { 'type': 'opt' })
+  packager#add('rust-lang/rust.vim', { 'type': 'opt' })
 
-  " --- end rust }}}
-  " --- toml {{{
+  # --- end rust }}}
+  # --- toml {{{
 
-  call packager#add('cespare/vim-toml', { 'type': 'opt' })
+  packager#add('cespare/vim-toml', { 'type': 'opt' })
 
-  " --- end toml }}}
-  " --- zig {{{
+  # --- end toml }}}
+  # --- zig {{{
 
-  call packager#add('atweiden/zig.vim', { 'branch': 'develop',
-                                        \   'type': 'opt' })
+  packager#add('atweiden/zig.vim', { 'branch': 'develop',
+                                       'type': 'opt' })
 
-  " --- end zig }}}
+  # --- end zig }}}
 
-  " end languages }}}
+  # end languages }}}
 
-  " colors
-  call packager#add('atweiden/seoul256.vim', { 'branch': 'fix-todo-hi' })
-  call packager#add('atweiden/preto.vim')
+  # colors
+  packager#add('atweiden/seoul256.vim', { 'branch': 'fix-todo-hi' })
+  packager#add('atweiden/preto.vim')
 
-  " color utilities
-  call packager#add('ntpeters/vim-better-whitespace')
-  call packager#add('mhinz/vim-hugefile')
-  call packager#add('nathanaelkane/vim-indent-guides', { 'type': 'opt' })
-  call packager#add('junegunn/rainbow_parentheses.vim', { 'type': 'opt' })
-  call packager#add('guns/xterm-color-table.vim', { 'type': 'opt' })
-endfunction
+  # color utilities
+  packager#add('ntpeters/vim-better-whitespace')
+  packager#add('mhinz/vim-hugefile')
+  packager#add('nathanaelkane/vim-indent-guides', { 'type': 'opt' })
+  packager#add('junegunn/rainbow_parentheses.vim', { 'type': 'opt' })
+  packager#add('guns/xterm-color-table.vim', { 'type': 'opt' })
+enddef
 
-command! PackagerSetup call PackagerSetup()
-command! PackagerInstall call PackagerSetup() | call packager#install()
-command! -bang PackagerUpdate call PackagerSetup() | call packager#update({ 'force_hooks': '<bang>' })
-command! PackagerClean call PackagerSetup() | call packager#clean()
-command! PackagerStatus call PackagerSetup() | call packager#status()
+command! PackagerSetup PackagerSetup()
+command! PackagerInstall PackagerSetup() | packager#install()
+command! -bang PackagerUpdate PackagerSetup() | packager#update({ 'force_hooks': '<bang>' })
+command! PackagerClean PackagerSetup() | packager#clean()
+command! PackagerStatus PackagerSetup() | packager#status()
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

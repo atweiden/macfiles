@@ -1,9 +1,11 @@
+vim9script
+
 setlocal dictionary=$CFGPATH/dict/fennel.dict
 setlocal iskeyword-=-
 
-function! s:HighlightKiwi() abort
-  " seoul256
-  if $GUI_RUNNING
+def HighlightKiwi(): void
+  # seoul256
+  if has('gui_running')
     highlight clear fennelKiwiKeyword
     highlight default link fennelKiwiKeyword Special
     highlight clear fennelKiwiDefKeyword
@@ -14,13 +16,13 @@ function! s:HighlightKiwi() abort
     highlight clear fennelKiwiDefKeyword
     highlight default link fennelKiwiDefKeyword rubyRegexp
   endif
-endfunction
+enddef
 
 augroup highlightkiwi
   autocmd!
-  autocmd ColorScheme * call <SID>HighlightKiwi()
+  autocmd ColorScheme * HighlightKiwi()
 augroup END
 
-call <SID>HighlightKiwi()
+HighlightKiwi()
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

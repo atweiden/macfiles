@@ -1,4 +1,6 @@
-" delete netrw buffer from buffer list when not displayed in window
+vim9script
+
+# delete netrw buffer from buffer list when not displayed in window
 setlocal bufhidden=delete
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

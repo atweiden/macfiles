@@ -1,4 +1,6 @@
-" facilitate lazy loading
+vim9script
+
+# facilitate lazy loading
 augroup loadundotree
   autocmd!
   autocmd User LoadUndotree ++once packadd undotree
@@ -10,4 +12,4 @@ nnoremap <silent> <F8> :UndotreeToggle<CR>
 inoremap <silent> <F8> <C-O>:UndotreeToggle<CR>
 vnoremap <silent> <F8> <ESC>:UndotreeToggle<CR>gv
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

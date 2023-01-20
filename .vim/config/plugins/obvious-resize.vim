@@ -1,7 +1,9 @@
-" resize windows 1 line at a time
-let g:obvious_resize_default = 1
+vim9script
 
-" use alt-{h,j,k,l} to resize windows
+# resize windows 1 line at a time
+g:obvious_resize_default = 1
+
+# use alt-{h,j,k,l} to resize windows
 nnoremap <silent> <M-h> :<C-U>ObviousResizeLeft<CR>
 inoremap <silent> <M-h> <C-O>:<C-U>ObviousResizeLeft<CR>
 vnoremap <silent> <M-h> <ESC>:<C-U>ObviousResizeLeft<CR>gv
@@ -23,4 +25,4 @@ vnoremap <silent> <M-l> <ESC>:<C-U>ObviousResizeRight<CR>gv
 cnoremap <silent> <M-l> <C-C>:<C-U>ObviousResizeRight<CR>
 tnoremap <silent> <M-l> <C-W>:<C-U>ObviousResizeRight<CR>
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

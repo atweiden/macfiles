@@ -1,7 +1,9 @@
-" text objects for select all sans kana/vim-textobj-entire
-for [s:k, s:m] in  [['aE', 'gg0VG$'], ['iE', 'gg^vGg_']]
-  execute 'onoremap <silent> ' . s:k . ' :normal! ' . s:m . '<CR>'
-  execute 'vnoremap <silent> ' . s:k . ' :normal! ' . s:m . '<CR>'
+vim9script
+
+# text objects for select all sans kana/vim-textobj-entire
+for [key, mapping] in  [['aE', 'gg0VG$'], ['iE', 'gg^vGg_']]
+  execute 'onoremap <silent> ' .. key .. ' :normal! ' .. mapping .. '<CR>'
+  execute 'vnoremap <silent> ' .. key .. ' :normal! ' .. mapping .. '<CR>'
 endfor
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

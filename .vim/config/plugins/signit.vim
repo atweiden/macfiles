@@ -1,11 +1,18 @@
-" add signature sans johannesthyssen/vim-signit
-let g:signature =<< END
+vim9script
+
+import autoload $VIMPATH .. '/autoload/home/strings_to_comment_block.vim' as strtocblk
+
+# add signature sans johannesthyssen/vim-signit
+g:signature =<< END
     dBPdBPdBP dBBBBBb
                    BB     Andy Weidenbaum
   dBPdBPdBP    dBP BB     https://ioiojo.com/
  dBPdBPdBP    dBP  BB     https://sr.ht/~ioiojo/
 dBBBBBBBP    dBBBBBBB
 END
-nnoremap <silent> <leader>S "=StringsToCommentBlock(g:signature, 4)<CR>p
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+g:StringsToCommentBlock = strtocblk.StringsToCommentBlock
+
+nnoremap <silent> <leader>S "=g:StringsToCommentBlock(g:signature, 4)<CR>p
+
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

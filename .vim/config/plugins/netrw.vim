@@ -1,25 +1,27 @@
-" suppress banner
-let g:netrw_banner = 0
+vim9script
 
-" don't generate .netrwhist files
-let g:netrw_dirhistmax = 0
+# suppress banner
+g:netrw_banner = 0
 
-" don't allow netrw to map gx for opener handling
-let g:netrw_nogx = 1
+# don't generate .netrwhist files
+g:netrw_dirhistmax = 0
 
-" do network file transfers silently
-let g:netrw_silent = 1
+# don't allow netrw to map gx for opener handling
+g:netrw_nogx = 1
 
-" use tree view
-let g:netrw_liststyle = 3
+# do network file transfers silently
+g:netrw_silent = 1
 
-" decrease default window size
-let g:netrw_winsize = '30'
+# use tree view
+g:netrw_liststyle = 3
 
-" open files in new vertical split
-let g:netrw_browse_split = 2
+# decrease default window size
+g:netrw_winsize = '30'
 
-" disable buffer reuse to reduce netrw bugs
-let g:netrw_fastbrowse = 0
+# open files in new vertical split
+g:netrw_browse_split = 2
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# disable buffer reuse to reduce netrw bugs
+g:netrw_fastbrowse = 0
+
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

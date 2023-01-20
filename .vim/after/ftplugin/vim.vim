@@ -1,3 +1,5 @@
+vim9script
+
 setlocal iskeyword-=#
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

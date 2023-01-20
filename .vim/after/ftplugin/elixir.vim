@@ -1,61 +1,68 @@
-function! s:LoadTboneCompletePanes(...) abort
+vim9script
+
+def LoadTboneCompletePanes(_): string
   silent doautocmd User LoadTbone
-  return tbone#complete_panes(a:000)
+  return tbone#complete_panes()
+enddef
+
+# test only selected lines with mix (see: `mix help test`)
+function MixTestOnly(...) range abort
+  let l:dest = get(a:, 1, '')
+  call <SID>DoMixTestOnly(l:dest, a:firstline, a:lastline)
 endfunction
 
-" test only selected lines with mix (see: `mix help test`)
-function! s:MixTestOnly(...) range abort
-  " check file is on disk
-  let l:path = expand('%:p')
-  if empty(l:path)
+def DoMixTestOnly(dest_pane: string, first_line: number, last_line: number): void
+  # check file is on disk
+  var path = expand('%:p')
+  if empty(path)
     return
   endif
 
-  " lazy load tpope/vim-tbone
+  # lazy load tpope/vim-tbone
   silent doautocmd User LoadTbone
 
-  " get destination pane
-  let l:dest = get(a:, 1, '')
-  if empty(l:dest)
-    call inputsave()
-    let l:dest = input('To which pane? ')
-    call inputrestore()
+  # get destination pane
+  var dest = dest_pane
+  if empty(dest)
+    inputsave()
+    dest = input('To which pane? ')
+    inputrestore()
   endif
 
-  " send to destination pane
-  let l:mix_cmd = printf('mix test %s:%d:%d', l:path, a:firstline, a:lastline)
+  # send to destination pane
+  var mix_cmd = printf('mix test %s:%d:%d', path, first_line, last_line)
   try
-    call tbone#send_keys(l:dest, l:mix_cmd . "\r")
+    tbone#send_keys(dest, mix_cmd .. "\r")
   catch /.*/
-    return 'echoerr ' . string(v:exception)
+    execute 'echoerr ' .. string(v:exception)
   endtry
-endfunction
+enddef
 
-command! -nargs=? -range -complete=custom,<SID>LoadTboneCompletePanes MixTestOnly <line1>,<line2>call <SID>MixTestOnly(<f-args>)
+command! -nargs=? -range -complete=custom,<SID>LoadTboneCompletePanes MixTestOnly :<line1>,<line2>call <SID>MixTestOnly(<f-args>)
 
 for m in ['n', 'x']
-  let gv = m == 'x' ? 'gv' : ''
-  execute m . "noremap <silent> <buffer> <localleader>tt :call <SID>MixTestOnly('')<CR>" . gv
-  execute m . "noremap <silent> <buffer> <localleader>th :call <SID>MixTestOnly('.left')<CR>" . gv
-  execute m . "noremap <silent> <buffer> <localleader>tj :call <SID>MixTestOnly('.bottom')<CR>" . gv
-  execute m . "noremap <silent> <buffer> <localleader>tk :call <SID>MixTestOnly('.top')<CR>" . gv
-  execute m . "noremap <silent> <buffer> <localleader>tl :call <SID>MixTestOnly('.right')<CR>" . gv
-  execute m . "noremap <silent> <buffer> <localleader>ty :call <SID>MixTestOnly('.top-left')<CR>" . gv
-  execute m . "noremap <silent> <buffer> <localleader>to :call <SID>MixTestOnly('.top-right')<CR>" . gv
-  execute m . "noremap <silent> <buffer> <localleader>tn :call <SID>MixTestOnly('.bottom-left')<CR>" . gv
-  execute m . "noremap <silent> <buffer> <localleader>t. :call <SID>MixTestOnly('.bottom-right')<CR>" . gv
+  var gv = m == 'x' ? 'gv' : ''
+  execute m .. "noremap <silent> <buffer> <localleader>tt :call <SID>MixTestOnly('')<CR>" .. gv
+  execute m .. "noremap <silent> <buffer> <localleader>th :call <SID>MixTestOnly('.left')<CR>" .. gv
+  execute m .. "noremap <silent> <buffer> <localleader>tj :call <SID>MixTestOnly('.bottom')<CR>" .. gv
+  execute m .. "noremap <silent> <buffer> <localleader>tk :call <SID>MixTestOnly('.top')<CR>" .. gv
+  execute m .. "noremap <silent> <buffer> <localleader>tl :call <SID>MixTestOnly('.right')<CR>" .. gv
+  execute m .. "noremap <silent> <buffer> <localleader>ty :call <SID>MixTestOnly('.top-left')<CR>" .. gv
+  execute m .. "noremap <silent> <buffer> <localleader>to :call <SID>MixTestOnly('.top-right')<CR>" .. gv
+  execute m .. "noremap <silent> <buffer> <localleader>tn :call <SID>MixTestOnly('.bottom-left')<CR>" .. gv
+  execute m .. "noremap <silent> <buffer> <localleader>t. :call <SID>MixTestOnly('.bottom-right')<CR>" .. gv
 endfor
 
-function! s:HighlightElixir() abort
+def HighlightElixir(): void
   highlight clear elixirDocTest
   highlight link elixirDocTest Comment
-endfunction
+enddef
 
 augroup highlightelixir
   autocmd!
-  autocmd ColorScheme * call <SID>HighlightElixir()
+  autocmd ColorScheme * HighlightElixir()
 augroup END
 
-call <SID>HighlightElixir()
+HighlightElixir()
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

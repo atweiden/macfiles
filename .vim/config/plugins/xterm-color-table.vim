@@ -1,4 +1,6 @@
-" facilitate lazy loading
+vim9script
+
+# facilitate lazy loading
 augroup loadxtermcolortable
   autocmd!
   autocmd User LoadXtermColorTable ++once packadd xterm-color-table.vim
@@ -11,4 +13,4 @@ command! TXtermColorTable :silent doautocmd User LoadXtermColorTable | TXtermCol
 command! EXtermColorTable :silent doautocmd User LoadXtermColorTable | EXtermColorTable
 command! OXtermColorTable :silent doautocmd User LoadXtermColorTable | OXtermColorTable
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:

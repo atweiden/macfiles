@@ -1,134 +1,120 @@
-" save fzf history in $VIMPATH
-let g:fzf_history_dir = $VIMPATH . '/.fzf-history'
+vim9script
 
-" jump to the existing window if possible
-let g:fzf_buffers_jump = 1
+# save fzf history in $VIMPATH
+g:fzf_history_dir = $VIMPATH .. '/.fzf-history'
 
-" default to using large, centered popup window
-let g:fzf_layout = {
-    \ 'window': {
-    \   'width': 1,
-    \   'height': 0.88,
-    \   'xoffset': 0.5,
-    \   'yoffset': 0.5,
-    \   'highlight': 'NonText',
-    \   'border': 'sharp'
-    \ }
-    \ }
+# jump to the existing window if possible
+g:fzf_buffers_jump = 1
 
-" use light colors for fzf running in gui vim
-if $GUI_RUNNING
-  let g:fzf_colors = {
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'bg+':     ['bg', 'Normal'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'fg':      ['bg', 'StatusLine'],
-      \ 'fg+':     ['bg', 'PmenuThumb'],
-      \ 'header':  ['fg', 'Comment'],
-      \ 'hl':      ['fg', 'Identifier'],
-      \ 'hl+':     ['bg', 'PmenuSel'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'spinner': ['fg', 'Label']
-      \ }
+# default to using large, centered popup window
+g:fzf_layout = { window: { width: 1,
+                           height: 0.88,
+                           xoffset: 0.5,
+                           yoffset: 0.5,
+                           highlight: 'NonText',
+                           border: 'sharp' } }
+
+# use light colors for fzf running in gui vim
+if has('gui_running')
+  g:fzf_colors = { 'bg':      ['bg', 'Normal'],
+                   'bg+':     ['bg', 'Normal'],
+                   'border':  ['fg', 'Ignore'],
+                   'fg':      ['bg', 'StatusLine'],
+                   'fg+':     ['bg', 'PmenuThumb'],
+                   'header':  ['fg', 'Comment'],
+                   'hl':      ['fg', 'Identifier'],
+                   'hl+':     ['bg', 'PmenuSel'],
+                   'info':    ['fg', 'PreProc'],
+                   'marker':  ['fg', 'Keyword'],
+                   'pointer': ['fg', 'Exception'],
+                   'prompt':  ['fg', 'Conditional'],
+                   'spinner': ['fg', 'Label'] }
 endif
 
-" preview files using highlight
-let g:fzf_files_options = printf('--preview "%s {} | head -%d"',
-    \ $VIMPATH . '/pack/packager/opt/fzf.vim/bin/preview.sh',
-    \ &lines)
+# preview files using highlight
+g:fzf_files_options = printf('--preview "%s {} | head -%d"',
+  $VIMPATH .. '/pack/packager/opt/fzf.vim/bin/preview.sh', &lines)
 
-" paint pleasant monotone statusline in fzf buffer
-" fixes disappearing statusline in main vim window
-function! s:FzfStatusLine() abort
+# paint pleasant monotone statusline in fzf buffer
+# fixes disappearing statusline in main vim window
+def FzfStatusLine(): void
   highlight fzf1 ctermbg=95 guibg=#DFFFFF
   setlocal statusline=%#fzf1#%{'\ '}
-endfunction
+enddef
 
 augroup fzfstatusline
   autocmd!
-  autocmd User FzfStatusLine call <SID>FzfStatusLine()
+  autocmd User FzfStatusLine FzfStatusLine()
 augroup END
 
-function! s:LoadFzf() abort
+def LoadFzf(): void
   packadd fzf
   packadd fzf.vim
-endfunction
+enddef
 
-" facilitate lazy loading
+# facilitate lazy loading
 augroup loadfzf
   autocmd!
-  autocmd User LoadFzf ++once call <SID>LoadFzf()
+  autocmd User LoadFzf ++once LoadFzf()
 augroup END
 
-function! s:FzfWordCompletion() abort
+def FzfWordCompletion(): string
   silent doautocmd User LoadFzf
-  return fzf#vim#complete(fzf#wrap({
-      \ 'source': printf('cat %s',
-      \                  empty(&dictionary)
-      \                    ? '/usr/share/dict/words'
-      \                    : join(split(&dictionary, ","), " ")),
-      \ 'window': {
-      \   'width': 0.2,
-      \   'height': 0.9,
-      \   'xoffset': 1,
-      \   'highlight': 'NonText',
-      \   'border': 'sharp'
-      \ }}))
-endfunction
+  var dictionaries = empty(&dictionary) ? "/usr/share/dict/words" : join(split(&dictionary, ","), " ")
+  return fzf#vim#complete(fzf#wrap({ source: printf('cat %s', dictionaries),
+                                     window: { width: 0.2,
+                                               height: 0.9,
+                                               xoffset: 1,
+                                               highlight: 'NonText',
+                                               border: 'sharp' } }))
+enddef
 
-" word completion using cat
-inoremap <expr> <C-X><C-K> <SID>FzfWordCompletion()
+# word completion using cat
+inoremap <expr> <C-X><C-K> FzfWordCompletion()
 
-function! s:FzfPathCompletion() abort
+def FzfPathCompletion(): string
   silent doautocmd User LoadFzf
-  return fzf#vim#complete(fzf#wrap({
-      \ 'source': 'fd --hidden',
-      \ 'window': {
-      \   'width': 0.9,
-      \   'height': 0.35,
-      \   'yoffset': 0.9,
-      \   'highlight': 'NonText',
-      \   'border': 'sharp'
-      \ }}))
-endfunction
+  return fzf#vim#complete(fzf#wrap({ source: 'fd --hidden',
+                                     window: { width: 0.9,
+                                               height: 0.35,
+                                               yoffset: 0.9,
+                                               highlight: 'NonText',
+                                               border: 'sharp' } }))
+enddef
 
-" path completion using fd
-inoremap <expr> <C-X><C-F> <SID>FzfPathCompletion()
+# path completion using fd
+inoremap <expr> <C-X><C-F> FzfPathCompletion()
 
-function s:FzfLineCompletion() abort
+def FzfLineCompletion(): string
   silent doautocmd User LoadFzf
-  return fzf#vim#complete(fzf#wrap({
-      \ 'source': 'rg -n ^ --color=always',
-      \ 'options': '--ansi --delimiter : --nth 3..',
-      \ 'prefix': '^.*$',
-      \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }
-      \ }))
-endfunction
+  return fzf#vim#complete(fzf#wrap({ source: 'rg -n ^ --color=always',
+                                     options: '--ansi --delimiter : --nth 3..',
+                                     prefix: '^.*$',
+                                     reducer: (lines) => join(split(lines[0], ':\zs')[2 : ], '') }))
+enddef
 
-" global line completion using rg (not just open buffers)
-inoremap <expr> <C-X><C-L> <SID>FzfLineCompletion()
+# global line completion using rg (not just open buffers)
+inoremap <expr> <C-X><C-L> FzfLineCompletion()
 
-" |:Rg| hidden files with global ignore config and preview window
-command! -bang -nargs=* Rg call fzf#vim#grep(join([
-    \ 'rg',
-    \ '--column',
-    \ '--line-number',
-    \ '--no-heading',
-    \ '--color=always',
-    \ '--smart-case',
-    \ '--hidden',
-    \ '--ignore-file $HOME/.config/search/ignore',
-    \ '--',
-    \ shellescape(<q-args>)
-    \ ], ' '),
-    \ 1,
-    \ fzf#vim#with_preview({ 'options': ['--info=inline'] }, 'down:60%'),
-    \ <bang>0)
+# |:Rg| hidden files with global ignore config and preview window
+command! -bang -nargs=* Rg fzf#vim#grep(join([
+  \ 'rg',
+  \ '--column',
+  \ '--line-number',
+  \ '--no-heading',
+  \ '--color=always',
+  \ '--smart-case',
+  \ '--hidden',
+  \ '--ignore-file $HOME/.config/search/ignore',
+  \ '--',
+  \ shellescape(<q-args>)
+  \ ], ' '),
+  \ 1,
+  \ fzf#vim#with_preview({ options: ['--info=inline'] }, 'down:60%'),
+  \ <bang>0
+  \ )
 
-" lazy loaded commands from junegunn/fzf.vim/plugin/fzf.vim
+# lazy loaded commands from junegunn/fzf.vim/plugin/fzf.vim
 command!      -bang -nargs=? -complete=dir FZFFiles       :silent doautocmd User LoadFzf | Files<bang> <args>
 command!      -bang -nargs=? FZFGitFiles                  :silent doautocmd User LoadFzf | GitFiles<bang> <args>
 command!      -bang -nargs=? FZFGFiles                    :silent doautocmd User LoadFzf | GFiles<bang> <args>
@@ -152,32 +138,32 @@ command! -bar -bang FZFMaps                               :silent doautocmd User
 command! -bar -bang FZFFiletypes                          :silent doautocmd User LoadFzf | Filetypes<bang>
 command!      -bang -nargs=* FZFHistory                   :silent doautocmd User LoadFzf | History<bang> <args>
 
-" search with rg from cwd
+# search with rg from cwd
 nnoremap <silent> <leader>/ :FZFRg<CR>
 
-" search prefixed by word under cursor with rg from cwd
+# search prefixed by word under cursor with rg from cwd
 nnoremap <silent> <leader>f :let @z = expand('<cword>')<CR>:FZFRg <C-R>z<CR>
 xnoremap <silent> <leader>f "zy:FZFRg <C-R>z<CR>
 
-" open files from cwd
+# open files from cwd
 nnoremap <silent> <leader>o :FZFFiles<CR>
 
-" select window
+# select window
 nnoremap <silent> <leader>O :FZFWindows<CR>
 
-" select buffer
+# select buffer
 nnoremap <silent> <leader>lz :FZFBuffers<CR>
 
-" search lines in current buffer
+# search lines in current buffer
 nnoremap <silent> <M-f> :FZFBLines<CR>
 
-" search lines in loaded buffers
+# search lines in loaded buffers
 nnoremap <silent> <M-F> :FZFLines<CR>
 
-" search marks
+# search marks
 nnoremap <silent> <M-m> :FZFMarks<CR>
 
-" select color scheme
+# select color scheme
 nnoremap <silent> <leader>lc :FZFColors<CR>
 
-" vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
+# vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
