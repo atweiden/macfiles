@@ -501,11 +501,11 @@ fi
 alias grep='grep --ignore-case --color=auto'
 alias egrep='grep --extended-regexp'
 alias fgrep='grep --fixed-strings'
-alias history\?='history | grep -v -E "grep|history\?" | grep "$@"'
+alias history\?='history | grep -v "history\?" | grep "$@"'
 alias ls\?='ls -1F | grep "$@"'
-alias ps\?='ps -a -x -f | grep -v grep | grep "$@"'
-alias pkg\?='brew list -1 | grep -v grep | grep "$@"'
-alias sysctl\?='sysctl -a 2>/dev/null | grep -v grep | grep "$@"'
+alias ps\?='ps -a -x -f | grep "$@"'
+alias pkg\?='brew list -1 | grep "$@"'
+alias sysctl\?='sysctl -a 2>/dev/null | grep "$@"'
 [[ -n "$_has_ack" ]] \
   && alias ack='ack \
       --ackrc=$HOME/.config/ack/ackrc'
