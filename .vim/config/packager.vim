@@ -13,7 +13,7 @@ def PackagerSetup(): void
   packager#add('talek/obvious-resize')
 
   # folds
-  packager#add('Harenome/vim-neatfoldtext')
+  packager#add('atweiden/vim-neatfoldtext')
 
   # filesystem
   packager#add('preservim/nerdtree', { 'type': 'opt' })
