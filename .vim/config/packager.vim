@@ -129,7 +129,7 @@ def PackagerSetup(): void
 
   # colors
   packager#add('atweiden/seoul256.vim', { 'branch': 'fix-todo-hi' })
-  packager#add('atweiden/preto.vim')
+  packager#add('atweiden/vim-preto')
 
   # color utilities
   packager#add('ntpeters/vim-better-whitespace')
