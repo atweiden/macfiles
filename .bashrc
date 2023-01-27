@@ -890,6 +890,12 @@ export HEX_HOME="$XDG_DATA_HOME/hex"
 export MIX_HOME="$XDG_DATA_HOME/mix"
 
 # --- end elixir }}}
+# --- fd {{{
+
+# needed for fd to use terminal colors
+export LS_COLORS=
+
+# --- end fd }}}
 # --- fzf {{{
 
 # use fd as default source for fzf, incl alt+c ctrl+t and ** completion
