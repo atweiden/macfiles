@@ -1,5 +1,8 @@
 vim9script
 
+# don't load vendored defaults.vim
+g:skip_defaults_vim = 1
+
 # disable unnecessary default plugins
 g:loaded_zip = 1
 g:loaded_zipPlugin = 1
