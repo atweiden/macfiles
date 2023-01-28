@@ -325,6 +325,13 @@ _has_ydl="$(command -v youtube-dl)"
 
 # --- history {{{
 
+# in order:
+#
+# - append new history lines entered in bash session to ~/.bash_history
+# - clear history for current shell, but don't delete ~/.bash_history
+# - read history file for current shell, append contents to history list
+#
+# has the effect of creating a "global" ~/.bash_history amongst shells
 export PROMPT_COMMAND='history -a; history -c; history -r'
 
 # --- end history }}}
