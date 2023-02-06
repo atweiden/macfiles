@@ -61,7 +61,6 @@ export LESSHISTFILE=-
 # --- end less }}}
 # --- locale {{{
 
-export LANG='en_US.UTF-8'
 export LC_ALL=
 
 # --- end locale }}}
