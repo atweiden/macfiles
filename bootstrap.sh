@@ -140,7 +140,7 @@ if ! [[ -d "$_packager_dst" ]]; then
   echo 'done.'
   echo -n 'Installing vim plugins... '
   vim \
-    -c 'call PackagerSetup()' \
+    -c 'PackagerSetup' \
     -c 'call packager#install({ "on_finish": "quitall" })' > \
     /dev/null 2>&1
   echo 'done.'
