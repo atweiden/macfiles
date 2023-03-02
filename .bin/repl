@@ -43,6 +43,7 @@ Language
   | elixir
   | erlang
   | fennel
+  | fsharp
   | janet
   | lisp | clozure | sbcl
   | lua | lua5.1 | lua5.2 | lua5.3 | lua5.4 | luajit
@@ -120,7 +121,7 @@ sanitize_input() {
   # encountered
   local _apology
   case "$_repl_lang" in
-    chicken|clozure|elixir|erlang|fennel|janet|lisp|lua|lua5.1|lua5.2|lua5.3|lua5.4|luajit|ocaml|racket|raku|sbcl|scheme)
+    chicken|clozure|elixir|erlang|fennel|fsharp|janet|lisp|lua|lua5.1|lua5.2|lua5.3|lua5.4|luajit|ocaml|racket|raku|sbcl|scheme)
       # proper repl language chosen, no action necessary
       ;;
     *)
@@ -203,6 +204,14 @@ case "$_repl_lang" in
     _repl_completions_file="$REPL_HOME/fennel/completions"
     _repl_history_file="$REPL_HOME/fennel/history"
     _repl_launch_command='fennel'
+    ;;
+  fsharp)
+    _file_extension='.fs'
+    _repl_completions_file="$REPL_HOME/fsharp/completions"
+    _repl_history_file="$REPL_HOME/fsharp/history"
+    _repl_launch_command='dotnet fsi --readline-'
+    _rlwrap_opts+=('--always-readline')
+    _rlwrap_opts+=('--no-children')
     ;;
   janet)
     _file_extension='.janet'
