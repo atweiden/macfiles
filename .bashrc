@@ -154,6 +154,12 @@ PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin'
 PATH="$HOME/.bin:$PATH"
 
 # --- end dotfiles }}}
+# --- dotnet {{{
+
+# add .NET Core SDK tools
+PATH="$HOME/.dotnet/tools:$PATH"
+
+# --- end dotnet }}}
 # --- curl {{{
 
 PATH="/usr/local/opt/curl/bin:$PATH"
@@ -290,6 +296,7 @@ _has_cargo="$(command -v cargo)"
 _has_colordiff="$(command -v colordiff)"
 _has_curl="$(command -v curl)"
 _has_diffr="$(command -v diffr)"
+_has_dotnet="$(command -v dotnet)"
 _has_exa="$(command -v exa)"
 _has_fd="$(command -v fd)"
 _has_gdb="$(command -v gdb)"
@@ -890,6 +897,13 @@ if [[ -n "$_has_diffr" ]]; then
 fi
 
 # --- end diffr }}}
+# --- dotnet {{{
+
+if [[ -n "$_has_dotnet" ]]; then
+  export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
+fi
+
+# --- end dotnet }}}
 # --- elixir {{{
 
 export HEX_HOME="$XDG_DATA_HOME/hex"
