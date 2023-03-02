@@ -296,7 +296,6 @@ _has_cargo="$(command -v cargo)"
 _has_colordiff="$(command -v colordiff)"
 _has_curl="$(command -v curl)"
 _has_diffr="$(command -v diffr)"
-_has_dotnet="$(command -v dotnet)"
 _has_exa="$(command -v exa)"
 _has_fd="$(command -v fd)"
 _has_gdb="$(command -v gdb)"
@@ -899,9 +898,7 @@ fi
 # --- end diffr }}}
 # --- dotnet {{{
 
-if [[ -n "$_has_dotnet" ]]; then
-  export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
-fi
+export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
 
 # --- end dotnet }}}
 # --- elixir {{{
