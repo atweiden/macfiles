@@ -1,0 +1,8 @@
+[edit]
+up: prev-line
+down: next-line
+
+[read-line]
+tab: complete-bar
+C-p: complete-bar-prev
+C-n: complete-bar-next
