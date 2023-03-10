@@ -7,9 +7,9 @@
 # ==============================================================================
 # constants {{{
 
-# $REPL_HOME contains path to directory for files produced through the
-# use of this script
-readonly REPL_HOME="$HOME/.config/repl"
+# $REPL_STATE_HOME contains path to directory in which to store saved
+# rlwrap completions and command history
+readonly REPL_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}/repl"
 
 # $REPL_LANG_DEFAULT contains language with which to launch repl in
 # by default
@@ -177,22 +177,22 @@ case "$_repl_lang" in
     _file_extension='.lisp'
     _is_kebab_case=true
     _is_lisp=true
-    _repl_completions_file="$REPL_HOME/lisp/clozure/completions"
-    _repl_history_file="$REPL_HOME/lisp/clozure/history"
+    _repl_completions_file="$REPL_STATE_HOME/lisp/clozure/completions"
+    _repl_history_file="$REPL_STATE_HOME/lisp/clozure/history"
     _repl_launch_command='ccl64'
     ;;
   elixir)
     _file_extension='.ex'
-    _repl_completions_file="$REPL_HOME/elixir/completions"
-    _repl_history_file="$REPL_HOME/elixir/history"
+    _repl_completions_file="$REPL_STATE_HOME/elixir/completions"
+    _repl_history_file="$REPL_STATE_HOME/elixir/history"
     _repl_launch_command='iex'
     _rlwrap_opts+=('--ansi-colour-aware')
     _rlwrap_opts+=('--always-readline')
     ;;
   erlang)
     _file_extension='.erl'
-    _repl_completions_file="$REPL_HOME/erlang/completions"
-    _repl_history_file="$REPL_HOME/erlang/history"
+    _repl_completions_file="$REPL_STATE_HOME/erlang/completions"
+    _repl_history_file="$REPL_STATE_HOME/erlang/history"
     _repl_launch_command='erl'
     _rlwrap_opts+=('--ansi-colour-aware')
     _rlwrap_opts+=('--always-readline')
@@ -201,14 +201,14 @@ case "$_repl_lang" in
     _file_extension='.fnl'
     _is_kebab_case=true
     _is_lisp=true
-    _repl_completions_file="$REPL_HOME/fennel/completions"
-    _repl_history_file="$REPL_HOME/fennel/history"
+    _repl_completions_file="$REPL_STATE_HOME/fennel/completions"
+    _repl_history_file="$REPL_STATE_HOME/fennel/history"
     _repl_launch_command='fennel'
     ;;
   fsharp)
     _file_extension='.fs'
-    _repl_completions_file="$REPL_HOME/fsharp/completions"
-    _repl_history_file="$REPL_HOME/fsharp/history"
+    _repl_completions_file="$REPL_STATE_HOME/fsharp/completions"
+    _repl_history_file="$REPL_STATE_HOME/fsharp/history"
     _repl_launch_command='dotnet fsi --readline-'
     _rlwrap_opts+=('--always-readline')
     _rlwrap_opts+=('--no-children')
@@ -217,93 +217,93 @@ case "$_repl_lang" in
     _file_extension='.janet'
     _is_kebab_case=true
     _is_lisp=true
-    _repl_completions_file="$REPL_HOME/janet/completions"
-    _repl_history_file="$REPL_HOME/janet/history"
+    _repl_completions_file="$REPL_STATE_HOME/janet/completions"
+    _repl_history_file="$REPL_STATE_HOME/janet/history"
     _repl_launch_command='janet -s'
     ;;
   lisp|sbcl)
     _file_extension='.lisp'
     _is_kebab_case=true
     _is_lisp=true
-    _repl_completions_file="$REPL_HOME/lisp/sbcl/completions"
-    _repl_history_file="$REPL_HOME/lisp/sbcl/history"
+    _repl_completions_file="$REPL_STATE_HOME/lisp/sbcl/completions"
+    _repl_history_file="$REPL_STATE_HOME/lisp/sbcl/history"
     _repl_launch_command='sbcl'
     ;;
   lua)
     _file_extension='.lua'
-    _repl_completions_file="$REPL_HOME/lua/lua/completions"
-    _repl_history_file="$REPL_HOME/lua/lua/history"
+    _repl_completions_file="$REPL_STATE_HOME/lua/lua/completions"
+    _repl_history_file="$REPL_STATE_HOME/lua/lua/history"
     _repl_launch_command='lua'
     _rlwrap_opts+=('--always-readline')
     _rlwrap_opts+=('--no-children')
     ;;
   lua5.1)
     _file_extension='.lua'
-    _repl_completions_file="$REPL_HOME/lua/lua5.1/completions"
-    _repl_history_file="$REPL_HOME/lua/lua5.1/history"
+    _repl_completions_file="$REPL_STATE_HOME/lua/lua5.1/completions"
+    _repl_history_file="$REPL_STATE_HOME/lua/lua5.1/history"
     _repl_launch_command='lua5.1'
     _rlwrap_opts+=('--always-readline')
     _rlwrap_opts+=('--no-children')
     ;;
   lua5.2)
     _file_extension='.lua'
-    _repl_completions_file="$REPL_HOME/lua/lua5.2/completions"
-    _repl_history_file="$REPL_HOME/lua/lua5.2/history"
+    _repl_completions_file="$REPL_STATE_HOME/lua/lua5.2/completions"
+    _repl_history_file="$REPL_STATE_HOME/lua/lua5.2/history"
     _repl_launch_command='lua5.2'
     _rlwrap_opts+=('--always-readline')
     _rlwrap_opts+=('--no-children')
     ;;
   lua5.3)
     _file_extension='.lua'
-    _repl_completions_file="$REPL_HOME/lua/lua5.3/completions"
-    _repl_history_file="$REPL_HOME/lua/lua5.3/history"
+    _repl_completions_file="$REPL_STATE_HOME/lua/lua5.3/completions"
+    _repl_history_file="$REPL_STATE_HOME/lua/lua5.3/history"
     _repl_launch_command='lua5.3'
     _rlwrap_opts+=('--always-readline')
     _rlwrap_opts+=('--no-children')
     ;;
   lua5.4)
     _file_extension='.lua'
-    _repl_completions_file="$REPL_HOME/lua/lua5.4/completions"
-    _repl_history_file="$REPL_HOME/lua/lua5.4/history"
+    _repl_completions_file="$REPL_STATE_HOME/lua/lua5.4/completions"
+    _repl_history_file="$REPL_STATE_HOME/lua/lua5.4/history"
     _repl_launch_command='lua5.4'
     _rlwrap_opts+=('--always-readline')
     _rlwrap_opts+=('--no-children')
     ;;
   luajit)
     _file_extension='.lua'
-    _repl_completions_file="$REPL_HOME/lua/luajit/completions"
-    _repl_history_file="$REPL_HOME/lua/luajit/history"
+    _repl_completions_file="$REPL_STATE_HOME/lua/luajit/completions"
+    _repl_history_file="$REPL_STATE_HOME/lua/luajit/history"
     _repl_launch_command='luajit'
     _rlwrap_opts+=('--always-readline')
     _rlwrap_opts+=('--no-children')
     ;;
   ocaml)
     _file_extension='.ml'
-    _repl_completions_file="$REPL_HOME/ocaml/completions"
-    _repl_history_file="$REPL_HOME/ocaml/history"
+    _repl_completions_file="$REPL_STATE_HOME/ocaml/completions"
+    _repl_history_file="$REPL_STATE_HOME/ocaml/history"
     _repl_launch_command='ocaml'
     ;;
   racket)
     _file_extension='.rkt'
     _is_kebab_case=true
     _is_lisp=true
-    _repl_completions_file="$REPL_HOME/racket/completions"
-    _repl_history_file="$REPL_HOME/racket/history"
+    _repl_completions_file="$REPL_STATE_HOME/racket/completions"
+    _repl_history_file="$REPL_STATE_HOME/racket/history"
     _repl_launch_command='racket --repl'
     ;;
   raku)
     _file_extension='.raku'
     _is_kebab_case=true
-    _repl_completions_file="$REPL_HOME/raku/completions"
-    _repl_history_file="$REPL_HOME/raku/history"
+    _repl_completions_file="$REPL_STATE_HOME/raku/completions"
+    _repl_history_file="$REPL_STATE_HOME/raku/history"
     _repl_launch_command='raku'
     ;;
   scheme|chicken)
     _file_extension='.scm'
     _is_kebab_case=true
     _is_lisp=true
-    _repl_completions_file="$REPL_HOME/scheme/chicken/completions"
-    _repl_history_file="$REPL_HOME/scheme/chicken/history"
+    _repl_completions_file="$REPL_STATE_HOME/scheme/chicken/completions"
+    _repl_history_file="$REPL_STATE_HOME/scheme/chicken/history"
     _repl_launch_command='csi -quiet'
     ;;
 esac
