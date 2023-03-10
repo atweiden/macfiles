@@ -309,7 +309,6 @@ _has_gwhich="$(command -v gwhich)"
 _has_icdiff="$(command -v icdiff)"
 _has_iex="$(command -v iex)"
 _has_irb="$(command -v irb)"
-_has_irssi="$(command -v irssi)"
 _has_locate="$(command -v glocate)"
 _has_lynx="$(command -v lynx)"
 _has_mosh="$(command -v mosh)"
@@ -548,14 +547,6 @@ fi
 alias info='info --vi-keys'
 
 # --- end info }}}
-# --- irssi {{{
-
-[[ -n "$_has_irssi" ]] \
-  && alias irssi='irssi \
-    --config=$HOME/.config/irssi/config \
-    --home=$HOME/.config/irssi'
-
-# --- end irssi }}}
 # --- path {{{
 
 alias path='echo -e ${PATH//:/\\n}'

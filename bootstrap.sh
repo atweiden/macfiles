@@ -11,7 +11,6 @@ Usage:
   ./bootstrap.sh [-n|--name <name>]
                  [-e|--email <email>]
                  [-g|--github <github>]
-                 [-i|--irssi <irssi>]
 
 Options:
   -h, --help
@@ -22,8 +21,6 @@ Options:
     set email address (defaults to "$USER@$HOSTNAME")
   -g, --github <github>
     set GitHub username (defaults to "$USER")
-  -i, --irssi <irssi>
-    set irssi username (defaults to "$USER")
 EOF
 echo "$_usage_string"
 }
@@ -50,11 +47,6 @@ while [[ $# -gt 0 ]]; do
       shift
       shift
       ;;
-    -i|--irssi)
-      _irssi="$2"
-      shift
-      shift
-      ;;
     *)
       # unknown option
       _usage_function
@@ -74,8 +66,6 @@ name="${_name:-$USER}"
 email="${_email:-$USER@$HOSTNAME}"
 # e.g. atweiden (for github)
 github="${_github:-$USER}"
-# e.g. atweiden (for irc)
-irssi="${_irssi:-$USER}"
 
 
 # -----------------------------------------------------------------------------
@@ -157,13 +147,6 @@ gsed -i "s#githubusername#$github#" "$HOME/.config/git/config"
 gsed -i "s#yourname#$name#"         "$HOME/.config/hg/hgrc"
 gsed -i "s#youremail#$email#"       "$HOME/.config/hg/hgrc"
 gsed -i "s#githubusername#$github#" "$HOME/.ssh/config"
-
-
-# -----------------------------------------------------------------------------
-# irssi
-# -----------------------------------------------------------------------------
-
-gsed -i "s#yourname#$irssi#"        "$HOME/.config/irssi/config"
 
 
 # -----------------------------------------------------------------------------
