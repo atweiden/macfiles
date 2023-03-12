@@ -823,6 +823,8 @@
 --ignore-directory=is:node_modules
 
 # ocaml byproducts created by compiler toolchain or opam
+--ignore-directory=is:_coverage
+--ignore-directory=is:_esy
 --ignore-directory=is:_opam
 --ignore-file=ext:annot
 --ignore-file=ext:byte
@@ -857,9 +859,6 @@
 
 # raku precompiled modules
 --ignore-directory=is:.precomp
-
-# reason native build artefacts created by esy
---ignore-directory=is:_esy
 
 # zig build artefacts
 --ignore-directory=is:zig-cache

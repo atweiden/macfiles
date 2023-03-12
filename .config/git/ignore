@@ -254,13 +254,8 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 *.pid.lock
 *.tsbuildinfo
 
-# Python
-*.egg
-
-# Raku
-.precomp/
-
-# Reason
+# OCaml
+_coverage/
 _esy/
 _opam/
 .bsb.lock
@@ -274,6 +269,12 @@ _opam/
 *.cmxa
 *.cmxs
 *.native
+
+# Python
+*.egg
+
+# Raku
+.precomp/
 
 # Ruby
 *.gem

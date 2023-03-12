@@ -177,8 +177,7 @@ web_modules/
 *.lcov
 *.pid
 *.pid.lock
-*.egg
-.precomp/
+_coverage/
 _esy/
 _opam/
 *.annot
@@ -190,5 +189,7 @@ _opam/
 *.cmxa
 *.cmxs
 *.native
+*.egg
+.precomp/
 zig-cache/
 zig-out/
