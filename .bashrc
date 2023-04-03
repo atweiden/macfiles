@@ -171,16 +171,6 @@ PATH="/usr/local/opt/curl/bin:$PATH"
 PATH="$HOME/.vim/pack/packager/opt/fzf/bin:$PATH"
 
 # --- end fzf }}}
-# --- gambit {{{
-
-PATH="/usr/local/opt/gambit-scheme/current/bin:$PATH"
-
-# --- end gambit }}}
-# --- gerbil {{{
-
-PATH="/usr/local/opt/gerbil-scheme/libexec/bin:$PATH"
-
-# --- end gerbil }}}
 # --- gettext {{{
 
 PATH="/usr/local/opt/gettext/bin:$PATH"
@@ -943,12 +933,6 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' \
   && source "$HOME/.fzf-extras/fzf-extras.sh"
 
 # --- end fzf }}}
-# --- gerbil {{{
-
-export GERBIL_GSC='/usr/local/opt/gambit-scheme/current/bin/gsc'
-export GERBIL_HOME='/usr/local/opt/gerbil-scheme/libexec'
-
-# --- end gerbil }}}
 # --- go {{{
 
 export GOPATH="$HOME/.go"
