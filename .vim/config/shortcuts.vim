@@ -117,12 +117,6 @@ vnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>P "+P
 
-# paste from clipboard holding cursor position steady
-nnoremap <leader><leader>p mz"+p`z
-vnoremap <leader><leader>p mz"+p`z
-nnoremap <leader><leader>P mz"+P`z
-vnoremap <leader><leader>P mz"+P`z
-
 # end pasting }}}
 # formatting and whitespace {{{
 
