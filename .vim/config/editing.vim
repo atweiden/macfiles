@@ -200,6 +200,7 @@ set wildignore+=*.plt
 set wildignore+=*.test
 set wildignore+=paket.lock
 set wildignore+=go.sum
+set wildignore+=jpm_tree/
 set wildignore+=lua_modules/
 set wildignore+=nimcache/
 set wildignore+=nimblecache/

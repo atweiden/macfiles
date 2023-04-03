@@ -1083,6 +1083,12 @@ fi
 FIGNORE="$FIGNORE:o.sum"
 
 # --- end go }}}
+# --- janet {{{
+
+# don't shell-complete jpm_tree
+FIGNORE="$FIGNORE:pm_tree"
+
+# --- end janet }}}
 # --- js {{{
 
 # don't shell-complete bower_components

@@ -16,6 +16,7 @@ ebin/
 _build/
 _checkouts/
 .rebar3/
+jpm_tree/
 lua_modules/
 nimcache/
 nimblecache/

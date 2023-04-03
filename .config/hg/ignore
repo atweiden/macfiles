@@ -217,6 +217,9 @@ erl_crash.dump
 *.beam
 *.plt
 
+# Janet
+jpm_tree/
+
 # Lua
 lua_modules/
 

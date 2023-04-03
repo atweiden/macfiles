@@ -780,6 +780,9 @@
 # https://www.haskell.org/cabal/users-guide/installing-packages.html
 --ignore-directory=is:.cabal-sandbox
 
+# janet modules installed locally
+--ignore-directory=is:jpm_tree
+
 # java ecosystem compiled/cached files
 --ignore-directory=is:.cpcache
 --ignore-directory=is:.lein-plugins
