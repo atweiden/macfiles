@@ -1,6 +1,6 @@
 vim9script
 
-import autoload $VIMPATH .. '/autoload/home/strings_to_comment_block.vim' as strtocblk
+import autoload $ALDPATH .. '/strings_to_comment_block.vim' as strtocblk
 
 # add signature sans johannesthyssen/vim-signit
 g:signature =<< END
