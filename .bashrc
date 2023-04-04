@@ -465,6 +465,7 @@ alias bzip2='bzip2 -9'
 # --- git {{{
 
 if [[ -n "$_has_git" ]]; then
+  alias git='TZ=UTC git'
   alias g='git'
   alias gc='git commit'
   alias gca='git commit --all'
