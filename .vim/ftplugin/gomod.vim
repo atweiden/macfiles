@@ -1,6 +1,6 @@
 vim9script
 
-# keep synced with gomod.vim
+# keep synced with go.vim
 
 # don't install go binaries on startup
 g:go_disable_autoinstall = 1
