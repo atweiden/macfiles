@@ -7,10 +7,7 @@
 set -o pipefail
 
 main() {
-  drill -V 3 myip.opendns.com @resolver1.opendns.com 2>/dev/null \
-    | grep IN \
-    | tail -n 1 \
-    | cut -f5 -s
+  dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com | tr -d '=["]='
 }
 
 main
