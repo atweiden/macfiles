@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# git-copr: checkout github or gitlab pull request by number
+#
+# USAGE:
+#   git clone https://github.com/void-linux/void-packages
+#   cd void-packages
+#   git copr 43779
+# ----------------------------------------------------------------------------
+
+# duplicate lines needed to be compatible with both github and gitlab
+git fetch -q origin "pull/$*/head" 2>/dev/null \
+  || git fetch -q upstream "pull/$*/head" 2>/dev/null \
+  || git fetch -q origin "merge-requests/$*/head" 2>/dev/null \
+  || git fetch -q upstream "merge-requests/$*/head" \
+  && git checkout FETCH_HEAD
