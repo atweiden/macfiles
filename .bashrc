@@ -314,6 +314,7 @@ _has_tree="$(command -v tree)"
 _has_vim="$(command -v vim)"
 _has_wget="$(command -v wget)"
 _has_ydl="$(command -v youtube-dl)"
+_has_ytdlp="$(command -v yt-dlp)"
 
 # end presence }}}
 # ==============================================================================
@@ -827,6 +828,19 @@ if [[ -n "$_has_ydl" ]]; then
   alias ydl-720p='youtube-dl \
     --format "bestvideo[height<=720]+bestaudio/best[height<=720]"'
   alias ydl-1080p='youtube-dl \
+    --format "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
+fi
+
+if [[ -n "$_has_ytdlp" ]]; then
+  alias yt-dlp-240p='yt-dlp \
+    --format "bestvideo[height<=240]+bestaudio/best[height<=240]"'
+  alias yt-dlp-360p='yt-dlp \
+    --format "bestvideo[height<=360]+bestaudio/best[height<=360]"'
+  alias yt-dlp-480p='yt-dlp \
+    --format "bestvideo[height<=480]+bestaudio/best[height<=480]"'
+  alias yt-dlp-720p='yt-dlp \
+    --format "bestvideo[height<=720]+bestaudio/best[height<=720]"'
+  alias yt-dlp-1080p='yt-dlp \
     --format "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
 fi
 
