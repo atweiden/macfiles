@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# retry-until-success: keep executing command until it succeeds
+# ----------------------------------------------------------------------------
+
+# ensure command is provided
+if [[ "$#" -eq '0' ]]; then
+  echo "No command provided. Usage: $0 <command>"
+  exit 1
+fi
+
+# execute command until it succeeds
+while ! "$@"; do
+  echo "Command failed, retrying..."
+  # pause between attempts
+  # avoids using too much cpu if command quickly fails each time
+  sleep 1
+done
+
+echo "Command succeeded."
