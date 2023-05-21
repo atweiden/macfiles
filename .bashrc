@@ -1015,6 +1015,12 @@ export RLWRAP_HOME="$HOME/.config/rlwrap"
 export RLWRAP_EDITOR="vim '+call cursor(%L,%C)'"
 
 # --- end rlwrap }}}
+# --- rtx {{{
+
+# disable update checks
+export RTX_HIDE_UPDATE_WARNING=1
+
+# --- end rtx }}}
 # --- ruby {{{
 
 export IRBRC="$HOME/.config/irb/irbrc"
