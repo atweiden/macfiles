@@ -48,6 +48,7 @@ augroup lazylanguages
   autocmd User LoadRaku ++once packadd vim-raku
   autocmd User LoadRust ++once packadd rust.vim
   autocmd User LoadToml ++once packadd vim-toml
+  autocmd User LoadTypst ++once packadd typst.vim
   autocmd User LoadZig ++once packadd zig.vim
 augroup END
 
@@ -179,6 +180,10 @@ augroup languages
 
   # txn
   autocmd BufNewFile,BufRead *.txn setlocal filetype=txn
+
+  # typst
+  autocmd BufReadPre,FileReadPre *.typ silent doautocmd User LoadTypst
+  autocmd FileType typst silent doautocmd User LoadTypst
 
   # xbps
   autocmd BufReadCmd *.xbps tar#Browse(expand("<amatch>"))

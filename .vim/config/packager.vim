@@ -123,6 +123,11 @@ def PackagerSetup(): void
   packager#add('cespare/vim-toml', { 'type': 'opt' })
 
   # --- end toml }}}
+  # --- typst {{{
+
+  packager#add('kaarmu/typst.vim', { 'type': 'opt' })
+
+  # --- end typst }}}
   # --- zig {{{
 
   packager#add('atweiden/zig.vim', { 'branch': 'develop',
