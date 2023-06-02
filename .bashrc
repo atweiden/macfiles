@@ -1017,6 +1017,9 @@ export RLWRAP_EDITOR="vim '+call cursor(%L,%C)'"
 # --- end rlwrap }}}
 # --- rtx {{{
 
+export RTX_DATA_DIR="$XDG_DATA_HOME/rtx"
+export RTX_CACHE_DIR="$XDG_CACHE_HOME/rtx"
+export RTX_CONFIG_FILE="$XDG_CONFIG_HOME/rtx/config.toml"
 # disable update checks
 export RTX_HIDE_UPDATE_WARNING=1
 

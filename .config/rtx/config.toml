@@ -1,0 +1,5 @@
+[settings]
+# disable reading version files from other version managers
+legacy_version_file = false
+# disable plugin auto-update
+plugin_autoupdate_last_check_duration = '0s'
