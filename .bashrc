@@ -954,7 +954,10 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' \
 export GOPATH="$HOME/.go"
 export GOCACHE="$GOPATH/cache"
 export GOENV="$GOPATH/env"
+# don't connect to google module mirror
 export GOPROXY="direct"
+# don't connect to google checksum database (WARN: disables checksums)
+#export GOSUMDB="off"
 
 # --- end go }}}
 # --- gpg {{{
