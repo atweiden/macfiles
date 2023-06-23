@@ -958,6 +958,8 @@ export GOENV="$GOPATH/env"
 export GOPROXY="direct"
 # don't connect to google checksum database (WARN: disables checksums)
 #export GOSUMDB="off"
+# don't silently download alternate go toolchains
+export GOTOOLCHAIN="local"
 
 # --- end go }}}
 # --- gpg {{{
