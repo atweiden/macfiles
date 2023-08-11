@@ -18,7 +18,7 @@
                          :netrwPlugin
                          :netrwSettings
                          :netrwFileHandlers])]
-  (set (. :vim :g (.. "loaded_" plugin)) 1))
+  (tset vim.g (.. "loaded_" plugin) 1))
 
 ;; don't use spacebar to push cursor right
 (vim.keymap.set [:n :v] "<space>" "<nop>" {:noremap true})
