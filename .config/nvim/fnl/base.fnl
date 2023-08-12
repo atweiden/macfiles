@@ -51,40 +51,51 @@
 (set vim.opt.nomodeline true)
 
 ;; switching buffers
-(set vim.opt.switchbuf "useopen,usetab,newtab")
-;                       |       |      |
-;                       |       |      +-------- Prefer opening quickfix windows in new tabs
-;                       |       +--------------- Consider windows in other tab pages wrt useopen
-;                       +----------------------- Jump to first open window with specified buffer
+(set vim.opt.switchbuf [;; jump to first open window with specified buffer
+                        :useopen
+                        ;; consider windows in other tab pages wrt useopen
+                        :usetab
+                        ;; prefer opening quickfix windows in new tabs
+                        :newtab])
 
 ;; save and restore session data
-(set vim.opt.sessionoptions "blank,buffers,curdir,folds")
-;                            |     |       |      |
-;                            |     |       |      +------- Manually created folds, opened/closed folds, local fold options
-;                            |     |       +-------------- The current directory
-;                            |     +---------------------- Hidden and unloaded buffers
-;                            +---------------------------- Empty windows
-(: vim.opt.sessionoptions :append "globals,help,localoptions,options")
-;                                  |       |    |            |
-;                                  |       |    |            +--------- All options and mappings, global values for local options
-;                                  |       |    +---------------------- Options and mappings local to a window or buffer
-;                                  |       +--------------------------- The help window
-;                                  +----------------------------------- Global variables that start with an uppercase letter and contain at least one lowercase letter
-(: vim.opt.sessionoptions :append "resize,tabpages,winpos,winsize")
-;                                  |      |        |      |
-;                                  |      |        |      +--------- Window sizes
-;                                  |      |        +---------------- Position of Vim window
-;                                  |      +------------------------- All tab pages
-;                                  +-------------------------------- Size of Vim window
+(set vim.opt.sessionoptions [;; empty windows
+                             :blank
+                             ;; hidden and unloaded buffers
+                             :buffers
+                             ;; the current directory
+                             :curdir
+                             ;; manually created folds, opened/closed folds, local fold options
+                             :folds
+                             ;; global variables that start with an uppercase letter and contain
+                             ;; at least one lowercase letter
+                             :globals
+                             ;; the help window
+                             :help
+                             ;; options and mappings local to a window or buffer
+                             :localoptions
+                             ;; all options and mappings, global values for local options
+                             :options
+                             ;; size of vim window
+                             :resize
+                             ;; all tab pages
+                             :tabpages
+                             ;; position of vim window
+                             :winpos
+                             ;; window sizes
+                             :winsize])
 
 ;; configure ShaDa then read from it
-(set vim.opt.shada "'100,<50,s10,h,!")
-;                    |    |   |   | |
-;                    |    |   |   | +--- Save and restore all-uppercase global variables
-;                    |    |   |   +----- Don't restore hlsearch on startup
-;                    |    |   +--------- Exclude registers greater than N Kb
-;                    |    +------------- Keep N lines for each register
-;                    +------------------ Keep marks for N files
+(set vim.opt.shada [;; keep marks for n files
+                    "'100"
+                    ;; keep n lines for each register
+                    "<50"
+                    ;; exclude registers greater than n kb
+                    "s10"
+                    ;; don't restore hlsearch on startup
+                    "h"
+                    ;; save and restore all-uppercase global variables
+                    "!"])
 (if (= (vim.fn.filereadable (.. (vim.fn.stdpath "data") "/main.shada")) 1) (vim.cmd.rshada))
 
 ;; never write or update the contents of any buffer unless we say so
@@ -96,7 +107,7 @@
 (set vim.opt.fileformat "unix")
 
 ;; read unix, dos and mac file formats
-(set vim.opt.fileformats "unix,dos,mac")
+(set vim.opt.fileformats [:unix :dos :mac])
 
 ;; save undo history to an undo file
 (set vim.opt.undofile true)
