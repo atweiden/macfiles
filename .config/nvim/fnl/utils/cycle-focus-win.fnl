@@ -62,5 +62,3 @@
       2 (b-c)
       3 (c-d)
       4 (d-a))))
-
-cycle-focus-win
