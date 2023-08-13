@@ -57,7 +57,7 @@
               (set vim.opt.relativenumber true)
               (disable-left-padding)
               (set vim.g.focuswinstate 1))]
-    (case (vim.fn.get vim.g "focuswinstate" 1)
+    (case (vim.fn.get vim.g :focuswinstate 1)
       1 (a-b)
       2 (b-c)
       3 (c-d)
