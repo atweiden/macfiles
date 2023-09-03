@@ -349,7 +349,7 @@ export PS1
 
 # --- bash {{{
 
-alias incognito=' unset HISTFILE'
+alias incognito=' unset HISTFILE; set +o history'
 alias ,='clear'
 
 # --- end bash }}}
