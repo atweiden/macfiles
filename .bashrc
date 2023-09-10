@@ -288,7 +288,7 @@ _has_cargo="$(command -v cargo)"
 _has_colordiff="$(command -v colordiff)"
 _has_curl="$(command -v curl)"
 _has_diffr="$(command -v diffr)"
-_has_exa="$(command -v exa)"
+_has_eza="$(command -v eza)"
 _has_fd="$(command -v fd)"
 _has_gdb="$(command -v gdb)"
 _has_git="$(command -v git)"
@@ -386,8 +386,8 @@ fi
 # --- end diff }}}
 # --- directory navigation {{{
 
-if [[ -n "$_has_exa" ]]; then
-  alias ls='exa \
+if [[ -n "$_has_eza" ]]; then
+  alias ls='eza \
     --classify \
     --color=auto \
     --group-directories-first \
@@ -397,7 +397,7 @@ if [[ -n "$_has_exa" ]]; then
   alias l1='ls --all --oneline'
   alias la='ls --all --all'
   alias ll='ls --all --all --binary --group --inode --links --long'
-  alias tree='exa \
+  alias tree='eza \
     --color=always \
     --git-ignore \
     --group-directories-first \
