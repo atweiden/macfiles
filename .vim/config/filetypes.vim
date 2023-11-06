@@ -189,9 +189,8 @@ augroup languages
   autocmd BufReadCmd *.xbps tar#Browse(expand("<amatch>"))
 
   # zig
-  autocmd BufReadPre,FileReadPre *.zig,*.zir silent doautocmd User LoadZig
+  autocmd BufReadPre,FileReadPre *.zig,*.zon silent doautocmd User LoadZig
   autocmd FileType zig silent doautocmd User LoadZig
-  autocmd FileType zir silent doautocmd User LoadZig
 augroup END
 
 # vim: set filetype=vim foldmethod=marker foldlevel=0 nowrap:
