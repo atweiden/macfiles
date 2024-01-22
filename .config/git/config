@@ -216,6 +216,10 @@
   url = config remote.origin.url
 
   # function
+  # create derivative commit message with added citation
+  cite-commit-message = "!f() { git show-commit-message $1; printf '\\n'$2$1; }; f"
+  # create derivative commit message citing void-linux/void-packages
+  cite-commit-message-void-packages = "!f() { git cite-commit-message $1 https://github.com/void-linux/void-packages/commit/; }; f"
   # show diff between latest commit and current state
   d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
   # show diff between state from number of revisions ago and current state

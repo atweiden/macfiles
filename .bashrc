@@ -473,6 +473,7 @@ if [[ -n "$_has_git" ]]; then
   alias gca='git commit --all'
   alias gcaf='git commit --all --file=$HOME/s.ci'
   alias gcp='git commit --patch'
+  alias gcv='git cite-commit-message-void-packages'
   alias gd='git diff'
   alias gdr='git diffrev "$@"'
   alias gdrh='git diffrev HEAD'
