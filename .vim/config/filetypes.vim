@@ -131,12 +131,7 @@ augroup languages
   autocmd FileType journal silent doautocmd User LoadJournal
 
   # just
-  execute printf('autocmd BufReadPre,FileReadPre %s silent doautocmd User LoadJust',
-      join([
-        '\cjustfile',
-        '.justfile',
-        '*.just'
-      ], ','))
+  autocmd BufReadPre,FileReadPre \c{,*.}just{,file} silent doautocmd User LoadJust
   autocmd FileType just silent doautocmd User LoadJust
 
   # kiwi
